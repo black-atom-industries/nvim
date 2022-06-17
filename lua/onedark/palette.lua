@@ -84,28 +84,36 @@ return {
 		diff_text = "#265478",
 	},
 	deep = {
-		black = "#0c0e15",
-		bg0 = "#1a212e",
-		bg1 = "#21283b",
-		bg2 = "#283347",
-		bg3 = "#2a324a",
-		bg_d = "#141b24",
+		black = "#101914",
+		bg0 = "#17251E",
+		bg1 = "#101914",
+		bg2 = "#123524",
+		bg3 = "#1B5037",
+
+		bg_d = "#101914", -- INFO Used for File Tree Background
+
 		bg_blue = "#54b0fd",
-		bg_yellow = "#f2cc81",
-		fg = "#93a4c3",
-		purple = "#c75ae8",
-		green = "#8bcd5b",
+		bg_yellow = "#F2C14E",
+
+		fg = "#D6F1E4",
+
+		purple = "#B07BAC",
+		green = "#619B8A",
 		orange = "#dd9046",
-		blue = "#41a7fc",
-		yellow = "#efbd5d",
+		blue = "#3E80C1",
+		yellow = "#F2C14E",
 		cyan = "#34bfd0",
-		red = "#f65866",
-		grey = "#455574",
-		light_grey = "#6c7d9c",
-		dark_cyan = "#1b6a73",
-		dark_red = "#992525",
-		dark_yellow = "#8f610d",
-		dark_purple = "#862aa1",
+		red = "#D16666",
+		grey = "#455F56",
+
+		light_grey = "#C2D3CD",
+
+		dark_cyan = "#23B8B3",
+		dark_red = "#E54545",
+		dark_yellow = "#E98A15",
+		dark_purple = "#B07BAC",
+
+		-- TODO Color Definitions Needed
 		diff_add = "#27341c",
 		diff_delete = "#331c1e",
 		diff_change = "#102b40",
