@@ -83,6 +83,7 @@ return {
 		diff_change = "#18344c",
 		diff_text = "#265478",
 	},
+	-- INFO: Currently Spring Colors
 	deep = {
 		black = "#101914",
 		bg0 = "#17251E",

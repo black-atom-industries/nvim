@@ -1,6 +1,6 @@
-local c = require("onedark.colors")
-local cfg = vim.g.onedark_config
-local util = require("onedark.util")
+local c = require("terra.colors")
+local cfg = vim.g.terra_config
+local util = require("terra.util")
 
 local M = {}
 local hl = { langs = {}, plugins = {} }
@@ -569,9 +569,9 @@ function M.setup()
 			if not color_name then
 				vim.schedule(function()
 					vim.notify(
-						'onedark.nvim: unknown color "' .. name .. '"',
+						'terra.nvim: unknown color "' .. name .. '"',
 						vim.log.levels.ERROR,
-						{ title = "onedark.nvim" }
+						{ title = "terra.nvim" }
 					)
 				end)
 				return ""
@@ -580,7 +580,7 @@ function M.setup()
 		return prefix .. "=" .. color_name
 	end
 
-	for group_name, group_settings in pairs(vim.g.onedark_config.highlights) do
+	for group_name, group_settings in pairs(vim.g.terra_config.highlights) do
 		vim.api.nvim_command(
 			string.format(
 				"highlight %s %s %s %s %s",
