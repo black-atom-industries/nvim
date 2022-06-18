@@ -3,8 +3,10 @@ local cfg = vim.g.terra_config
 local util = require("terra.util")
 
 local M = {}
+
 local hl = { langs = {}, plugins = {} }
 
+-- TODO: Declare highlights type
 local function vim_highlights(highlights)
 	for group_name, group_settings in pairs(highlights) do
 		vim.api.nvim_command(
@@ -20,6 +22,8 @@ local function vim_highlights(highlights)
 	end
 end
 
+-- QUESTION: Why redfine ?
+-- TODO: Resolve if possible
 local colors = {
 	Fg = { fg = c.fg },
 	LightGrey = { fg = c.light_grey },
@@ -34,12 +38,12 @@ local colors = {
 }
 
 hl.common = {
-	Normal = { fg = c.fg, bg = cfg.transparent and c.none or c.bg0 },
-	Terminal = { fg = c.fg, bg = cfg.transparent and c.none or c.bg0 },
-	EndOfBuffer = { fg = cfg.ending_tildes and c.bg2 or c.bg0, bg = cfg.transparent and c.none or c.bg0 },
-	FoldColumn = { fg = c.fg, bg = cfg.transparent and c.none or c.bg1 },
-	Folded = { fg = c.fg, bg = cfg.transparent and c.none or c.bg1 },
-	SignColumn = { fg = c.fg, bg = cfg.transparent and c.none or c.bg0 },
+	Normal = { fg = c.fg, bg = cfg.transparent and c.none or c.bg1 },
+	Terminal = { fg = c.fg, bg = cfg.transparent and c.none or c.bg1 },
+	EndOfBuffer = { fg = cfg.ending_tildes and c.bg2 or c.bg1, bg = cfg.transparent and c.none or c.bg1 },
+	FoldColumn = { fg = c.grey, bg = cfg.transparent and c.none or c.bg1 },
+	Folded = { fg = c.grey, bg = cfg.transparent and c.none or c.bg1 },
+	SignColumn = { fg = c.fg, bg = cfg.transparent and c.none or c.bg1 },
 	ToolbarLine = { fg = c.fg },
 	Cursor = { fmt = "reverse" },
 	vCursor = { fmt = "reverse" },
@@ -49,7 +53,7 @@ hl.common = {
 	CursorColumn = { bg = c.bg1 },
 	CursorLine = { bg = c.bg1 },
 	ColorColumn = { bg = c.bg1 },
-	CursorLineNr = { fg = c.fg },
+	CursorLineNr = { fg = c.yellow },
 	LineNr = { fg = c.grey },
 	Conceal = { fg = c.grey, bg = c.bg1 },
 	DiffAdd = { fg = c.none, bg = c.diff_add },
@@ -64,8 +68,8 @@ hl.common = {
 	ErrorMsg = { fg = c.red, fmt = "bold" },
 	WarningMsg = { fg = c.yellow, fmt = "bold" },
 	MoreMsg = { fg = c.blue, fmt = "bold" },
-	IncSearch = { fg = c.bg0, bg = c.orange },
-	Search = { fg = c.bg0, bg = c.bg_yellow },
+	IncSearch = { fg = c.bg0, bg = c.dark_cyan},
+	Search = { fg = c.bg0, bg = c.dark_cyan },
 	Substitute = { fg = c.bg0, bg = c.green },
 	MatchParen = { fg = c.none, bg = c.grey },
 	NonText = { fg = c.grey },
@@ -87,8 +91,8 @@ hl.common = {
 	StatusLineTermNC = { fg = c.grey, bg = c.bg1 },
 	TabLine = { fg = c.fg, bg = c.bg1 },
 	TabLineFill = { fg = c.grey, bg = c.bg1 },
-	TabLineSel = { fg = c.bg0, bg = c.fg },
-	VertSplit = { fg = c.bg3 },
+	TabLineSel = { fg = c.fg, bg = c.bg3 },
+	VertSplit = { fg = c.grey },
 	Visual = { bg = c.bg3 },
 	VisualNOS = { fg = c.none, bg = c.bg2, fmt = "underline" },
 	QuickFixLine = { fg = c.blue, fmt = "underline" },
@@ -98,6 +102,23 @@ hl.common = {
 	ToolbarButton = { fg = c.bg0, bg = c.bg_blue },
 	FloatBorder = { fg = c.grey, bg = c.bg1 },
 	NormalFloat = { fg = c.fg, bg = c.bg1 },
+}
+
+hl.css = {
+	cssPositioningAttr = { fg = c.blue },
+	cssBoxAttr = { fg = c.blue },
+	cssTextAttr = { fg = c.blue },
+	cssCommonAttr = { fg = c.blue },
+	cssCascadeAttr = { fg = c.blue },
+	cssFlexibleBoxAttr = { fg = c.blue },
+	cssUnitDecorators = { fg = c.yellow },
+	cssValueLength = { fg = c.dark_blue },
+}
+
+hl.sass = {
+	sassVariable = { fg = c.dark_yellow },
+	sassMixing = { fg = c.dark_red },
+	sassCssAttribute = { fg = c.white },
 }
 
 hl.syntax = {
@@ -155,28 +176,28 @@ hl.treesitter = {
 	TSFuncBuiltin = { fg = c.cyan, fmt = cfg.code_style.functions },
 	TSFuncMacro = { fg = c.cyan, fmt = cfg.code_style.functions },
 	TSInclude = colors.Purple,
-	TSKeyword = { fg = c.orange, fmt = cfg.code_style.keywords },
+	TSKeyword = { fg = c.red, fmt = cfg.code_style.keywords },
 	TSKeywordFunction = { fg = c.purple, fmt = cfg.code_style.functions },
 	TSKeywordOperator = { fg = c.purple, fmt = cfg.code_style.keywords },
-	TSLabel = colors.Red,
+	TSLabel = { fg = c.dark_yellow },
 	TSMethod = colors.Blue,
 	TSNamespace = colors.Yellow,
 	TSNone = colors.Fg,
 	TSNumber = colors.Orange,
-	TSOperator = colors.Fg,
-	TSParameter = colors.Red,
+	TSOperator = { fg = c.white },
+	TSParameter = { fg = c.dark_yellow },
 	TSParameterReference = colors.Fg,
-	TSProperty = colors.Cyan,
-	TSPunctDelimiter = colors.LightGrey,
-	TSPunctBracket = colors.LightGrey,
+	TSProperty = { fg = c.blue },
+	TSPunctDelimiter = { fg = c.white },
+	TSPunctBracket = { fg = c.white },
 	TSPunctSpecial = colors.Red,
 	TSRepeat = { fg = c.purple, fmt = cfg.code_style.keywords },
-	TSString = { fg = c.green, fmt = cfg.code_style.strings },
+	TSString = { fg = c.cyan, fmt = cfg.code_style.strings },
 	TSStringRegex = { fg = c.orange, fmt = cfg.code_style.strings },
 	TSStringEscape = { fg = c.red, fmt = cfg.code_style.strings },
 	TSSymbol = colors.Cyan,
-	TSTag = colors.Red,
-	TSTagDelimiter = colors.Red,
+	TSTag = { fg = c.yellow },
+	TSTagDelimiter = { fg = c.dark_yellow },
 	TSText = colors.Fg,
 	TSStrong = { fg = c.fg, fmt = "bold" },
 	TSEmphasis = { fg = c.fg, fmt = "italic" },
@@ -192,16 +213,17 @@ hl.treesitter = {
 	TSNote = colors.Fg,
 	TSWarning = colors.Fg,
 	TSDanger = colors.Fg,
-	TSType = colors.Yellow,
-	TSTypeBuiltin = colors.Orange,
-	TSVariable = { fg = c.fg, fmt = cfg.code_style.variables },
+	TSType = { fg = c.yellow },
+	TSTypeBuiltin = { fg = c.yellow },
+	TSVariable = { fg = c.dark_yellow, fmt = cfg.code_style.variables },
 	TSVariableBuiltin = { fg = c.red, fmt = cfg.code_style.variables },
 }
 
 local diagnostics_error_color = cfg.diagnostics.darker and c.dark_red or c.red
-local diagnostics_hint_color = cfg.diagnostics.darker and c.dark_purple or c.purple
+local diagnostics_hint_color = cfg.diagnostics.darker and c.dark_blue or c.blue
 local diagnostics_warn_color = cfg.diagnostics.darker and c.dark_yellow or c.yellow
 local diagnostics_info_color = cfg.diagnostics.darker and c.dark_cyan or c.cyan
+
 hl.plugins.lsp = {
 	LspCxxHlGroupEnumConstant = colors.Orange,
 	LspCxxHlGroupMemberVariable = colors.Orange,
@@ -210,29 +232,29 @@ hl.plugins.lsp = {
 	LspCxxHlSkippedRegionBeginEnd = colors.Red,
 
 	DiagnosticError = { fg = c.red },
-	DiagnosticHint = { fg = c.purple },
+	DiagnosticHint = { fg = c.blue },
 	DiagnosticInfo = { fg = c.cyan },
 	DiagnosticWarn = { fg = c.yellow },
 
 	DiagnosticVirtualTextError = {
-		bg = cfg.diagnostics.background and util.darken(diagnostics_error_color, 0.1, c.bg0) or c.none,
+		bg = cfg.diagnostics.background and util.darken(diagnostics_error_color, 0.1, c.bg1) or c.none,
 		fg = diagnostics_error_color,
 	},
 	DiagnosticVirtualTextWarn = {
-		bg = cfg.diagnostics.background and util.darken(diagnostics_warn_color, 0.1, c.bg0) or c.none,
+		bg = cfg.diagnostics.background and util.darken(diagnostics_warn_color, 0.1, c.bg1) or c.none,
 		fg = diagnostics_warn_color,
 	},
 	DiagnosticVirtualTextInfo = {
-		bg = cfg.diagnostics.background and util.darken(diagnostics_info_color, 0.1, c.bg0) or c.none,
+		bg = cfg.diagnostics.background and util.darken(diagnostics_info_color, 0.1, c.bg1) or c.none,
 		fg = diagnostics_info_color,
 	},
 	DiagnosticVirtualTextHint = {
-		bg = cfg.diagnostics.background and util.darken(diagnostics_hint_color, 0.1, c.bg0) or c.none,
+		bg = cfg.diagnostics.background and util.darken(diagnostics_hint_color, 0.1, c.bg1) or c.none,
 		fg = diagnostics_hint_color,
 	},
 
 	DiagnosticUnderlineError = { fmt = cfg.diagnostics.undercurl and "undercurl" or "underline", sp = c.red },
-	DiagnosticUnderlineHint = { fmt = cfg.diagnostics.undercurl and "undercurl" or "underline", sp = c.purple },
+	DiagnosticUnderlineHint = { fmt = cfg.diagnostics.undercurl and "undercurl" or "underline", sp = c.blue },
 	DiagnosticUnderlineInfo = { fmt = cfg.diagnostics.undercurl and "undercurl" or "underline", sp = c.blue },
 	DiagnosticUnderlineWarn = { fmt = cfg.diagnostics.undercurl and "undercurl" or "underline", sp = c.yellow },
 
@@ -265,14 +287,14 @@ hl.plugins.ale = {
 
 hl.plugins.barbar = {
 	BufferCurrent = { fmt = "bold" },
-	BufferCurrentMod = { fg = c.orange, fmt = "bold,italic" },
-	BufferCurrentSign = { fg = c.purple },
-	BufferInactiveMod = { fg = c.light_grey, bg = c.bg1, fmt = "italic" },
-	BufferVisible = { fg = c.light_grey, bg = c.bg0 },
-	BufferVisibleMod = { fg = c.yellow, bg = c.bg0, fmt = "italic" },
-	BufferVisibleIndex = { fg = c.light_grey, bg = c.bg0 },
-	BufferVisibleSign = { fg = c.light_grey, bg = c.bg0 },
-	BufferVisibleTarget = { fg = c.light_grey, bg = c.bg0 },
+	BufferCurrentMod = { fg = c.orange, bg = c.bg1, fmt = "bold,italic" },
+	BufferCurrentSign = { fg = c.yellow },
+	BufferInactiveMod = { fg = c.light_grey, bg = c.bg2, fmt = "italic" },
+	BufferVisible = { fg = c.light_grey, bg = c.bg1 },
+	BufferVisibleMod = { fg = c.yellow, bg = c.bg1, fmt = "italic" },
+	BufferVisibleIndex = { fg = c.light_grey, bg = c.bg1 },
+	BufferVisibleSign = { fg = c.light_grey, bg = c.bg1 },
+	BufferVisibleTarget = { fg = c.light_grey, bg = c.bg1 },
 }
 
 hl.plugins.cmp = {
@@ -296,6 +318,28 @@ hl.plugins.whichkey = {
 	WhichKeyDesc = colors.Blue,
 	WhichKeyGroup = colors.Orange,
 	WhichKeySeperator = colors.Green,
+}
+
+-- TODO: Solvable with a Link to ToggleTermNormal?
+hl.plugins.toggleterm = {
+	ToggleTerm1FloatBorder = { fg = c.grey },
+	ToggleTerm1NormalFloat = { fg = c.fg, bg = c.bg1 },
+	ToggleTerm2FloatBorder = { fg = c.grey },
+	ToggleTerm2NormalFloat = { fg = c.fg, bg = c.bg1 },
+	ToggleTerm3FloatBorder = { fg = c.grey },
+	ToggleTerm3NormalFloat = { fg = c.fg, bg = c.bg1 },
+	ToggleTerm4FloatBorder = { fg = c.grey },
+	ToggleTerm4NormalFloat = { fg = c.fg, bg = c.bg1 },
+	ToggleTerm5FloatBorder = { fg = c.grey },
+	ToggleTerm5NormalFloat = { fg = c.fg, bg = c.bg1 },
+	ToggleTerm6FloatBorder = { fg = c.grey },
+	ToggleTerm6NormalFloat = { fg = c.fg, bg = c.bg1 },
+	ToggleTerm7FloatBorder = { fg = c.grey },
+	ToggleTerm7NormalFloat = { fg = c.fg, bg = c.bg1 },
+	ToggleTerm8FloatBorder = { fg = c.grey },
+	ToggleTerm8NormalFloat = { fg = c.fg, bg = c.bg1 },
+	ToggleTerm9FloatBorder = { fg = c.grey },
+	ToggleTerm9NormalFloat = { fg = c.fg, bg = c.bg1 },
 }
 
 hl.plugins.gitgutter = {
@@ -352,9 +396,9 @@ hl.plugins.gitsigns = {
 }
 
 hl.plugins.nvim_tree = {
-	NvimTreeNormal = { fg = c.fg, bg = cfg.transparent and c.none or c.bg_d },
-	NvimTreeVertSplit = { fg = c.bg_d, bg = cfg.transparent and c.none or c.bg_d },
-	NvimTreeEndOfBuffer = { fg = cfg.ending_tildes and c.bg2 or c.bg_d, bg = cfg.transparent and c.none or c.bg_d },
+	NvimTreeNormal = { fg = c.fg, bg = cfg.transparent and c.none or c.bg0 },
+	NvimTreeVertSplit = { fg = c.grey, bg = cfg.transparent and c.none or c.bg1 },
+	NvimTreeEndOfBuffer = { fg = cfg.ending_tildes and c.bg2 or c.bg1, bg = cfg.transparent and c.none or c.bg0 },
 	NvimTreeRootFolder = { fg = c.orange, fmt = "bold" },
 	NvimTreeGitDirty = colors.Yellow,
 	NvimTreeGitNew = colors.Green,
@@ -364,18 +408,22 @@ hl.plugins.nvim_tree = {
 	NvimTreeImageFile = { fg = c.dark_purple },
 	NvimTreeSymlink = colors.Purple,
 	NvimTreeFolderName = colors.Blue,
+	NvimTreeCursorLine = { bg = c.bg1 },
+	NvimTreeWindowPicker = { fg = c.white, bg = c.grey },
 }
 
+-- TODO: NeoTree Highlights
 hl.plugins.neo_tree = {
 	-- NeoTreeNormal = { fg = c.fg, bg = cfg.transparent and c.none or c.bg_d },
 	-- NeoTreeNormalNC = { fg = c.fg, bg = cfg.transparent and c.none or c.bg_d },
 }
 
 hl.plugins.telescope = {
+	TelescopeTitle = colors.Orange,
 	TelescopeBorder = colors.Red,
-	TelescopePromptBorder = colors.Cyan,
-	TelescopeResultsBorder = colors.Cyan,
-	TelescopePreviewBorder = colors.Cyan,
+	TelescopePromptBorder = colors.Grey,
+	TelescopeResultsBorder = colors.Grey,
+	TelescopePreviewBorder = colors.Grey,
 	TelescopeMatching = { fg = c.orange, fmt = "bold" },
 	TelescopePromptPrefix = colors.Green,
 	TelescopeSelection = { bg = c.bg2 },
@@ -402,6 +450,11 @@ hl.plugins.ts_rainbow = {
 	rainbowcol5 = colors.Purple,
 	rainbowcol6 = colors.Green,
 	rainbowcol7 = colors.Red,
+}
+
+hl.plugins.incline = {
+	InclineNormal = { bg = c.bg3 },
+	InclineNormalNC = { bg = c.bg2 },
 }
 
 hl.langs.c = {
@@ -550,6 +603,8 @@ function M.setup()
 
 	vim_highlights(hl.common)
 	vim_highlights(hl.syntax)
+	vim_highlights(hl.css)
+	vim_highlights(hl.sass)
 	vim_highlights(hl.treesitter)
 	for _, group in pairs(hl.langs) do
 		vim_highlights(group)

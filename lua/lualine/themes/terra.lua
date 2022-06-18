@@ -1,6 +1,7 @@
 local c = require("terra.colors")
+
 local colors = {
-	bg = c.bg0,
+	bg = c.bg1,
 	fg = c.fg,
 	red = c.red,
 	green = c.green,

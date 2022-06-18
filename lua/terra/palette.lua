@@ -84,37 +84,48 @@ return {
 		diff_text = "#265478",
 	},
 	-- INFO: Currently Spring Colors
-	deep = {
-		black = "#101914",
-		bg0 = "#17251E",
-		bg1 = "#101914",
+	-- TODO: Comment Documentation
+	spring = {
+
+		-- TODO: This should be semantics variables
+		-- Example: bg0 = colors.black
+		bg0 = "#141F19",
+		bg1 = "#17251E",
 		bg2 = "#123524",
 		bg3 = "#1B5037",
-
 		bg_d = "#101914", -- INFO Used for File Tree Background
-
-		bg_blue = "#54b0fd",
+		bg_blue = "#3E80C1",
 		bg_yellow = "#F2C14E",
-
 		fg = "#D6F1E4",
 
-		purple = "#B07BAC",
-		green = "#619B8A",
-		orange = "#dd9046",
-		blue = "#3E80C1",
-		yellow = "#F2C14E",
-		cyan = "#34bfd0",
-		red = "#D16666",
+		black = "#141F19",
 		grey = "#455F56",
 
-		light_grey = "#C2D3CD",
+		dark_red = "#DA5B50",
+		red = "#D67676",
 
-		dark_cyan = "#23B8B3",
-		dark_red = "#E54545",
-		dark_yellow = "#E98A15",
+		dark_green = "#256C49",
+		green = "#619B8A",
+
+		dark_yellow = "#DD9046",
+		yellow = "#F2C14E",
+
+		dark_blue = "#629AD2",
+		blue = "#7CA6CF",
+
+		-- TODO: We should remove orange, which really is dark_yellow
+		orange = "#dd9046",
+
 		dark_purple = "#B07BAC",
+		purple = "#BFA9D6",
 
-		-- TODO Color Definitions Needed
+		dark_cyan = "#47945D",
+		cyan = "#7CC08F",
+
+		light_grey = "#ADE3C9",
+		white = "#D6F1E4",
+
+		-- TODO: Color Definitions Needed
 		diff_add = "#27341c",
 		diff_delete = "#331c1e",
 		diff_change = "#102b40",

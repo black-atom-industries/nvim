@@ -1,7 +1,7 @@
 local M = {}
 
 -- TODO: Config Field: `season: spring | summer | fall | winter`
-M.styles_list = { "dark", "darker", "cool", "deep", "warm", "warmer", "light" }
+M.styles_list = { "dark", "darker", "cool", "warm", "warmer", "light", "spring" }
 
 ---Change terra option (vim.g.terra_config.option)
 ---It can't be changed directly by modifing that field due to a Neovim lua bug with global variables (terra_config is a global variable)
@@ -51,7 +51,7 @@ end
 -- TODO: Put in seperate file
 local default_config = {
 	-- Main options --
-	style = "dark", -- choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+	style = "spring", -- choose between 'spring', 'dark', 'darker', 'cool', 'warm', 'warmer' and 'light'
 	toggle_style_key = "<leader>ts",
 	toggle_style_list = M.styles_list,
 	transparent = false, -- don't set background
