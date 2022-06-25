@@ -22,9 +22,6 @@ return {
 		dark_blue = "#629AD2",
 		blue = "#7CA6CF",
 
-		-- TODO: We should remove orange, which really is dark_yellow
-		orange = "#dd9046",
-
 		dark_purple = "#B07BAC",
 		purple = "#BFA9D6",
 
@@ -41,25 +38,33 @@ return {
 		diff_text = "#1c4a6e",
 	},
 	light = {
-		black = "#101012",
 		bg0 = "#fafafa",
 		bg1 = "#f0f0f0",
 		bg2 = "#e6e6e6",
 		bg3 = "#dcdcdc",
 		fg = "#383a42",
-		purple = "#a626a4",
-		green = "#50a14f",
-		orange = "#c18401",
-		blue = "#4078f2",
-		yellow = "#986801",
-		cyan = "#0184bc",
-		red = "#e45649",
+
+		black = "#101012",
 		grey = "#a0a1a7",
+
+		dark_red = "#833b3b",
+		red = "#e45649",
+
+		green = "#50a14f",
+
+		purple = "#a626a4",
+
+		blue = "#4078f2",
+
+		dark_yellow = "#7c5c20",
+		yellow = "#986801",
+
+		cyan = "#0184bc",
+
 		light_grey = "#818387",
 		dark_cyan = "#2b5d63",
-		dark_red = "#833b3b",
-		dark_yellow = "#7c5c20",
 		dark_purple = "#79428a",
+
 		diff_add = "#282b26",
 		diff_delete = "#2a2626",
 		diff_change = "#1a2a37",
