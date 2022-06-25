@@ -7,7 +7,6 @@ return {
 		bg3 = "#1B5037",
 
 		-- TODO: Remove these
-		bg_blue = "#3E80C1",
 		bg_yellow = "#F2C14E",
 
 		fg = "#D6F1E4",
@@ -51,7 +50,6 @@ return {
 		bg1 = "#f0f0f0",
 		bg2 = "#e6e6e6",
 		bg3 = "#dcdcdc",
-		bg_blue = "#68aee8",
 		bg_yellow = "#e2c792",
 		fg = "#383a42",
 		purple = "#a626a4",
