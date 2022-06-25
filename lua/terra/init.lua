@@ -72,13 +72,6 @@ function M.setup(opts)
 	if not vim.g.terra_config or not vim.g.terra_config.loaded then
 		vim.g.terra_config = vim.tbl_deep_extend("keep", vim.g.terra_config or {}, default_config)
 
-		-- TODO: Remove old config stuff
-		local old_config = require("terra.old_config")
-
-		if old_config then
-			opts = old_config
-		end
-
 		-- Mark the theme as loaded
 		M.set_options("loaded", true)
 
