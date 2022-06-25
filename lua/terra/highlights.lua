@@ -387,12 +387,6 @@ hl.plugins.nvim_tree = {
 	NvimTreeWindowPicker = { fg = colors.white, bg = colors.grey },
 }
 
--- TODO: NeoTree Highlights
-hl.plugins.neo_tree = {
-	-- NeoTreeNormal = { fg = c.fg, bg = cfg.transparent and c.none or c.bg_d },
-	-- NeoTreeNormalNC = { fg = c.fg, bg = cfg.transparent and c.none or c.bg_d },
-}
-
 hl.plugins.telescope = {
 	TelescopeTitle = { fg = colors.dark_yellow },
 	TelescopeBorder = { fg = colors.red },
