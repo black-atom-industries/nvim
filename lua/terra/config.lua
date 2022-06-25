@@ -8,7 +8,7 @@ M.styles_list = {
 	"light",
 }
 
-M.config = {
+M.default_config = {
 	-- Main options --
 	style = "spring", -- choose between 'spring', 'dark', 'darker', 'cool', 'warm', 'warmer' and 'light'
 	toggle_style_key = "<leader>Ts",
@@ -38,5 +38,6 @@ M.config = {
 		background = true, -- use background color for virtual text
 	},
 }
+
 
 return M

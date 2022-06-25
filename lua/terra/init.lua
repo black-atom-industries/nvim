@@ -1,5 +1,3 @@
-local default_config = require("terra.config")
-
 local M = {}
 
 ---Change terra option (vim.g.terra_config.option)
@@ -65,9 +63,15 @@ end
 ---Setup terra.nvim options, without applying colorscheme
 ---@param opts table: a table containing options
 function M.setup(opts)
+  local default_config = require("terra.config").default_config
+
 	-- If it's the first time setup() is called, load the default config
 	if not vim.g.terra_config or not vim.g.terra_config.loaded then
-		vim.g.terra_config = vim.tbl_deep_extend("keep", vim.g.terra_config or {}, default_config)
+		vim.g.terra_config = vim.tbl_deep_extend(
+			"keep",
+			vim.g.terra_config or {},
+			default_config
+		)
 
 		-- Mark the theme as loaded
 		M.set_options("loaded", true)
