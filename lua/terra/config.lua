@@ -5,11 +5,6 @@ local M = {}
 
 M.styles_list = {
 	"spring",
-	"dark",
-	"darker",
-	"cool",
-	"warm",
-	"warmer",
 	"light",
 }
 

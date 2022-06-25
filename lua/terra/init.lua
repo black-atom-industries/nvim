@@ -30,9 +30,6 @@ function M.colorscheme()
 	-- TODO: We want for every theme a dark and light variant, so we have to fix that
 	if vim.o.background == "light" then
 		M.set_options("style", "light")
-		-- QUESTION: This confuses me.. Why we want to we switch to the dark theme if the terra_config.style is set to "light"??
-	elseif vim.g.terra_config.style == "light" then
-		M.set_options("style", "dark")
 	end
 
 	-- Now set up the highlights and terminal
