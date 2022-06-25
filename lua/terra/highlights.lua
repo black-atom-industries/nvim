@@ -22,7 +22,7 @@ local function vim_highlights(highlights)
 	end
 end
 
--- QUESTION: Why redfine ?
+-- QUESTION: Why re-define
 -- TODO: Resolve if possible
 local colors = {
 	Fg = { fg = c.fg },

@@ -1,17 +1,6 @@
+local default_config = require("terra.config")
+
 local M = {}
-
--- TODO: terra_config.season = "spring" | "summer" | "fall" | "winter"
--- TODO: terra_config.time = "night" | "day"
-
-M.styles_list = {
-	"spring",
-	"dark",
-	"darker",
-	"cool",
-	"warm",
-	"warmer",
-	"light",
-}
 
 ---Change terra option (vim.g.terra_config.option)
 ---It can't be changed directly by modifing that field due to a Neovim lua bug with global variables (terra_config is a global variable)
@@ -59,7 +48,11 @@ function M.toggle()
 		index = 1
 	end
 
-	M.set_options("style", vim.g.terra_config.toggle_style_list[index])
+	local next_style_name = vim.g.terra_config.toggle_style_list[index]
+
+	vim.notify("Selected style: " .. next_style_name)
+
+	M.set_options("style", next_style_name)
 
 	M.set_options("toggle_style_index", index)
 
@@ -71,38 +64,6 @@ function M.toggle()
 
 	vim.api.nvim_command("colorscheme terra")
 end
-
--- TODO: Put in seperate file
-local default_config = {
-	-- Main options --
-	style = "spring", -- choose between 'spring', 'dark', 'darker', 'cool', 'warm', 'warmer' and 'light'
-	toggle_style_key = "<leader>Ts",
-	toggle_style_list = M.styles_list,
-	transparent = false, -- don't set background
-	term_colors = true, -- if true enable the terminal
-	ending_tildes = false, -- show the end-of-buffer tildes
-	cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
-
-	-- Changing Formats --
-	code_style = {
-		comments = "italic",
-		keywords = "none",
-		functions = "none",
-		strings = "none",
-		variables = "none",
-	},
-
-	-- Custom Highlights --
-	colors = {}, -- Override default colors
-	highlights = {}, -- Override highlight groups
-
-	-- Plugins Related --
-	diagnostics = {
-		darker = true, -- darker colors for diagnostic
-		undercurl = true, -- use undercurl for diagnostics
-		background = true, -- use background color for virtual text
-	},
-}
 
 ---Setup terra.nvim options, without applying colorscheme
 ---@param opts table: a table containing options
