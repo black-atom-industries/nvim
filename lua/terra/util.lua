@@ -29,10 +29,12 @@ function util.blend(fg, bg, alpha)
 	return string.format("#%02X%02X%02X", blendChannel(1), blendChannel(2), blendChannel(3))
 end
 
+-- Used in highlights.lua
 function util.darken(hex, amount, bg)
 	return util.blend(hex, bg or util.bg, math.abs(amount))
 end
 
+-- Used in highlights.lua
 function util.lighten(hex, amount, fg)
 	return util.blend(hex, fg or util.fg, math.abs(amount))
 end
