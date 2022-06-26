@@ -257,16 +257,29 @@ hl.plugins.ale = {
 	ALEWarningSign = hl.plugins.lsp.DiagnosticWarn,
 }
 
+-- TODO: Optimize
 hl.plugins.barbar = {
-	BufferCurrent = { fmt = "bold" },
-	BufferCurrentMod = { fg = colors.dark_yellow, bg = colors.bg1, fmt = "bold,italic" },
-	BufferCurrentSign = { fg = colors.yellow },
-	BufferInactiveMod = { fg = colors.light_grey, bg = colors.bg2, fmt = "italic" },
-	BufferVisible = { fg = colors.light_grey, bg = colors.bg1 },
-	BufferVisibleMod = { fg = colors.yellow, bg = colors.bg1, fmt = "italic" },
-	BufferVisibleIndex = { fg = colors.light_grey, bg = colors.bg1 },
-	BufferVisibleSign = { fg = colors.light_grey, bg = colors.bg1 },
-	BufferVisibleTarget = { fg = colors.light_grey, bg = colors.bg1 },
+	-- BufferLineFill = { bg = colors.bg0 },
+	-- BufferLineBackground = { bg = colors.bg0 },
+	-- BufferLineSeparator = { fg = colors.red, bg = colors.blue },
+	-- BufferLineGroupSeparator = { bg = colors.bg0 },
+	-- BufferLineSeparatorVisible = { fg = colors.bg0, bg = colors.bg0 },
+
+	-- BufferCurrent = { fmt = "bold" },
+	-- BufferCurrentMod = { fg = colors.dark_yellow, bg = colors.bg1, fmt = "bold,italic" },
+	-- BufferCurrentSign = { fg = colors.yellow },
+	-- BufferInactiveMod = { fg = colors.light_grey, bg = colors.bg2, fmt = "italic" },
+	-- BufferVisible = { fg = colors.light_grey, bg = colors.bg1 },
+	-- BufferVisibleMod = { fg = colors.yellow, bg = colors.bg1, fmt = "italic" },
+	-- BufferVisibleIndex = { fg = colors.light_grey, bg = colors.bg1 },
+	-- BufferVisibleSign = { fg = colors.light_grey, bg = colors.bg1 },
+	-- BufferVisibleTarget = { fg = colors.light_grey, bg = colors.bg1 },
+	-- BufferLineTabClose = { fg = colors.light_grey, bg = colors.bg1 },
+	-- BufferLineTabSelected = { fg = colors.yellow, bg = colors.bg1 },
+	--
+	-- BufferLineBuffer = { fg = colors.gray, bg = colors.bg0 },
+	--
+	-- BufferLineTab = { fg = colors.grey, bg = colors.bg0 },
 }
 
 hl.plugins.cmp = {
@@ -422,8 +435,8 @@ hl.plugins.ts_rainbow = {
 }
 
 hl.plugins.incline = {
-	InclineNormal = { bg = colors.bg3 },
-	InclineNormalNC = { bg = colors.bg2 },
+	InclineNormal = { fg = colors.fg_active, bg = colors.bg0, fmt = "bold" },
+	InclineNormalNC = { fg = colors.fg_dimmed, bg = colors.bg0 },
 }
 
 hl.langs.css = {
