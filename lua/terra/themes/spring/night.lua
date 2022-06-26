@@ -48,6 +48,8 @@ M.semantics = {
 	bg3 = M.primary[4],
 
 	fg = M.palette.white,
+	fg_active = M.palette.yellow,
+	fg_dimmed = M.palette.grey,
 
 	diff_add = "#27341c",
 	diff_delete = "#331c1e",
