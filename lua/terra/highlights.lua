@@ -94,14 +94,14 @@ hl.common = {
 }
 
 hl.syntax = {
-	String = { fg = colors.green, fmt = config.code_style.strings },
-	Character = { fg = colors.dark_yellow },
+	String = { fg = colors.cyan, fmt = config.code_style.strings },
+	Character = { fg = colors.yellow },
 	Number = { fg = colors.dark_yellow },
 	Float = { fg = colors.dark_yellow },
 	Boolean = { fg = colors.dark_yellow },
 	Type = { fg = colors.yellow },
 	Structure = { fg = colors.yellow },
-	StorageClass = { fg = colors.yellow },
+	StorageClass = { fg = colors.blue },
 	Identifier = { fg = colors.red, fmt = config.code_style.variables },
 	Constant = { fg = colors.cyan },
 	PreProc = { fg = colors.purple },
@@ -119,7 +119,7 @@ hl.syntax = {
 	Label = { fg = colors.purple },
 	Special = { fg = colors.red },
 	SpecialChar = { fg = colors.red },
-	Function = { fg = colors.blue, fmt = config.code_style.functions },
+	Function = { fg = colors.yellow, fmt = config.code_style.functions },
 	Operator = { fg = colors.purple },
 	Title = { fg = colors.cyan },
 	Tag = { fg = colors.green },
@@ -440,20 +440,25 @@ hl.plugins.incline = {
 }
 
 hl.langs.css = {
-	cssPositioningAttr = { fg = colors.blue },
+	cssPositioningAttr = { fg = colors.yellow },
 	cssBoxAttr = { fg = colors.blue },
 	cssTextAttr = { fg = colors.blue },
 	cssCommonAttr = { fg = colors.blue },
-	cssCascadeAttr = { fg = colors.blue },
-	cssFlexibleBoxAttr = { fg = colors.blue },
+	cssCascadeAttr = { fg = colors.yellow },
+	cssFlexibleBoxAttr = { fg = colors.yellow },
 	cssUnitDecorators = { fg = colors.yellow },
 	cssValueLength = { fg = colors.dark_blue },
 }
 
 hl.langs.sass = {
 	sassVariable = { fg = colors.dark_yellow },
-	sassMixing = { fg = colors.dark_red },
-	sassCssAttribute = { fg = colors.white },
+	sassProperty = { fg = colors.blue },
+	sassMixing = { fg = colors.red },
+	sassMixinName = { fg = colors.yellow },
+	sassCssAttribute = { fg = colors.yellow },
+	sassDefinition = { fg = colors.dark_yellow },
+	sassAmbersand = { fg = colors.yellow },
+	Character = { fg = colors.yellow },
 }
 
 hl.langs.c = {
