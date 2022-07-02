@@ -11,7 +11,7 @@ M.styles_list = {
 M.default_config = {
 	-- Main options --
 	style = "spring", -- choose between 'spring', 'dark', 'darker', 'cool', 'warm', 'warmer' and 'light'
-	toggle_style_key = "<leader>Ts",
+	toggle_style_key = "<C-x>",
 	toggle_style_list = M.styles_list,
 	transparent = false, -- don't set background
 	term_colors = true, -- if true enable the terminal
@@ -38,6 +38,5 @@ M.default_config = {
 		background = true, -- use background color for virtual text
 	},
 }
-
 
 return M

@@ -1,13 +1,31 @@
 local M = {}
 
+-- TODO: Finalize primary colors
+-- TODO: Setup luadoc typings
+-- TODO: After finalize, update Figma and declare symbols
+-- TODO: Dedicated highlights return for each theme
+
+-- ---@class Primary
+-- M.primary = {
+-- 	primary1 = "#141F19",
+-- 	primary2 = "#17251E",
+-- 	primary3 = "#123524",
+-- 	primary4 = "#1B5037",
+-- 	primary5 = "#256C49",
+-- 	primary6 = "#50946A",
+-- 	primary7 = "#79B791",
+-- 	primary8 = "#ADE3C9",
+-- 	primary9 = "#D6F1E4",
+-- }
+
 ---@class Primary
 M.primary = {
 	"#141F19",
 	"#17251E",
-	"#123524",
-	"#1B5037",
-	"#256C49",
-	"#50946A",
+	"#1B2C24",
+	"#284336",
+	"#365B49",
+	"#568F6B",
 	"#79B791",
 	"#ADE3C9",
 	"#D6F1E4",
@@ -41,7 +59,7 @@ M.palette = {
 }
 
 ---@class Semantics Second Level Semantics Color Definitions which are based on the palette
-M.semantics = {
+M.semantic = {
 	bg0 = M.primary[1],
 	bg1 = M.primary[2],
 	bg2 = M.primary[3],
@@ -58,11 +76,13 @@ M.semantics = {
 }
 
 ---Merges the palette with the semantics
----@return table Merged Table of Both Color Tables
+---@return table Colors Merged table of Both Color Tables
 M.colors = function()
-	return vim.tbl_deep_extend("keep", M.palette, M.semantics)
+	return {
+		primary = M.primary,
+		palette = M.palette,
+		semantic = M.semantic,
+	}
 end
-
--- TODO: Dedicated highlights return for each theme
 
 return M
