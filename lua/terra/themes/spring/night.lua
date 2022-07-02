@@ -36,8 +36,8 @@ M.palette = {
 	dark_cyan = "#47945D",
 	cyan = "#7CC08F",
 
-	light_grey = M.primary[8],
-	white = M.primary[9],
+	light_grey = "#9EB6A5",
+	white = "#F1E5D6",
 }
 
 ---@class Semantics Second Level Semantics Color Definitions which are based on the palette
