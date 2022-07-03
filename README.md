@@ -35,6 +35,21 @@ I am starting with the spring theme to gather experience, than will work on the 
 
 ### Winter 🚧
 
+## Terminal
+
+The matching terminal colors you can find in the [terminal repository](https://github.com/terra-theme/terminal)
+
+## TODO
+
+[TODO](./TODO.md)
+
+## Credits and Inspiration
+
+- [navarasu/onedark.nvim](https://github.com/navarasu/onedark.nvim)
+  - A very awesome theme
+  - Many parts of the basic code structure I learned and copied from this repository
+- [folke/tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
