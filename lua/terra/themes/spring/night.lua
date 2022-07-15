@@ -18,7 +18,7 @@ local M = {}
 -- 	primary9 = "#D6F1E4",
 -- }
 
----@class Primary
+---@class Primary Theme Primary Colors
 M.primary = {
 	"#141F19",
 	"#17251E",
@@ -31,7 +31,7 @@ M.primary = {
 	"#D6F1E4",
 }
 
----@class Palette
+---@class Palette Base theme color pallette
 M.palette = {
 	black = M.primary[1],
 	grey = "#455F56",
@@ -58,7 +58,8 @@ M.palette = {
 	white = "#F1E5D6",
 }
 
----@class Semantics Second Level Semantics Color Definitions which are based on the palette
+---Second Level Semantics Color Definitions which have to be based on the Palette colors
+---@class Semantic
 M.semantic = {
 	bg0 = M.primary[1],
 	bg1 = M.primary[2],
@@ -75,10 +76,11 @@ M.semantic = {
 	diff_text = "#1c4a6e",
 }
 
----Merges the palette with the semantics
----@return table Colors Merged table of Both Color Tables
+---A merged table of the theme primary, palette and semantic colors
+---@return Colors
 M.colors = function()
 	return {
+		none = "none",
 		primary = M.primary,
 		palette = M.palette,
 		semantic = M.semantic,
