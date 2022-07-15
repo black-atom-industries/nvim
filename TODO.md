@@ -31,6 +31,10 @@
   - Each theme should take a base highlights file and return its own version of it
 - [ ] `config`: `day` & `night`
   - Update setting depending on `vim.o.background`
+- [ ] Write out Types with LDoc
+  - [Example: Penlight](https://github.com/lunarmodules/Penlight/blob/master/lua/pl/config.lua)
+  - [Example: tabby.nvim](https://github.dev/nanozuki/tabby.nvim/blob/main/lua/tabby/init.lua)
+  - [LDoc Documentation](https://stevedonovan.github.io/ldoc/manual/doc.md.html#Introduction)
 
 ## Highlights
 
