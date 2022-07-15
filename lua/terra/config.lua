@@ -1,18 +1,19 @@
 local M = {}
 
--- TODO: terra_config.season = "spring" | "summer" | "fall" | "winter"
--- TODO: terra_config.time = "night" | "day"
-
 M.styles_list = {
-	"spring",
-	"light",
+	"spring_night",
+	"spring_day",
 }
 
+---@class TerraConfig
+---@field season "spring" | "summer" | "fall" | "winter"
+---@field time "night" | "day"
+
 M.default_config = {
-	-- Main options --
-	style = "spring", -- choose between 'spring', 'dark', 'darker', 'cool', 'warm', 'warmer' and 'light'
-	toggle_style_key = "<C-x>",
-	toggle_style_list = M.styles_list,
+	style = M.styles_list[1], -- seledcted style
+	toggle_style_list = M.styles_list, -- all enabled seasons
+	toggle_style_key = "<C-x>", -- binding to toggle between seasons
+
 	transparent = false, -- don't set background
 	term_colors = true, -- if true enable the terminal
 	ending_tildes = false, -- show the end-of-buffer tildes
