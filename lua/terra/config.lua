@@ -15,12 +15,10 @@ M.default_config = {
 
 	enabled_seasons = M.seasons, -- all enabled seasons
 
-	-- QUESTION: Does WhichKey clear a <leader>Ts binding? YES.
-	-- TODO: README Binding gets overwritten by WhichKey
-	toggle_season = "<leader>Ts", -- binding to toggle between seasons
+	-- TODO: Notice in README that binding can get overwritten by config or plugins
+	select_season = "<leader>Ts", -- binding to toggle between seasons
 
-	-- TODO: select_season: "<leader>Ts" -- Select Season via vim.ui.select
-	-- TODO: toggle_time: "<leader>Tt"
+	-- TODO: select_time: "<leader>Tt"
 
 	transparent = false, -- don't set background
 	term_colors = true, -- if true enable the terminal

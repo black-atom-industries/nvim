@@ -2,6 +2,7 @@ local M = {}
 
 ---Change terra option (vim.g.terra_config.option)
 ---It can't be changed directly by modifing that field due to a Neovim lua bug with global variables (terra_config is a global variable)
+-- TODO: type opt from TerraConfig
 ---@param opt string: option name
 ---@param value any: new value
 function M.set_options(opt, value)
@@ -44,25 +45,42 @@ function M.sync_terra_time_with_vim_opt_background(time)
 	end
 end
 
----Toggle between terra styles
-function M.toggle_season()
-	local index = vim.g.terra_config.toggle_style_index + 1
-
-	if index > #vim.g.terra_config.enabled_seasons then
-		index = 1
+---Select a Terra Season
+function M.select_season()
+	-- TODO: Outsource to lib
+	local capitalize = function(str)
+		return string.gsub(" " .. str, "%W%l", string.upper):sub(2)
 	end
 
-	local next_style_name = vim.g.terra_config.enabled_seasons[index]
+	---Handle Season selection.
+	---@param selected_season string|nil
+	local handle_select_season = function(selected_season)
+		-- Handle abort
+		if selected_season == nil then
+			return vim.notify("Aborted: No Season selected!")
+		end
 
-	vim.notify("Selected style: " .. next_style_name)
+		-- TODO: Introduce notify() which uses the plugin in preference and falls back to vim.notify
+		-- Give feedback to user about selected season
+		vim.notify("Selected Season: '" .. capitalize(selected_season) .. "'")
 
-	M.set_options("style", next_style_name)
+		-- Update season opt in TerraConfig
+		M.set_options("season", selected_season)
 
-	M.set_options("toggle_style_index", index)
+		-- Sync `TerraConfig.time` with `vim.opt.background`
+		M.sync_terra_time_with_vim_opt_background(vim.g.terra_config.time)
 
-	M.sync_terra_time_with_vim_opt_background(vim.g.terra_config.time)
+		-- Re-Initialize colorscheme
+		vim.api.nvim_command("colorscheme terra")
+	end
 
-	vim.api.nvim_command("colorscheme terra")
+	-- Open select menu to choose a Season
+	vim.ui.select(vim.g.terra_config.enabled_seasons, {
+		prompt = "Choose a Season",
+		format_item = function(item)
+			return capitalize(item)
+		end,
+	}, handle_select_season)
 end
 
 ---Setup terra.nvim options, without applying colorscheme
@@ -97,8 +115,8 @@ function M.setup(opts)
 	-- Set the toggle style key from config
 	vim.api.nvim_set_keymap(
 		"n",
-		vim.g.terra_config.toggle_season,
-		'<cmd>lua require("terra").toggle_season()<CR>',
+		vim.g.terra_config.select_season,
+		'<cmd>lua require("terra").select_season()<CR>',
 		{ noremap = true, silent = true }
 	)
 end

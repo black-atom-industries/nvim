@@ -1,5 +1,6 @@
 local util = {}
 
+-- TODO: Remove these
 util.bg = "#000000"
 util.fg = "#ffffff"
 
