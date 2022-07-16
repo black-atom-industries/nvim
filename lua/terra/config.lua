@@ -13,6 +13,13 @@ M.default_config = {
 	season = "spring", -- selected season
 	time = "night", -- selected time of day
 
+	icons = { --
+		spring = "",
+		summer = "",
+		fall = "",
+		winter = "",
+	},
+
 	enabled_seasons = M.seasons, -- all enabled seasons
 
 	-- TODO: Notice in README that binding can get overwritten by config or plugins

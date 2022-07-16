@@ -1,23 +1,19 @@
+local util = require("terra.util")
+
 ---@param season "spring" | "summer" | "fall" | "winter"
 ---@param time "day" | "night"
 local get_palette = function(season, time)
+	-- Check if season is valid
 	if season ~= "spring" then
 		local error_message = "Unknown season '"
 			.. season
 			.. "'!\nCheck for typos.\nCurrently only 'spring' is available!"
 
-		-- Use `notify` plugin if available
-		local notify_ok, notify = pcall(require, "notify")
-
-		if notify_ok then
-			notify(error_message, "error", {
-				title = "TerraConfig Error",
-				timeout = 5000,
-				icon = "",
-			})
-		else
-			vim.notify(error_message)
-		end
+		util.notify(error_message, "error", {
+			title = "TerraConfig Error",
+			timeout = 5000,
+			icon = "",
+		})
 
 		return
 	end

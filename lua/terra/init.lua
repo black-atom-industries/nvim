@@ -1,3 +1,5 @@
+local util = require("terra.util")
+
 local M = {}
 
 ---Change terra option (vim.g.terra_config.option)
@@ -57,12 +59,19 @@ function M.select_season()
 	local handle_select_season = function(selected_season)
 		-- Handle abort
 		if selected_season == nil then
-			return vim.notify("Aborted: No Season selected!")
+			util.notify("Aborted: No Season selected!", "warn", {
+				title = "Warning",
+				icon = " ",
+			})
+			return
 		end
 
-		-- TODO: Introduce notify() which uses the plugin in preference and falls back to vim.notify
 		-- Give feedback to user about selected season
-		vim.notify("Selected Season: '" .. capitalize(selected_season) .. "'")
+		local formatted_season = capitalize(selected_season)
+		util.notify("You selected '" .. formatted_season .. "'!", "success", {
+			title = formatted_season,
+			icon = vim.g.terra_config.icons[selected_season],
+		})
 
 		-- Update season opt in TerraConfig
 		M.set_options("season", selected_season)

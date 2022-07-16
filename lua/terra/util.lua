@@ -48,4 +48,21 @@ function util.lighten(hex, amount, fg)
 	return util.blend(hex, fg or util.fg, math.abs(amount))
 end
 
+-- TODO: Put in dedicated lib file. I don't want general utils separated from "color-utils"
+-- TODO: Replace all usages of `notify` with this function
+---Notification which conditionally calls `nvim-notify` when available
+---@param message string Notification message
+---@param level? string|number Log level. See vim.log.levels
+---@param opts? table nvim-notify options. See notify.Options
+---@return nil
+function util.notify(message, level, opts)
+	local nvim_notify_ok, nvim_notify = pcall(require, "notify")
+
+	if nvim_notify_ok then
+		nvim_notify(message, level, opts)
+	else
+		vim.notify(message, level, opts)
+	end
+end
+
 return util
