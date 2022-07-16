@@ -1,4 +1,4 @@
-local colors = require("terra.palette")
+local get_palette = require("terra.palette")
 
 ---@class Colors
 ---@field primary Primary
@@ -7,11 +7,23 @@ local colors = require("terra.palette")
 ---@field none string
 
 ---@return Colors
-local function select_colors()
-	local selected = {}
-	selected = vim.tbl_extend("force", selected, colors[vim.g.terra_config.style])
-	selected = vim.tbl_extend("force", selected, vim.g.terra_config.colors)
-	return selected
+local function get_colors()
+	local extend_colors = function(tbl_1, tbl_2)
+		return vim.tbl_extend("force", tbl_1, tbl_2)
+	end
+
+	local colors = {}
+
+	-- Extend colors with the palette for the current season and day-time
+	local current_season = vim.g.terra_config.season
+	local current_time = vim.g.terra_config.time
+	colors = extend_colors(colors, get_palette(current_season, current_time))
+
+	-- Extend colors with custom user overrides
+	local overrides = vim.g.terra_config.colors
+	colors = extend_colors(colors, overrides)
+
+	return colors
 end
 
-return select_colors()
+return get_colors()

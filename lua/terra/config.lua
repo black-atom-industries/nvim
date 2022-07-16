@@ -1,16 +1,18 @@
 local M = {}
 
 M.styles_list = {
-	"spring_night",
-	"spring_day",
+	"spring",
 }
 
 ---@class TerraConfig
 ---@field season "spring" | "summer" | "fall" | "winter"
 ---@field time "night" | "day"
 
+---@type TerraConfig
 M.default_config = {
-	style = M.styles_list[1], -- seledcted style
+	season = "spring", -- selected season
+	time = "night", -- selected time of day
+
 	toggle_style_list = M.styles_list, -- all enabled seasons
 	toggle_style_key = "<C-x>", -- binding to toggle between seasons
 

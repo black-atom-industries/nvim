@@ -24,10 +24,9 @@ function M.colorscheme()
 	vim.o.termguicolors = true
 	vim.g.colors_name = "terra"
 
-	-- If the global option `background` is set to `light` we set the style to the "light" theme
-	-- TODO: We want for every theme a dark and light variant, so we have to fix that
+	-- If the global option `background` is set to `light` we set the terra config to "day"-time
 	if vim.o.background == "light" then
-		M.set_options("style", "light")
+		M.set_options("time", "day")
 	end
 
 	-- Now set up the highlights and terminal
@@ -51,7 +50,7 @@ function M.toggle()
 
 	M.set_options("toggle_style_index", index)
 
-	if vim.g.terra_config.style == "light" then
+	if vim.g.terra_config.time == "day" then
 		vim.o.background = "light"
 	else
 		vim.o.background = "dark"
