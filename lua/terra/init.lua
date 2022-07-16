@@ -83,12 +83,17 @@ function M.select_season()
 		vim.api.nvim_command("colorscheme terra")
 	end
 
+	local format_item = function(item)
+		return vim.g.terra_config.icons[item] .. "  " .. capitalize(item)
+	end
+
 	-- Open select menu to choose a Season
 	vim.ui.select(vim.g.terra_config.enabled_seasons, {
-		prompt = "Choose a Season",
-		format_item = function(item)
-			return capitalize(item)
-		end,
+		prompt = "Terra - Please select a Season",
+        -- NOTE: The `telescope` property will get gracefully disregarded if telescope or dressing.nvim is not present
+        -- TODO: Build custom Telescope Terra Picker
+		telescope = require("telescope.themes").get_dropdown(),
+		format_item = format_item,
 	}, handle_select_season)
 end
 
