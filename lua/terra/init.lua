@@ -38,11 +38,11 @@ end
 function M.toggle()
 	local index = vim.g.terra_config.toggle_style_index + 1
 
-	if index > #vim.g.terra_config.toggle_style_list then
+	if index > #vim.g.terra_config.enabled_seasons then
 		index = 1
 	end
 
-	local next_style_name = vim.g.terra_config.toggle_style_list[index]
+	local next_style_name = vim.g.terra_config.enabled_seasons[index]
 
 	vim.notify("Selected style: " .. next_style_name)
 
@@ -83,8 +83,8 @@ function M.setup(opts)
 	if opts then
 		vim.g.terra_config = vim.tbl_deep_extend("force", vim.g.terra_config, opts)
 
-		if opts.toggle_style_list then -- this table cannot be extended, it has to be replaced
-			M.set_options("toggle_style_list", opts.toggle_style_list)
+		if opts.enabled_seasons then -- this table cannot be extended, it has to be replaced
+			M.set_options("enabled_seasons", opts.enabled_seasons)
 		end
 	end
 

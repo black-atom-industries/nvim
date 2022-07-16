@@ -1,6 +1,6 @@
 local M = {}
 
-M.styles_list = {
+M.seasons = {
 	"spring",
 }
 
@@ -13,8 +13,13 @@ M.default_config = {
 	season = "spring", -- selected season
 	time = "night", -- selected time of day
 
-	toggle_style_list = M.styles_list, -- all enabled seasons
+	enabled_seasons = M.seasons, -- all enabled seasons
+
+	-- QUESTION: Does WhichKey clear a <leader>Ts binding?
+	-- TODO: toggle_season: "<leader>Ts"
 	toggle_style_key = "<C-x>", -- binding to toggle between seasons
+
+	-- TODO: toggle_time: "<leader>Tt"
 
 	transparent = false, -- don't set background
 	term_colors = true, -- if true enable the terminal
