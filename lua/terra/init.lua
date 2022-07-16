@@ -35,7 +35,7 @@ function M.colorscheme()
 end
 
 ---Toggle between terra styles
-function M.toggle()
+function M.toggle_season()
 	local index = vim.g.terra_config.toggle_style_index + 1
 
 	if index > #vim.g.terra_config.enabled_seasons then
@@ -91,8 +91,8 @@ function M.setup(opts)
 	-- Set the toggle style key from config
 	vim.api.nvim_set_keymap(
 		"n",
-		vim.g.terra_config.toggle_style_key,
-		'<cmd>lua require("terra").toggle()<cr>',
+		vim.g.terra_config.toggle_season,
+		'<cmd>lua require("terra").toggle_season()<CR>',
 		{ noremap = true, silent = true }
 	)
 end
