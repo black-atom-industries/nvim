@@ -34,6 +34,16 @@ function M.colorscheme()
 	require("terra.terminal").setup()
 end
 
+---Syncs `time` of TerraConfig with `vim.o.background`
+---@param time "day" | "night"
+function M.sync_terra_time_with_vim_opt_background(time)
+	if time == "day" then
+		vim.o.background = "light"
+	else
+		vim.o.background = "dark"
+	end
+end
+
 ---Toggle between terra styles
 function M.toggle_season()
 	local index = vim.g.terra_config.toggle_style_index + 1
@@ -50,11 +60,7 @@ function M.toggle_season()
 
 	M.set_options("toggle_style_index", index)
 
-	if vim.g.terra_config.time == "day" then
-		vim.o.background = "light"
-	else
-		vim.o.background = "dark"
-	end
+	M.sync_terra_time_with_vim_opt_background(vim.g.terra_config.time)
 
 	vim.api.nvim_command("colorscheme terra")
 end
