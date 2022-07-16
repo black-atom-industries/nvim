@@ -34,6 +34,7 @@
 - [ ] Write out Types with LDoc
   - [Example: Penlight](https://github.com/lunarmodules/Penlight/blob/master/lua/pl/config.lua)
   - [Example: tabby.nvim](https://github.dev/nanozuki/tabby.nvim/blob/main/lua/tabby/init.lua)
+  - [Example: nvim-notify](https://github.com/rcarriga/nvim-notify/blob/master/lua/notify/config/init.lua)
   - [LDoc Documentation](https://stevedonovan.github.io/ldoc/manual/doc.md.html#Introduction)
 
 ## Highlights
