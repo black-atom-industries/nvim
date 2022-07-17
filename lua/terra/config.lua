@@ -49,7 +49,7 @@ M.default_config = {
 	},
 
 	-- TODO: Notice in README that binding can get overwritten by config or plugins
-	select_season = "<leader>Ts",
+	select_season = "<C-x>",
 
 	-- TODO: select_time: "<leader>Tt"
 

@@ -1,6 +1,6 @@
 local colors = require("terra.colors")
 local config = vim.g.terra_config
-local util = require("terra.util")
+local actions = require("terra.actions")
 
 local M = {}
 
@@ -260,7 +260,7 @@ hl.plugins.lsp = {
 	DiagnosticWarn = { fg = colors.palette.yellow },
 
 	DiagnosticVirtualTextError = {
-		bg = config.diagnostics.background and util.darken(
+		bg = config.diagnostics.background and actions.color.darken(
 			diagnostics_error_color,
 			0.1,
 			colors.semantic.bg1
@@ -268,7 +268,7 @@ hl.plugins.lsp = {
 		fg = diagnostics_error_color,
 	},
 	DiagnosticVirtualTextWarn = {
-		bg = config.diagnostics.background and util.darken(
+		bg = config.diagnostics.background and actions.color.darken(
 			diagnostics_warn_color,
 			0.1,
 			colors.semantic.bg1
@@ -276,7 +276,7 @@ hl.plugins.lsp = {
 		fg = diagnostics_warn_color,
 	},
 	DiagnosticVirtualTextInfo = {
-		bg = config.diagnostics.background and util.darken(
+		bg = config.diagnostics.background and actions.color.darken(
 			diagnostics_info_color,
 			0.1,
 			colors.semantic.bg1
@@ -284,7 +284,7 @@ hl.plugins.lsp = {
 		fg = diagnostics_info_color,
 	},
 	DiagnosticVirtualTextHint = {
-		bg = config.diagnostics.background and util.darken(
+		bg = config.diagnostics.background and actions.color.darken(
 			diagnostics_hint_color,
 			0.1,
 			colors.semantic.bg1
@@ -427,7 +427,7 @@ hl.plugins.gitgutter = {
 hl.plugins.hop = {
 	HopNextKey = { fg = colors.palette.red, fmt = "bold" },
 	HopNextKey1 = { fg = colors.palette.cyan, fmt = "bold" },
-	HopNextKey2 = { fg = util.darken(colors.palette.blue, 0.7) },
+	HopNextKey2 = { fg = actions.color.darken(colors.palette.blue, 0.7) },
 	HopUnmatched = { fg = colors.palette.grey },
 }
 
