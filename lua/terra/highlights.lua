@@ -4,25 +4,21 @@ local actions = require("terra.actions")
 
 local M = {}
 
+---@alias HighlightGroupName string
+
+---@alias HighlightFormat  "bold" | "underline" | "underlineline" | "undercurl" | "underdot" | "underdash" | "strikethrough" | "reverse" | "inverse" | "italic" | "standout" | "nocombine" | "NONE"
+
+---@class HighlightGroupSettings
+---@field fg string
+---@field bg string
+---@field sp string
+---@field fmt HighlightFormat
+
+---@alias HighlightGroup table<HighlightGroupName, HighlightGroupSettings>
+
 local hl = { langs = {}, plugins = {} }
 
--- TODO: Declare highlights type
-local function vim_set_highlights(highlights)
-	-- For every pair in the highlights table set the highlights via a formated string
-	for group_name, group_settings in pairs(highlights) do
-		vim.api.nvim_command(
-			string.format(
-				"highlight %s guifg=%s guibg=%s guisp=%s gui=%s",
-				group_name,
-				group_settings.fg or "none",
-				group_settings.bg or "none",
-				group_settings.sp or "none",
-				group_settings.fmt or "none"
-			)
-		)
-	end
-end
-
+---@type HighlightGroup
 hl.common = {
 	Normal = {
 		fg = colors.semantic.fg,
@@ -124,6 +120,7 @@ hl.common = {
 	NormalFloat = { fg = colors.semantic.fg, bg = colors.semantic.bg1 },
 }
 
+---@type HighlightGroup
 hl.syntax = {
 	String = { fg = colors.palette.cyan, fmt = config.code_style.strings },
 	Character = { fg = colors.palette.yellow },
@@ -160,6 +157,7 @@ hl.syntax = {
 	Todo = { fg = colors.palette.red, fmt = config.code_style.comments },
 }
 
+---@type HighlightGroup
 hl.treesitter = {
 	TSAnnotation = { fg = colors.semantic.fg },
 	TSAttribute = { fg = colors.palette.cyan },
@@ -247,6 +245,7 @@ local diagnostics_warn_color = config.diagnostics.darker
 local diagnostics_info_color = config.diagnostics.darker and colors.palette.dark_cyan
 	or colors.palette.cyan
 
+---@type HighlightGroup
 hl.plugins.lsp = {
 	LspCxxHlGroupEnumConstant = { fg = colors.palette.dark_yellow },
 	LspCxxHlGroupMemberVariable = { fg = colors.palette.dark_yellow },
@@ -336,6 +335,7 @@ hl.plugins.lsp.LspDiagnosticsVirtualTextInformation =
 hl.plugins.lsp.LspDiagnosticsVirtualTextHint =
 	hl.plugins.lsp.DiagnosticVirtualTextHint
 
+---@type HighlightGroup
 hl.plugins.ale = {
 	ALEErrorSign = hl.plugins.lsp.DiagnosticError,
 	ALEInfoSign = hl.plugins.lsp.DiagnosticInfo,
@@ -343,6 +343,7 @@ hl.plugins.ale = {
 }
 
 -- TODO: Optimize
+---@type HighlightGroup
 hl.plugins.barbar = {
 	-- BufferLineFill = { bg = colors.semantic.bg0 },
 	-- BufferLineBackground = { bg = colors.semantic.bg0 },
@@ -367,6 +368,7 @@ hl.plugins.barbar = {
 	-- BufferLineTab = { fg = colors.palette.grey, bg = colors.semantic.bg0 },
 }
 
+---@type HighlightGroup
 hl.plugins.cmp = {
 	CmpItemAbbr = { fg = colors.semantic.fg },
 	CmpItemAbbrDeprecated = {
@@ -382,6 +384,7 @@ hl.plugins.cmp = {
 	},
 }
 
+---@type HighlightGroup
 hl.plugins.coc = {
 	CocErrorSign = hl.plugins.lsp.DiagnosticError,
 	CocHintSign = hl.plugins.lsp.DiagnosticHint,
@@ -389,6 +392,7 @@ hl.plugins.coc = {
 	CocWarningSign = hl.plugins.lsp.DiagnosticWarn,
 }
 
+---@type HighlightGroup
 hl.plugins.whichkey = {
 	WhichKey = { fg = colors.palette.red },
 	WhichKeyDesc = { fg = colors.palette.blue },
@@ -397,6 +401,7 @@ hl.plugins.whichkey = {
 }
 
 -- TODO: Solvable with a Link to ToggleTermNormal?
+---@type HighlightGroup
 hl.plugins.toggleterm = {
 	ToggleTerm1FloatBorder = { fg = colors.palette.grey },
 	ToggleTerm1NormalFloat = { fg = colors.semantic.fg, bg = colors.semantic.bg1 },
@@ -418,12 +423,14 @@ hl.plugins.toggleterm = {
 	ToggleTerm9NormalFloat = { fg = colors.semantic.fg, bg = colors.semantic.bg1 },
 }
 
+---@type HighlightGroup
 hl.plugins.gitgutter = {
 	GitGutterAdd = { fg = colors.palette.green },
 	GitGutterChange = { fg = colors.palette.blue },
 	GitGutterDelete = { fg = colors.palette.red },
 }
 
+---@type HighlightGroup
 hl.plugins.hop = {
 	HopNextKey = { fg = colors.palette.red, fmt = "bold" },
 	HopNextKey1 = { fg = colors.palette.cyan, fmt = "bold" },
@@ -432,6 +439,7 @@ hl.plugins.hop = {
 }
 
 -- comment
+---@type HighlightGroup
 hl.plugins.diffview = {
 	DiffviewFilePanelTitle = { fg = colors.palette.blue, fmt = "bold" },
 	DiffviewFilePanelCounter = { fg = colors.palette.purple, fmt = "bold" },
@@ -459,6 +467,7 @@ hl.plugins.diffview = {
 	DiffviewStatusBroken = { fg = colors.palette.red },
 }
 
+---@type HighlightGroup
 hl.plugins.gitsigns = {
 	GitSignsAdd = { fg = colors.palette.green },
 	GitSignsAddLn = { fg = colors.palette.green },
@@ -471,6 +480,7 @@ hl.plugins.gitsigns = {
 	GitSignsDeleteNr = { fg = colors.palette.red },
 }
 
+---@type HighlightGroup
 hl.plugins.neotree = {
 	NeoTreeNormal = {
 		fg = colors.semantic.fg,
@@ -486,6 +496,7 @@ hl.plugins.neotree = {
 	},
 }
 
+---@type HighlightGroup
 hl.plugins.nvim_tree = {
 	NvimTreeNormal = {
 		fg = colors.semantic.fg,
@@ -512,6 +523,7 @@ hl.plugins.nvim_tree = {
 	NvimTreeWindowPicker = { fg = colors.palette.white, bg = colors.palette.grey },
 }
 
+---@type HighlightGroup
 hl.plugins.indent_blankline = {
 	-- TODO: IndentBlanklineChar
 	-- TODO: IndentBlanklineSpaceChar
@@ -528,6 +540,7 @@ hl.plugins.indent_blankline = {
 	IndentBlanklineIndent8 = { fg = colors.primary[9] },
 }
 
+---@type HighlightGroup
 hl.plugins.telescope = {
 	TelescopeNormal = { bg = colors.semantic.bg1 },
 	TelescopeTitle = { fg = colors.palette.dark_yellow },
@@ -541,6 +554,7 @@ hl.plugins.telescope = {
 	TelescopeSelectionCaret = { fg = colors.palette.yellow },
 }
 
+---@type HighlightGroup
 hl.plugins.dashboard = {
 	DashboardShortCut = { fg = colors.palette.blue },
 	DashboardHeader = { fg = colors.palette.yellow },
@@ -548,6 +562,7 @@ hl.plugins.dashboard = {
 	DashboardFooter = { fg = colors.palette.dark_red, fmt = "italic" },
 }
 
+---@type HighlightGroup
 hl.plugins.outline = {
 	FocusedSymbol = {
 		fg = colors.palette.purple,
@@ -561,6 +576,7 @@ hl.plugins.outline = {
 	},
 }
 
+---@type HighlightGroup
 hl.plugins.ts_rainbow = {
 	rainbowcol1 = { fg = colors.palette.grey },
 	rainbowcol2 = { fg = colors.palette.yellow },
@@ -571,6 +587,7 @@ hl.plugins.ts_rainbow = {
 	rainbowcol7 = { fg = colors.palette.red },
 }
 
+---@type HighlightGroup
 hl.plugins.incline = {
 	InclineNormal = {
 		fg = colors.semantic.fg_active,
@@ -580,6 +597,7 @@ hl.plugins.incline = {
 	InclineNormalNC = { fg = colors.semantic.fg_dimmed, bg = colors.semantic.bg0 },
 }
 
+---@type HighlightGroup
 hl.langs.css = {
 	cssPositioningAttr = { fg = colors.palette.yellow },
 	cssBoxAttr = { fg = colors.palette.yellow },
@@ -591,6 +609,7 @@ hl.langs.css = {
 	cssValueLength = { fg = colors.palette.dark_blue },
 }
 
+---@type HighlightGroup
 hl.langs.sass = {
 	sassVariable = { fg = colors.palette.dark_yellow },
 	sassProperty = { fg = colors.palette.blue },
@@ -602,6 +621,7 @@ hl.langs.sass = {
 	Character = { fg = colors.palette.yellow },
 }
 
+---@type HighlightGroup
 hl.langs.c = {
 	cInclude = { fg = colors.palette.blue },
 	cStorageClass = { fg = colors.palette.purple },
@@ -613,6 +633,7 @@ hl.langs.c = {
 	cTSOperator = { fg = colors.palette.purple },
 }
 
+---@type HighlightGroup
 hl.langs.cpp = {
 	cppStatement = { fg = colors.palette.purple, fmt = "bold" },
 	cppTSInclude = { fg = colors.palette.blue },
@@ -621,6 +642,7 @@ hl.langs.cpp = {
 	cppTSOperator = { fg = colors.palette.purple },
 }
 
+---@type HighlightGroup
 hl.langs.markdown = {
 	markdownBlockquote = { fg = colors.palette.grey },
 	markdownBold = { fg = colors.none, fmt = "bold" },
@@ -651,6 +673,7 @@ hl.langs.markdown = {
 	markdownUrlTitleDelimiter = { fg = colors.palette.green },
 }
 
+---@type HighlightGroup
 hl.langs.php = {
 	phpFunctions = { fg = colors.semantic.fg, fmt = config.code_style.functions },
 	phpMethods = { fg = colors.palette.cyan },
@@ -674,6 +697,7 @@ hl.langs.php = {
 	phpRegion = { fg = colors.palette.blue },
 }
 
+---@type HighlightGroup
 hl.langs.scala = {
 	scalaNameDefinition = { fg = colors.semantic.fg },
 	scalaInterpolationBoundary = { fg = colors.palette.purple },
@@ -686,6 +710,7 @@ hl.langs.scala = {
 	},
 }
 
+---@type HighlightGroup
 hl.langs.tex = {
 	latexTSInclude = { fg = colors.palette.blue },
 	latexTSFuncMacro = {
@@ -710,6 +735,7 @@ hl.langs.tex = {
 	texPgfType = { fg = colors.palette.yellow },
 }
 
+---@type HighlightGroup
 hl.langs.vim = {
 	vimOption = { fg = colors.palette.red },
 	vimSetEqual = { fg = colors.palette.yellow },
@@ -755,7 +781,8 @@ local lsp_kind_icons_color = {
 }
 
 function M.setup()
-	local actions = require("terra.actions")
+	local set_highlights = require("terra.actions.highlights").set_highlights
+	local notify = require("terra.actions.ui").notify
 
 	-- define cmp and aerial kind highlights with lsp_kind_icons_color
 	for kind, color in pairs(lsp_kind_icons_color) do
@@ -767,21 +794,21 @@ function M.setup()
 	end
 
 	-- Set common highlights
-	vim_set_highlights(hl.common)
-	vim_set_highlights(hl.syntax)
-	vim_set_highlights(hl.treesitter)
+	set_highlights(hl.common)
+	set_highlights(hl.syntax)
+	set_highlights(hl.treesitter)
 
 	-- Set language highlights
 	for _, group in pairs(hl.langs) do
-		vim_set_highlights(group)
+		set_highlights(group)
 	end
 
 	-- Set plugin highlights
 	for _, group in pairs(hl.plugins) do
-		vim_set_highlights(group)
+		set_highlights(group)
 	end
 
-	-- user defined highlights: vim_set_highlights function cannot be used because it sets an attribute to none if not specified
+	-- user defined highlights: set_highlights function cannot be used because it sets an attribute to none if not specified
 	local function replace_color(prefix, color_name)
 		if not color_name then
 			return ""
@@ -793,7 +820,7 @@ function M.setup()
 
 			if not color_name then
 				vim.schedule(function()
-					actions.ui.notify(
+					notify(
 						'terra.nvim: unknown color "' .. name .. '"',
 						vim.log.levels.ERROR,
 						{ title = "Terra - Error" }

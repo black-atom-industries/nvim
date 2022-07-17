@@ -7,8 +7,7 @@ M.seasons = {
 
 ---@alias Season "spring" | "summer" | "fall" | "winter"
 ---@alias Time "day" | "night"
--- TODO: Research formats ("italic bold" ??)
----@alias CodeStyleFormat "italic" | "bold" | "none"
+---@alias CodeStyleFormat HighlightFormat
 
 ---@class TerraConfig.CodeStyle
 ---@field comments CodeStyleFormat
@@ -18,31 +17,30 @@ M.seasons = {
 ---@field variables CodeStyleFormat
 
 ---@class TerraConfig.Diagnostics
----@field darker boolean Wether to use darker colors for diagnostics
----@field undercurl boolean Wether to use undercurls for diagnostics
----@field background boolean Wether to use backgroudn color for virtual text
+---@field darker boolean
+---@field undercurl boolean
+---@field background boolean
 
 ---@class TerraConfig
----@field season Season: Currently set season
----@field time Time: Current set time of day
----@field icons table: Icons associated with each season
----@field enabled_seasons table: Table of enabled seasons
----@field select_season string: Normal mode mapping string for triggering the season selection
----@field transparent boolean: Wether to render the background color
----@field term_colors boolean: Wether to enable terminal colors
----@field ending_tildes boolean: Wether to show the end-of-buffer tildes
----@field cmp_itemkind_reverse boolean: Wether to reverse item kind highlights in cmp menu
----@field code_style TerraConfig.CodeStyle: Code styling options
----@field colors table<string, string>: Override default colors
----@field highlights table<string, string>: Override highlight colors
----@field diagnostics TerraConfig.Diagnostics: Diagnostics related settings
+---@field season Season
+---@field time Time
+---@field icons table
+---@field select_season string
+---@field transparent boolean
+---@field term_colors boolean
+---@field ending_tildes boolean
+---@field cmp_itemkind_reverse boolean
+---@field code_style TerraConfig.CodeStyle
+---@field colors table<string, string>
+---@field highlights table<string, string>
+---@field diagnostics TerraConfig.Diagnostics
 
 ---@type TerraConfig
 M.default_config = {
-	season = M.seasons[1],
-	time = "night",
+	season = M.seasons[1], -- Currently set season
+	time = "night", -- Current set time of day
 
-	icons = { --
+	icons = { -- Icons associated with each season
 		spring = "",
 		summer = "",
 		fall = "",
@@ -50,30 +48,30 @@ M.default_config = {
 	},
 
 	-- TODO: Notice in README that binding can get overwritten by config or plugins
-	select_season = "<C-x>",
+	select_season = "<C-x>", -- Normal mode mapping string for triggering the season selection
 
 	-- TODO: select_time: "<leader>Tt"
 
-	transparent = false,
-	term_colors = true,
-	ending_tildes = false,
-	cmp_itemkind_reverse = false,
+	transparent = false, -- Wether to render the background color
+	term_colors = true, -- Wether to enable terminal colors
+	ending_tildes = false, -- Wether to show the end-of-buffer tildes
+	cmp_itemkind_reverse = false, -- Wether to reverse item kind highlights in cmp menu
 
-	code_style = {
+	code_style = { -- Code styling options
 		comments = "italic",
-		keywords = "none",
-		functions = "none",
-		strings = "none",
-		variables = "none",
+		keywords = "NONE",
+		functions = "NONE",
+		strings = "NONE",
+		variables = "NONE",
 	},
 
-	colors = {},
-	highlights = {},
+	colors = {}, -- Override default colors
+	highlights = {}, -- Override highlight colors
 
-	diagnostics = {
-		darker = false,
-		undercurl = false,
-		background = false,
+	diagnostics = { -- Diagnostics related settings
+		darker = false, -- Wether to use darker colors for diagnostics
+		undercurl = false, -- Wether to use undercurls for diagnostics
+		background = false, -- Wether to use background color for virtual text
 	},
 }
 
