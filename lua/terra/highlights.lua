@@ -755,6 +755,8 @@ local lsp_kind_icons_color = {
 }
 
 function M.setup()
+	local actions = require("terra.actions")
+
 	-- define cmp and aerial kind highlights with lsp_kind_icons_color
 	for kind, color in pairs(lsp_kind_icons_color) do
 		hl.plugins.cmp["CmpItemKind" .. kind] = {
@@ -791,10 +793,10 @@ function M.setup()
 
 			if not color_name then
 				vim.schedule(function()
-					vim.notify(
+					actions.ui.notify(
 						'terra.nvim: unknown color "' .. name .. '"',
 						vim.log.levels.ERROR,
-						{ title = "terra.nvim" }
+						{ title = "Terra - Error" }
 					)
 				end)
 				return ""
