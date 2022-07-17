@@ -36,19 +36,15 @@ end
 ---Select a Terra Season
 ---@return nil
 M.select_season = function()
-	local actions = require("terra.actions")
+	local reload_colorscheme = require("terra.init").load
+	local notify = require("terra.actions.ui").notify
+	local capitalize = require("terra.actions.utils").capitalize
 
-	-- TODO: Outsource to lib
-	local capitalize = function(str)
-		return string.gsub(" " .. str, "%W%l", string.upper):sub(2)
-	end
-
-	---Handle Season selection.
 	---@param selected_season string|nil
 	local handle_select_season = function(selected_season)
 		-- Handle abort
 		if selected_season == nil then
-			actions.ui.notify("Aborted: No Season selected!", "warn", {
+			notify("Aborted: No Season selected!", "warn", {
 				title = "Warning",
 				icon = " ",
 			})
@@ -57,23 +53,23 @@ M.select_season = function()
 
 		-- Give feedback to user about selected season
 		local formatted_season = capitalize(selected_season)
-		actions.ui.notify("You selected '" .. formatted_season .. "'!", "success", {
+
+		notify("You selected '" .. formatted_season .. "'!", "success", {
 			title = formatted_season,
 			icon = vim.g.terra_config.icons[selected_season],
 		})
 
-		-- Update season opt in TerraConfig
 		M.set_options({
 			season = selected_season,
 		})
 
-		-- Sync `TerraConfig.time` with `vim.opt.background`
 		M.sync_vim_opt_background_with_terra_time(vim.g.terra_config.time)
 
-		-- Re-Initialize colorscheme
-		vim.api.nvim_command("colorscheme terra")
+		reload_colorscheme()
 	end
 
+	---@param item unknown
+	---@return string
 	local format_item = function(item)
 		return vim.g.terra_config.icons[item] .. "  " .. capitalize(item)
 	end
