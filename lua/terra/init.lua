@@ -2,7 +2,10 @@ local M = {}
 
 ---Apply the colorscheme (same as ':colorscheme terra')
 M.colorscheme = function()
-	local actions = require("terra.actions")
+	local sync_vim_opt_background_with_terra_time =
+		require(
+			"terra.actions.config"
+		).sync_vim_opt_background_with_terra_time
 
 	-- Clear all highlights
 	vim.cmd("hi clear")
@@ -18,9 +21,7 @@ M.colorscheme = function()
 	-- Set "terra" to the vim `colors_name` global variable
 	vim.g.colors_name = "terra"
 
-	-- If the global option `background` is set to `light`,
-	-- we also set the terra config to "day"-time
-	actions.config.sync_vim_opt_background_with_terra_time(vim.o.background)
+	sync_vim_opt_background_with_terra_time(vim.o.background)
 
 	-- Now set up the highlights and terminal
 	require("terra.highlights").setup()
