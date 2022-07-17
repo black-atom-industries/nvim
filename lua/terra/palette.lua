@@ -1,4 +1,4 @@
-local actions = require("terra.actions")
+local notify = require("terra.actions.ui").notify
 
 ---@param season Season
 ---@param time Time
@@ -9,7 +9,7 @@ local get_palette = function(season, time)
 			.. season
 			.. "'!\nCheck for typos.\nCurrently only 'spring' is available!"
 
-		actions.ui.notify(error_message, "error", {
+		notify(error_message, "error", {
 			title = "Terra - Error",
 			timeout = 5000,
 			icon = "",
