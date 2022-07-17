@@ -1,27 +1,18 @@
-local notify = require("terra.actions.ui").notify
+local validate_season = require("terra.actions.config").validate_season
 
 ---@param season Season
 ---@param time Time
 local get_palette = function(season, time)
-	-- Check if season is valid
-	if season ~= "spring" then
-		local error_message = "Unknown season '"
-			.. season
-			.. "'!\nCheck for typos.\nCurrently only 'spring' is available!"
+	local valid_season = validate_season(season)
 
-		notify(error_message, "error", {
-			title = "Terra - Error",
-			timeout = 5000,
-			icon = "",
-		})
-
+	if not valid_season then
 		return
+	else
+		local season_palette = "terra.themes." .. season
+		local palette = require(season_palette)[time]
+
+		return palette
 	end
-
-	local season_palette = "terra.themes." .. season
-	local palette = require(season_palette)[time]
-
-	return palette
 end
 
 return get_palette

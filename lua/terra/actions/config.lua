@@ -1,4 +1,5 @@
 local config = require("terra.config")
+local notify = require("terra.actions.ui").notify
 
 local M = {}
 
@@ -37,7 +38,6 @@ end
 ---@return nil
 M.select_season = function()
 	local reload_colorscheme = require("terra.init").load
-	local notify = require("terra.actions.ui").notify
 	local capitalize = require("terra.actions.utils").capitalize
 
 	---@param selected_season string|nil
@@ -82,6 +82,29 @@ M.select_season = function()
 		telescope = require("telescope.themes").get_dropdown(),
 		format_item = format_item,
 	}, handle_select_season)
+end
+
+-- NOTE: Currently this serves as a gatekeeper for the only available season "spring"
+--       In the future it should step through a table of seasons and check on runtime the provided `season` string from config
+---Runtime season string validation
+---@param season Season
+---@return boolean
+M.validate_season = function(season)
+	local error_message = "Unknown season '"
+		.. season
+		.. "'!\nCheck for typos.\nCurrently only 'spring' is available!"
+
+	if season == "spring" then
+		return true
+	else
+		notify(error_message, "error", {
+			title = "Terra - Error",
+			timeout = 5000,
+			icon = "",
+		})
+
+		return false
+	end
 end
 
 return M
