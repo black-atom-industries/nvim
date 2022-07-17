@@ -129,7 +129,7 @@ function M.setup(opts)
 		end
 	end
 
-	-- Set the toggle style key from config
+	-- Set the select season binding from config
 	vim.api.nvim_set_keymap(
 		"n",
 		vim.g.terra_config.select_season,
