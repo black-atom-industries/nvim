@@ -1,32 +1,30 @@
 local M = {}
 
--- TODO: Rename cfg
-local cfg = vim.g.terra_config
-
--- TODO: Rename c
-local c = require("terra.colors")
-
--- INFO: This seems to set the global vim terminal colors
 function M.setup()
-	if not cfg.term_colors then
+	local config = vim.g.terra_config
+
+	if not config.term_colors then
 		return
 	end
-	vim.g.terminal_color_0 = c.palette.grey
-	vim.g.terminal_color_1 = c.palette.red
-	vim.g.terminal_color_2 = c.palette.green
-	vim.g.terminal_color_3 = c.palette.yellow
-	vim.g.terminal_color_4 = c.palette.blue
-	vim.g.terminal_color_5 = c.palette.purple
-	vim.g.terminal_color_6 = c.palette.cyan
-	vim.g.terminal_color_7 = c.semantic.fg
-	vim.g.terminal_color_8 = c.palette.black
-	vim.g.terminal_color_9 = c.palette.red
-	vim.g.terminal_color_10 = c.palette.green
-	vim.g.terminal_color_11 = c.palette.yellow
-	vim.g.terminal_color_12 = c.palette.blue
-	vim.g.terminal_color_13 = c.palette.purple
-	vim.g.terminal_color_14 = c.palette.cyan
-	vim.g.terminal_color_15 = c.semantic.fg
+
+	local colors = require("terra.colors")
+
+	vim.g.terminal_color_0 = colors.palette.grey
+	vim.g.terminal_color_1 = colors.palette.red
+	vim.g.terminal_color_2 = colors.palette.green
+	vim.g.terminal_color_3 = colors.palette.yellow
+	vim.g.terminal_color_4 = colors.palette.blue
+	vim.g.terminal_color_5 = colors.palette.purple
+	vim.g.terminal_color_6 = colors.palette.cyan
+	vim.g.terminal_color_7 = colors.palette.light_grey
+	vim.g.terminal_color_8 = colors.palette.black
+	vim.g.terminal_color_9 = colors.palette.red
+	vim.g.terminal_color_10 = colors.palette.green
+	vim.g.terminal_color_11 = colors.palette.yellow
+	vim.g.terminal_color_12 = colors.palette.blue
+	vim.g.terminal_color_13 = colors.palette.purple
+	vim.g.terminal_color_14 = colors.palette.cyan
+	vim.g.terminal_color_15 = colors.palette.white
 end
 
 return M
