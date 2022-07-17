@@ -3,15 +3,13 @@ local util = require("terra.util")
 local M = {}
 
 ---Change terra option (vim.g.terra_config.option)
----It can't be changed directly by modifing that field due to a Neovim lua bug with global variables (terra_config is a global variable)
--- TODO: type opt from TerraConfig
----@param opt string: option name
----@param value any: new value
-function M.set_options(opt, value)
-	local config = vim.g.terra_config
-	config[opt] = value
-	vim.g.terra_config = config
+---@param options TerraConfig
+---@return nil
+function M.set_options(options)
+	vim.g.terra_config = vim.tbl_deep_extend("force", vim.g.terra_config, options)
 end
+
+-- TODO: Introduce `M.get_options(options)` which receives a table of config keys and returns current values as a table
 
 ---Apply the colorscheme (same as ':colorscheme terra')
 function M.colorscheme()
@@ -29,7 +27,9 @@ function M.colorscheme()
 
 	-- If the global option `background` is set to `light` we set the terra config to "day"-time
 	if vim.o.background == "light" then
-		M.set_options("time", "day")
+		M.set_options({
+			time = "day",
+		})
 	end
 
 	-- Now set up the highlights and terminal
@@ -74,7 +74,9 @@ function M.select_season()
 		})
 
 		-- Update season opt in TerraConfig
-		M.set_options("season", selected_season)
+		M.set_options({
+			season = selected_season,
+		})
 
 		-- Sync `TerraConfig.time` with `vim.opt.background`
 		M.sync_terra_time_with_vim_opt_background(vim.g.terra_config.time)
@@ -90,8 +92,8 @@ function M.select_season()
 	-- Open select menu to choose a Season
 	vim.ui.select(vim.g.terra_config.enabled_seasons, {
 		prompt = "Terra - Please select a Season",
-        -- NOTE: The `telescope` property will get gracefully disregarded if telescope or dressing.nvim is not present
-        -- TODO: Build custom Telescope Terra Picker
+		-- NOTE: The `telescope` property will get gracefully disregarded if telescope or dressing.nvim is not present
+		-- TODO: Build custom Telescope Terra Picker
 		telescope = require("telescope.themes").get_dropdown(),
 		format_item = format_item,
 	}, handle_select_season)
@@ -111,10 +113,9 @@ function M.setup(opts)
 		)
 
 		-- Mark the theme as loaded
-		M.set_options("loaded", true)
-
-		-- Toggle the first style
-		M.set_options("toggle_style_index", 0)
+		M.set_options({
+			loaded = true,
+		})
 	end
 
 	-- If there are defined options, set them in the global config
@@ -122,7 +123,9 @@ function M.setup(opts)
 		vim.g.terra_config = vim.tbl_deep_extend("force", vim.g.terra_config, opts)
 
 		if opts.enabled_seasons then -- this table cannot be extended, it has to be replaced
-			M.set_options("enabled_seasons", opts.enabled_seasons)
+			M.set_options({
+				enabled_seasons = opts.enabled_seasons,
+			})
 		end
 	end
 
