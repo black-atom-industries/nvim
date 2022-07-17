@@ -1,5 +1,6 @@
 local M = {}
 
+---@type Season[]
 M.seasons = {
 	"spring",
 }
