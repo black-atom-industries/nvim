@@ -21,6 +21,7 @@ M.colorscheme = function()
 	-- Set "terra" to the vim `colors_name` global variable
 	vim.g.colors_name = "terra"
 
+	-- Sync `vim.o.background` of Vim with `time` of TerraConfig
 	sync_vim_opt_background_with_terra_time(vim.o.background)
 
 	-- Now set up the highlights and terminal
@@ -32,8 +33,7 @@ end
 ---@param opts table: a table containing options
 ---@return nil
 M.setup = function(opts)
-	local actions = require("terra.actions")
-
+	local set_options = require("terra.actions.config").set_options
 	local default_config = require("terra.config").default_config
 
 	-- If it's the first time setup() is called, load the default config
@@ -46,14 +46,14 @@ M.setup = function(opts)
 		)
 
 		-- Mark the theme as loaded
-		actions.config.set_options({
+		set_options({
 			loaded = true,
 		})
 	end
 
 	-- If there are defined options, set them in the global config
 	if opts then
-		actions.config.set_options(opts)
+		set_options(opts)
 	end
 
 	-- Set the select season binding from config
