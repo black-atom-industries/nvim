@@ -8,11 +8,11 @@ local get_palette = require("terra.palette")
 
 ---@return Colors
 local function get_colors()
+	local colors = {}
+
 	local extend_colors = function(tbl_1, tbl_2)
 		return vim.tbl_extend("force", tbl_1, tbl_2)
 	end
-
-	local colors = {}
 
 	-- Extend colors with the palette for the current season and day-time
 	local current_season = vim.g.terra_config.season
