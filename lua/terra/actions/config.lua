@@ -84,25 +84,15 @@ M.select_season = function()
 	}, handle_select_season)
 end
 
--- NOTE: Currently this serves as a gatekeeper for the only available season "spring"
---       In the future it should step through a table of seasons and check on runtime the provided `season` string from config
----Runtime season string validation
+---Runtime validation for `season` setting
 ---@param season Season
 ---@return boolean
 M.validate_season = function(season)
-	local error_message = "Unknown season '"
-		.. season
-		.. "'!\nCheck for typos.\nCurrently only 'spring' is available!"
-
+	-- NOTE: Currently this serves as a gatekeeper for the only available season "spring"
+	--       In the future it should step through a table of seasons and check on runtime the provided `season` string from config
 	if season == "spring" then
 		return true
 	else
-		notify(error_message, "error", {
-			title = "Terra - Error",
-			timeout = 5000,
-			icon = "",
-		})
-
 		return false
 	end
 end
