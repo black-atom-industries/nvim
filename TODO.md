@@ -30,6 +30,9 @@
 - [x] `season "spring" | "summer" | "fall" | "winter"`
 - [x] `time "day" | "night"`
 - [x] Remove `enabled_seasons`, because with the selection menu we don't really need that
+- [ ] Introduce `select_time()`
+- [ ] Introduce `on_season_select()`
+- [ ] Introduce `on_time_select()`
 
 ## Logic
 
