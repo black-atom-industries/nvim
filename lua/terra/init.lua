@@ -1,7 +1,7 @@
 local M = {}
 
 ---Apply the colorscheme (same as ':colorscheme terra')
-function M.colorscheme()
+M.colorscheme = function()
 	local actions = require("terra.actions")
 
 	-- Clear all highlights
@@ -30,7 +30,7 @@ end
 ---Setup terra.nvim options, without applying colorscheme
 ---@param opts table: a table containing options
 ---@return nil
-function M.setup(opts)
+M.setup = function(opts)
 	local actions = require("terra.actions")
 
 	local default_config = require("terra.config").default_config
@@ -66,7 +66,7 @@ end
 
 ---Loads the colorscheme
 ---@return nil
-function M.load()
+M.load = function()
 	vim.api.nvim_command("colorscheme terra")
 end
 
