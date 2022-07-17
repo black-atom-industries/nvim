@@ -48,9 +48,6 @@ M.default_config = {
 		winter = "",
 	},
 
-	-- TODO: Eventually remove
-	enabled_seasons = M.seasons,
-
 	-- TODO: Notice in README that binding can get overwritten by config or plugins
 	select_season = "<leader>Ts",
 

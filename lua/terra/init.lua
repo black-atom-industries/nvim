@@ -1,3 +1,4 @@
+local config = require("terra.config")
 local util = require("terra.util")
 
 local M = {}
@@ -90,7 +91,7 @@ function M.select_season()
 	end
 
 	-- Open select menu to choose a Season
-	vim.ui.select(vim.g.terra_config.enabled_seasons, {
+	vim.ui.select(config.seasons, {
 		prompt = "Terra - Please select a Season",
 		-- NOTE: The `telescope` property will get gracefully disregarded if telescope or dressing.nvim is not present
 		-- TODO: Build custom Telescope Terra Picker
@@ -121,12 +122,6 @@ function M.setup(opts)
 	-- If there are defined options, set them in the global config
 	if opts then
 		vim.g.terra_config = vim.tbl_deep_extend("force", vim.g.terra_config, opts)
-
-		if opts.enabled_seasons then -- this table cannot be extended, it has to be replaced
-			M.set_options({
-				enabled_seasons = opts.enabled_seasons,
-			})
-		end
 	end
 
 	-- Set the select season binding from config

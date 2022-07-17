@@ -29,7 +29,7 @@
 
 - [x] `season "spring" | "summer" | "fall" | "winter"`
 - [x] `time "day" | "night"`
-- [ ] Remove `enabled_seasons`, because with the selection menu we don't really need that
+- [x] Remove `enabled_seasons`, because with the selection menu we don't really need that
 
 ## Logic
 
