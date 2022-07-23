@@ -70,10 +70,10 @@ M.semantic = {
 	fg_active = M.palette.yellow,
 	fg_dimmed = M.palette.grey,
 
-	diff_add = "#27341c",
-	diff_delete = "#331c1e",
-	diff_change = "#102b40",
-	diff_text = "#1c4a6e",
+	diff_add = M.palette.green,
+	diff_delete = M.palette.red,
+	diff_change = M.palette.blue,
+	diff_text = M.palette.dark_blue,
 }
 
 ---A merged table of the theme primary, palette and semantic colors
