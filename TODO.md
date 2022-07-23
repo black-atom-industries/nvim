@@ -24,6 +24,7 @@
 - [x] Remove Old Config
 - [x] Research others themes for reference
 - [ ] `extras/` with pointer to `terminal` repository
+- [ ] Check this repository against [this](https://www.reddit.com/r/neovim/comments/w3jhuc/i_contributed_to_mostly_14_toprated_neovim_color/)
 
 ## Config
 
@@ -45,6 +46,7 @@
     - [Example: Penlight](https://github.com/lunarmodules/Penlight/blob/master/lua/pl/config.lua)
     - [Example: tabby.nvim](https://github.dev/nanozuki/tabby.nvim/blob/main/lua/tabby/init.lua)
     - [Example: nvim-notify](https://github.com/rcarriga/nvim-notify/blob/master/lua/notify/config/init.lua)
+    - [Example: hydra.nvim](https://github.com/anuvyklack/hydra.nvim/blob/8518b90a924e90e2f6c02840608f7326cfa15ba4/lua/hydra/types.lua)
 - [ ] Implement `ccall()` conditionally calling functions
 - [ ] Call certain seasons directly from command `:colorscheme terra_spring` etc.
 
@@ -53,8 +55,7 @@
 ### `README.md`
 
 - [ ] Screenshots
-- [ ] Spring
-  - [x] Base Palette
+- [ ] Spring [x] Base Palette
   - [ ] Primary Colors
 - [ ] Summer
   - [ ] Base Palette
