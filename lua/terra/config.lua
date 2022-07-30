@@ -61,7 +61,7 @@ M.default_config = {
 		comments = "italic",
 		keywords = "NONE",
 		functions = "NONE",
-		strings = "NONE",
+		strings = "italic",
 		variables = "NONE",
 	},
 
