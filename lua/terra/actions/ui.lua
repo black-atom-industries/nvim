@@ -7,13 +7,13 @@ local M = {}
 ---@param opts? table nvim-notify options. See notify.Options
 ---@return nil
 M.notify = function(message, level, opts)
-	local nvim_notify_ok, nvim_notify = pcall(require, "notify")
+    local nvim_notify_ok, nvim_notify = pcall(require, "notify")
 
-	if nvim_notify_ok then
-		nvim_notify(message, level, opts)
-	else
-		vim.notify(message, level, opts)
-	end
+    if nvim_notify_ok then
+        nvim_notify(message, level, opts)
+    else
+        vim.notify(message, level, opts)
+    end
 end
 
 return M
