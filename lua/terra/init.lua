@@ -25,6 +25,7 @@ end
 ---@param opts TerraConfig: a table containing options
 ---@return nil
 M.setup = function(opts)
+    -- TODO: validate_opts(opts)
     local default_config = require("terra.config").default_config
 
     -- If it's the first time setup() is called, load the default config

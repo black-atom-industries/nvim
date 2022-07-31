@@ -1,9 +1,5 @@
 local M = {}
 
--- TODO: Remove these
-M.bg = "#000000"
-M.fg = "#ffffff"
-
 local function hexToRgb(hex_str)
     local hex = "[abcdef0-9][abcdef0-9]"
     local pat = "^#(" .. hex .. ")(" .. hex .. ")(" .. hex .. ")$"
@@ -38,14 +34,17 @@ M.blend = function(fg, bg, alpha)
     )
 end
 
+local default_bg = "#000000"
+local default_fg = "#ffffff"
+
 -- Used in highlights.lua
 M.darken = function(hex, amount, bg)
-    return M.blend(hex, bg or M.bg, math.abs(amount))
+    return M.blend(hex, bg or default_bg, math.abs(amount))
 end
 
 -- Used in highlights.lua
 M.lighten = function(hex, amount, fg)
-    return M.blend(hex, fg or M.fg, math.abs(amount))
+    return M.blend(hex, fg or default_fg, math.abs(amount))
 end
 
 return M
