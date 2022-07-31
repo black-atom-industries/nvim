@@ -5,7 +5,7 @@ local M = {}
 ---@param level? string|number Log level. See vim.log.levels
 ---@param opts? table nvim-notify options. See notify.Options
 ---@return nil
-M.notify = function(message, level, opts)
+function M.notify(message, level, opts)
     local nvim_notify_ok, nvim_notify = pcall(require, "notify")
 
     if nvim_notify_ok then

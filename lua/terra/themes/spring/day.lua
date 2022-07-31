@@ -60,7 +60,7 @@ M.semantic = {
 
 ---A merged table of the theme primary, palette and semantic colors
 ---@return Colors
-M.colors = function()
+function M.colors()
     return {
         none = "none",
         primary = M.primary,

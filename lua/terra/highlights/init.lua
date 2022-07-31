@@ -1,5 +1,5 @@
 local colors = require("terra.colors")
-local set_highlights = require("terra.actions.highlights").set_highlights
+local set_highlight_group = require("terra.actions.highlights").set_highlight_group
 local notify = require("terra.actions.ui").notify
 
 local config = vim.g.terra_config
@@ -28,18 +28,18 @@ function M.setup()
     end
 
     -- Set common highlights
-    set_highlights(highlights.common)
-    set_highlights(highlights.syntax)
-    set_highlights(highlights.treesitter)
+    set_highlight_group(highlights.common)
+    set_highlight_group(highlights.syntax)
+    set_highlight_group(highlights.treesitter)
 
     -- Set language highlights
     for _, group in pairs(highlights.langs) do
-        set_highlights(group)
+        set_highlight_group(group)
     end
 
     -- Set plugin highlights
     for _, group in pairs(highlights.plugins) do
-        set_highlights(group)
+        set_highlight_group(group)
     end
 
     -- user defined highlights: set_highlights function cannot be used because it sets an attribute to none if not specified

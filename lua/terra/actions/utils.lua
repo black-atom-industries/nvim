@@ -3,7 +3,7 @@ local M = {}
 ---Capitzlize first character of a string
 ---@param str string
 ---@return string
-M.capitalize = function(str)
+function M.capitalize(str)
     return string.gsub(" " .. str, "%W%l", string.upper):sub(2)
 end
 
@@ -12,7 +12,7 @@ end
 ---@param cb_true function
 ---@param cb_false? function
 ---@return nil
-M.ccall = function(condition, cb_true, cb_false)
+function M.ccall(condition, cb_true, cb_false)
     if condition then
         cb_true()
     else

@@ -36,7 +36,7 @@ end
 
 ---Select a Terra Season
 ---@return nil
-M.select_season = function()
+function M.select_season()
     local reload_colorscheme = require("terra.init").load
     local capitalize = require("terra.actions.utils").capitalize
 
@@ -87,7 +87,7 @@ end
 ---Runtime validation for `season` setting
 ---@param season Season
 ---@return boolean
-M.validate_season = function(season)
+function M.validate_season(season)
     -- NOTE: Currently this serves as a gatekeeper for the only available season "spring"
     --       In the future it should step through a table of seasons and check on runtime the provided `season` string from config
     if season == "spring" then
