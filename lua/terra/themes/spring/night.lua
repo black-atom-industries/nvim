@@ -1,3 +1,5 @@
+local extend_defaults = require("terra.actions.highlights").extend_defaults
+
 local M = {}
 
 -- TODO: Finalize primary colors
@@ -86,5 +88,7 @@ M.colors = function()
 		semantic = M.semantic,
 	}
 end
+
+M.highlights = extend_defaults(M.colors(), {})
 
 return M

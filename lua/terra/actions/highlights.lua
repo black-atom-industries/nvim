@@ -2,7 +2,7 @@ local M = {}
 
 ---Reset Vim Highlights and Syntax
 ---@return nil
-M.reset = function()
+function M.reset()
 	-- Clear all highlights
 	vim.cmd("hi clear")
 
@@ -15,7 +15,7 @@ end
 -- TODO: Type Highlights
 ---Apply `highlight` command for each group in highlights
 ---@param highlights HighlightGroup
-M.set_highlights = function(highlights)
+function M.set_highlights(highlights)
 	-- TODO: Type four `group_name` and `group_settings`
 
 	---@param hl_group_name HighlightGroupName
@@ -36,6 +36,14 @@ M.set_highlights = function(highlights)
 	for group_name, group_settings in pairs(highlights) do
 		apply_highlights(group_name, group_settings)
 	end
+end
+
+---@param colors Colors
+---@param overrides Highlights
+---@return Highlights
+function M.extend_defaults(colors, overrides)
+	local defaults = require("terra.highlights.defaults")(colors, vim.g.terra_config)
+	return vim.tbl_deep_extend("force", defaults, overrides or {})
 end
 
 return M
