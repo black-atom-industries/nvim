@@ -1,6 +1,7 @@
 local colors = require("terra.colors")
-local config = vim.g.terra_config
 local actions = require("terra.actions")
+
+local config = vim.g.terra_config
 
 local M = {}
 
