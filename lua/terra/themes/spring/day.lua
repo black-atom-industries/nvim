@@ -1,16 +1,18 @@
+local extend_defaults = require("terra.actions.highlights").extend_defaults
+
 local M = {}
 
 ---@class Primary
 M.primary = {
-    primary1 = "#141F19",
-    primary2 = "#17251E",
-    primary3 = "#123524",
-    primary4 = "#1B5037",
-    primary5 = "#256C49",
-    primary6 = "#50946A",
-    primary7 = "#79B791",
-    primary8 = "#ADE3C9",
-    primary9 = "#D6F1E4",
+    "#141F19",
+    "#17251E",
+    "#123524",
+    "#1B5037",
+    "#256C49",
+    "#50946A",
+    "#79B791",
+    "#ADE3C9",
+    "#D6F1E4",
 }
 
 ---@class Palette Base theme color pallette
@@ -40,15 +42,16 @@ M.palette = {
     white = "#F1E5D6",
 }
 
+-- TODO: Build out semantics
 ---Second Level Semantics Color Definitions which have to be based on the Palette colors
 ---@class Semantic
 M.semantic = {
     bg0 = M.primary[9],
-    bg1 = "#ffffff",
+    bg1 = M.palette.white,
     bg2 = M.primary[7],
     bg3 = M.primary[6],
 
-    fg = M.primary[1],
+    fg = M.palette.black,
     fg_active = M.palette.yellow,
     fg_dimmed = M.palette.grey,
 
@@ -68,5 +71,7 @@ function M.colors()
         semantic = M.semantic,
     }
 end
+
+M.highlights = extend_defaults(M.colors(), {})
 
 return M
