@@ -1,11 +1,5 @@
 local get_palette = require("terra.palette")
 
----@class Colors
----@field primary Primary
----@field palette Palette
----@field semantic Semantic
----@field none string
-
 ---@return Colors
 local function get_colors()
     local colors = {}

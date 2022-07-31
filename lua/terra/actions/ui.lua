@@ -1,6 +1,5 @@
 local M = {}
 
--- TODO: Replace all usages of `notify` with this function
 ---Notification which conditionally calls `nvim-notify` when available
 ---@param message string Notification message
 ---@param level? string|number Log level. See vim.log.levels

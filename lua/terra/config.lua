@@ -5,36 +5,6 @@ M.seasons = {
     "spring",
 }
 
----@alias Season "spring" | "summer" | "fall" | "winter"
----@alias Time "day" | "night"
----@alias CodeStyleFormat HighlightFormat
-
----@class TerraConfig.CodeStyle
----@field comments CodeStyleFormat
----@field keywords CodeStyleFormat
----@field functions CodeStyleFormat
----@field strings CodeStyleFormat
----@field variables CodeStyleFormat
-
----@class TerraConfig.Diagnostics
----@field darker boolean
----@field undercurl boolean
----@field background boolean
-
----@class TerraConfig
----@field season Season
----@field time Time
----@field icons table
----@field select_season string
----@field transparent boolean
----@field term_colors boolean
----@field ending_tildes boolean
----@field cmp_itemkind_reverse boolean
----@field code_style TerraConfig.CodeStyle
----@field colors table<string, string>
----@field highlights table<string, string>
----@field diagnostics TerraConfig.Diagnostics
-
 ---@type TerraConfig
 M.default_config = {
     season = M.seasons[1], -- Currently set season

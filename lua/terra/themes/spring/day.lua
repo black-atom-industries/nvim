@@ -1,34 +1,16 @@
 local M = {}
 
--- TODO: Finalize primary colors
--- TODO: Setup luadoc typings
--- TODO: After finalize, update Figma and declare symbols
--- TODO: Dedicated highlights return for each theme
-
--- ---@class Primary
--- M.primary = {
--- 	primary1 = "#141F19",
--- 	primary2 = "#17251E",
--- 	primary3 = "#123524",
--- 	primary4 = "#1B5037",
--- 	primary5 = "#256C49",
--- 	primary6 = "#50946A",
--- 	primary7 = "#79B791",
--- 	primary8 = "#ADE3C9",
--- 	primary9 = "#D6F1E4",
--- }
-
----@class Primary Theme Primary Colors
+---@class Primary
 M.primary = {
-    "#141F19",
-    "#17251E",
-    "#1B2C24",
-    "#284336",
-    "#365B49",
-    "#568F6B",
-    "#79B791",
-    "#ADE3C9",
-    "#D6F1E4",
+    primary1 = "#141F19",
+    primary2 = "#17251E",
+    primary3 = "#123524",
+    primary4 = "#1B5037",
+    primary5 = "#256C49",
+    primary6 = "#50946A",
+    primary7 = "#79B791",
+    primary8 = "#ADE3C9",
+    primary9 = "#D6F1E4",
 }
 
 ---@class Palette Base theme color pallette

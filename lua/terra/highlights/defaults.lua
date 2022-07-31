@@ -1,18 +1,11 @@
 local darken = require("terra.actions").color.darken
 
----@alias HighlightGroupName string
-
----@alias HighlightFormat  "bold" | "underline" | "underlineline" | "undercurl" | "underdot" | "underdash" | "strikethrough" | "reverse" | "inverse" | "italic" | "standout" | "nocombine" | "NONE"
-
----@class HighlightGroupSettings
----@field fg string
----@field bg string
----@field sp string
----@field fmt HighlightFormat
-
----@alias HighlightGroup table<HighlightGroupName, HighlightGroupSettings>
-
+---Returns the default Highlights
+---@param colors Colors
+---@param config TerraConfig
+---@return Highlights
 local function get_default_highlights(colors, config)
+    -- TODO: Improve typing that all nested keys are appear on completion
     ---@class Highlights
     local higlights = { langs = {}, plugins = {} }
 

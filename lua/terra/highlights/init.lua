@@ -4,7 +4,7 @@ local notify = require("terra.actions.ui").notify
 
 local config = vim.g.terra_config
 
-local all_highlights = {
+local themes = {
     spring = {
         night = require("terra.themes.spring.night").highlights,
     },
@@ -15,8 +15,9 @@ local M = {}
 function M.setup()
     -- TODO: highlights must be expanded with the theme specific and user defined highlights
     --       For now it just uses the default_highlights
-    local highlights = all_highlights.spring.night
+    local highlights = themes.spring.night
 
+    -- TODO: SHould not happening in the default highlights or theme highlights ??
     -- define cmp and aerial kind highlights with lsp_kind_icons_color
     for kind, color in pairs(highlights.lsp_kind_icons_color) do
         highlights.plugins.cmp["CmpItemKind" .. kind] = {
