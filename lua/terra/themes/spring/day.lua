@@ -42,7 +42,7 @@ M.palette = {
     white = "#F1E5D6",
 }
 
--- TODO: Build out semantics
+-- NOTE: Build out and improve and align semantics with vscode
 ---Second Level Semantics Color Definitions which have to be based on the Palette colors
 ---@class Semantic
 M.semantic = {

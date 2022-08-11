@@ -5,7 +5,7 @@ local darken = require("terra.actions").color.darken
 ---@param config TerraConfig
 ---@return Highlights
 local function get_default_highlights(colors, config)
-    -- TODO: Improve typing that all nested keys are appear on completion
+    -- NOTE: Improve typing that all nested keys are appear on completion
     ---@class Highlights
     local higlights = { langs = {}, plugins = {} }
 
@@ -347,7 +347,6 @@ local function get_default_highlights(colors, config)
         ALEWarningSign = higlights.plugins.lsp.DiagnosticWarn,
     }
 
-    -- TODO: Optimize
     ---@type HighlightGroup
     higlights.plugins.barbar = {
         -- BufferLineFill = { bg = colors.semantic.bg0 },
@@ -405,7 +404,7 @@ local function get_default_highlights(colors, config)
         WhichKeySeperator = { fg = colors.palette.green },
     }
 
-    -- TODO: Solvable with a Link to ToggleTermNormal?
+    -- QUESTION: Solvable with a Link to ToggleTermNormal?
     ---@type HighlightGroup
     higlights.plugins.toggleterm = {
         ToggleTerm1FloatBorder = { fg = colors.palette.gray },
@@ -560,10 +559,10 @@ local function get_default_highlights(colors, config)
 
     ---@type HighlightGroup
     higlights.plugins.indent_blankline = {
-        -- TODO: IndentBlanklineChar
-        -- TODO: IndentBlanklineSpaceChar
-        -- TODO: IndentBlanklineSpaceCharBlankline
-        -- TODO: IndentBlanklineContextSpaceChar
+        -- IndentBlanklineChar
+        -- IndentBlanklineSpaceChar
+        -- IndentBlanklineSpaceCharBlankline
+        -- IndentBlanklineContextSpaceChar
         IndentBlanklineContextChar = { fg = colors.semantic.fg_active },
         IndentBlanklineIndent1 = { fg = colors.primary[2] },
         IndentBlanklineIndent2 = { fg = colors.primary[3] },

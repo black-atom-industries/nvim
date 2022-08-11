@@ -42,7 +42,7 @@ end
 local default_bg = "#000000"
 local default_fg = "#ffffff"
 
--- TODO: What does this do?
+-- QUESTION: What does this do?
 ---@param hex_string string
 ---@param amount number
 ---@param bg? string
@@ -51,7 +51,7 @@ function M.darken(hex_string, amount, bg)
     return M.blend(hex_string, bg or default_bg, math.abs(amount))
 end
 
--- TODO: What does this do?
+-- QUESTION: What does this do?
 ---@param hex_string string
 ---@param amount number
 ---@param fg? string

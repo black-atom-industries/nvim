@@ -15,8 +15,6 @@ end
 ---Apply `highlight` command for each group in highlights
 ---@param hl_group HighlightGroup
 function M.set_highlight_group(hl_group)
-    -- TODO: Type four `group_name` and `group_settings`
-
     ---@param hl_group_name HighlightGroupName
     ---@param hl_group_settings HighlightGroupSettings
     local apply_highlights = function(hl_group_name, hl_group_settings)

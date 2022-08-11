@@ -10,7 +10,7 @@ function M.set_options(options)
     vim.g.terra_config = vim.tbl_deep_extend("force", vim.g.terra_config, options)
 end
 
--- TODO: Introduce `M.get_options(options)` which receives a table of config keys and returns current values as a table
+-- NOTE: Introduce `M.get_options(options)` which receives a table of config keys and returns current values as a table
 
 ---Syncs `vim.o.background` of Vim with `time` of TerraConfig
 ---@param time Time
@@ -78,7 +78,6 @@ function M.select_season()
     vim.ui.select(config.seasons, {
         prompt = "Terra - Please select a Season",
         -- NOTE: The `telescope` property will get gracefully disregarded if telescope or dressing.nvim is not present
-        -- TODO: Build custom Telescope Terra Picker
         telescope = require("telescope.themes").get_dropdown(),
         format_item = format_item,
     }, handle_select_season)
@@ -131,7 +130,6 @@ function M.select_time()
     }, {
         prompt = "Terra - Please select a Time",
         -- NOTE: The `telescope` property will get gracefully disregarded if telescope or dressing.nvim is not present
-        -- TODO: Build custom Telescope Terra Picker
         telescope = require("telescope.themes").get_dropdown(),
         format_item = format_item,
     }, handle_select_time)

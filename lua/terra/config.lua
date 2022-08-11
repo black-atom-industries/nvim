@@ -17,10 +17,8 @@ M.default_config = {
         winter = "",
     },
 
-    -- TODO: Notice in README that binding can get overwritten by config or plugins
-    select_season = "<C-x>", -- Normal mode mapping string for triggering the season selection
-
-    -- TODO: select_time: "<leader>Tt"
+    select_season = "<leader>Ts", -- Normal mode mapping string for triggering the `season` selection
+    select_time = "<leader>Tt", -- Normal mode mapping string for triggering the `time` selection
 
     transparent = false, -- Wether to render the background color
     term_colors = true, -- Wether to enable terminal colors

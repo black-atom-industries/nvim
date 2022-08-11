@@ -17,11 +17,9 @@ function M.setup()
     local season = vim.g.terra_config.season
     local time = vim.g.terra_config.time
 
-    -- TODO: highlights must be expanded with the theme specific and user defined highlights
-    --       For now it just uses the default_highlights
     local highlights = themes[season][time]
 
-    -- TODO: SHould not happening in the default highlights or theme highlights ??
+    -- QUESTION: SHould not happening in the default highlights or theme highlights ??
     -- define cmp and aerial kind highlights with lsp_kind_icons_color
     for kind, color in pairs(highlights.lsp_kind_icons_color) do
         highlights.plugins.cmp["CmpItemKind" .. kind] = {

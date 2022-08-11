@@ -25,14 +25,13 @@ end
 ---@param opts TerraConfig: a table containing options
 ---@return nil
 function M.setup(opts)
-    -- TODO: validate_opts(opts)
     local default_config = require("terra.config").default_config
 
     -- If it's the first time setup() is called, load the default config
     if not vim.g.terra_config or not vim.g.terra_config.loaded then
         vim.g.terra_config = vim.tbl_deep_extend(
             "keep",
-            -- FIX: is this really correct? `vim.g.terra_config` must be undefined at this point
+            -- FIX: is this really correct? I assume `vim.g.terra_config` must be undefined at this point
             vim.g.terra_config or {},
             default_config
         )
