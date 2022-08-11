@@ -38,7 +38,7 @@ M.palette = {
     dark_cyan = "#47945D",
     cyan = "#7CC08F",
 
-    light_grey = "#9EB6A5", -- TODO rename to `gray`
+    light_gray = "#9EB6A5",
     white = "#F1E5D6",
 }
 

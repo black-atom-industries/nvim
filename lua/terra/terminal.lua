@@ -16,7 +16,7 @@ function M.setup()
     vim.g.terminal_color_4 = colors.palette.blue
     vim.g.terminal_color_5 = colors.palette.purple
     vim.g.terminal_color_6 = colors.palette.cyan
-    vim.g.terminal_color_7 = colors.palette.light_grey
+    vim.g.terminal_color_7 = colors.palette.light_gray
     vim.g.terminal_color_8 = colors.palette.black
     vim.g.terminal_color_9 = colors.palette.red
     vim.g.terminal_color_10 = colors.palette.green

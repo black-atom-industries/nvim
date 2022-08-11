@@ -129,7 +129,7 @@ local function get_default_highlights(colors, config)
         Operator = { fg = colors.palette.purple },
         Title = { fg = colors.palette.cyan },
         Tag = { fg = colors.palette.green },
-        Delimiter = { fg = colors.palette.light_grey },
+        Delimiter = { fg = colors.palette.light_gray },
         Comment = { fg = colors.palette.gray, fmt = config.code_style.comments },
         SpecialComment = {
             fg = colors.palette.gray,
@@ -377,12 +377,12 @@ local function get_default_highlights(colors, config)
     higlights.plugins.cmp = {
         CmpItemAbbr = { fg = colors.semantic.fg },
         CmpItemAbbrDeprecated = {
-            fg = colors.palette.light_grey,
+            fg = colors.palette.light_gray,
             fmt = "strikethrough",
         },
         CmpItemAbbrMatch = { fg = colors.palette.cyan },
         CmpItemAbbrMatchFuzzy = { fg = colors.palette.cyan, fmt = "underline" },
-        CmpItemMenu = { fg = colors.palette.light_grey },
+        CmpItemMenu = { fg = colors.palette.light_gray },
         CmpItemKind = {
             fg = colors.palette.purple,
             fmt = config.cmp_itemkind_reverse and "reverse",
@@ -773,7 +773,7 @@ local function get_default_highlights(colors, config)
         latexTSMath = { fg = colors.palette.dark_yellow },
         texMathZoneX = { fg = colors.palette.dark_yellow },
         texMathZoneXX = { fg = colors.palette.dark_yellow },
-        texMathDelimZone = { fg = colors.palette.light_grey },
+        texMathDelimZone = { fg = colors.palette.light_gray },
         texMathDelim = { fg = colors.palette.purple },
         texMathOper = { fg = colors.palette.red },
         texCmd = { fg = colors.palette.purple },
@@ -793,7 +793,7 @@ local function get_default_highlights(colors, config)
         vimMapRhs = { fg = colors.palette.blue },
         vimVar = { fg = colors.semantic.fg, fmt = config.code_style.variables },
         vimCommentTitle = {
-            fg = colors.palette.light_grey,
+            fg = colors.palette.light_gray,
             fmt = config.code_style.comments,
         },
     }
@@ -820,7 +820,7 @@ local function get_default_highlights(colors, config)
         Reference = colors.palette.dark_yellow,
         Snippet = colors.palette.red,
         Struct = colors.palette.purple,
-        Text = colors.palette.light_grey,
+        Text = colors.palette.light_gray,
         TypeParameter = colors.palette.red,
         Unit = colors.palette.green,
         Value = colors.palette.dark_yellow,
