@@ -9,7 +9,7 @@ local colors = {
     blue = c.palette.blue,
     purple = c.palette.purple,
     cyan = c.palette.cyan,
-    gray = c.palette.grey,
+    gray = c.palette.gray,
 }
 
 local terra = {

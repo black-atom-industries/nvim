@@ -24,11 +24,11 @@ local function get_default_highlights(colors, config)
             bg = config.transparent and colors.none or colors.semantic.bg1,
         },
         FoldColumn = {
-            fg = colors.palette.grey,
+            fg = colors.palette.gray,
             bg = config.transparent and colors.none or colors.semantic.bg1,
         },
         Folded = {
-            fg = colors.palette.grey,
+            fg = colors.palette.gray,
             bg = config.transparent and colors.none or colors.semantic.bg1,
         },
         SignColumn = {
@@ -45,8 +45,8 @@ local function get_default_highlights(colors, config)
         CursorLine = { bg = colors.semantic.bg2 },
         ColorColumn = { bg = colors.semantic.bg2 },
         CursorLineNr = { fg = colors.palette.yellow },
-        LineNr = { fg = colors.palette.grey },
-        Conceal = { fg = colors.palette.grey, bg = colors.semantic.bg1 },
+        LineNr = { fg = colors.palette.gray },
+        Conceal = { fg = colors.palette.gray, bg = colors.semantic.bg1 },
         DiffAdd = { fg = colors.semantic.diff_add },
         DiffChange = { fg = colors.semantic.diff_change },
         DiffDelete = { fg = colors.semantic.diff_delete },
@@ -54,7 +54,7 @@ local function get_default_highlights(colors, config)
         DiffAdded = { fg = colors.palette.green },
         DiffRemoved = { fg = colors.palette.red },
         DiffFile = { fg = colors.palette.cyan },
-        DiffIndexLine = { fg = colors.palette.grey },
+        DiffIndexLine = { fg = colors.palette.gray },
         Directory = { fg = colors.palette.blue },
         ErrorMsg = { fg = colors.palette.red, fmt = "bold" },
         WarningMsg = { fg = colors.palette.yellow, fmt = "bold" },
@@ -62,15 +62,15 @@ local function get_default_highlights(colors, config)
         IncSearch = { fg = colors.semantic.bg0, bg = colors.palette.blue },
         Search = { fg = colors.semantic.bg0, bg = colors.palette.blue },
         Substitute = { fg = colors.semantic.bg0, bg = colors.palette.green },
-        MatchParen = { fg = colors.none, bg = colors.palette.grey },
-        NonText = { fg = colors.palette.grey },
-        Whitespace = { fg = colors.palette.grey },
-        SpecialKey = { fg = colors.palette.grey },
+        MatchParen = { fg = colors.none, bg = colors.palette.gray },
+        NonText = { fg = colors.palette.gray },
+        Whitespace = { fg = colors.palette.gray },
+        SpecialKey = { fg = colors.palette.gray },
         Pmenu = { fg = colors.semantic.fg, bg = colors.semantic.bg0 },
         PmenuSbar = { fg = colors.none, bg = colors.semantic.bg0 },
         PmenuSel = { fg = colors.semantic.bg0, bg = colors.palette.blue },
         WildMenu = { fg = colors.semantic.bg0, bg = colors.palette.blue },
-        PmenuThumb = { fg = colors.none, bg = colors.palette.grey },
+        PmenuThumb = { fg = colors.none, bg = colors.palette.gray },
         Question = { fg = colors.palette.yellow },
         SpellBad = { fg = colors.palette.red, sp = colors.palette.red },
         SpellCap = { fg = colors.palette.yellow, sp = colors.palette.yellow },
@@ -78,12 +78,12 @@ local function get_default_highlights(colors, config)
         SpellRare = { fg = colors.palette.purple, sp = colors.palette.purple },
         StatusLine = { fg = colors.semantic.fg, bg = colors.semantic.bg2 },
         StatusLineTerm = { fg = colors.semantic.fg, bg = colors.semantic.bg2 },
-        StatusLineNC = { fg = colors.palette.grey, bg = colors.semantic.bg1 },
-        StatusLineTermNC = { fg = colors.palette.grey, bg = colors.semantic.bg1 },
+        StatusLineNC = { fg = colors.palette.gray, bg = colors.semantic.bg1 },
+        StatusLineTermNC = { fg = colors.palette.gray, bg = colors.semantic.bg1 },
         TabLine = { fg = colors.semantic.fg, bg = colors.semantic.bg1 },
-        TabLineFill = { fg = colors.palette.grey, bg = colors.semantic.bg1 },
+        TabLineFill = { fg = colors.palette.gray, bg = colors.semantic.bg1 },
         TabLineSel = { fg = colors.semantic.fg, bg = colors.semantic.bg3 },
-        VertSplit = { fg = colors.palette.grey },
+        VertSplit = { fg = colors.palette.gray },
         Visual = { bg = colors.semantic.bg3 },
         VisualNOS = { fg = colors.none, bg = colors.semantic.bg2 },
         QuickFixLine = { fg = colors.palette.blue, bg = colors.semantic.bg2 },
@@ -91,7 +91,7 @@ local function get_default_highlights(colors, config)
         debugPC = { fg = colors.semantic.bg0, bg = colors.palette.green },
         debugBreakpoint = { fg = colors.semantic.bg0, bg = colors.palette.red },
         ToolbarButton = { fg = colors.semantic.bg0, bg = colors.palette.blue },
-        FloatBorder = { fg = colors.palette.grey, bg = colors.semantic.bg1 },
+        FloatBorder = { fg = colors.palette.gray, bg = colors.semantic.bg1 },
         NormalFloat = { fg = colors.semantic.fg, bg = colors.semantic.bg1 },
     }
 
@@ -130,9 +130,9 @@ local function get_default_highlights(colors, config)
         Title = { fg = colors.palette.cyan },
         Tag = { fg = colors.palette.green },
         Delimiter = { fg = colors.palette.light_grey },
-        Comment = { fg = colors.palette.grey, fmt = config.code_style.comments },
+        Comment = { fg = colors.palette.gray, fmt = config.code_style.comments },
         SpecialComment = {
-            fg = colors.palette.grey,
+            fg = colors.palette.gray,
             fmt = config.code_style.comments,
         },
         Todo = { fg = colors.palette.red, fmt = config.code_style.comments },
@@ -144,7 +144,7 @@ local function get_default_highlights(colors, config)
         TSAttribute = { fg = colors.palette.cyan },
         TSBoolean = { fg = colors.palette.dark_yellow },
         TSCharacter = { fg = colors.palette.dark_yellow },
-        TSComment = { fg = colors.palette.grey, fmt = config.code_style.comments },
+        TSComment = { fg = colors.palette.gray, fmt = config.code_style.comments },
         TSConditional = {
             fg = colors.palette.purple,
             fmt = config.code_style.keywords,
@@ -249,7 +249,7 @@ local function get_default_highlights(colors, config)
         LspCxxHlGroupEnumConstant = { fg = colors.palette.dark_yellow },
         LspCxxHlGroupMemberVariable = { fg = colors.palette.dark_yellow },
         LspCxxHlGroupNamespace = { fg = colors.palette.blue },
-        LspCxxHlSkippedRegion = { fg = colors.palette.grey },
+        LspCxxHlSkippedRegion = { fg = colors.palette.gray },
         LspCxxHlSkippedRegionBeginEnd = { fg = colors.palette.red },
 
         DiagnosticError = { fg = colors.palette.red },
@@ -311,8 +311,8 @@ local function get_default_highlights(colors, config)
         LspReferenceWrite = { bg = colors.semantic.bg2 },
         LspReferenceRead = { bg = colors.semantic.bg2 },
 
-        LspCodeLens = { fg = colors.palette.grey, fmt = config.code_style.comments },
-        LspCodeLensSeparator = { fg = colors.palette.grey },
+        LspCodeLens = { fg = colors.palette.gray, fmt = config.code_style.comments },
+        LspCodeLensSeparator = { fg = colors.palette.gray },
     }
 
     higlights.plugins.lsp.LspDiagnosticsDefaultError =
@@ -408,47 +408,47 @@ local function get_default_highlights(colors, config)
     -- TODO: Solvable with a Link to ToggleTermNormal?
     ---@type HighlightGroup
     higlights.plugins.toggleterm = {
-        ToggleTerm1FloatBorder = { fg = colors.palette.grey },
+        ToggleTerm1FloatBorder = { fg = colors.palette.gray },
         ToggleTerm1NormalFloat = {
             fg = colors.semantic.fg,
             bg = colors.semantic.bg1,
         },
-        ToggleTerm2FloatBorder = { fg = colors.palette.grey },
+        ToggleTerm2FloatBorder = { fg = colors.palette.gray },
         ToggleTerm2NormalFloat = {
             fg = colors.semantic.fg,
             bg = colors.semantic.bg1,
         },
-        ToggleTerm3FloatBorder = { fg = colors.palette.grey },
+        ToggleTerm3FloatBorder = { fg = colors.palette.gray },
         ToggleTerm3NormalFloat = {
             fg = colors.semantic.fg,
             bg = colors.semantic.bg1,
         },
-        ToggleTerm4FloatBorder = { fg = colors.palette.grey },
+        ToggleTerm4FloatBorder = { fg = colors.palette.gray },
         ToggleTerm4NormalFloat = {
             fg = colors.semantic.fg,
             bg = colors.semantic.bg1,
         },
-        ToggleTerm5FloatBorder = { fg = colors.palette.grey },
+        ToggleTerm5FloatBorder = { fg = colors.palette.gray },
         ToggleTerm5NormalFloat = {
             fg = colors.semantic.fg,
             bg = colors.semantic.bg1,
         },
-        ToggleTerm6FloatBorder = { fg = colors.palette.grey },
+        ToggleTerm6FloatBorder = { fg = colors.palette.gray },
         ToggleTerm6NormalFloat = {
             fg = colors.semantic.fg,
             bg = colors.semantic.bg1,
         },
-        ToggleTerm7FloatBorder = { fg = colors.palette.grey },
+        ToggleTerm7FloatBorder = { fg = colors.palette.gray },
         ToggleTerm7NormalFloat = {
             fg = colors.semantic.fg,
             bg = colors.semantic.bg1,
         },
-        ToggleTerm8FloatBorder = { fg = colors.palette.grey },
+        ToggleTerm8FloatBorder = { fg = colors.palette.gray },
         ToggleTerm8NormalFloat = {
             fg = colors.semantic.fg,
             bg = colors.semantic.bg1,
         },
-        ToggleTerm9FloatBorder = { fg = colors.palette.grey },
+        ToggleTerm9FloatBorder = { fg = colors.palette.gray },
         ToggleTerm9NormalFloat = {
             fg = colors.semantic.fg,
             bg = colors.semantic.bg1,
@@ -467,7 +467,7 @@ local function get_default_highlights(colors, config)
         HopNextKey = { fg = colors.palette.red, fmt = "bold" },
         HopNextKey1 = { fg = colors.palette.cyan, fmt = "bold" },
         HopNextKey2 = { fg = darken(colors.palette.blue, 0.7) },
-        HopUnmatched = { fg = colors.palette.grey },
+        HopUnmatched = { fg = colors.palette.gray },
     }
 
     -- comment
@@ -483,8 +483,8 @@ local function get_default_highlights(colors, config)
         DiffviewStatusLine = higlights.common.StatusLine,
         DiffviewStatusLineNC = higlights.common.StatusLineNC,
         DiffviewEndOfBuffer = higlights.common.EndOfBuffer,
-        DiffviewFilePanelRootPath = { fg = colors.palette.grey },
-        DiffviewFilePanelPath = { fg = colors.palette.grey },
+        DiffviewFilePanelRootPath = { fg = colors.palette.gray },
+        DiffviewFilePanelPath = { fg = colors.palette.gray },
         DiffviewFilePanelInsertions = { fg = colors.palette.green },
         DiffviewFilePanelDeletions = { fg = colors.palette.red },
         DiffviewStatusAdded = { fg = colors.palette.green },
@@ -535,7 +535,7 @@ local function get_default_highlights(colors, config)
             bg = config.transparent and colors.none or colors.semantic.bg0,
         },
         NvimTreeVertSplit = {
-            fg = colors.palette.grey,
+            fg = colors.palette.gray,
             bg = config.transparent and colors.none or colors.semantic.bg1,
         },
         NvimTreeEndOfBuffer = {
@@ -554,7 +554,7 @@ local function get_default_highlights(colors, config)
         NvimTreeCursorLine = { bg = colors.semantic.bg1 },
         NvimTreeWindowPicker = {
             fg = colors.palette.white,
-            bg = colors.palette.grey,
+            bg = colors.palette.gray,
         },
     }
 
@@ -580,9 +580,9 @@ local function get_default_highlights(colors, config)
         TelescopeNormal = { bg = colors.semantic.bg1 },
         TelescopeTitle = { fg = colors.palette.dark_yellow },
         TelescopeBorder = { fg = colors.palette.red },
-        TelescopePromptBorder = { fg = colors.palette.grey },
-        TelescopeResultsBorder = { fg = colors.palette.grey },
-        TelescopePreviewBorder = { fg = colors.palette.grey },
+        TelescopePromptBorder = { fg = colors.palette.gray },
+        TelescopeResultsBorder = { fg = colors.palette.gray },
+        TelescopePreviewBorder = { fg = colors.palette.gray },
         TelescopeMatching = { fg = colors.palette.dark_yellow, fmt = "bold" },
         TelescopePromptPrefix = { fg = colors.palette.green },
         TelescopeSelection = { bg = colors.semantic.bg2 },
@@ -613,7 +613,7 @@ local function get_default_highlights(colors, config)
 
     ---@type HighlightGroup
     higlights.plugins.ts_rainbow = {
-        rainbowcol1 = { fg = colors.palette.grey },
+        rainbowcol1 = { fg = colors.palette.gray },
         rainbowcol2 = { fg = colors.palette.yellow },
         rainbowcol3 = { fg = colors.palette.blue },
         rainbowcol4 = { fg = colors.palette.dark_yellow },
@@ -682,9 +682,9 @@ local function get_default_highlights(colors, config)
 
     ---@type HighlightGroup
     higlights.langs.markdown = {
-        markdownBlockquote = { fg = colors.palette.grey },
+        markdownBlockquote = { fg = colors.palette.gray },
         markdownBold = { fg = colors.none, fmt = "bold" },
-        markdownBoldDelimiter = { fg = colors.palette.grey },
+        markdownBoldDelimiter = { fg = colors.palette.gray },
         markdownCode = { fg = colors.palette.green },
         markdownCodeBlock = { fg = colors.palette.green },
         markdownCodeDelimiter = { fg = colors.palette.yellow },
@@ -694,20 +694,20 @@ local function get_default_highlights(colors, config)
         markdownH4 = { fg = colors.palette.red, fmt = "bold" },
         markdownH5 = { fg = colors.palette.purple, fmt = "bold" },
         markdownH6 = { fg = colors.palette.dark_yellow, fmt = "bold" },
-        markdownHeadingDelimiter = { fg = colors.palette.grey },
-        markdownHeadingRule = { fg = colors.palette.grey },
+        markdownHeadingDelimiter = { fg = colors.palette.gray },
+        markdownHeadingRule = { fg = colors.palette.gray },
         markdownId = { fg = colors.palette.yellow },
         markdownIdDeclaration = { fg = colors.palette.red },
         markdownItalic = { fg = colors.none, fmt = "italic" },
-        markdownItalicDelimiter = { fg = colors.palette.grey, fmt = "italic" },
-        markdownLinkDelimiter = { fg = colors.palette.grey },
+        markdownItalicDelimiter = { fg = colors.palette.gray, fmt = "italic" },
+        markdownLinkDelimiter = { fg = colors.palette.gray },
         markdownLinkText = { fg = colors.palette.red },
-        markdownLinkTextDelimiter = { fg = colors.palette.grey },
+        markdownLinkTextDelimiter = { fg = colors.palette.gray },
         markdownListMarker = { fg = colors.palette.red },
         markdownOrderedListMarker = { fg = colors.palette.red },
         markdownRule = { fg = colors.palette.purple },
         markdownUrl = { fg = colors.palette.blue, fmt = "underline" },
-        markdownUrlDelimiter = { fg = colors.palette.grey },
+        markdownUrlDelimiter = { fg = colors.palette.gray },
         markdownUrlTitleDelimiter = { fg = colors.palette.green },
     }
 

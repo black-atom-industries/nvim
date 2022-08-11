@@ -18,7 +18,7 @@ M.primary = {
 ---@class Palette Base theme color pallette
 M.palette = {
     black = M.primary[1],
-    grey = "#455F56",
+    gray = "#455F56",
 
     dark_red = "#DA5B50",
     red = "#D67676",
@@ -38,7 +38,7 @@ M.palette = {
     dark_cyan = "#47945D",
     cyan = "#7CC08F",
 
-    light_grey = "#9EB6A5",
+    light_grey = "#9EB6A5", -- TODO rename to `gray`
     white = "#F1E5D6",
 }
 
@@ -53,7 +53,7 @@ M.semantic = {
 
     fg = M.palette.white,
     fg_active = M.palette.yellow,
-    fg_dimmed = M.palette.grey,
+    fg_dimmed = M.palette.gray,
 
     diff_add = M.palette.green,
     diff_delete = M.palette.red,

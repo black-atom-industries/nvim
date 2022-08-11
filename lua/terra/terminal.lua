@@ -9,7 +9,7 @@ function M.setup()
 
     local colors = require("terra.colors")
 
-    vim.g.terminal_color_0 = colors.palette.grey
+    vim.g.terminal_color_0 = colors.palette.gray
     vim.g.terminal_color_1 = colors.palette.red
     vim.g.terminal_color_2 = colors.palette.green
     vim.g.terminal_color_3 = colors.palette.yellow
