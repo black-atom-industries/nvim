@@ -2,8 +2,6 @@ local colors = require("terra.colors")
 local set_highlight_group = require("terra.actions.highlights").set_highlight_group
 local notify = require("terra.actions.ui").notify
 
-local config = vim.g.terra_config
-
 local themes = {
     spring = {
         night = require("terra.themes.spring.night").highlights,
@@ -18,16 +16,6 @@ function M.setup()
     local time = vim.g.terra_config.time
 
     local highlights = themes[season][time]
-
-    -- QUESTION: SHould not happening in the default highlights or theme highlights ??
-    -- define cmp and aerial kind highlights with lsp_kind_icons_color
-    for kind, color in pairs(highlights.lsp_kind_icons_color) do
-        highlights.plugins.cmp["CmpItemKind" .. kind] = {
-            fg = color,
-            fmt = config.cmp_itemkind_reverse and "reverse",
-        }
-        highlights.plugins.outline["Aerial" .. kind .. "Icon"] = { fg = color }
-    end
 
     -- Set common highlights
     set_highlight_group(highlights.common)

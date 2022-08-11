@@ -7,10 +7,10 @@ local darken = require("terra.actions").color.darken
 local function get_default_highlights(colors, config)
     -- NOTE: Improve typing that all nested keys are appear on completion
     ---@class Highlights
-    local higlights = { langs = {}, plugins = {} }
+    local highlights = { langs = {}, plugins = {} }
 
     ---@type HighlightGroup
-    higlights.common = {
+    highlights.common = {
         Normal = {
             fg = colors.semantic.fg,
             bg = config.transparent and colors.none or colors.semantic.bg1,
@@ -96,7 +96,7 @@ local function get_default_highlights(colors, config)
     }
 
     ---@type HighlightGroup
-    higlights.syntax = {
+    highlights.syntax = {
         String = { fg = colors.palette.cyan, fmt = config.code_style.strings },
         Character = { fg = colors.palette.yellow },
         Number = { fg = colors.palette.dark_yellow },
@@ -139,7 +139,7 @@ local function get_default_highlights(colors, config)
     }
 
     ---@type HighlightGroup
-    higlights.treesitter = {
+    highlights.treesitter = {
         TSAnnotation = { fg = colors.semantic.fg },
         TSAttribute = { fg = colors.palette.cyan },
         TSBoolean = { fg = colors.palette.dark_yellow },
@@ -245,7 +245,7 @@ local function get_default_highlights(colors, config)
         or colors.palette.cyan
 
     ---@type HighlightGroup
-    higlights.plugins.lsp = {
+    highlights.plugins.lsp = {
         LspCxxHlGroupEnumConstant = { fg = colors.palette.dark_yellow },
         LspCxxHlGroupMemberVariable = { fg = colors.palette.dark_yellow },
         LspCxxHlGroupNamespace = { fg = colors.palette.blue },
@@ -315,40 +315,40 @@ local function get_default_highlights(colors, config)
         LspCodeLensSeparator = { fg = colors.palette.gray },
     }
 
-    higlights.plugins.lsp.LspDiagnosticsDefaultError =
-        higlights.plugins.lsp.DiagnosticError
-    higlights.plugins.lsp.LspDiagnosticsDefaultHint =
-        higlights.plugins.lsp.DiagnosticHint
-    higlights.plugins.lsp.LspDiagnosticsDefaultInformation =
-        higlights.plugins.lsp.DiagnosticInfo
-    higlights.plugins.lsp.LspDiagnosticsDefaultWarning =
-        higlights.plugins.lsp.DiagnosticWarn
-    higlights.plugins.lsp.LspDiagnosticsUnderlineError =
-        higlights.plugins.lsp.DiagnosticUnderlineError
-    higlights.plugins.lsp.LspDiagnosticsUnderlineHint =
-        higlights.plugins.lsp.DiagnosticUnderlineHint
-    higlights.plugins.lsp.LspDiagnosticsUnderlineInformation =
-        higlights.plugins.lsp.DiagnosticUnderlineInfo
-    higlights.plugins.lsp.LspDiagnosticsUnderlineWarning =
-        higlights.plugins.lsp.DiagnosticUnderlineWarn
-    higlights.plugins.lsp.LspDiagnosticsVirtualTextError =
-        higlights.plugins.lsp.DiagnosticVirtualTextError
-    higlights.plugins.lsp.LspDiagnosticsVirtualTextWarning =
-        higlights.plugins.lsp.DiagnosticVirtualTextWarn
-    higlights.plugins.lsp.LspDiagnosticsVirtualTextInformation =
-        higlights.plugins.lsp.DiagnosticVirtualTextInfo
-    higlights.plugins.lsp.LspDiagnosticsVirtualTextHint =
-        higlights.plugins.lsp.DiagnosticVirtualTextHint
+    highlights.plugins.lsp.LspDiagnosticsDefaultError =
+        highlights.plugins.lsp.DiagnosticError
+    highlights.plugins.lsp.LspDiagnosticsDefaultHint =
+        highlights.plugins.lsp.DiagnosticHint
+    highlights.plugins.lsp.LspDiagnosticsDefaultInformation =
+        highlights.plugins.lsp.DiagnosticInfo
+    highlights.plugins.lsp.LspDiagnosticsDefaultWarning =
+        highlights.plugins.lsp.DiagnosticWarn
+    highlights.plugins.lsp.LspDiagnosticsUnderlineError =
+        highlights.plugins.lsp.DiagnosticUnderlineError
+    highlights.plugins.lsp.LspDiagnosticsUnderlineHint =
+        highlights.plugins.lsp.DiagnosticUnderlineHint
+    highlights.plugins.lsp.LspDiagnosticsUnderlineInformation =
+        highlights.plugins.lsp.DiagnosticUnderlineInfo
+    highlights.plugins.lsp.LspDiagnosticsUnderlineWarning =
+        highlights.plugins.lsp.DiagnosticUnderlineWarn
+    highlights.plugins.lsp.LspDiagnosticsVirtualTextError =
+        highlights.plugins.lsp.DiagnosticVirtualTextError
+    highlights.plugins.lsp.LspDiagnosticsVirtualTextWarning =
+        highlights.plugins.lsp.DiagnosticVirtualTextWarn
+    highlights.plugins.lsp.LspDiagnosticsVirtualTextInformation =
+        highlights.plugins.lsp.DiagnosticVirtualTextInfo
+    highlights.plugins.lsp.LspDiagnosticsVirtualTextHint =
+        highlights.plugins.lsp.DiagnosticVirtualTextHint
 
     ---@type HighlightGroup
-    higlights.plugins.ale = {
-        ALEErrorSign = higlights.plugins.lsp.DiagnosticError,
-        ALEInfoSign = higlights.plugins.lsp.DiagnosticInfo,
-        ALEWarningSign = higlights.plugins.lsp.DiagnosticWarn,
+    highlights.plugins.ale = {
+        ALEErrorSign = highlights.plugins.lsp.DiagnosticError,
+        ALEInfoSign = highlights.plugins.lsp.DiagnosticInfo,
+        ALEWarningSign = highlights.plugins.lsp.DiagnosticWarn,
     }
 
     ---@type HighlightGroup
-    higlights.plugins.barbar = {
+    highlights.plugins.barbar = {
         -- BufferLineFill = { bg = colors.semantic.bg0 },
         -- BufferLineBackground = { bg = colors.semantic.bg0 },
         -- BufferLineSeparator = { fg = colors.palette.red, bg = colors.palette.blue },
@@ -373,7 +373,7 @@ local function get_default_highlights(colors, config)
     }
 
     ---@type HighlightGroup
-    higlights.plugins.cmp = {
+    highlights.plugins.cmp = {
         CmpItemAbbr = { fg = colors.semantic.fg },
         CmpItemAbbrDeprecated = {
             fg = colors.palette.light_gray,
@@ -389,15 +389,15 @@ local function get_default_highlights(colors, config)
     }
 
     ---@type HighlightGroup
-    higlights.plugins.coc = {
-        CocErrorSign = higlights.plugins.lsp.DiagnosticError,
-        CocHintSign = higlights.plugins.lsp.DiagnosticHint,
-        CocInfoSign = higlights.plugins.lsp.DiagnosticInfo,
-        CocWarningSign = higlights.plugins.lsp.DiagnosticWarn,
+    highlights.plugins.coc = {
+        CocErrorSign = highlights.plugins.lsp.DiagnosticError,
+        CocHintSign = highlights.plugins.lsp.DiagnosticHint,
+        CocInfoSign = highlights.plugins.lsp.DiagnosticInfo,
+        CocWarningSign = highlights.plugins.lsp.DiagnosticWarn,
     }
 
     ---@type HighlightGroup
-    higlights.plugins.whichkey = {
+    highlights.plugins.whichkey = {
         WhichKey = { fg = colors.palette.red },
         WhichKeyDesc = { fg = colors.palette.blue },
         WhichKeyGroup = { fg = colors.palette.dark_yellow },
@@ -406,7 +406,7 @@ local function get_default_highlights(colors, config)
 
     -- QUESTION: Solvable with a Link to ToggleTermNormal?
     ---@type HighlightGroup
-    higlights.plugins.toggleterm = {
+    highlights.plugins.toggleterm = {
         ToggleTerm1FloatBorder = { fg = colors.palette.gray },
         ToggleTerm1NormalFloat = {
             fg = colors.semantic.fg,
@@ -455,14 +455,14 @@ local function get_default_highlights(colors, config)
     }
 
     ---@type HighlightGroup
-    higlights.plugins.gitgutter = {
+    highlights.plugins.gitgutter = {
         GitGutterAdd = { fg = colors.palette.green },
         GitGutterChange = { fg = colors.palette.blue },
         GitGutterDelete = { fg = colors.palette.red },
     }
 
     ---@type HighlightGroup
-    higlights.plugins.hop = {
+    highlights.plugins.hop = {
         HopNextKey = { fg = colors.palette.red, fmt = "bold" },
         HopNextKey1 = { fg = colors.palette.cyan, fmt = "bold" },
         HopNextKey2 = { fg = darken(colors.palette.blue, 0.7) },
@@ -471,17 +471,17 @@ local function get_default_highlights(colors, config)
 
     -- comment
     ---@type HighlightGroup
-    higlights.plugins.diffview = {
+    highlights.plugins.diffview = {
         DiffviewFilePanelTitle = { fg = colors.palette.blue, fmt = "bold" },
         DiffviewFilePanelCounter = { fg = colors.palette.purple, fmt = "bold" },
         DiffviewFilePanelFileName = { fg = colors.semantic.fg },
-        DiffviewNormal = higlights.common.Normal,
-        DiffviewCursorLine = higlights.common.CursorLine,
-        DiffviewVertSplit = higlights.common.VertSplit,
-        DiffviewSignColumn = higlights.common.SignColumn,
-        DiffviewStatusLine = higlights.common.StatusLine,
-        DiffviewStatusLineNC = higlights.common.StatusLineNC,
-        DiffviewEndOfBuffer = higlights.common.EndOfBuffer,
+        DiffviewNormal = highlights.common.Normal,
+        DiffviewCursorLine = highlights.common.CursorLine,
+        DiffviewVertSplit = highlights.common.VertSplit,
+        DiffviewSignColumn = highlights.common.SignColumn,
+        DiffviewStatusLine = highlights.common.StatusLine,
+        DiffviewStatusLineNC = highlights.common.StatusLineNC,
+        DiffviewEndOfBuffer = highlights.common.EndOfBuffer,
         DiffviewFilePanelRootPath = { fg = colors.palette.gray },
         DiffviewFilePanelPath = { fg = colors.palette.gray },
         DiffviewFilePanelInsertions = { fg = colors.palette.green },
@@ -499,7 +499,7 @@ local function get_default_highlights(colors, config)
     }
 
     ---@type HighlightGroup
-    higlights.plugins.gitsigns = {
+    highlights.plugins.gitsigns = {
         GitSignsAdd = { fg = colors.palette.green },
         GitSignsAddLn = { fg = colors.palette.green },
         GitSignsAddNr = { fg = colors.palette.green },
@@ -512,7 +512,7 @@ local function get_default_highlights(colors, config)
     }
 
     ---@type HighlightGroup
-    higlights.plugins.neotree = {
+    highlights.plugins.neotree = {
         NeoTreeNormal = {
             fg = colors.semantic.fg,
             bg = config.transparent and colors.none or colors.semantic.bg0,
@@ -528,7 +528,7 @@ local function get_default_highlights(colors, config)
     }
 
     ---@type HighlightGroup
-    higlights.plugins.nvim_tree = {
+    highlights.plugins.nvim_tree = {
         NvimTreeNormal = {
             fg = colors.semantic.fg,
             bg = config.transparent and colors.none or colors.semantic.bg0,
@@ -558,7 +558,7 @@ local function get_default_highlights(colors, config)
     }
 
     ---@type HighlightGroup
-    higlights.plugins.indent_blankline = {
+    highlights.plugins.indent_blankline = {
         -- IndentBlanklineChar
         -- IndentBlanklineSpaceChar
         -- IndentBlanklineSpaceCharBlankline
@@ -575,7 +575,7 @@ local function get_default_highlights(colors, config)
     }
 
     ---@type HighlightGroup
-    higlights.plugins.telescope = {
+    highlights.plugins.telescope = {
         TelescopeNormal = { bg = colors.semantic.bg1 },
         TelescopeTitle = { fg = colors.palette.dark_yellow },
         TelescopeBorder = { fg = colors.palette.red },
@@ -589,7 +589,7 @@ local function get_default_highlights(colors, config)
     }
 
     ---@type HighlightGroup
-    higlights.plugins.dashboard = {
+    highlights.plugins.dashboard = {
         DashboardShortCut = { fg = colors.palette.blue },
         DashboardHeader = { fg = colors.palette.yellow },
         DashboardCenter = { fg = colors.palette.cyan },
@@ -597,7 +597,7 @@ local function get_default_highlights(colors, config)
     }
 
     ---@type HighlightGroup
-    higlights.plugins.outline = {
+    highlights.plugins.outline = {
         FocusedSymbol = {
             fg = colors.palette.purple,
             bg = colors.semantic.bg2,
@@ -611,7 +611,7 @@ local function get_default_highlights(colors, config)
     }
 
     ---@type HighlightGroup
-    higlights.plugins.ts_rainbow = {
+    highlights.plugins.ts_rainbow = {
         rainbowcol1 = { fg = colors.palette.gray },
         rainbowcol2 = { fg = colors.palette.yellow },
         rainbowcol3 = { fg = colors.palette.blue },
@@ -622,7 +622,7 @@ local function get_default_highlights(colors, config)
     }
 
     ---@type HighlightGroup
-    higlights.plugins.incline = {
+    highlights.plugins.incline = {
         InclineNormal = {
             fg = colors.semantic.fg_active,
             bg = colors.semantic.bg0,
@@ -635,7 +635,7 @@ local function get_default_highlights(colors, config)
     }
 
     ---@type HighlightGroup
-    higlights.langs.css = {
+    highlights.langs.css = {
         cssPositioningAttr = { fg = colors.palette.yellow },
         cssBoxAttr = { fg = colors.palette.yellow },
         cssTextAttr = { fg = colors.palette.blue },
@@ -647,7 +647,7 @@ local function get_default_highlights(colors, config)
     }
 
     ---@type HighlightGroup
-    higlights.langs.sass = {
+    highlights.langs.sass = {
         sassVariable = { fg = colors.palette.dark_yellow },
         sassProperty = { fg = colors.palette.blue },
         sassMixing = { fg = colors.palette.red },
@@ -659,7 +659,7 @@ local function get_default_highlights(colors, config)
     }
 
     ---@type HighlightGroup
-    higlights.langs.c = {
+    highlights.langs.c = {
         cInclude = { fg = colors.palette.blue },
         cStorageClass = { fg = colors.palette.purple },
         cTypedef = { fg = colors.palette.purple },
@@ -671,7 +671,7 @@ local function get_default_highlights(colors, config)
     }
 
     ---@type HighlightGroup
-    higlights.langs.cpp = {
+    highlights.langs.cpp = {
         cppStatement = { fg = colors.palette.purple, fmt = "bold" },
         cppTSInclude = { fg = colors.palette.blue },
         cppTSConstant = { fg = colors.palette.cyan },
@@ -680,7 +680,7 @@ local function get_default_highlights(colors, config)
     }
 
     ---@type HighlightGroup
-    higlights.langs.markdown = {
+    highlights.langs.markdown = {
         markdownBlockquote = { fg = colors.palette.gray },
         markdownBold = { fg = colors.none, fmt = "bold" },
         markdownBoldDelimiter = { fg = colors.palette.gray },
@@ -711,7 +711,7 @@ local function get_default_highlights(colors, config)
     }
 
     ---@type HighlightGroup
-    higlights.langs.php = {
+    highlights.langs.php = {
         phpFunctions = {
             fg = colors.semantic.fg,
             fmt = config.code_style.functions,
@@ -744,7 +744,7 @@ local function get_default_highlights(colors, config)
     }
 
     ---@type HighlightGroup
-    higlights.langs.scala = {
+    highlights.langs.scala = {
         scalaNameDefinition = { fg = colors.semantic.fg },
         scalaInterpolationBoundary = { fg = colors.palette.purple },
         scalaInterpolation = { fg = colors.palette.purple },
@@ -757,7 +757,7 @@ local function get_default_highlights(colors, config)
     }
 
     ---@type HighlightGroup
-    higlights.langs.tex = {
+    highlights.langs.tex = {
         latexTSInclude = { fg = colors.palette.blue },
         latexTSFuncMacro = {
             fg = colors.semantic.fg,
@@ -782,7 +782,7 @@ local function get_default_highlights(colors, config)
     }
 
     ---@type HighlightGroup
-    higlights.langs.vim = {
+    highlights.langs.vim = {
         vimOption = { fg = colors.palette.red },
         vimSetEqual = { fg = colors.palette.yellow },
         vimMap = { fg = colors.palette.purple },
@@ -797,7 +797,7 @@ local function get_default_highlights(colors, config)
         },
     }
 
-    higlights.lsp_kind_icons_color = {
+    highlights.lsp_kind_icons_color = {
         Default = colors.palette.purple,
         Class = colors.palette.yellow,
         Color = colors.palette.green,
@@ -826,7 +826,15 @@ local function get_default_highlights(colors, config)
         Variable = colors.palette.purple,
     }
 
-    return higlights
+    for kind, color in pairs(highlights.lsp_kind_icons_color) do
+        highlights.plugins.cmp["CmpItemKind" .. kind] = {
+            fg = color,
+            fmt = config.cmp_itemkind_reverse and "reverse",
+        }
+        highlights.plugins.outline["Aerial" .. kind .. "Icon"] = { fg = color }
+    end
+
+    return highlights
 end
 
 return get_default_highlights
