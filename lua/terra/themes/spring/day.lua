@@ -6,40 +6,43 @@ local M = {}
 M.primary = {
     "#141F19",
     "#17251E",
-    "#123524",
-    "#1B5037",
-    "#256C49",
-    "#50946A",
-    "#79B791",
-    "#ADE3C9",
-    "#D6F1E4",
+    "#1B2C24",
+    "#284336",
+    "#4E7E66",
+    "#5D9579",
+    "#71A78C",
+    "#89B69F",
+    "#A1C4B2",
+    "#B8D3C6",
+    "#D0E2D9",
+    "#E7F0EC",
 }
 
 ---@class Palette Base theme color pallette
 M.palette = {
     black = M.primary[1],
-    grey = "#455F56",
+    grey = M.primary[4], -- FIX: grey/gray
 
-    dark_red = "#DA5B50",
-    red = "#D67676",
+    dark_red = "#d6582e",
+    red = "#da714d",
 
-    dark_green = M.primary[5],
-    green = "#619B8A",
+    dark_green = "#5b9257",
+    green = "#83c67f",
 
-    dark_yellow = "#DD9046",
+    dark_yellow = "#faa04c",
     yellow = "#F2C14E",
 
-    dark_blue = "#629AD2",
+    dark_blue = "#6199d1",
     blue = "#7CA6CF",
 
     dark_purple = "#B07BAC",
     purple = "#BFA9D6",
 
-    dark_cyan = "#47945D",
-    cyan = "#7CC08F",
+    dark_cyan = "#5aaf7d",
+    cyan = "#75bd93",
 
-    light_grey = "#9EB6A5",
-    white = "#F1E5D6",
+    light_gray = M.primary[9],
+    white = M.primary[11],
 }
 
 -- NOTE: Build out and improve and align semantics with vscode
