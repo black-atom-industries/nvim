@@ -110,7 +110,7 @@ local function get_default_highlights(colors, config)
         PreProc = { fg = colors.palette.purple },
         PreCondit = { fg = colors.palette.purple },
         Include = { fg = colors.palette.purple },
-        Keyword = { fg = colors.palette.purple, fmt = config.code_style.keywords },
+        Keyword = { fg = colors.palette.red, fmt = config.code_style.keywords },
         Define = { fg = colors.palette.purple },
         Typedef = { fg = colors.palette.purple },
         Exception = { fg = colors.palette.purple },
@@ -176,7 +176,7 @@ local function get_default_highlights(colors, config)
             fmt = config.code_style.functions,
         },
         TSKeywordOperator = {
-            fg = colors.palette.purple,
+            fg = colors.palette.red,
             fmt = config.code_style.keywords,
         },
         TSLabel = { fg = colors.palette.dark_yellow },
@@ -192,7 +192,7 @@ local function get_default_highlights(colors, config)
         TSPunctBracket = { fg = colors.palette.white },
         TSPunctSpecial = { fg = colors.palette.red },
         TSRepeat = { fg = colors.palette.purple, fmt = config.code_style.keywords },
-        TSString = { fg = colors.palette.cyan, fmt = config.code_style.strings },
+        TSString = { fg = colors.palette.green, fmt = config.code_style.strings },
         TSStringRegex = {
             fg = colors.palette.dark_yellow,
             fmt = config.code_style.strings,
@@ -219,8 +219,8 @@ local function get_default_highlights(colors, config)
         TSNote = { fg = colors.semantic.fg },
         TSWarning = { fg = colors.semantic.fg },
         TSDanger = { fg = colors.semantic.fg },
-        TSType = { fg = colors.palette.yellow },
-        TSTypeBuiltin = { fg = colors.palette.yellow },
+        TSType = { fg = colors.palette.cyan },
+        TSTypeBuiltin = { fg = colors.palette.dark_cyan },
         TSVariable = {
             fg = colors.palette.dark_yellow,
             fmt = config.code_style.variables,
@@ -232,16 +232,16 @@ local function get_default_highlights(colors, config)
     }
 
     local diagnostics_error_color = config.diagnostics.darker
-            and colors.palette.dark_red
+        and colors.palette.dark_red
         or colors.palette.red
     local diagnostics_hint_color = config.diagnostics.darker
-            and colors.palette.dark_blue
+        and colors.palette.dark_blue
         or colors.palette.blue
     local diagnostics_warn_color = config.diagnostics.darker
-            and colors.palette.dark_yellow
+        and colors.palette.dark_yellow
         or colors.palette.yellow
     local diagnostics_info_color = config.diagnostics.darker
-            and colors.palette.dark_cyan
+        and colors.palette.dark_cyan
         or colors.palette.cyan
 
     ---@type HighlightGroup
@@ -316,29 +316,29 @@ local function get_default_highlights(colors, config)
     }
 
     highlights.plugins.lsp.LspDiagnosticsDefaultError =
-        highlights.plugins.lsp.DiagnosticError
+    highlights.plugins.lsp.DiagnosticError
     highlights.plugins.lsp.LspDiagnosticsDefaultHint =
-        highlights.plugins.lsp.DiagnosticHint
+    highlights.plugins.lsp.DiagnosticHint
     highlights.plugins.lsp.LspDiagnosticsDefaultInformation =
-        highlights.plugins.lsp.DiagnosticInfo
+    highlights.plugins.lsp.DiagnosticInfo
     highlights.plugins.lsp.LspDiagnosticsDefaultWarning =
-        highlights.plugins.lsp.DiagnosticWarn
+    highlights.plugins.lsp.DiagnosticWarn
     highlights.plugins.lsp.LspDiagnosticsUnderlineError =
-        highlights.plugins.lsp.DiagnosticUnderlineError
+    highlights.plugins.lsp.DiagnosticUnderlineError
     highlights.plugins.lsp.LspDiagnosticsUnderlineHint =
-        highlights.plugins.lsp.DiagnosticUnderlineHint
+    highlights.plugins.lsp.DiagnosticUnderlineHint
     highlights.plugins.lsp.LspDiagnosticsUnderlineInformation =
-        highlights.plugins.lsp.DiagnosticUnderlineInfo
+    highlights.plugins.lsp.DiagnosticUnderlineInfo
     highlights.plugins.lsp.LspDiagnosticsUnderlineWarning =
-        highlights.plugins.lsp.DiagnosticUnderlineWarn
+    highlights.plugins.lsp.DiagnosticUnderlineWarn
     highlights.plugins.lsp.LspDiagnosticsVirtualTextError =
-        highlights.plugins.lsp.DiagnosticVirtualTextError
+    highlights.plugins.lsp.DiagnosticVirtualTextError
     highlights.plugins.lsp.LspDiagnosticsVirtualTextWarning =
-        highlights.plugins.lsp.DiagnosticVirtualTextWarn
+    highlights.plugins.lsp.DiagnosticVirtualTextWarn
     highlights.plugins.lsp.LspDiagnosticsVirtualTextInformation =
-        highlights.plugins.lsp.DiagnosticVirtualTextInfo
+    highlights.plugins.lsp.DiagnosticVirtualTextInfo
     highlights.plugins.lsp.LspDiagnosticsVirtualTextHint =
-        highlights.plugins.lsp.DiagnosticVirtualTextHint
+    highlights.plugins.lsp.DiagnosticVirtualTextHint
 
     ---@type HighlightGroup
     highlights.plugins.ale = {
@@ -522,7 +522,7 @@ local function get_default_highlights(colors, config)
             bg = config.transparent and colors.none or colors.semantic.bg0,
         },
         NeoTreeEndOfBuffer = {
-            fg = colors.semantic.fg,
+            fg = config.ending_tildes and colors.palette.red or colors.semantic.bg0,
             bg = config.transparent and colors.none or colors.semantic.bg0,
         },
     }
@@ -632,6 +632,12 @@ local function get_default_highlights(colors, config)
             fg = colors.semantic.fg_dimmed,
             bg = colors.semantic.bg0,
         },
+    }
+
+    ---@type HighlightGroup
+    highlights.langs.typescript = {
+        typescriptArrowFuncDef = { fg = colors.palette.dark_yellow },
+        typescriptVariable = { fg = colors.palette.red },
     }
 
     ---@type HighlightGroup
