@@ -1,4 +1,7 @@
-local darken = require("terra.actions").color.darken
+local actions = require("terra.actions")
+
+local extend_with_code_style = actions.highlights.extend_with_code_style
+local darken = actions.color.darken
 
 ---Returns the default Highlights
 ---@param colors Colors
@@ -36,11 +39,11 @@ local function get_default_highlights(colors, config)
             bg = config.transparent and colors.none or colors.semantic.bg1,
         },
         ToolbarLine = { fg = colors.semantic.fg },
-        Cursor = { fmt = "reverse" },
-        vCursor = { fmt = "reverse" },
-        iCursor = { fmt = "reverse" },
-        lCursor = { fmt = "reverse" },
-        CursorIM = { fmt = "reverse" },
+        Cursor = { reverse = true },
+        vCursor = { reverse = true },
+        iCursor = { reverse = true },
+        lCursor = { reverse = true },
+        CursorIM = { reverse = true },
         CursorColumn = { bg = colors.semantic.bg2 },
         CursorLine = { bg = colors.semantic.bg2 },
         ColorColumn = { bg = colors.semantic.bg2 },
@@ -56,9 +59,9 @@ local function get_default_highlights(colors, config)
         DiffFile = { fg = colors.palette.cyan },
         DiffIndexLine = { fg = colors.palette.gray },
         Directory = { fg = colors.palette.blue },
-        ErrorMsg = { fg = colors.palette.red, fmt = "bold" },
-        WarningMsg = { fg = colors.palette.yellow, fmt = "bold" },
-        MoreMsg = { fg = colors.palette.blue, fmt = "bold" },
+        ErrorMsg = { fg = colors.palette.red, bold = true },
+        WarningMsg = { fg = colors.palette.yellow, bold = true },
+        MoreMsg = { fg = colors.palette.blue, bold = true },
         IncSearch = { fg = colors.semantic.bg0, bg = colors.palette.blue },
         Search = { fg = colors.semantic.bg0, bg = colors.palette.blue },
         Substitute = { fg = colors.semantic.bg0, bg = colors.palette.green },
@@ -97,7 +100,10 @@ local function get_default_highlights(colors, config)
 
     ---@type HighlightGroup
     highlights.syntax = {
-        String = { fg = colors.palette.cyan, fmt = config.code_style.strings },
+        String = extend_with_code_style(
+            { fg = colors.palette.cyan },
+            config.code_style.strings
+        ),
         Character = { fg = colors.palette.yellow },
         Number = { fg = colors.palette.dark_yellow },
         Float = { fg = colors.palette.dark_yellow },
@@ -105,80 +111,105 @@ local function get_default_highlights(colors, config)
         Type = { fg = colors.palette.yellow },
         Structure = { fg = colors.palette.yellow },
         StorageClass = { fg = colors.palette.blue },
-        Identifier = { fg = colors.palette.red, fmt = config.code_style.variables },
+        Identifier = extend_with_code_style(
+            { fg = colors.palette.red },
+            config.code_style.variables
+        ),
         Constant = { fg = colors.palette.dark_yellow },
         PreProc = { fg = colors.palette.purple },
         PreCondit = { fg = colors.palette.purple },
         Include = { fg = colors.palette.purple },
-        Keyword = { fg = colors.palette.red, fmt = config.code_style.keywords },
+        Keyword = extend_with_code_style(
+            { fg = colors.palette.red },
+            config.code_style.keywords
+        ),
         Define = { fg = colors.palette.purple },
         Typedef = { fg = colors.palette.purple },
         Exception = { fg = colors.palette.purple },
-        Conditional = {
-            fg = colors.palette.purple,
-            fmt = config.code_style.keywords,
-        },
-        Repeat = { fg = colors.palette.purple, fmt = config.code_style.keywords },
+        Conditional = extend_with_code_style(
+            { fg = colors.palette.purple },
+            config.code_style.keywords
+        ),
+        Repeat = extend_with_code_style(
+            { fg = colors.palette.purple },
+            config.code_style.keywords
+        ),
         Statement = { fg = colors.palette.purple },
         Macro = { fg = colors.palette.red },
         Error = { fg = colors.palette.purple },
         Label = { fg = colors.palette.purple },
         Special = { fg = colors.palette.red },
         SpecialChar = { fg = colors.palette.red },
-        Function = { fg = colors.palette.yellow, fmt = config.code_style.functions },
+        Function = extend_with_code_style(
+            { fg = colors.palette.yellow },
+            config.code_style.functions
+        ),
         Operator = { fg = colors.palette.purple },
         Title = { fg = colors.palette.cyan },
         Tag = { fg = colors.palette.green },
         Delimiter = { fg = colors.palette.light_gray },
-        Comment = { fg = colors.palette.gray, fmt = config.code_style.comments },
-        SpecialComment = {
-            fg = colors.palette.gray,
-            fmt = config.code_style.comments,
-        },
-        Todo = { fg = colors.palette.red, fmt = config.code_style.comments },
+        Comment = extend_with_code_style(
+            { fg = colors.palette.gray },
+            config.code_style.comments
+        ),
+        SpecialComment = extend_with_code_style(
+            { fg = colors.palette.gray },
+            config.code_style.comments
+        ),
+        Todo = extend_with_code_style(
+            { fg = colors.palette.red },
+            config.code_style.comments
+        ),
     }
 
+    -- NOTE: https://stackoverflow.com/a/11886528/10945408
     ---@type HighlightGroup
     highlights.treesitter = {
         TSAnnotation = { fg = colors.semantic.fg },
         TSAttribute = { fg = colors.palette.cyan },
         TSBoolean = { fg = colors.palette.dark_yellow },
         TSCharacter = { fg = colors.palette.dark_yellow },
-        TSComment = { fg = colors.palette.gray, fmt = config.code_style.comments },
-        TSConditional = {
-            fg = colors.palette.purple,
-            fmt = config.code_style.keywords,
-        },
+        TSComment = extend_with_code_style(
+            { fg = colors.palette.gray },
+            config.code_style.comments
+        ),
+        TSConditional = extend_with_code_style(
+            { fg = colors.palette.purple },
+            config.code_style.keywords
+        ),
         TSConstant = { fg = colors.palette.dark_yellow },
         TSConstBuiltin = { fg = colors.palette.dark_yellow },
         TSConstMacro = { fg = colors.palette.dark_yellow },
-        TSConstructor = { fg = colors.palette.yellow, fmt = "bold" },
+        TSConstructor = { fg = colors.palette.yellow, bold = true },
         TSError = { fg = colors.semantic.fg },
         TSException = { fg = colors.palette.purple },
         TSField = { fg = colors.palette.cyan },
         TSFloat = { fg = colors.palette.dark_yellow },
-        TSFunction = {
-            fg = colors.palette.yellow,
-            fmt = config.code_style.functions,
-        },
-        TSFuncBuiltin = {
-            fg = colors.palette.cyan,
-            fmt = config.code_style.functions,
-        },
-        TSFuncMacro = {
-            fg = colors.palette.cyan,
-            fmt = config.code_style.functions,
-        },
+        TSFunction = extend_with_code_style(
+            { fg = colors.palette.yellow },
+            config.code_style.functions
+        ),
+        TSFuncBuiltin = extend_with_code_style(
+            { fg = colors.palette.cyan },
+            config.code_style.functions
+        ),
+        TSFuncMacro = extend_with_code_style(
+            { fg = colors.palette.cyan },
+            config.code_style.functions
+        ),
         TSInclude = { fg = colors.palette.purple },
-        TSKeyword = { fg = colors.palette.red, fmt = config.code_style.keywords },
-        TSKeywordFunction = {
-            fg = colors.palette.purple,
-            fmt = config.code_style.functions,
-        },
-        TSKeywordOperator = {
+        TSKeyword = extend_with_code_style({
             fg = colors.palette.red,
-            fmt = config.code_style.keywords,
-        },
+            bold = true,
+        }, config.code_style.keywords),
+        TSKeywordFunction = extend_with_code_style(
+            { fg = colors.palette.purple },
+            config.code_style.functions
+        ),
+        TSKeywordOperator = extend_with_code_style(
+            { fg = colors.palette.red },
+            config.code_style.keywords
+        ),
         TSLabel = { fg = colors.palette.dark_yellow },
         TSMethod = { fg = colors.palette.blue },
         TSNamespace = { fg = colors.palette.yellow },
@@ -191,27 +222,33 @@ local function get_default_highlights(colors, config)
         TSPunctDelimiter = { fg = colors.palette.white },
         TSPunctBracket = { fg = colors.palette.white },
         TSPunctSpecial = { fg = colors.palette.red },
-        TSRepeat = { fg = colors.palette.purple, fmt = config.code_style.keywords },
-        TSString = { fg = colors.palette.green, fmt = config.code_style.strings },
-        TSStringRegex = {
-            fg = colors.palette.dark_yellow,
-            fmt = config.code_style.strings,
-        },
-        TSStringEscape = {
-            fg = colors.palette.red,
-            fmt = config.code_style.strings,
-        },
+        TSRepeat = extend_with_code_style(
+            { fg = colors.palette.purple },
+            config.code_style.keywords
+        ),
+        TSString = extend_with_code_style(
+            { fg = colors.palette.green },
+            config.code_style.strings
+        ),
+        TSStringRegex = extend_with_code_style(
+            { fg = colors.palette.dark_yellow },
+            config.code_style.strings
+        ),
+        TSStringEscape = extend_with_code_style(
+            { fg = colors.palette.red },
+            config.code_style.strings
+        ),
         TSSymbol = { fg = colors.palette.cyan },
         TSTag = { fg = colors.palette.yellow },
         TSTagDelimiter = { fg = colors.palette.dark_yellow },
         TSText = { fg = colors.semantic.fg },
-        TSStrong = { fg = colors.semantic.fg, fmt = "bold" },
-        TSEmphasis = { fg = colors.semantic.fg, fmt = "italic" },
-        TSUnderline = { fg = colors.semantic.fg, fmt = "underline" },
-        TSStrike = { fg = colors.semantic.fg, fmt = "strikethrough" },
-        TSTitle = { fg = colors.palette.dark_yellow, fmt = "bold" },
+        TSStrong = { fg = colors.semantic.fg, bold = true },
+        TSEmphasis = { fg = colors.semantic.fg, italic = true },
+        TSUnderline = { fg = colors.semantic.fg, underline = true },
+        TSStrike = { fg = colors.semantic.fg, strikethrough = true },
+        TSTitle = { fg = colors.palette.dark_yellow, bold = true },
         TSLiteral = { fg = colors.palette.green },
-        TSURI = { fg = colors.palette.cyan, fmt = "underline" },
+        TSURI = { fg = colors.palette.cyan, underline = true },
         TSMath = { fg = colors.semantic.fg },
         TSTextReference = { fg = colors.palette.blue },
         TSEnviroment = { fg = colors.semantic.fg },
@@ -221,27 +258,27 @@ local function get_default_highlights(colors, config)
         TSDanger = { fg = colors.semantic.fg },
         TSType = { fg = colors.palette.cyan },
         TSTypeBuiltin = { fg = colors.palette.dark_cyan },
-        TSVariable = {
-            fg = colors.palette.dark_yellow,
-            fmt = config.code_style.variables,
-        },
-        TSVariableBuiltin = {
-            fg = colors.palette.red,
-            fmt = config.code_style.variables,
-        },
+        TSVariable = extend_with_code_style(
+            { fg = colors.palette.dark_yellow },
+            config.code_style.variables
+        ),
+        TSVariableBuiltin = extend_with_code_style(
+            { fg = colors.palette.red },
+            config.code_style.variables
+        ),
     }
 
     local diagnostics_error_color = config.diagnostics.darker
-        and colors.palette.dark_red
+            and colors.palette.dark_red
         or colors.palette.red
     local diagnostics_hint_color = config.diagnostics.darker
-        and colors.palette.dark_blue
+            and colors.palette.dark_blue
         or colors.palette.blue
     local diagnostics_warn_color = config.diagnostics.darker
-        and colors.palette.dark_yellow
+            and colors.palette.dark_yellow
         or colors.palette.yellow
     local diagnostics_info_color = config.diagnostics.darker
-        and colors.palette.dark_cyan
+            and colors.palette.dark_cyan
         or colors.palette.cyan
 
     ---@type HighlightGroup
@@ -291,19 +328,19 @@ local function get_default_highlights(colors, config)
         },
 
         DiagnosticUnderlineError = {
-            fmt = config.diagnostics.undercurl and "undercurl" or "underline",
             sp = colors.palette.red,
+            config.diagnostics.undercurl and { undercurl = true },
         },
         DiagnosticUnderlineHint = {
-            fmt = config.diagnostics.undercurl and "undercurl" or "underline",
+            config.diagnostics.undercurl and { undercurl = true },
             sp = colors.palette.blue,
         },
         DiagnosticUnderlineInfo = {
-            fmt = config.diagnostics.undercurl and "undercurl" or "underline",
+            config.diagnostics.undercurl and { undercurl = true },
             sp = colors.palette.blue,
         },
         DiagnosticUnderlineWarn = {
-            fmt = config.diagnostics.undercurl and "undercurl" or "underline",
+            config.diagnostics.undercurl and { undercurl = true },
             sp = colors.palette.yellow,
         },
 
@@ -311,34 +348,34 @@ local function get_default_highlights(colors, config)
         LspReferenceWrite = { bg = colors.semantic.bg2 },
         LspReferenceRead = { bg = colors.semantic.bg2 },
 
-        LspCodeLens = { fg = colors.palette.gray, fmt = config.code_style.comments },
+        LspCodeLens = { fg = colors.palette.gray },
         LspCodeLensSeparator = { fg = colors.palette.gray },
     }
 
     highlights.plugins.lsp.LspDiagnosticsDefaultError =
-    highlights.plugins.lsp.DiagnosticError
+        highlights.plugins.lsp.DiagnosticError
     highlights.plugins.lsp.LspDiagnosticsDefaultHint =
-    highlights.plugins.lsp.DiagnosticHint
+        highlights.plugins.lsp.DiagnosticHint
     highlights.plugins.lsp.LspDiagnosticsDefaultInformation =
-    highlights.plugins.lsp.DiagnosticInfo
+        highlights.plugins.lsp.DiagnosticInfo
     highlights.plugins.lsp.LspDiagnosticsDefaultWarning =
-    highlights.plugins.lsp.DiagnosticWarn
+        highlights.plugins.lsp.DiagnosticWarn
     highlights.plugins.lsp.LspDiagnosticsUnderlineError =
-    highlights.plugins.lsp.DiagnosticUnderlineError
+        highlights.plugins.lsp.DiagnosticUnderlineError
     highlights.plugins.lsp.LspDiagnosticsUnderlineHint =
-    highlights.plugins.lsp.DiagnosticUnderlineHint
+        highlights.plugins.lsp.DiagnosticUnderlineHint
     highlights.plugins.lsp.LspDiagnosticsUnderlineInformation =
-    highlights.plugins.lsp.DiagnosticUnderlineInfo
+        highlights.plugins.lsp.DiagnosticUnderlineInfo
     highlights.plugins.lsp.LspDiagnosticsUnderlineWarning =
-    highlights.plugins.lsp.DiagnosticUnderlineWarn
+        highlights.plugins.lsp.DiagnosticUnderlineWarn
     highlights.plugins.lsp.LspDiagnosticsVirtualTextError =
-    highlights.plugins.lsp.DiagnosticVirtualTextError
+        highlights.plugins.lsp.DiagnosticVirtualTextError
     highlights.plugins.lsp.LspDiagnosticsVirtualTextWarning =
-    highlights.plugins.lsp.DiagnosticVirtualTextWarn
+        highlights.plugins.lsp.DiagnosticVirtualTextWarn
     highlights.plugins.lsp.LspDiagnosticsVirtualTextInformation =
-    highlights.plugins.lsp.DiagnosticVirtualTextInfo
+        highlights.plugins.lsp.DiagnosticVirtualTextInfo
     highlights.plugins.lsp.LspDiagnosticsVirtualTextHint =
-    highlights.plugins.lsp.DiagnosticVirtualTextHint
+        highlights.plugins.lsp.DiagnosticVirtualTextHint
 
     ---@type HighlightGroup
     highlights.plugins.ale = {
@@ -355,7 +392,7 @@ local function get_default_highlights(colors, config)
         -- BufferLineGroupSeparator = { bg = colors.semantic.bg0 },
         -- BufferLineSeparatorVisible = { fg = colors.semantic.bg0, bg = colors.semantic.bg0 },
 
-        -- BufferCurrent = { fmt = "bold" },
+        -- BufferCurrent = {  bold = true },
         -- BufferCurrentMod = { fg = colors.palette.dark_yellow, bg = colors.semantic.bg1, fmt = "bold,italic" },
         -- BufferCurrentSign = { fg = colors.palette.yellow },
         -- BufferInactiveMod = { fg = colors.palette.light_grey, bg = colors.semantic.bg2, fmt = "italic" },
@@ -377,14 +414,14 @@ local function get_default_highlights(colors, config)
         CmpItemAbbr = { fg = colors.semantic.fg },
         CmpItemAbbrDeprecated = {
             fg = colors.palette.light_gray,
-            fmt = "strikethrough",
+            strikethrough = true,
         },
         CmpItemAbbrMatch = { fg = colors.palette.cyan },
-        CmpItemAbbrMatchFuzzy = { fg = colors.palette.cyan, fmt = "underline" },
+        CmpItemAbbrMatchFuzzy = { fg = colors.palette.cyan, underline = true },
         CmpItemMenu = { fg = colors.palette.light_gray },
         CmpItemKind = {
             fg = colors.palette.purple,
-            fmt = config.cmp_itemkind_reverse and "reverse",
+            config.cmp_itemkind_reverse and { reverse = true },
         },
     }
 
@@ -463,8 +500,8 @@ local function get_default_highlights(colors, config)
 
     ---@type HighlightGroup
     highlights.plugins.hop = {
-        HopNextKey = { fg = colors.palette.red, fmt = "bold" },
-        HopNextKey1 = { fg = colors.palette.cyan, fmt = "bold" },
+        HopNextKey = { fg = colors.palette.red, bold = true },
+        HopNextKey1 = { fg = colors.palette.cyan, bold = true },
         HopNextKey2 = { fg = darken(colors.palette.blue, 0.7) },
         HopUnmatched = { fg = colors.palette.gray },
     }
@@ -472,8 +509,8 @@ local function get_default_highlights(colors, config)
     -- comment
     ---@type HighlightGroup
     highlights.plugins.diffview = {
-        DiffviewFilePanelTitle = { fg = colors.palette.blue, fmt = "bold" },
-        DiffviewFilePanelCounter = { fg = colors.palette.purple, fmt = "bold" },
+        DiffviewFilePanelTitle = { fg = colors.palette.blue, bold = true },
+        DiffviewFilePanelCounter = { fg = colors.palette.purple, bold = true },
         DiffviewFilePanelFileName = { fg = colors.semantic.fg },
         DiffviewNormal = highlights.common.Normal,
         DiffviewCursorLine = highlights.common.CursorLine,
@@ -541,11 +578,11 @@ local function get_default_highlights(colors, config)
             fg = config.ending_tildes and colors.semantic.bg2 or colors.semantic.bg1,
             bg = config.transparent and colors.none or colors.semantic.bg0,
         },
-        NvimTreeRootFolder = { fg = colors.palette.dark_yellow, fmt = "bold" },
+        NvimTreeRootFolder = { fg = colors.palette.dark_yellow, bold = true },
         NvimTreeGitDirty = { fg = colors.palette.yellow },
         NvimTreeGitNew = { fg = colors.palette.green },
         NvimTreeGitDeleted = { fg = colors.palette.red },
-        NvimTreeSpecialFile = { fg = colors.palette.yellow, fmt = "underline" },
+        NvimTreeSpecialFile = { fg = colors.palette.yellow, underline = true },
         NvimTreeIndentMarker = { fg = colors.semantic.fg },
         NvimTreeImageFile = { fg = colors.palette.dark_purple },
         NvimTreeSymlink = { fg = colors.palette.purple },
@@ -582,7 +619,7 @@ local function get_default_highlights(colors, config)
         TelescopePromptBorder = { fg = colors.palette.gray },
         TelescopeResultsBorder = { fg = colors.palette.gray },
         TelescopePreviewBorder = { fg = colors.palette.gray },
-        TelescopeMatching = { fg = colors.palette.dark_yellow, fmt = "bold" },
+        TelescopeMatching = { fg = colors.palette.dark_yellow, bold = true },
         TelescopePromptPrefix = { fg = colors.palette.green },
         TelescopeSelection = { bg = colors.semantic.bg2 },
         TelescopeSelectionCaret = { fg = colors.palette.yellow },
@@ -593,7 +630,7 @@ local function get_default_highlights(colors, config)
         DashboardShortCut = { fg = colors.palette.blue },
         DashboardHeader = { fg = colors.palette.yellow },
         DashboardCenter = { fg = colors.palette.cyan },
-        DashboardFooter = { fg = colors.palette.dark_red, fmt = "italic" },
+        DashboardFooter = { fg = colors.palette.dark_red, italic = true },
     }
 
     ---@type HighlightGroup
@@ -601,12 +638,12 @@ local function get_default_highlights(colors, config)
         FocusedSymbol = {
             fg = colors.palette.purple,
             bg = colors.semantic.bg2,
-            fmt = "bold",
+            bold = true,
         },
         AerialLine = {
             fg = colors.palette.purple,
             bg = colors.semantic.bg2,
-            fmt = "bold",
+            bold = true,
         },
     }
 
@@ -626,7 +663,7 @@ local function get_default_highlights(colors, config)
         InclineNormal = {
             fg = colors.semantic.fg_active,
             bg = colors.semantic.bg0,
-            fmt = "bold",
+            bold = true,
         },
         InclineNormalNC = {
             fg = colors.semantic.fg_dimmed,
@@ -678,7 +715,7 @@ local function get_default_highlights(colors, config)
 
     ---@type HighlightGroup
     highlights.langs.cpp = {
-        cppStatement = { fg = colors.palette.purple, fmt = "bold" },
+        cppStatement = { fg = colors.palette.purple, bold = true },
         cppTSInclude = { fg = colors.palette.blue },
         cppTSConstant = { fg = colors.palette.cyan },
         cppTSConstMacro = { fg = colors.palette.purple },
@@ -688,64 +725,64 @@ local function get_default_highlights(colors, config)
     ---@type HighlightGroup
     highlights.langs.markdown = {
         markdownBlockquote = { fg = colors.palette.gray },
-        markdownBold = { fg = colors.none, fmt = "bold" },
+        markdownBold = { fg = colors.none, bold = true },
         markdownBoldDelimiter = { fg = colors.palette.gray },
         markdownCode = { fg = colors.palette.green },
         markdownCodeBlock = { fg = colors.palette.green },
         markdownCodeDelimiter = { fg = colors.palette.yellow },
-        markdownH1 = { fg = colors.palette.red, fmt = "bold" },
-        markdownH2 = { fg = colors.palette.purple, fmt = "bold" },
-        markdownH3 = { fg = colors.palette.dark_yellow, fmt = "bold" },
-        markdownH4 = { fg = colors.palette.red, fmt = "bold" },
-        markdownH5 = { fg = colors.palette.purple, fmt = "bold" },
-        markdownH6 = { fg = colors.palette.dark_yellow, fmt = "bold" },
+        markdownH1 = { fg = colors.palette.red, bold = true },
+        markdownH2 = { fg = colors.palette.purple, bold = true },
+        markdownH3 = { fg = colors.palette.dark_yellow, bold = true },
+        markdownH4 = { fg = colors.palette.red, bold = true },
+        markdownH5 = { fg = colors.palette.purple, bold = true },
+        markdownH6 = { fg = colors.palette.dark_yellow, bold = true },
         markdownHeadingDelimiter = { fg = colors.palette.gray },
         markdownHeadingRule = { fg = colors.palette.gray },
         markdownId = { fg = colors.palette.yellow },
         markdownIdDeclaration = { fg = colors.palette.red },
-        markdownItalic = { fg = colors.none, fmt = "italic" },
-        markdownItalicDelimiter = { fg = colors.palette.gray, fmt = "italic" },
+        markdownItalic = { fg = colors.none, italic = true },
+        markdownItalicDelimiter = { fg = colors.palette.gray, italic = true },
         markdownLinkDelimiter = { fg = colors.palette.gray },
         markdownLinkText = { fg = colors.palette.red },
         markdownLinkTextDelimiter = { fg = colors.palette.gray },
         markdownListMarker = { fg = colors.palette.red },
         markdownOrderedListMarker = { fg = colors.palette.red },
         markdownRule = { fg = colors.palette.purple },
-        markdownUrl = { fg = colors.palette.blue, fmt = "underline" },
+        markdownUrl = { fg = colors.palette.blue, underline = true },
         markdownUrlDelimiter = { fg = colors.palette.gray },
         markdownUrlTitleDelimiter = { fg = colors.palette.green },
     }
 
     ---@type HighlightGroup
     highlights.langs.php = {
-        phpFunctions = {
-            fg = colors.semantic.fg,
-            fmt = config.code_style.functions,
-        },
+        phpFunctions = extend_with_code_style(
+            { fg = colors.semantic.fg },
+            config.code_style.functions
+        ),
         phpMethods = { fg = colors.palette.cyan },
         phpStructure = { fg = colors.palette.purple },
         phpOperator = { fg = colors.palette.purple },
         phpMemberSelector = { fg = colors.semantic.fg },
-        phpVarSelector = {
-            fg = colors.palette.dark_yellow,
-            fmt = config.code_style.variables,
-        },
-        phpIdentifier = {
-            fg = colors.palette.dark_yellow,
-            fmt = config.code_style.variables,
-        },
+        phpVarSelector = extend_with_code_style(
+            { fg = colors.palette.dark_yellow },
+            config.code_style.variables
+        ),
+        phpIdentifier = extend_with_code_style(
+            { fg = colors.palette.dark_yellow },
+            config.code_style.variables
+        ),
         phpBoolean = { fg = colors.palette.cyan },
         phpNumber = { fg = colors.palette.dark_yellow },
         phpHereDoc = { fg = colors.palette.green },
         phpNowDoc = { fg = colors.palette.green },
-        phpSCKeyword = {
-            fg = colors.palette.purple,
-            fmt = config.code_style.keywords,
-        },
-        phpFCKeyword = {
-            fg = colors.palette.purple,
-            fmt = config.code_style.keywords,
-        },
+        phpSCKeyword = extend_with_code_style(
+            { fg = colors.palette.purple },
+            config.code_style.keywords
+        ),
+        phpFCKeyword = extend_with_code_style(
+            { fg = colors.palette.purple },
+            config.code_style.keywords
+        ),
         phpRegion = { fg = colors.palette.blue },
     }
 
@@ -756,20 +793,20 @@ local function get_default_highlights(colors, config)
         scalaInterpolation = { fg = colors.palette.purple },
         scalaTypeOperator = { fg = colors.palette.red },
         scalaOperator = { fg = colors.palette.red },
-        scalaKeywordModifier = {
-            fg = colors.palette.red,
-            fmt = config.code_style.keywords,
-        },
+        scalaKeywordModifier = extend_with_code_style(
+            { fg = colors.palette.red },
+            config.code_style.keywords
+        ),
     }
 
     ---@type HighlightGroup
     highlights.langs.tex = {
         latexTSInclude = { fg = colors.palette.blue },
-        latexTSFuncMacro = {
-            fg = colors.semantic.fg,
-            fmt = config.code_style.functions,
-        },
-        latexTSEnvironment = { fg = colors.palette.cyan, fmt = "bold" },
+        latexTSFuncMacro = extend_with_code_style(
+            { fg = colors.semantic.fg },
+            config.code_style.functions
+        ),
+        latexTSEnvironment = { fg = colors.palette.cyan, bold = true },
         latexTSEnvironmentName = { fg = colors.palette.yellow },
         texCmdEnv = { fg = colors.palette.cyan },
         texEnvArgName = { fg = colors.palette.yellow },
@@ -796,11 +833,14 @@ local function get_default_highlights(colors, config)
         vimNotation = { fg = colors.palette.red },
         vimMapLhs = { fg = colors.semantic.fg },
         vimMapRhs = { fg = colors.palette.blue },
-        vimVar = { fg = colors.semantic.fg, fmt = config.code_style.variables },
-        vimCommentTitle = {
-            fg = colors.palette.light_gray,
-            fmt = config.code_style.comments,
-        },
+        vimVar = extend_with_code_style(
+            { fg = colors.semantic.fg },
+            config.code_style.variables
+        ),
+        vimCommentTitle = extend_with_code_style(
+            { fg = colors.palette.light_gray },
+            config.code_style.comments
+        ),
     }
 
     highlights.lsp_kind_icons_color = {
@@ -835,7 +875,8 @@ local function get_default_highlights(colors, config)
     for kind, color in pairs(highlights.lsp_kind_icons_color) do
         highlights.plugins.cmp["CmpItemKind" .. kind] = {
             fg = color,
-            fmt = config.cmp_itemkind_reverse and "reverse",
+            -- TODO: Test!
+            config.cmp_itemkind_reverse and { reverse = true },
         }
         highlights.plugins.outline["Aerial" .. kind .. "Icon"] = { fg = color }
     end

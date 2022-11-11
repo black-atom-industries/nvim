@@ -1,15 +1,41 @@
 ----------------------------------------Highlight
 ---@alias HighlightGroupName                      string
 
----@alias HighlightFormat                         "bold" | "underline" | "underlineline" | "undercurl" | "underdot" | "underdash" | "strikethrough" | "reverse" | "inverse" | "italic" | "standout" | "nocombine" | "NONE"
+---@alias Fg                                      string
+---@alias Bg                                      string
+---@alias Sp                                      string
+---@alias Bold                                    boolean
+---@alias Italic                                  boolean
+---@alias Blend                                   integer
+---@alias Standout                                boolean
+---@alias Underline                               boolean
+---@alias Undercurl                               boolean
+---@alias Underdouble                             boolean
+---@alias Underdotted                             boolean
+---@alias Underdashed                             boolean
+---@alias Strikethrough                           boolean
+---@alias Reverse                                 boolean
+---@alias Link                                    string
 
----@class HighlightGroupSettings
----@field fg                                      string
----@field bg                                      string
----@field sp                                      string
----@field fmt                                     HighlightFormat
+---Documentation - :h nvim_set_hl
+---@class HighlightDefinitionMap
+---@field fg                                      Fg
+---@field bg                                      Bg
+---@field sp                                      Sp
+---@field bold                                    Bold
+---@field italic                                  Italic
+---@field blend                                   Blend
+---@field standout                                Standout
+---@field underline                               Underline
+---@field undercurl                               Undercurl
+---@field underdouble                             Underdouble
+---@field underdotted                             Underdotted
+---@field underdashed                             Underdashed
+---@field strikethrough                           Strikethrough
+---@field reverse                                 Reverse
+---@field link                                    Link
 
----@alias HighlightGroup                          table<HighlightGroupName, HighlightGroupSettings>
+---@alias HighlightGroup                          table<HighlightGroupName, HighlightDefinitionMap>
 
 -------------------------------------------Colors
 ---@class Colors
@@ -21,7 +47,17 @@
 -------------------------------------------Config
 ---@alias Season                                  "spring" | "summer" | "fall" | "winter"
 ---@alias Time                                    "day" | "night"
----@alias CodeStyleFormat                         HighlightFormat
+
+---@class CodeStyleFormat
+---@field bold                                    Bold
+---@field italic                                  Italic
+---@field blend                                   Blend
+---@field standout                                Standout
+---@field underline                               Underline
+---@field undercurl                               Undercurl
+---@field underdouble                             Underdouble
+---@field underdotted                             Underdotted
+---@field underdashed                             Underdashed
 
 ---@class TerraConfig.CodeStyle
 ---@field comments                                CodeStyleFormat

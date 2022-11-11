@@ -26,11 +26,17 @@ M.default_config = {
     cmp_itemkind_reverse = false, -- Wether to reverse item kind highlights in cmp menu
 
     code_style = { -- Code styling options
-        comments = "italic",
-        keywords = "NONE",
-        functions = "NONE",
-        strings = "italic",
-        variables = "NONE",
+        comments = {
+            italic = true,
+        },
+        keywords = {
+            bold = true,
+        },
+        functions = {},
+        strings = {
+            italic = true,
+        },
+        variables = {},
     },
 
     colors = {}, -- Override default colors
