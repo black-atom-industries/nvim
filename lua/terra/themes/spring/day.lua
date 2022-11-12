@@ -15,31 +15,31 @@ M.primary = {
     "#A1C4B2",
     "#B8D3C6",
     "#D0E2D9",
-    "#E7F0EC",
+    "#EFF0E7",
 }
 
 ---@class Palette Base theme color pallette
 M.palette = {
-    black = M.primary[1],
+    black = M.primary[3],
     grey = M.primary[4], -- FIX: grey/gray
 
-    dark_red = "#d6582e",
-    red = "#da714d",
+    dark_red = "#af4522",
+    red = "#d4592f",
 
-    dark_green = "#5b9257",
-    green = "#83c67f",
+    dark_green = "#44913e",
+    green = "#47a940",
 
-    dark_yellow = "#faa04c",
-    yellow = "#F2C14E",
+    dark_yellow = "#e07221",
+    yellow = "#e1a122",
 
-    dark_blue = "#6199d1",
-    blue = "#7CA6CF",
+    dark_blue = "#2f69a2",
+    blue = "#4780ba",
 
-    dark_purple = "#B07BAC",
-    purple = "#BFA9D6",
+    dark_purple = "#a1619c",
+    purple = "#a582cb",
 
-    dark_cyan = "#5aaf7d",
-    cyan = "#75bd93",
+    dark_cyan = "#33995E",
+    cyan = "#46ba67",
 
     light_gray = M.primary[9],
     white = M.primary[11],
