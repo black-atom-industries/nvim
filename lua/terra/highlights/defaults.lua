@@ -165,104 +165,111 @@ local function get_default_highlights(colors, config)
     -- NOTE: https://stackoverflow.com/a/11886528/10945408
     ---@type HighlightGroup
     highlights.treesitter = {
-        TSAnnotation = { fg = colors.semantic.fg },
-        TSAttribute = { fg = colors.palette.cyan },
-        TSBoolean = { fg = colors.palette.dark_yellow },
-        TSCharacter = { fg = colors.palette.dark_yellow },
-        TSComment = extend_with_code_style(
+        -- TODO: Omit @
+        ["@annotation"] = { fg = colors.semantic.fg },
+        ["@attribute"] = { fg = colors.palette.cyan },
+        ["@boolean"] = { fg = colors.palette.dark_yellow },
+        ["@character"] = { fg = colors.palette.dark_yellow },
+        ["@character.special"] = { fg = colors.palette.dark_yellow },
+        ["@comment"] = extend_with_code_style(
             { fg = colors.palette.gray },
             config.code_style.comments
         ),
-        TSConditional = extend_with_code_style(
+        ["@conditional"] = extend_with_code_style(
             { fg = colors.palette.purple },
             config.code_style.keywords
         ),
-        TSConstant = { fg = colors.palette.dark_yellow },
-        TSConstBuiltin = { fg = colors.palette.dark_yellow },
-        TSConstMacro = { fg = colors.palette.dark_yellow },
-        TSConstructor = { fg = colors.palette.yellow, bold = true },
-        TSError = { fg = colors.semantic.fg },
-        TSException = { fg = colors.palette.purple },
-        TSField = { fg = colors.palette.cyan },
-        TSFloat = { fg = colors.palette.dark_yellow },
-        TSFunction = extend_with_code_style(
+        ["@constant"] = { fg = colors.palette.dark_yellow },
+        ["@constant.builtin"] = { fg = colors.palette.dark_yellow },
+        ["@constant.macro"] = { fg = colors.palette.dark_yellow },
+        ["@constructor"] = { fg = colors.palette.yellow, bold = true },
+        ["@error"] = { fg = colors.semantic.fg },
+        ["@exception"] = { fg = colors.palette.purple },
+        ["@field"] = { fg = colors.palette.cyan },
+        ["@float"] = { fg = colors.palette.dark_yellow },
+        ["@function"] = extend_with_code_style(
             { fg = colors.palette.yellow },
             config.code_style.functions
         ),
-        TSFuncBuiltin = extend_with_code_style(
+        ["@function.builtin"] = extend_with_code_style(
             { fg = colors.palette.cyan },
             config.code_style.functions
         ),
-        TSFuncMacro = extend_with_code_style(
+        ["@function.macro"] = extend_with_code_style(
             { fg = colors.palette.cyan },
             config.code_style.functions
         ),
-        TSInclude = { fg = colors.palette.purple },
-        TSKeyword = extend_with_code_style({
+        ["@include"] = { fg = colors.palette.purple },
+        ["@keyword"] = extend_with_code_style({
             fg = colors.palette.red,
             bold = true,
         }, config.code_style.keywords),
-        TSKeywordFunction = extend_with_code_style(
+        ["@keyword.function"] = extend_with_code_style(
             { fg = colors.palette.purple },
             config.code_style.functions
         ),
-        TSKeywordOperator = extend_with_code_style(
+        ["@keyword.operator"] = extend_with_code_style(
             { fg = colors.palette.red },
             config.code_style.keywords
         ),
-        TSLabel = { fg = colors.palette.dark_yellow },
-        TSMethod = { fg = colors.palette.blue },
-        TSNamespace = { fg = colors.palette.yellow },
-        TSNone = { fg = colors.semantic.fg },
-        TSNumber = { fg = colors.palette.dark_yellow },
-        TSOperator = { fg = colors.palette.white },
-        TSParameter = { fg = colors.palette.blue },
-        TSParameterReference = { fg = colors.semantic.fg },
-        TSProperty = { fg = colors.palette.blue },
-        TSPunctDelimiter = { fg = colors.palette.white },
-        TSPunctBracket = { fg = colors.palette.white },
-        TSPunctSpecial = { fg = colors.palette.red },
-        TSRepeat = extend_with_code_style(
+        ["@label"] = { fg = colors.palette.dark_yellow },
+        ["@metod"] = { fg = colors.palette.blue },
+        ["@namespace"] = { fg = colors.palette.yellow },
+        ["@none"] = { fg = colors.semantic.fg },
+        ["@number"] = { fg = colors.palette.dark_yellow },
+        ["@operator"] = { fg = colors.palette.white },
+        ["@parameter"] = { fg = colors.palette.blue },
+        ["@parameter.reference"] = { fg = colors.semantic.fg },
+        ["@property"] = { fg = colors.palette.blue },
+        ["@punctuation.delimiter"] = { fg = colors.palette.white },
+        ["@punctuation.bracket"] = { fg = colors.palette.white },
+        ["@punctuation.special"] = { fg = colors.palette.white },
+        ["@repeat"] = extend_with_code_style(
             { fg = colors.palette.purple },
             config.code_style.keywords
         ),
-        TSString = extend_with_code_style(
+        ["@string"] = extend_with_code_style(
             { fg = colors.palette.green },
             config.code_style.strings
         ),
-        TSStringRegex = extend_with_code_style(
+        ["@string.special"] = extend_with_code_style(
+            { fg = colors.palette.green },
+            config.code_style.strings
+        ),
+        ["@string.regex"] = extend_with_code_style(
             { fg = colors.palette.dark_yellow },
             config.code_style.strings
         ),
-        TSStringEscape = extend_with_code_style(
+        ["@string.escape"] = extend_with_code_style(
             { fg = colors.palette.red },
             config.code_style.strings
         ),
-        TSSymbol = { fg = colors.palette.cyan },
-        TSTag = { fg = colors.palette.yellow },
-        TSTagDelimiter = { fg = colors.palette.dark_yellow },
-        TSText = { fg = colors.semantic.fg },
-        TSStrong = { fg = colors.semantic.fg, bold = true },
-        TSEmphasis = { fg = colors.semantic.fg, italic = true },
-        TSUnderline = { fg = colors.semantic.fg, underline = true },
-        TSStrike = { fg = colors.semantic.fg, strikethrough = true },
-        TSTitle = { fg = colors.palette.dark_yellow, bold = true },
-        TSLiteral = { fg = colors.palette.green },
-        TSURI = { fg = colors.palette.cyan, underline = true },
-        TSMath = { fg = colors.semantic.fg },
-        TSTextReference = { fg = colors.palette.blue },
-        TSEnviroment = { fg = colors.semantic.fg },
-        TSEnviromentName = { fg = colors.semantic.fg },
-        TSNote = { fg = colors.semantic.fg },
-        TSWarning = { fg = colors.semantic.fg },
-        TSDanger = { fg = colors.semantic.fg },
-        TSType = { fg = colors.palette.cyan },
-        TSTypeBuiltin = { fg = colors.palette.dark_cyan },
-        TSVariable = extend_with_code_style(
+        ["@symbol"] = { fg = colors.palette.cyan },
+        ["@tag"] = { fg = colors.palette.yellow },
+        ["@tag.delimiter"] = { fg = colors.palette.dark_yellow },
+        ["@tag.attribute"] = { fg = colors.palette.dark_yellow },
+        ["@text"] = { fg = colors.semantic.fg },
+        ["@text.strong"] = { fg = colors.semantic.fg, bold = true },
+        ["@text.emphasis"] = { fg = colors.semantic.fg, italic = true },
+        ["@text.underline"] = { fg = colors.semantic.fg, underline = true },
+        ["@text.strike"] = { fg = colors.semantic.fg, strikethrough = true },
+        ["@text.title"] = { fg = colors.palette.dark_yellow, bold = true },
+        ["@text.literal"] = { fg = colors.palette.green },
+        ["@text.uri"] = { fg = colors.palette.cyan, underline = true },
+        ["@text.math"] = { fg = colors.semantic.fg },
+        ["@text.reference"] = { fg = colors.palette.blue },
+        ["@text.environment"] = { fg = colors.semantic.fg },
+        ["@text.environment.name"] = { fg = colors.semantic.fg },
+        ["@text.note"] = { fg = colors.semantic.fg },
+        ["@text.warning"] = { fg = colors.semantic.fg },
+        ["@text.danger"] = { fg = colors.semantic.fg },
+        ["@type"] = { fg = colors.palette.cyan },
+        ["@type.builtin"] = { fg = colors.palette.dark_cyan },
+        ["@variable"] = extend_with_code_style(
             { fg = colors.palette.dark_yellow },
             config.code_style.variables
         ),
-        TSVariableBuiltin = extend_with_code_style(
+        ["@variable.builtin"] = extend_with_code_style(
             { fg = colors.palette.red },
             config.code_style.variables
         ),
