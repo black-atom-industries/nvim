@@ -2,7 +2,7 @@ local extend_defaults = require("terra.actions.highlights").extend_defaults
 
 local M = {}
 
----@class Primary
+---@type TerraPrimaryColors
 M.primary = {
     "#141F19",
     "#17251E",
@@ -18,7 +18,7 @@ M.primary = {
     "#E7F0EC",
 }
 
----@class Palette Base theme color pallette
+---@type TerraPaletteColors
 M.palette = {
     black = M.primary[1],
     gray = M.primary[4],
@@ -35,8 +35,8 @@ M.palette = {
     dark_blue = "#6199d1",
     blue = "#7CA6CF",
 
-    dark_purple = "#B07BAC",
-    purple = "#BFA9D6",
+    dark_magenta = "#B07BAC",
+    magenta = "#BFA9D6",
 
     dark_cyan = "#5aaf7d",
     cyan = "#75bd93",
@@ -47,12 +47,18 @@ M.palette = {
 
 -- NOTE: Build out and improve and align semantics with vscode
 ---Second Level Semantics Color Definitions which have to be based on the Palette colors
----@class Semantic
+---@type TerraSemantics
 M.semantic = {
-    bg0 = M.primary[1],
-    bg1 = M.primary[2],
-    bg2 = M.primary[3],
-    bg3 = M.primary[4],
+    bg = {
+        dark = M.primary[0],
+        main = M.primary[1],
+        light = M.primary[2],
+    },
+
+    -- bg0 = M.primary[1],
+    -- bg1 = M.primary[2],
+    -- bg2 = M.primary[3],
+    -- bg3 = M.primary[4],
 
     fg = M.palette.white,
     fg_active = M.palette.yellow,
@@ -65,7 +71,7 @@ M.semantic = {
 }
 
 ---A merged table of the theme primary, palette and semantic colors
----@return Colors
+---@return TerraColors
 function M.colors()
     return {
         none = "none",

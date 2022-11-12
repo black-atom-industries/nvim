@@ -47,12 +47,16 @@ M.palette = {
 
 -- NOTE: Build out and improve and align semantics with vscode
 ---Second Level Semantics Color Definitions which have to be based on the Palette colors
----@class Semantic
+---@type TerraSemantics
 M.semantic = {
+    bg = {
+        dark,
+    },
+
     bg0 = M.primary[9],
     bg1 = M.palette.white,
-    bg2 = M.primary[7],
-    bg3 = M.primary[6],
+    bg2 = M.primary[8],
+    bg3 = M.primary[7],
 
     fg = M.palette.black,
     fg_active = M.palette.yellow,
@@ -65,7 +69,7 @@ M.semantic = {
 }
 
 ---A merged table of the theme primary, palette and semantic colors
----@return Colors
+---@return TerraColors
 function M.colors()
     return {
         none = "none",

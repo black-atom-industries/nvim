@@ -52,7 +52,7 @@ function M.set_highlight_group(highlight_group)
     end
 end
 
----@param colors Colors
+---@param colors TerraColors
 ---@param overrides Highlights
 ---@return Highlights
 function M.extend_defaults(colors, overrides)

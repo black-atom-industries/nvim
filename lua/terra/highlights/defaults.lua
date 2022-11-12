@@ -4,7 +4,7 @@ local extend_with_code_style = actions.highlights.extend_with_code_style
 local darken = actions.color.darken
 
 ---Returns the default Highlights
----@param colors Colors
+---@param colors TerraColors
 ---@param config TerraConfig
 ---@return Highlights
 local function get_default_highlights(colors, config)
