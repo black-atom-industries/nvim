@@ -149,15 +149,15 @@ local function get_default_highlights(colors, config)
         Tag = { fg = colors.palette.green },
         Delimiter = { fg = colors.palette.light_gray },
         Comment = extend_with_code_style(
-            { fg = colors.palette.gray },
+            { fg = colors.semantic.fg_dimmed },
             config.code_style.comments
         ),
         SpecialComment = extend_with_code_style(
-            { fg = colors.palette.gray },
+            { fg = colors.semantic.fg_dimmed },
             config.code_style.comments
         ),
         Todo = extend_with_code_style(
-            { fg = colors.palette.red },
+            { fg = colors.semantic.fg_dimmed },
             config.code_style.comments
         ),
     }
@@ -172,7 +172,7 @@ local function get_default_highlights(colors, config)
         ["@character"] = { fg = colors.palette.dark_yellow },
         ["@character.special"] = { fg = colors.palette.dark_yellow },
         ["@comment"] = extend_with_code_style(
-            { fg = colors.palette.gray },
+            { fg = colors.semantic.fg_dimmed },
             config.code_style.comments
         ),
         ["@conditional"] = extend_with_code_style(
