@@ -56,7 +56,7 @@ M.semantic = {
 
     fg = M.palette.white,
     fg_active = M.palette.yellow,
-    fg_dimmed = M.palette.gray,
+    fg_dimmed = M.primary[5],
 
     diff_add = M.palette.green,
     diff_delete = M.palette.red,
