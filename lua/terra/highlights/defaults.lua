@@ -640,6 +640,38 @@ local function get_default_highlights(colors, config)
         DashboardFooter = { fg = colors.palette.dark_red, italic = true },
     }
 
+    ---https://github.com/DNLHC/glance.nvim
+    ---@type HighlightGroup
+    highlights.plugins.glance = {
+        GlancePreviewNormal = { fg = colors.semantic.fg, bg = colors.semantic.bg0 },
+        -- GlancePreviewMatch
+        -- GlancePreviewCursorLine
+        -- GlancePreviewSignColumn
+        -- GlancePreviewEndOfBuffer
+        -- GlancePreviewLineNr
+        GlancePreviewBorderBottom = { fg = colors.semantic.fg_active },
+        GlanceWinBarFilename = {
+            fg = colors.semantic.fg_active,
+            bg = colors.semantic.bg0,
+        },
+        GlanceWinBarFilepath = {
+            fg = colors.semantic.fg_dimmed,
+            bg = colors.semantic.bg0,
+        },
+        -- GlanceWinBarTitle = { fg = colors.semantic.fg_active, bg = colors.semantic.bg0, },
+        GlanceListNormal = { fg = colors.semantic.fg, bg = colors.semantic.bg0 },
+        -- GlanceListFilename
+        -- GlanceListFilepath
+        -- GlanceListCount
+        GlanceListMatch = { fg = colors.semantic.fg_active },
+        -- GlanceListCursorLine
+        -- GlanceListEndOfBuffer
+        GlanceListBorderBottom = { fg = colors.semantic.fg_active },
+        -- GlanceFoldIcon
+        -- GlanceIndent
+        GlanceBorderTop = { fg = colors.semantic.fg_active },
+    }
+
     ---@type HighlightGroup
     highlights.plugins.outline = {
         FocusedSymbol = {
