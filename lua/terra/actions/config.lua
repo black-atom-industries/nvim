@@ -1,4 +1,5 @@
 local config = require("terra.config")
+local includes = require("terra.actions.utils").includes
 local notify = require("terra.actions.ui").notify
 
 local M = {}
@@ -138,10 +139,8 @@ end
 ---Runtime validation for `season` setting
 ---@param season Season
 ---@return boolean
-function M.validate_season(season)
-    -- NOTE: Currently this serves as a gatekeeper for the only available season "spring"
-    --       In the future it should step through a table of seasons and check on runtime the provided `season` string from config
-    if season == "spring" then
+function M.validate_season(seasons, season)
+    if includes(seasons, season) then
         return true
     else
         return false

@@ -3,6 +3,7 @@ local M = {}
 ---@type Season[]
 M.seasons = {
     "spring",
+    "summer",
 }
 
 ---@type TerraConfig
