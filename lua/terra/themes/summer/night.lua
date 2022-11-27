@@ -52,7 +52,7 @@ M.semantic = {
     bg0 = M.primary[1],
     bg1 = M.primary[2],
     bg2 = M.primary[3],
-    bg3 = M.primary[4],
+    bg3 = M.primary[5],
 
     fg = M.palette.white,
     fg_active = M.palette.yellow,

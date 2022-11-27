@@ -87,7 +87,7 @@ local function get_default_highlights(colors, config)
         TabLineFill = { fg = colors.palette.gray, bg = colors.semantic.bg1 },
         TabLineSel = { fg = colors.semantic.fg, bg = colors.semantic.bg3 },
         VertSplit = { fg = colors.palette.gray },
-        Visual = { bg = colors.semantic.bg3 },
+        Visual = { bg = colors.semantic.bg3, fg = colors.semantic.fg },
         VisualNOS = { fg = colors.none, bg = colors.semantic.bg2 },
         QuickFixLine = { fg = colors.palette.blue, bg = colors.semantic.bg2 },
         Debug = { fg = colors.palette.yellow },
