@@ -36,6 +36,39 @@
 ---@field link                                    Link
 
 ---@alias HighlightGroup                          table<HighlightGroupName, HighlightDefinitionMap>
+--
+---@alias TerraPrimaryColors                      table<number, string>
+
+---@class TerraPaletteColors                      table<number, string>
+---@field black                                   string
+---@field gray                                    string
+---@field dark_red                                string
+---@field red                                     string
+---@field dark_green                              string
+---@field green                                   string
+---@field dark_yellow                             string
+---@field yellow                                  string
+---@field dark_blue                               string
+---@field blue                                    string
+---@field dark_magenta                            string
+---@field magenta                                 string
+---@field dark_cyan                               string
+---@field cyan                                    string
+---@field light_gray                              string
+---@field white                                   string
+
+---@class TerraSemantics.Background
+---@field dark                                    string
+---@field main                                    string
+---@field light                                   string
+
+---@class TerraSemantics
+---@field bg                                      TerraSemantics.Background
+
+---@class TerraColors
+---@field primary                                 Primary
+---@field palette                                 Palette
+---@field semantic                                TerraSemantics
 
 -------------------------------------------Colors
 ---@class Colors
