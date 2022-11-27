@@ -101,6 +101,12 @@ function M.select_time()
             return
         end
 
+        -- FIX: Default messages console doesnt clear after selection
+        if selected_time == "day" then
+            notify("`day` themes for nvim are not ready yet! Abort!")
+            return
+        end
+
         -- Give feedback to user about selected time
         local formatted_time = capitalize(selected_time)
 
