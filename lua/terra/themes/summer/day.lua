@@ -21,7 +21,7 @@ M.primary = {
 ---@class Palette Base theme color pallette
 M.palette = {
     black = M.primary[1],
-    gray = M.primary[4],
+    grey = M.primary[4], -- FIX: grey/gray
 
     dark_red = "#d6582e",
     red = "#da714d",
@@ -49,14 +49,14 @@ M.palette = {
 ---Second Level Semantics Color Definitions which have to be based on the Palette colors
 ---@class Semantic
 M.semantic = {
-    bg0 = M.primary[1],
-    bg1 = M.primary[2],
-    bg2 = M.primary[3],
-    bg3 = M.primary[4],
+    bg0 = M.primary[9],
+    bg1 = M.palette.white,
+    bg2 = M.primary[7],
+    bg3 = M.primary[6],
 
-    fg = M.palette.white,
+    fg = M.palette.black,
     fg_active = M.palette.yellow,
-    fg_dimmed = M.primary[5],
+    fg_dimmed = M.palette.grey,
 
     diff_add = M.palette.green,
     diff_delete = M.palette.red,

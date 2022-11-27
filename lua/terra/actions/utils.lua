@@ -22,4 +22,14 @@ function M.ccall(condition, cb_true, cb_false)
     end
 end
 
+function M.includes(tab, val)
+    for _, value in ipairs(tab) do
+        if value == val then
+            return true
+        end
+    end
+
+    return false
+end
+
 return M

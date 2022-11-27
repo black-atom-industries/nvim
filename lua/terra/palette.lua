@@ -1,9 +1,10 @@
+local seasons = require("terra.config").seasons
 local validate_season = require("terra.actions.config").validate_season
 
 ---@param season Season
 ---@param time Time
 local get_palette = function(season, time)
-    local valid_season = validate_season(season)
+    local valid_season = validate_season(seasons, season)
 
     if not valid_season then
         local notify = require("terra.actions.ui").notify

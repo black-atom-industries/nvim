@@ -4,42 +4,42 @@ local M = {}
 
 ---@class Primary
 M.primary = {
-    "#141F19",
-    "#17251E",
-    "#1B2C24",
-    "#284336",
-    "#4E7E66",
-    "#5D9579",
-    "#71A78C",
-    "#89B69F",
-    "#A1C4B2",
-    "#B8D3C6",
-    "#D0E2D9",
-    "#E7F0EC",
+    "#121821",
+    "#151D28",
+    "#19222E",
+    "#1D2735",
+    "#3E5574",
+    "#506D95",
+    "#6A87AF",
+    "#8BA1C1",
+    "#9CAFC9",
+    "#ACBCD2",
+    "#CDD7E4",
+    "#DEE4ED",
 }
 
 ---@class Palette Base theme color pallette
 M.palette = {
-    black = M.primary[1],
-    gray = M.primary[4],
+    black = M.primary[4],
+    gray = M.primary[5],
 
-    dark_red = "#d6582e",
-    red = "#da714d",
+    dark_red = "#D5552A",
+    red = "#D96E4A",
 
-    dark_green = "#5b9257",
-    green = "#83c67f",
+    dark_green = "#5B8F56",
+    green = "#83C57D",
 
-    dark_yellow = "#faa04c",
-    yellow = "#F2C14E",
+    dark_yellow = "#F99B48",
+    yellow = "#F1BF4B",
 
-    dark_blue = "#6199d1",
-    blue = "#7CA6CF",
+    dark_blue = "#6299D0",
+    blue = "#79A3CD",
 
-    dark_purple = "#B07BAC",
+    dark_purple = "#AF79AB",
     purple = "#BFA9D6",
 
-    dark_cyan = "#5aaf7d",
-    cyan = "#75bd93",
+    dark_cyan = "#56AE89",
+    cyan = "#75BD93",
 
     light_gray = M.primary[9],
     white = M.primary[11],
@@ -56,7 +56,7 @@ M.semantic = {
 
     fg = M.palette.white,
     fg_active = M.palette.yellow,
-    fg_dimmed = M.primary[5],
+    fg_dimmed = M.palette.gray,
 
     diff_add = M.palette.green,
     diff_delete = M.palette.red,

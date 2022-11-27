@@ -149,15 +149,15 @@ local function get_default_highlights(colors, config)
         Tag = { fg = colors.palette.green },
         Delimiter = { fg = colors.palette.light_gray },
         Comment = extend_with_code_style(
-            { fg = colors.palette.gray },
+            { fg = colors.semantic.fg_dimmed },
             config.code_style.comments
         ),
         SpecialComment = extend_with_code_style(
-            { fg = colors.palette.gray },
+            { fg = colors.semantic.fg_dimmed },
             config.code_style.comments
         ),
         Todo = extend_with_code_style(
-            { fg = colors.palette.red },
+            { fg = colors.semantic.fg_dimmed },
             config.code_style.comments
         ),
     }
@@ -172,7 +172,7 @@ local function get_default_highlights(colors, config)
         ["@character"] = { fg = colors.palette.dark_yellow },
         ["@character.special"] = { fg = colors.palette.dark_yellow },
         ["@comment"] = extend_with_code_style(
-            { fg = colors.palette.gray },
+            { fg = colors.semantic.fg_dimmed },
             config.code_style.comments
         ),
         ["@conditional"] = extend_with_code_style(
@@ -638,6 +638,38 @@ local function get_default_highlights(colors, config)
         DashboardHeader = { fg = colors.palette.yellow },
         DashboardCenter = { fg = colors.palette.cyan },
         DashboardFooter = { fg = colors.palette.dark_red, italic = true },
+    }
+
+    ---https://github.com/DNLHC/glance.nvim
+    ---@type HighlightGroup
+    highlights.plugins.glance = {
+        GlancePreviewNormal = { fg = colors.semantic.fg, bg = colors.semantic.bg0 },
+        -- GlancePreviewMatch
+        -- GlancePreviewCursorLine
+        -- GlancePreviewSignColumn
+        -- GlancePreviewEndOfBuffer
+        -- GlancePreviewLineNr
+        GlancePreviewBorderBottom = { fg = colors.semantic.fg_active },
+        GlanceWinBarFilename = {
+            fg = colors.semantic.fg_active,
+            bg = colors.semantic.bg0,
+        },
+        GlanceWinBarFilepath = {
+            fg = colors.semantic.fg_dimmed,
+            bg = colors.semantic.bg0,
+        },
+        -- GlanceWinBarTitle = { fg = colors.semantic.fg_active, bg = colors.semantic.bg0, },
+        GlanceListNormal = { fg = colors.semantic.fg, bg = colors.semantic.bg0 },
+        -- GlanceListFilename
+        -- GlanceListFilepath
+        -- GlanceListCount
+        GlanceListMatch = { fg = colors.semantic.fg_active },
+        -- GlanceListCursorLine
+        -- GlanceListEndOfBuffer
+        GlanceListBorderBottom = { fg = colors.semantic.fg_active },
+        -- GlanceFoldIcon
+        -- GlanceIndent
+        GlanceBorderTop = { fg = colors.semantic.fg_active },
     }
 
     ---@type HighlightGroup
