@@ -18,7 +18,7 @@ M.default_config = {
         winter = "",
     },
 
-    select_season = "<leader>Ts", -- Normal mode mapping string for triggering the `season` selection
+    select_season = "<leader>Ts",
     select_time = "<leader>Tt", -- Normal mode mapping string for triggering the `time` selection
 
     transparent = false, -- Wether to render the background color

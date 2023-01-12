@@ -75,7 +75,7 @@
 ---@field season                                  Season
 ---@field time                                    Time
 ---@field icons                                   table
----@field select_season                           string
+---@field select_season                           string Normal mode mapping string for triggering the `season` selection
 ---@field transparent                             boolean
 ---@field term_colors                             boolean
 ---@field ending_tildes                           boolean
