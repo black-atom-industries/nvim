@@ -2,7 +2,7 @@ local c = require("terra.colors")
 
 local colors = {
     bg = c.semantic.bg1,
-    fg = c.semantic.fg,
+    fg = c.semantic.fg_dimmed,
     red = c.palette.red,
     green = c.palette.green,
     yellow = c.palette.yellow,
@@ -20,8 +20,8 @@ local terra = {
     },
     normal = {
         a = { fg = colors.bg, bg = colors.green, gui = "bold" },
-        b = { fg = colors.fg, bg = c.semantic.bg3 },
-        c = { fg = colors.fg, bg = c.semantic.bg1 },
+        b = { fg = colors.fg_active, bg = c.semantic.bg2 },
+        c = { fg = colors.fg_active, bg = c.semantic.bg1 },
     },
     visual = { a = { fg = colors.bg, bg = colors.purple, gui = "bold" } },
     replace = { a = { fg = colors.bg, bg = colors.red, gui = "bold" } },
