@@ -81,8 +81,8 @@ local function get_default_highlights(colors, config)
         SpellRare = { fg = colors.palette.purple, sp = colors.palette.purple },
         StatusLine = { fg = colors.semantic.fg, bg = colors.semantic.bg2 },
         StatusLineTerm = { fg = colors.semantic.fg, bg = colors.semantic.bg2 },
-        StatusLineNC = { fg = colors.palette.gray, bg = colors.semantic.bg1 },
-        StatusLineTermNC = { fg = colors.palette.gray, bg = colors.semantic.bg1 },
+        StatusLineNC = { fg = colors.palette.gray, bg = colors.semantic.bg2 },
+        StatusLineTermNC = { fg = colors.palette.gray, bg = colors.semantic.bg2 },
         TabLine = { fg = colors.semantic.fg, bg = colors.semantic.bg1 },
         TabLineFill = { fg = colors.palette.gray, bg = colors.semantic.bg1 },
         TabLineSel = { fg = colors.semantic.fg, bg = colors.semantic.bg3 },
@@ -156,10 +156,7 @@ local function get_default_highlights(colors, config)
             { fg = colors.semantic.fg_dimmed },
             config.code_style.comments
         ),
-        Todo = extend_with_code_style(
-            { fg = colors.semantic.fg_dimmed },
-            config.code_style.comments
-        ),
+        Todo = { fg = colors.semantic.fg_dimmed },
     }
 
     -- NOTE: https://stackoverflow.com/a/11886528/10945408
@@ -263,6 +260,8 @@ local function get_default_highlights(colors, config)
         ["@text.note"] = { fg = colors.semantic.fg },
         ["@text.warning"] = { fg = colors.semantic.fg },
         ["@text.danger"] = { fg = colors.semantic.fg },
+        ["@text.todo.unchecked"] = { fg = colors.semantic.fg_dimmed },
+        ["@text.todo.checked"] = { fg = colors.semantic.fg_active },
         ["@type"] = { fg = colors.palette.cyan },
         ["@type.builtin"] = { fg = colors.palette.dark_cyan },
         ["@variable"] = extend_with_code_style(
@@ -392,28 +391,36 @@ local function get_default_highlights(colors, config)
     }
 
     ---@type HighlightGroup
-    highlights.plugins.barbar = {
-        -- BufferLineFill = { bg = colors.semantic.bg0 },
-        -- BufferLineBackground = { bg = colors.semantic.bg0 },
-        -- BufferLineSeparator = { fg = colors.palette.red, bg = colors.palette.blue },
-        -- BufferLineGroupSeparator = { bg = colors.semantic.bg0 },
-        -- BufferLineSeparatorVisible = { fg = colors.semantic.bg0, bg = colors.semantic.bg0 },
-
-        -- BufferCurrent = {  bold = true },
-        -- BufferCurrentMod = { fg = colors.palette.dark_yellow, bg = colors.semantic.bg1, fmt = "bold,italic" },
-        -- BufferCurrentSign = { fg = colors.palette.yellow },
-        -- BufferInactiveMod = { fg = colors.palette.light_grey, bg = colors.semantic.bg2, fmt = "italic" },
-        -- BufferVisible = { fg = colors.palette.light_grey, bg = colors.semantic.bg1 },
-        -- BufferVisibleMod = { fg = colors.palette.yellow, bg = colors.semantic.bg1, fmt = "italic" },
-        -- BufferVisibleIndex = { fg = colors.palette.light_grey, bg = colors.semantic.bg1 },
-        -- BufferVisibleSign = { fg = colors.palette.light_grey, bg = colors.semantic.bg1 },
-        -- BufferVisibleTarget = { fg = colors.palette.light_grey, bg = colors.semantic.bg1 },
-        -- BufferLineTabClose = { fg = colors.palette.light_grey, bg = colors.semantic.bg1 },
-        -- BufferLineTabSelected = { fg = colors.palette.yellow, bg = colors.semantic.bg1 },
-        --
-        -- BufferLineBuffer = { fg = colors.gray, bg = colors.semantic.bg0 },
-        --
-        -- BufferLineTab = { fg = colors.palette.grey, bg = colors.semantic.bg0 },
+    highlights.plugins.bufferline = {
+        BufferLineFill = {
+            bg = config.transparent and colors.none or colors.semantic.bg0,
+        },
+        BufferLineBackground = {
+            bg = config.transparent and colors.none or colors.semantic.bg0,
+        },
+        BufferLineTabSeparator = {
+            bg = config.transparent and colors.none or colors.semantic.bg0,
+        },
+        BufferLineOffsetSeparator = {
+            fg = config.transparent and colors.none or colors.semantic.fg_dimmed,
+            bg = config.transparent and colors.none or colors.semantic.bg1,
+        },
+        BufferLineTabSelected = {
+            fg = colors.semantic.fg_active,
+            bg = colors.semantic.bg1,
+        },
+        BufferLineIndicatorSelected = {
+            fg = colors.semantic.bg1,
+        },
+        BufferLineBufferSelected = {
+            fg = colors.semantic.fg_active,
+            bg = colors.semantic.bg1,
+            bold = true,
+        },
+        BufferLineCloseButtonSelected = {
+            fg = colors.semantic.fg_dimmed,
+            bg = colors.semantic.bg1,
+        },
     }
 
     ---@type HighlightGroup
@@ -593,8 +600,15 @@ local function get_default_highlights(colors, config)
         NvimTreeIndentMarker = { fg = colors.semantic.fg },
         NvimTreeImageFile = { fg = colors.palette.dark_purple },
         NvimTreeSymlink = { fg = colors.palette.purple },
-        NvimTreeFolderName = { fg = colors.palette.blue },
+        NvimTreeFolderName = {
+            fg = colors.palette.blue,
+            bg = config.transparent and colors.none or colors.semantic.bg0,
+        },
         NvimTreeCursorLine = { bg = colors.semantic.bg1 },
+        NvimTreeWinSeparator = {
+            fg = colors.semantic.fg_dimmed,
+            bg = config.transparent and colors.none or colors.semantic.bg1,
+        },
         NvimTreeWindowPicker = {
             fg = colors.palette.white,
             bg = colors.palette.gray,
