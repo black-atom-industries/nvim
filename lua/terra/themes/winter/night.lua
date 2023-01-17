@@ -23,23 +23,23 @@ M.palette = {
     black = M.primary[4],
     gray = M.primary[6],
 
-    dark_red = "#D5552A",
-    red = "#D96E4A",
+    dark_red = "#d9663f",
+    red = "#db7958",
 
-    dark_green = "#5B8F56",
+    dark_green = "#529a4b",
     green = "#83C57D",
 
-    dark_yellow = "#F99B48",
-    yellow = "#F1BF4B",
+    dark_yellow = "#fca86c",
+    yellow = "#fbc967",
 
-    dark_blue = "#6299D0",
-    blue = "#79A3CD",
+    dark_blue = "#63b9d2",
+    blue = "#76c9e2",
 
-    dark_purple = "#AF79AB",
-    purple = "#BFA9D6",
+    dark_purple = "#c280b6",
+    purple = "#bfa3dc",
 
-    dark_cyan = "#56AE89",
-    cyan = "#75BD93",
+    dark_cyan = "#40bfa0",
+    cyan = "#75d7bf",
 
     light_gray = M.primary[9],
     white = M.primary[11],
