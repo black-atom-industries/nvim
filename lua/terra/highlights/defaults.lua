@@ -217,7 +217,7 @@ local function get_default_highlights(colors, config)
         ["@operator"] = { fg = colors.palette.white },
         ["@parameter"] = { fg = colors.palette.blue },
         ["@parameter.reference"] = { fg = colors.semantic.fg },
-        ["@property"] = { fg = colors.palette.blue },
+        ["@property"] = { fg = colors.palette.dark_blue },
         ["@punctuation.delimiter"] = { fg = colors.palette.white },
         ["@punctuation.bracket"] = { fg = colors.palette.white },
         ["@punctuation.special"] = { fg = colors.palette.white },
@@ -265,13 +265,22 @@ local function get_default_highlights(colors, config)
         ["@type"] = { fg = colors.palette.cyan },
         ["@type.builtin"] = { fg = colors.palette.dark_cyan },
         ["@variable"] = extend_with_code_style(
-            { fg = colors.palette.dark_yellow },
+            { fg = colors.palette.blue },
             config.code_style.variables
         ),
         ["@variable.builtin"] = extend_with_code_style(
             { fg = colors.palette.red },
             config.code_style.variables
         ),
+    }
+
+    highlights.plugins.TreesitterContext = {
+        TreesitterContext = {
+            link = "StatusLine",
+        },
+        TreesitterContextLineNumber = {
+            link = "StatusLine",
+        },
     }
 
     local diagnostics_error_color = config.diagnostics.darker
@@ -566,15 +575,21 @@ local function get_default_highlights(colors, config)
     highlights.plugins.neotree = {
         NeoTreeNormal = {
             fg = colors.semantic.fg,
-            bg = config.transparent and colors.none or colors.semantic.bg0,
+            -- bg = config.transparent and colors.none or colors.semantic.bg0,
+            bg = colors.semantic.bg0,
         },
         NeoTreeNormalNC = {
             fg = colors.semantic.fg,
-            bg = config.transparent and colors.none or colors.semantic.bg0,
+            -- bg = config.transparent and colors.none or colors.semantic.bg0,
+            bg = colors.semantic.bg0,
         },
         NeoTreeEndOfBuffer = {
             fg = config.ending_tildes and colors.palette.red or colors.semantic.bg0,
             bg = config.transparent and colors.none or colors.semantic.bg0,
+        },
+        NeoTreeWinSeparator = {
+            fg = colors.semantic.fg_dimmed,
+            bg = colors.semantic.bg0,
         },
     }
 
