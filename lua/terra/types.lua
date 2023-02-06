@@ -67,20 +67,21 @@
 ---@field variables                               CodeStyleFormat
 
 ---@class TerraConfig.Diagnostics
----@field darker                                  boolean
----@field undercurl                               boolean
----@field background                              boolean
+---@field darker                                  boolean Wether to use darker colors for diagnostics
+---@field undercurl                               boolean Wether to use undercurls for diagnostics
+---@field background                              boolean Wether to use background color for virtual text
 
 ---@class TerraConfig
----@field season                                  Season
----@field time                                    Time
----@field icons                                   table
+---@field season                                  Season Currently set season
+---@field time                                    Time Current set time of day
+---@field icons                                   table Icons associated with each season
+---@field select_time                             string Normal mode mapping string for triggering the `time` selection
 ---@field select_season                           string Normal mode mapping string for triggering the `season` selection
----@field transparent                             boolean
----@field term_colors                             boolean
----@field ending_tildes                           boolean
----@field cmp_itemkind_reverse                    boolean
----@field code_style                              TerraConfig.CodeStyle
----@field colors                                  table<string, string>
----@field highlights                              table<string, string>
----@field diagnostics                             TerraConfig.Diagnostics
+---@field transparent                             boolean Wether to render the background color
+---@field term_colors                             boolean Wether to enable terminal colors
+---@field ending_tildes                           boolean Wether to show the end-of-buffer tildes
+---@field cmp_itemkind_reverse                    boolean Wether to reverse item kind highlights in cmp menu
+---@field code_style                              TerraConfig.CodeStyle Code styling options
+---@field colors                                  table<string, string> Override default colors
+---@field highlights                              table<string, string> Override highlight colors
+---@field diagnostics                             TerraConfig.Diagnostics Diagnostics related settings
