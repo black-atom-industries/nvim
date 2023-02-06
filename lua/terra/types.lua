@@ -1,40 +1,22 @@
 ----------------------------------------Highlight
----@alias HighlightGroupName                      string
-
----@alias Fg                                      string
----@alias Bg                                      string
----@alias Sp                                      string
----@alias Bold                                    boolean
----@alias Italic                                  boolean
----@alias Blend                                   integer
----@alias Standout                                boolean
----@alias Underline                               boolean
----@alias Undercurl                               boolean
----@alias Underdouble                             boolean
----@alias Underdotted                             boolean
----@alias Underdashed                             boolean
----@alias Strikethrough                           boolean
----@alias Reverse                                 boolean
----@alias Link                                    string
-
----Documentation - :h nvim_set_hl
 ---@class HighlightDefinitionMap
----@field fg                                      Fg
----@field bg                                      Bg
----@field sp                                      Sp
----@field bold                                    Bold
----@field italic                                  Italic
----@field blend                                   Blend
----@field standout                                Standout
----@field underline                               Underline
----@field undercurl                               Undercurl
----@field underdouble                             Underdouble
----@field underdotted                             Underdotted
----@field underdashed                             Underdashed
----@field strikethrough                           Strikethrough
----@field reverse                                 Reverse
----@field link                                    Link
+---@field fg                                      string
+---@field bg                                      string
+---@field sp                                      string
+---@field bold                                    boolean
+---@field italic                                  boolean
+---@field blend                                   integer
+---@field standout                                boolean
+---@field underline                               boolean 
+---@field undercurl                               boolean
+---@field underdouble                             boolean
+---@field underdotted                             boolean
+---@field underdashed                             boolean
+---@field strikethrough                           boolean
+---@field reverse                                 boolean
+---@field link                                    string
 
+---@alias HighlightGroupName                      string
 ---@alias HighlightGroup                          table<HighlightGroupName, HighlightDefinitionMap>
 
 -------------------------------------------Colors
@@ -48,23 +30,12 @@
 ---@alias Season                                  "spring" | "summer" | "fall" | "winter"
 ---@alias Time                                    "day" | "night"
 
----@class CodeStyleFormat
----@field bold                                    Bold
----@field italic                                  Italic
----@field blend                                   Blend
----@field standout                                Standout
----@field underline                               Underline
----@field undercurl                               Undercurl
----@field underdouble                             Underdouble
----@field underdotted                             Underdotted
----@field underdashed                             Underdashed
-
 ---@class TerraConfig.CodeStyle
----@field comments                                CodeStyleFormat
----@field keywords                                CodeStyleFormat
----@field functions                               CodeStyleFormat
----@field strings                                 CodeStyleFormat
----@field variables                               CodeStyleFormat
+---@field comments                                HighlightDefinitionMap
+---@field keywords                                HighlightDefinitionMap
+---@field functions                               HighlightDefinitionMap
+---@field strings                                 HighlightDefinitionMap
+---@field variables                               HighlightDefinitionMap
 
 ---@class TerraConfig.Diagnostics
 ---@field darker                                  boolean Wether to use darker colors for diagnostics
