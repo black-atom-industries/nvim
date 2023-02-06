@@ -29,10 +29,10 @@ M.palette = {
     dark_green = "#529a4b",
     green = "#83C57D",
 
-    dark_yellow = "#fca86c",
+    dark_yellow = "#ffa869",
     yellow = "#fbc967",
 
-    dark_blue = "#63b9d2",
+    dark_blue = "#45b2d1",
     blue = "#76c9e2",
 
     dark_purple = "#c280b6",
