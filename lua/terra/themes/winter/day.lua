@@ -2,26 +2,26 @@ local extend_defaults = require("terra.actions.highlights").extend_defaults
 
 local M = {}
 
----@class Primary
+---@type TerraPrimaryColors
 M.primary = {
-    "#141F19",
-    "#17251E",
-    "#1B2C24",
-    "#284336",
-    "#4E7E66",
-    "#5D9579",
-    "#71A78C",
-    "#89B69F",
-    "#A1C4B2",
-    "#B8D3C6",
-    "#D0E2D9",
-    "#E7F0EC",
+    "#14171C",
+    "#191C22",
+    "#1d2128",
+    "#21262f",
+    "#2E3440",
+    "#3B4252",
+    "#434C5E",
+    "#4C566A",
+    "#5B6A89",
+    "#D8DEE9",
+    "#E5E9F0",
+    "#ECEFF4",
 }
 
----@class Palette Base theme color pallette
+---@type TerraPaletteColors
 M.palette = {
     black = M.primary[1],
-    grey = M.primary[4], -- FIX: grey/gray
+    gray = M.primary[4],
 
     dark_red = "#d6582e",
     red = "#da714d",
@@ -35,8 +35,8 @@ M.palette = {
     dark_blue = "#6199d1",
     blue = "#7CA6CF",
 
-    dark_purple = "#B07BAC",
-    purple = "#BFA9D6",
+    dark_magenta = "#B07BAC",
+    magenta = "#BFA9D6",
 
     dark_cyan = "#5aaf7d",
     cyan = "#75bd93",
@@ -45,28 +45,36 @@ M.palette = {
     white = M.primary[11],
 }
 
--- NOTE: Build out and improve and align semantics with vscode
----Second Level Semantics Color Definitions which have to be based on the Palette colors
----@class Semantic
+---@type TerraSemanticColors
 M.semantic = {
-    bg0 = M.primary[9],
-    bg1 = M.palette.white,
-    bg2 = M.primary[7],
-    bg3 = M.primary[6],
-
-    fg = M.palette.black,
-    fg_active = M.palette.yellow,
-    fg_dimmed = M.palette.grey,
-
-    diff_add = M.palette.green,
-    diff_delete = M.palette.red,
-    diff_change = M.palette.blue,
-    diff_text = M.palette.dark_blue,
+    bg = {
+        dark = M.primary[9],
+        main = M.palette.white,
+        light = M.primary[7],
+        diff = {
+            add = M.palette.green,
+            delete = M.palette.red,
+            change = M.palette.blue,
+            text = M.palette.dark_blue,
+        },
+    },
+    fg = {
+        dark = M.primary[1],
+        main = M.primary[2],
+        light = M.primary[3],
+        active = M.palette.yellow,
+        neutral = M.primary[5],
+        diff = {
+            add = M.palette.green,
+            delete = M.palette.red,
+            change = M.palette.blue,
+            text = M.palette.dark_blue,
+        },
+    },
 }
 
----A merged table of the theme primary, palette and semantic colors
----@return Colors
-function M.colors()
+---@return TerraColors
+M.colors = function()
     return {
         none = "none",
         primary = M.primary,

@@ -1,4 +1,5 @@
 ----------------------------------------Highlight
+
 ---@class HighlightDefinitionMap
 ---@field fg                                      string
 ---@field bg                                      string
@@ -20,13 +21,59 @@
 ---@alias HighlightGroup                          table<HighlightGroupName, HighlightDefinitionMap>
 
 -------------------------------------------Colors
----@class Colors
----@field primary                                 Primary
----@field palette                                 Palette
----@field semantic                                Semantic
+
+---@class TerraPrimaryColors                      string[]
+
+---@class TerraPaletteColors
+---@field black                                   string
+---@field gray                                    string
+---@field dark_red                                string
+---@field red                                     string
+---@field dark_green                              string
+---@field green                                   string
+---@field dark_yellow                             string
+---@field yellow                                  string
+---@field dark_blue                               string
+---@field blue                                    string
+---@field dark_magenta                            string
+---@field magenta                                 string
+---@field dark_cyan                               string
+---@field cyan                                    string
+---@field light_gray                              string
+---@field white                                   string
+
+---@class TerraSemanticGit
+---@field add                                     string
+---@field delete                                  string  
+---@field change                                  string
+---@field text                                    string
+
+---@class TerraSemanticBackground
+---@field dark                                    string
+---@field main                                    string
+---@field light                                   string
+---@field diff                                    TerraSemanticGit
+
+---@class TerraSemanticForeground
+---@field dark                                    string
+---@field main                                    string
+---@field light                                   string
+---@field active                                  string
+---@field neutral                                 string
+---@field diff                                    TerraSemanticGit
+
+---@class TerraSemanticColors
+---@field bg                                      TerraSemanticBackground
+---@field fg                                      TerraSemanticForeground
+
+---@class TerraColors
 ---@field none                                    string
+---@field primary                                 TerraPrimaryColors
+---@field palette                                 TerraPaletteColors
+---@field semantic                                TerraSemanticColors
 
 -------------------------------------------Config
+
 ---@alias Season                                  "spring" | "summer" | "fall" | "winter"
 ---@alias Time                                    "day" | "night"
 

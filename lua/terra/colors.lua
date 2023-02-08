@@ -1,6 +1,6 @@
 local get_palette = require("terra.palette")
 
----@return Colors
+---@return TerraColors
 local function get_colors()
     local colors = {}
 

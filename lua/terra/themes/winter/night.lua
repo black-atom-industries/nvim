@@ -2,7 +2,7 @@ local extend_defaults = require("terra.actions.highlights").extend_defaults
 
 local M = {}
 
----@class Primary
+---@type TerraPrimaryColors
 M.primary = {
     "#14171C",
     "#191C22",
@@ -18,7 +18,7 @@ M.primary = {
     "#ECEFF4",
 }
 
----@class Palette Base theme color pallette
+---@type TerraPaletteColors
 M.palette = {
     black = M.primary[4],
     gray = M.primary[6],
@@ -35,8 +35,8 @@ M.palette = {
     dark_blue = "#45b2d1",
     blue = "#76c9e2",
 
-    dark_purple = "#c280b6",
-    purple = "#bfa3dc",
+    dark_magenta = "#c280b6",
+    magenta = "#bfa3dc",
 
     dark_cyan = "#40bfa0",
     cyan = "#75d7bf",
@@ -45,28 +45,36 @@ M.palette = {
     white = M.primary[11],
 }
 
--- NOTE: Build out and improve and align semantics with vscode
----Second Level Semantics Color Definitions which have to be based on the Palette colors
----@class Semantic
+---@type TerraSemanticColors
 M.semantic = {
-    bg0 = M.primary[1],
-    bg1 = M.primary[2],
-    bg2 = M.primary[3],
-    bg3 = M.primary[5],
-
-    fg = M.palette.white,
-    fg_active = M.palette.yellow,
-    fg_dimmed = M.palette.gray,
-
-    diff_add = M.palette.green,
-    diff_delete = M.palette.red,
-    diff_change = M.palette.blue,
-    diff_text = M.palette.dark_blue,
+    bg = {
+        dark = M.primary[1],
+        main = M.primary[2],
+        light = M.primary[3],
+        diff = {
+            add = M.palette.green,
+            delete = M.palette.red,
+            change = M.palette.blue,
+            text = M.palette.dark_blue,
+        },
+    },
+    fg = {
+        dark = M.primary[9],
+        main = M.primary[10],
+        light = M.primary[11],
+        active = M.palette.yellow,
+        neutral = M.primary[5],
+        diff = {
+            add = M.palette.green,
+            delete = M.palette.red,
+            change = M.palette.blue,
+            text = M.palette.dark_blue,
+        },
+    },
 }
 
----A merged table of the theme primary, palette and semantic colors
----@return Colors
-function M.colors()
+---@return TerraColors
+M.colors = function()
     return {
         none = "none",
         primary = M.primary,
