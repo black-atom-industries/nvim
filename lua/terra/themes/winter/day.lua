@@ -4,10 +4,10 @@ local M = {}
 
 ---@type TerraPrimaryColors
 M.primary = {
-    "#14171C",
-    "#191C22",
-    "#1d2128",
-    "#21262f",
+    "#1a1e25",
+    "#1f232b",
+    "#232831",
+    "#272d38",
     "#2E3440",
     "#3B4252",
     "#434C5E",
@@ -51,6 +51,7 @@ M.semantic = {
         dark = M.primary[9],
         main = M.palette.white,
         light = M.primary[7],
+        active = M.primary[5],
         diff = {
             add = M.palette.green,
             delete = M.palette.red,

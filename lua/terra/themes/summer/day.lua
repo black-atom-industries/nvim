@@ -51,6 +51,7 @@ M.semantic = {
         dark = M.primary[9],
         main = M.palette.white,
         light = M.primary[7],
+        active = M.primary[5],
         diff = {
             add = M.palette.green,
             delete = M.palette.red,

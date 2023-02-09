@@ -52,6 +52,7 @@
 ---@field dark                                    string
 ---@field main                                    string
 ---@field light                                   string
+---@field active                                  string
 ---@field diff                                    TerraSemanticGit
 
 ---@class TerraSemanticForeground
