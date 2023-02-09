@@ -9,25 +9,25 @@ M.seasons = {
 
 ---@type TerraConfig
 M.default_config = {
-    season = M.seasons[1], -- Currently set season
-    time = "night", -- Current set time of day
+    season = M.seasons[1],
+    time = "night",
 
-    icons = { -- Icons associated with each season
-        spring = "",
-        summer = "",
-        fall = "",
-        winter = "",
+    icons = {
+        spring = " ",
+        summer = " ",
+        fall = " ",
+        winter = " ",
     },
 
     select_season = "<leader>Ts",
-    select_time = "<leader>Tt", -- Normal mode mapping string for triggering the `time` selection
+    select_time = "<leader>Tt",
 
-    transparent = false, -- Wether to render the background color
-    term_colors = true, -- Wether to enable terminal colors
-    ending_tildes = false, -- Wether to show the end-of-buffer tildes
-    cmp_itemkind_reverse = false, -- Wether to reverse item kind highlights in cmp menu
+    transparent = false,
+    term_colors = true,
+    ending_tildes = false,
+    cmp_itemkind_reverse = false,
 
-    code_style = { -- Code styling options
+    code_style = {
         comments = {
             italic = true,
         },
@@ -41,13 +41,13 @@ M.default_config = {
         variables = {},
     },
 
-    colors = {}, -- Override default colors
-    highlights = {}, -- Override highlight colors
+    colors = {},
+    highlights = {},
 
-    diagnostics = { -- Diagnostics related settings
-        darker = false, -- Wether to use darker colors for diagnostics
-        undercurl = false, -- Wether to use undercurls for diagnostics
-        background = false, -- Wether to use background color for virtual text
+    diagnostics = {
+        darker = false,
+        undercurl = false,
+        background = false,
     },
 }
 

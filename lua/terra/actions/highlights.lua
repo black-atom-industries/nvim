@@ -14,7 +14,7 @@ end
 
 ---Extends the highlight with optional code styles from the user config
 ---@param highlight HighlightDefinitionMap
----@param code_style CodeStyleFormat
+---@param code_style HighlightDefinitionMap
 ---@return HighlightDefinitionMap
 function M.extend_with_code_style(highlight, code_style)
     return vim.tbl_extend("force", highlight, code_style)
@@ -52,7 +52,7 @@ function M.set_highlight_group(highlight_group)
     end
 end
 
----@param colors Colors
+---@param colors TerraColors
 ---@param overrides Highlights
 ---@return Highlights
 function M.extend_defaults(colors, overrides)

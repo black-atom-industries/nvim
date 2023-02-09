@@ -1,86 +1,106 @@
 ----------------------------------------Highlight
----@alias HighlightGroupName                      string
 
----@alias Fg                                      string
----@alias Bg                                      string
----@alias Sp                                      string
----@alias Bold                                    boolean
----@alias Italic                                  boolean
----@alias Blend                                   integer
----@alias Standout                                boolean
----@alias Underline                               boolean
----@alias Undercurl                               boolean
----@alias Underdouble                             boolean
----@alias Underdotted                             boolean
----@alias Underdashed                             boolean
----@alias Strikethrough                           boolean
----@alias Reverse                                 boolean
----@alias Link                                    string
-
----Documentation - :h nvim_set_hl
 ---@class HighlightDefinitionMap
----@field fg                                      Fg
----@field bg                                      Bg
----@field sp                                      Sp
----@field bold                                    Bold
----@field italic                                  Italic
----@field blend                                   Blend
----@field standout                                Standout
----@field underline                               Underline
----@field undercurl                               Undercurl
----@field underdouble                             Underdouble
----@field underdotted                             Underdotted
----@field underdashed                             Underdashed
----@field strikethrough                           Strikethrough
----@field reverse                                 Reverse
----@field link                                    Link
+---@field fg                                      string
+---@field bg                                      string
+---@field sp                                      string
+---@field bold                                    boolean
+---@field italic                                  boolean
+---@field blend                                   integer
+---@field standout                                boolean
+---@field underline                               boolean 
+---@field undercurl                               boolean
+---@field underdouble                             boolean
+---@field underdotted                             boolean
+---@field underdashed                             boolean
+---@field strikethrough                           boolean
+---@field reverse                                 boolean
+---@field link                                    string
 
+---@alias HighlightGroupName                      string
 ---@alias HighlightGroup                          table<HighlightGroupName, HighlightDefinitionMap>
 
 -------------------------------------------Colors
----@class Colors
----@field primary                                 Primary
----@field palette                                 Palette
----@field semantic                                Semantic
+
+---@class TerraPrimaryColors                      string[]
+
+---@class TerraPaletteColors
+---@field black                                   string
+---@field gray                                    string
+---@field dark_red                                string
+---@field red                                     string
+---@field dark_green                              string
+---@field green                                   string
+---@field dark_yellow                             string
+---@field yellow                                  string
+---@field dark_blue                               string
+---@field blue                                    string
+---@field dark_magenta                            string
+---@field magenta                                 string
+---@field dark_cyan                               string
+---@field cyan                                    string
+---@field light_gray                              string
+---@field white                                   string
+
+---@class TerraSemanticGit
+---@field add                                     string
+---@field delete                                  string  
+---@field change                                  string
+---@field text                                    string
+
+---@class TerraSemanticBackground
+---@field dark                                    string
+---@field main                                    string
+---@field light                                   string
+---@field active                                  string
+---@field diff                                    TerraSemanticGit
+
+---@class TerraSemanticForeground
+---@field dark                                    string
+---@field main                                    string
+---@field light                                   string
+---@field active                                  string
+---@field neutral                                 string
+---@field diff                                    TerraSemanticGit
+
+---@class TerraSemanticColors
+---@field bg                                      TerraSemanticBackground
+---@field fg                                      TerraSemanticForeground
+
+---@class TerraColors
 ---@field none                                    string
+---@field primary                                 TerraPrimaryColors
+---@field palette                                 TerraPaletteColors
+---@field semantic                                TerraSemanticColors
 
 -------------------------------------------Config
+
 ---@alias Season                                  "spring" | "summer" | "fall" | "winter"
 ---@alias Time                                    "day" | "night"
 
----@class CodeStyleFormat
----@field bold                                    Bold
----@field italic                                  Italic
----@field blend                                   Blend
----@field standout                                Standout
----@field underline                               Underline
----@field undercurl                               Undercurl
----@field underdouble                             Underdouble
----@field underdotted                             Underdotted
----@field underdashed                             Underdashed
-
 ---@class TerraConfig.CodeStyle
----@field comments                                CodeStyleFormat
----@field keywords                                CodeStyleFormat
----@field functions                               CodeStyleFormat
----@field strings                                 CodeStyleFormat
----@field variables                               CodeStyleFormat
+---@field comments                                HighlightDefinitionMap
+---@field keywords                                HighlightDefinitionMap
+---@field functions                               HighlightDefinitionMap
+---@field strings                                 HighlightDefinitionMap
+---@field variables                               HighlightDefinitionMap
 
 ---@class TerraConfig.Diagnostics
----@field darker                                  boolean
----@field undercurl                               boolean
----@field background                              boolean
+---@field darker                                  boolean Wether to use darker colors for diagnostics
+---@field undercurl                               boolean Wether to use undercurls for diagnostics
+---@field background                              boolean Wether to use background color for virtual text
 
 ---@class TerraConfig
----@field season                                  Season
----@field time                                    Time
----@field icons                                   table
+---@field season                                  Season Currently set season
+---@field time                                    Time Current set time of day
+---@field icons                                   table Icons associated with each season
+---@field select_time                             string Normal mode mapping string for triggering the `time` selection
 ---@field select_season                           string Normal mode mapping string for triggering the `season` selection
----@field transparent                             boolean
----@field term_colors                             boolean
----@field ending_tildes                           boolean
----@field cmp_itemkind_reverse                    boolean
----@field code_style                              TerraConfig.CodeStyle
----@field colors                                  table<string, string>
----@field highlights                              table<string, string>
----@field diagnostics                             TerraConfig.Diagnostics
+---@field transparent                             boolean Wether to render the background color
+---@field term_colors                             boolean Wether to enable terminal colors
+---@field ending_tildes                           boolean Wether to show the end-of-buffer tildes
+---@field cmp_itemkind_reverse                    boolean Wether to reverse item kind highlights in cmp menu
+---@field code_style                              TerraConfig.CodeStyle Code styling options
+---@field colors                                  table<string, string> Override default colors
+---@field highlights                              table<string, string> Override highlight colors
+---@field diagnostics                             TerraConfig.Diagnostics Diagnostics related settings
