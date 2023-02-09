@@ -8,7 +8,7 @@
 ---@field italic                                  boolean
 ---@field blend                                   integer
 ---@field standout                                boolean
----@field underline                               boolean 
+---@field underline                               boolean
 ---@field undercurl                               boolean
 ---@field underdouble                             boolean
 ---@field underdotted                             boolean
@@ -45,7 +45,7 @@
 
 ---@class TerraSemanticGit
 ---@field add                                     string
----@field delete                                  string  
+---@field delete                                  string
 ---@field change                                  string
 ---@field text                                    string
 

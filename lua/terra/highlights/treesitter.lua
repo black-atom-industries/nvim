@@ -1,6 +1,6 @@
 local actions = require("terra.actions")
 
-local extend_with_code_style = actions.highlights.extend_with_code_style
+local with_code_style = actions.highlights.extend_with_code_style
 
 local M = {}
 
@@ -15,14 +15,8 @@ M.setup = function(highlights, colors, config)
         ["@boolean"] = { fg = colors.palette.dark_yellow },
         ["@character"] = { fg = colors.palette.dark_yellow },
         ["@character.special"] = { fg = colors.palette.dark_yellow },
-        ["@comment"] = extend_with_code_style(
-            { fg = colors.semantic.fg.neutral },
-            config.code_style.comments
-        ),
-        ["@conditional"] = extend_with_code_style(
-            { fg = colors.palette.magenta },
-            config.code_style.keywords
-        ),
+        ["@comment"] = with_code_style({ fg = colors.semantic.fg.dark }, config.code_style.comments),
+        ["@conditional"] = with_code_style({ fg = colors.palette.magenta }, config.code_style.keywords),
         ["@constant"] = { fg = colors.palette.dark_yellow },
         ["@constant.builtin"] = { fg = colors.palette.dark_yellow },
         ["@constant.macro"] = { fg = colors.palette.dark_yellow },
@@ -31,31 +25,13 @@ M.setup = function(highlights, colors, config)
         ["@exception"] = { fg = colors.palette.magenta },
         ["@field"] = { fg = colors.palette.cyan },
         ["@float"] = { fg = colors.palette.dark_yellow },
-        ["@function"] = extend_with_code_style(
-            { fg = colors.palette.yellow },
-            config.code_style.functions
-        ),
-        ["@function.builtin"] = extend_with_code_style(
-            { fg = colors.palette.cyan },
-            config.code_style.functions
-        ),
-        ["@function.macro"] = extend_with_code_style(
-            { fg = colors.palette.cyan },
-            config.code_style.functions
-        ),
+        ["@function"] = with_code_style({ fg = colors.palette.yellow }, config.code_style.functions),
+        ["@function.builtin"] = with_code_style({ fg = colors.palette.cyan }, config.code_style.functions),
+        ["@function.macro"] = with_code_style({ fg = colors.palette.cyan }, config.code_style.functions),
         ["@include"] = { fg = colors.palette.magenta },
-        ["@keyword"] = extend_with_code_style({
-            fg = colors.palette.red,
-            bold = true,
-        }, config.code_style.keywords),
-        ["@keyword.function"] = extend_with_code_style(
-            { fg = colors.palette.magenta },
-            config.code_style.functions
-        ),
-        ["@keyword.operator"] = extend_with_code_style(
-            { fg = colors.palette.red },
-            config.code_style.keywords
-        ),
+        ["@keyword"] = with_code_style({ fg = colors.palette.red, bold = true }, config.code_style.keywords),
+        ["@keyword.function"] = with_code_style({ fg = colors.palette.magenta }, config.code_style.functions),
+        ["@keyword.operator"] = with_code_style({ fg = colors.palette.red }, config.code_style.keywords),
         ["@label"] = { fg = colors.palette.dark_yellow },
         ["@metod"] = { fg = colors.palette.blue },
         ["@namespace"] = { fg = colors.palette.yellow },
@@ -68,26 +44,11 @@ M.setup = function(highlights, colors, config)
         ["@punctuation.delimiter"] = { fg = colors.palette.white },
         ["@punctuation.bracket"] = { fg = colors.palette.white },
         ["@punctuation.special"] = { fg = colors.palette.white },
-        ["@repeat"] = extend_with_code_style(
-            { fg = colors.palette.magenta },
-            config.code_style.keywords
-        ),
-        ["@string"] = extend_with_code_style(
-            { fg = colors.palette.green },
-            config.code_style.strings
-        ),
-        ["@string.special"] = extend_with_code_style(
-            { fg = colors.palette.green },
-            config.code_style.strings
-        ),
-        ["@string.regex"] = extend_with_code_style(
-            { fg = colors.palette.dark_yellow },
-            config.code_style.strings
-        ),
-        ["@string.escape"] = extend_with_code_style(
-            { fg = colors.palette.red },
-            config.code_style.strings
-        ),
+        ["@repeat"] = with_code_style({ fg = colors.palette.magenta }, config.code_style.keywords),
+        ["@string"] = with_code_style({ fg = colors.palette.green }, config.code_style.strings),
+        ["@string.special"] = with_code_style({ fg = colors.palette.green }, config.code_style.strings),
+        ["@string.regex"] = with_code_style({ fg = colors.palette.dark_yellow }, config.code_style.strings),
+        ["@string.escape"] = with_code_style({ fg = colors.palette.red }, config.code_style.strings),
         ["@symbol"] = { fg = colors.palette.cyan },
         ["@tag"] = { fg = colors.palette.yellow },
         ["@tag.delimiter"] = { fg = colors.palette.dark_yellow },
@@ -111,14 +72,8 @@ M.setup = function(highlights, colors, config)
         ["@text.todo.checked"] = { fg = colors.semantic.fg.active },
         ["@type"] = { fg = colors.palette.cyan },
         ["@type.builtin"] = { fg = colors.palette.dark_cyan },
-        ["@variable"] = extend_with_code_style(
-            { fg = colors.palette.blue },
-            config.code_style.variables
-        ),
-        ["@variable.builtin"] = extend_with_code_style(
-            { fg = colors.palette.red },
-            config.code_style.variables
-        ),
+        ["@variable"] = with_code_style({ fg = colors.palette.blue }, config.code_style.variables),
+        ["@variable.builtin"] = with_code_style({ fg = colors.palette.red }, config.code_style.variables),
     }
 end
 

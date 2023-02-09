@@ -1,9 +1,8 @@
 local actions = require("terra.actions")
 
-local extend_with_code_style = actions.highlights.extend_with_code_style
+local with_code_style = actions.highlights.extend_with_code_style
 local darken = actions.color.darken
 
----Returns the default Highlights
 ---@param colors TerraColors
 ---@param config TerraConfig
 local function get_default_highlights(colors, config)
@@ -15,27 +14,14 @@ local function get_default_highlights(colors, config)
 
     ---@type HighlightGroup
     highlights.common = {
-        Normal = {
-            fg = colors.semantic.fg.main,
-            bg = config.transparent and colors.none or colors.semantic.bg.main,
-        },
-        Terminal = {
-            fg = colors.semantic.fg.main,
-            bg = config.transparent and colors.none or colors.semantic.bg.main,
-        },
+        Normal = { fg = colors.semantic.fg.main, bg = config.transparent and colors.none or colors.semantic.bg.main },
+        Terminal = { fg = colors.semantic.fg.main, bg = config.transparent and colors.none or colors.semantic.bg.main },
         EndOfBuffer = {
-            fg = config.ending_tildes and colors.semantic.bg.light
-                or colors.semantic.bg.main,
+            fg = config.ending_tildes and colors.semantic.bg.light or colors.semantic.bg.main,
             bg = config.transparent and colors.none or colors.semantic.bg.main,
         },
-        FoldColumn = {
-            fg = colors.palette.gray,
-            bg = config.transparent and colors.none or colors.semantic.bg.main,
-        },
-        Folded = {
-            fg = colors.palette.gray,
-            bg = config.transparent and colors.none or colors.semantic.bg.main,
-        },
+        FoldColumn = { fg = colors.palette.gray, bg = config.transparent and colors.none or colors.semantic.bg.main },
+        Folded = { fg = colors.palette.gray, bg = config.transparent and colors.none or colors.semantic.bg.main },
         SignColumn = {
             fg = colors.semantic.fg.main,
             bg = config.transparent and colors.none or colors.semantic.bg.main,
@@ -82,15 +68,9 @@ local function get_default_highlights(colors, config)
         SpellLocal = { fg = colors.palette.blue, sp = colors.palette.blue },
         SpellRare = { fg = colors.palette.magenta, sp = colors.palette.magenta },
         StatusLine = { fg = colors.semantic.fg.main, bg = colors.semantic.bg.light },
-        StatusLineTerm = {
-            fg = colors.semantic.fg.main,
-            bg = colors.semantic.bg.light,
-        },
+        StatusLineTerm = { fg = colors.semantic.fg.main, bg = colors.semantic.bg.light },
         StatusLineNC = { fg = colors.palette.gray, bg = colors.semantic.bg.light },
-        StatusLineTermNC = {
-            fg = colors.palette.gray,
-            bg = colors.semantic.bg.light,
-        },
+        StatusLineTermNC = { fg = colors.palette.gray, bg = colors.semantic.bg.light },
         TabLine = { fg = colors.semantic.fg.main, bg = colors.semantic.bg.main },
         TabLineFill = { fg = colors.palette.gray, bg = colors.semantic.bg.main },
         TabLineSel = { fg = colors.semantic.fg.main, bg = colors.semantic.bg.light },
@@ -108,10 +88,7 @@ local function get_default_highlights(colors, config)
 
     ---@type HighlightGroup
     highlights.syntax = {
-        String = extend_with_code_style(
-            { fg = colors.palette.cyan },
-            config.code_style.strings
-        ),
+        String = with_code_style({ fg = colors.palette.cyan }, config.code_style.strings),
         Character = { fg = colors.palette.yellow },
         Number = { fg = colors.palette.dark_yellow },
         Float = { fg = colors.palette.dark_yellow },
@@ -119,75 +96,42 @@ local function get_default_highlights(colors, config)
         Type = { fg = colors.palette.yellow },
         Structure = { fg = colors.palette.yellow },
         StorageClass = { fg = colors.palette.blue },
-        Identifier = extend_with_code_style(
-            { fg = colors.palette.red },
-            config.code_style.variables
-        ),
+        Identifier = with_code_style({ fg = colors.palette.red }, config.code_style.variables),
         Constant = { fg = colors.palette.dark_yellow },
         PreProc = { fg = colors.palette.magenta },
         PreCondit = { fg = colors.palette.magenta },
         Include = { fg = colors.palette.magenta },
-        Keyword = extend_with_code_style(
-            { fg = colors.palette.red },
-            config.code_style.keywords
-        ),
+        Keyword = with_code_style({ fg = colors.palette.red }, config.code_style.keywords),
         Define = { fg = colors.palette.magenta },
         Typedef = { fg = colors.palette.magenta },
         Exception = { fg = colors.palette.magenta },
-        Conditional = extend_with_code_style(
-            { fg = colors.palette.magenta },
-            config.code_style.keywords
-        ),
-        Repeat = extend_with_code_style(
-            { fg = colors.palette.magenta },
-            config.code_style.keywords
-        ),
+        Conditional = with_code_style({ fg = colors.palette.magenta }, config.code_style.keywords),
+        Repeat = with_code_style({ fg = colors.palette.magenta }, config.code_style.keywords),
         Statement = { fg = colors.palette.magenta },
         Macro = { fg = colors.palette.red },
         Error = { fg = colors.palette.magenta },
         Label = { fg = colors.palette.magenta },
         Special = { fg = colors.palette.red },
         SpecialChar = { fg = colors.palette.red },
-        Function = extend_with_code_style(
-            { fg = colors.palette.yellow },
-            config.code_style.functions
-        ),
+        Function = with_code_style({ fg = colors.palette.yellow }, config.code_style.functions),
         Operator = { fg = colors.palette.magenta },
         Title = { fg = colors.palette.cyan },
         Tag = { fg = colors.palette.green },
         Delimiter = { fg = colors.palette.light_gray },
-        Comment = extend_with_code_style(
-            { fg = colors.semantic.fg.neutral },
-            config.code_style.comments
-        ),
-        SpecialComment = extend_with_code_style(
-            { fg = colors.semantic.fg.neutral },
-            config.code_style.comments
-        ),
+        Comment = with_code_style({ fg = colors.semantic.fg.neutral }, config.code_style.comments),
+        SpecialComment = with_code_style({ fg = colors.semantic.fg.neutral }, config.code_style.comments),
         Todo = { fg = colors.semantic.fg.neutral },
     }
 
     highlights.plugins.TreesitterContext = {
-        TreesitterContext = {
-            link = "StatusLine",
-        },
-        TreesitterContextLineNumber = {
-            link = "StatusLine",
-        },
+        TreesitterContext = { link = "StatusLine" },
+        TreesitterContextLineNumber = { link = "StatusLine" },
     }
 
-    local diagnostics_error_color = config.diagnostics.darker
-            and colors.palette.dark_red
-        or colors.palette.red
-    local diagnostics_hint_color = config.diagnostics.darker
-            and colors.palette.dark_blue
-        or colors.palette.blue
-    local diagnostics_warn_color = config.diagnostics.darker
-            and colors.palette.dark_yellow
-        or colors.palette.yellow
-    local diagnostics_info_color = config.diagnostics.darker
-            and colors.palette.dark_cyan
-        or colors.palette.cyan
+    local diagnostics_error_color = config.diagnostics.darker and colors.palette.dark_red or colors.palette.red
+    local diagnostics_hint_color = config.diagnostics.darker and colors.palette.dark_blue or colors.palette.blue
+    local diagnostics_warn_color = config.diagnostics.darker and colors.palette.dark_yellow or colors.palette.yellow
+    local diagnostics_info_color = config.diagnostics.darker and colors.palette.dark_cyan or colors.palette.cyan
 
     ---@type HighlightGroup
     highlights.plugins.lsp = {
@@ -203,46 +147,30 @@ local function get_default_highlights(colors, config)
         DiagnosticWarn = { fg = colors.palette.yellow },
 
         DiagnosticVirtualTextError = {
-            bg = config.diagnostics.background
-                    and darken(diagnostics_error_color, 0.1, colors.semantic.bg.main)
+            bg = config.diagnostics.background and darken(diagnostics_error_color, 0.1, colors.semantic.bg.main)
                 or colors.none,
             fg = diagnostics_error_color,
         },
         DiagnosticVirtualTextWarn = {
-            bg = config.diagnostics.background
-                    and darken(diagnostics_warn_color, 0.1, colors.semantic.bg.main)
+            bg = config.diagnostics.background and darken(diagnostics_warn_color, 0.1, colors.semantic.bg.main)
                 or colors.none,
             fg = diagnostics_warn_color,
         },
         DiagnosticVirtualTextInfo = {
-            bg = config.diagnostics.background
-                    and darken(diagnostics_info_color, 0.1, colors.semantic.bg.main)
+            bg = config.diagnostics.background and darken(diagnostics_info_color, 0.1, colors.semantic.bg.main)
                 or colors.none,
             fg = diagnostics_info_color,
         },
         DiagnosticVirtualTextHint = {
-            bg = config.diagnostics.background
-                    and darken(diagnostics_hint_color, 0.1, colors.semantic.bg.main)
+            bg = config.diagnostics.background and darken(diagnostics_hint_color, 0.1, colors.semantic.bg.main)
                 or colors.none,
             fg = diagnostics_hint_color,
         },
 
-        DiagnosticUnderlineError = {
-            sp = colors.palette.red,
-            config.diagnostics.undercurl and { undercurl = true },
-        },
-        DiagnosticUnderlineHint = {
-            config.diagnostics.undercurl and { undercurl = true },
-            sp = colors.palette.blue,
-        },
-        DiagnosticUnderlineInfo = {
-            config.diagnostics.undercurl and { undercurl = true },
-            sp = colors.palette.blue,
-        },
-        DiagnosticUnderlineWarn = {
-            config.diagnostics.undercurl and { undercurl = true },
-            sp = colors.palette.yellow,
-        },
+        DiagnosticUnderlineError = { sp = colors.palette.red, config.diagnostics.undercurl and { undercurl = true } },
+        DiagnosticUnderlineHint = { config.diagnostics.undercurl and { undercurl = true }, sp = colors.palette.blue },
+        DiagnosticUnderlineInfo = { config.diagnostics.undercurl and { undercurl = true }, sp = colors.palette.blue },
+        DiagnosticUnderlineWarn = { config.diagnostics.undercurl and { undercurl = true }, sp = colors.palette.yellow },
 
         LspReferenceText = { bg = colors.semantic.bg.light },
         LspReferenceWrite = { bg = colors.semantic.bg.light },
@@ -252,30 +180,18 @@ local function get_default_highlights(colors, config)
         LspCodeLensSeparator = { fg = colors.palette.gray },
     }
 
-    highlights.plugins.lsp.LspDiagnosticsDefaultError =
-        highlights.plugins.lsp.DiagnosticError
-    highlights.plugins.lsp.LspDiagnosticsDefaultHint =
-        highlights.plugins.lsp.DiagnosticHint
-    highlights.plugins.lsp.LspDiagnosticsDefaultInformation =
-        highlights.plugins.lsp.DiagnosticInfo
-    highlights.plugins.lsp.LspDiagnosticsDefaultWarning =
-        highlights.plugins.lsp.DiagnosticWarn
-    highlights.plugins.lsp.LspDiagnosticsUnderlineError =
-        highlights.plugins.lsp.DiagnosticUnderlineError
-    highlights.plugins.lsp.LspDiagnosticsUnderlineHint =
-        highlights.plugins.lsp.DiagnosticUnderlineHint
-    highlights.plugins.lsp.LspDiagnosticsUnderlineInformation =
-        highlights.plugins.lsp.DiagnosticUnderlineInfo
-    highlights.plugins.lsp.LspDiagnosticsUnderlineWarning =
-        highlights.plugins.lsp.DiagnosticUnderlineWarn
-    highlights.plugins.lsp.LspDiagnosticsVirtualTextError =
-        highlights.plugins.lsp.DiagnosticVirtualTextError
-    highlights.plugins.lsp.LspDiagnosticsVirtualTextWarning =
-        highlights.plugins.lsp.DiagnosticVirtualTextWarn
-    highlights.plugins.lsp.LspDiagnosticsVirtualTextInformation =
-        highlights.plugins.lsp.DiagnosticVirtualTextInfo
-    highlights.plugins.lsp.LspDiagnosticsVirtualTextHint =
-        highlights.plugins.lsp.DiagnosticVirtualTextHint
+    highlights.plugins.lsp.LspDiagnosticsDefaultError = highlights.plugins.lsp.DiagnosticError
+    highlights.plugins.lsp.LspDiagnosticsDefaultHint = highlights.plugins.lsp.DiagnosticHint
+    highlights.plugins.lsp.LspDiagnosticsDefaultInformation = highlights.plugins.lsp.DiagnosticInfo
+    highlights.plugins.lsp.LspDiagnosticsDefaultWarning = highlights.plugins.lsp.DiagnosticWarn
+    highlights.plugins.lsp.LspDiagnosticsUnderlineError = highlights.plugins.lsp.DiagnosticUnderlineError
+    highlights.plugins.lsp.LspDiagnosticsUnderlineHint = highlights.plugins.lsp.DiagnosticUnderlineHint
+    highlights.plugins.lsp.LspDiagnosticsUnderlineInformation = highlights.plugins.lsp.DiagnosticUnderlineInfo
+    highlights.plugins.lsp.LspDiagnosticsUnderlineWarning = highlights.plugins.lsp.DiagnosticUnderlineWarn
+    highlights.plugins.lsp.LspDiagnosticsVirtualTextError = highlights.plugins.lsp.DiagnosticVirtualTextError
+    highlights.plugins.lsp.LspDiagnosticsVirtualTextWarning = highlights.plugins.lsp.DiagnosticVirtualTextWarn
+    highlights.plugins.lsp.LspDiagnosticsVirtualTextInformation = highlights.plugins.lsp.DiagnosticVirtualTextInfo
+    highlights.plugins.lsp.LspDiagnosticsVirtualTextHint = highlights.plugins.lsp.DiagnosticVirtualTextHint
 
     ---@type HighlightGroup
     highlights.plugins.ale = {
@@ -286,51 +202,27 @@ local function get_default_highlights(colors, config)
 
     ---@type HighlightGroup
     highlights.plugins.bufferline = {
-        BufferLineFill = {
-            bg = config.transparent and colors.none or colors.semantic.bg.dark,
-        },
-        BufferLineBackground = {
-            bg = config.transparent and colors.none or colors.semantic.bg.dark,
-        },
-        BufferLineTabSeparator = {
-            bg = config.transparent and colors.none or colors.semantic.bg.dark,
-        },
+        BufferLineFill = { bg = config.transparent and colors.none or colors.semantic.bg.dark },
+        BufferLineBackground = { bg = config.transparent and colors.none or colors.semantic.bg.dark },
+        BufferLineTabSeparator = { bg = config.transparent and colors.none or colors.semantic.bg.dark },
         BufferLineOffsetSeparator = {
             fg = config.transparent and colors.none or colors.semantic.fg.neutral,
             bg = config.transparent and colors.none or colors.semantic.bg.main,
         },
-        BufferLineTabSelected = {
-            fg = colors.semantic.fg.active,
-            bg = colors.semantic.bg.main,
-        },
-        BufferLineIndicatorSelected = {
-            fg = colors.semantic.bg.main,
-        },
-        BufferLineBufferSelected = {
-            fg = colors.semantic.fg.active,
-            bg = colors.semantic.bg.main,
-            bold = true,
-        },
-        BufferLineCloseButtonSelected = {
-            fg = colors.semantic.fg.neutral,
-            bg = colors.semantic.bg.main,
-        },
+        BufferLineTabSelected = { fg = colors.semantic.fg.active, bg = colors.semantic.bg.main },
+        BufferLineIndicatorSelected = { fg = colors.semantic.bg.main },
+        BufferLineBufferSelected = { fg = colors.semantic.fg.active, bg = colors.semantic.bg.main, bold = true },
+        BufferLineCloseButtonSelected = { fg = colors.semantic.fg.neutral, bg = colors.semantic.bg.main },
     }
 
     ---@type HighlightGroup
     highlights.plugins.cmp = {
         CmpItemAbbr = { fg = colors.semantic.fg.main },
-        CmpItemAbbrDeprecated = {
-            fg = colors.palette.light_gray,
-            strikethrough = true,
-        },
+        CmpItemAbbrDeprecated = { fg = colors.palette.light_gray, strikethrough = true },
         CmpItemAbbrMatch = { fg = colors.palette.cyan },
         CmpItemAbbrMatchFuzzy = { fg = colors.palette.cyan, underline = true },
         CmpItemMenu = { fg = colors.palette.light_gray },
-        CmpItemKind = {
-            fg = colors.palette.magenta,
-            config.cmp_itemkind_reverse and { reverse = true },
-        },
+        CmpItemKind = { fg = colors.palette.magenta, config.cmp_itemkind_reverse and { reverse = true } },
     }
 
     ---@type HighlightGroup
@@ -353,50 +245,23 @@ local function get_default_highlights(colors, config)
     ---@type HighlightGroup
     highlights.plugins.toggleterm = {
         ToggleTerm1FloatBorder = { fg = colors.palette.gray },
-        ToggleTerm1NormalFloat = {
-            fg = colors.semantic.fg.main,
-            bg = colors.semantic.bg.main,
-        },
+        ToggleTerm1NormalFloat = { fg = colors.semantic.fg.main, bg = colors.semantic.bg.main },
         ToggleTerm2FloatBorder = { fg = colors.palette.gray },
-        ToggleTerm2NormalFloat = {
-            fg = colors.semantic.fg.main,
-            bg = colors.semantic.bg.main,
-        },
+        ToggleTerm2NormalFloat = { fg = colors.semantic.fg.main, bg = colors.semantic.bg.main },
         ToggleTerm3FloatBorder = { fg = colors.palette.gray },
-        ToggleTerm3NormalFloat = {
-            fg = colors.semantic.fg.main,
-            bg = colors.semantic.bg.main,
-        },
+        ToggleTerm3NormalFloat = { fg = colors.semantic.fg.main, bg = colors.semantic.bg.main },
         ToggleTerm4FloatBorder = { fg = colors.palette.gray },
-        ToggleTerm4NormalFloat = {
-            fg = colors.semantic.fg.main,
-            bg = colors.semantic.bg.main,
-        },
+        ToggleTerm4NormalFloat = { fg = colors.semantic.fg.main, bg = colors.semantic.bg.main },
         ToggleTerm5FloatBorder = { fg = colors.palette.gray },
-        ToggleTerm5NormalFloat = {
-            fg = colors.semantic.fg.main,
-            bg = colors.semantic.bg.main,
-        },
+        ToggleTerm5NormalFloat = { fg = colors.semantic.fg.main, bg = colors.semantic.bg.main },
         ToggleTerm6FloatBorder = { fg = colors.palette.gray },
-        ToggleTerm6NormalFloat = {
-            fg = colors.semantic.fg.main,
-            bg = colors.semantic.bg.main,
-        },
+        ToggleTerm6NormalFloat = { fg = colors.semantic.fg.main, bg = colors.semantic.bg.main },
         ToggleTerm7FloatBorder = { fg = colors.palette.gray },
-        ToggleTerm7NormalFloat = {
-            fg = colors.semantic.fg.main,
-            bg = colors.semantic.bg.main,
-        },
+        ToggleTerm7NormalFloat = { fg = colors.semantic.fg.main, bg = colors.semantic.bg.main },
         ToggleTerm8FloatBorder = { fg = colors.palette.gray },
-        ToggleTerm8NormalFloat = {
-            fg = colors.semantic.fg.main,
-            bg = colors.semantic.bg.main,
-        },
+        ToggleTerm8NormalFloat = { fg = colors.semantic.fg.main, bg = colors.semantic.bg.main },
         ToggleTerm9FloatBorder = { fg = colors.palette.gray },
-        ToggleTerm9NormalFloat = {
-            fg = colors.semantic.fg.main,
-            bg = colors.semantic.bg.main,
-        },
+        ToggleTerm9NormalFloat = { fg = colors.semantic.fg.main, bg = colors.semantic.bg.main },
     }
 
     ---@type HighlightGroup
@@ -460,17 +325,14 @@ local function get_default_highlights(colors, config)
     highlights.plugins.neotree = {
         NeoTreeNormal = {
             fg = colors.semantic.fg.main,
-            -- bg = config.transparent and colors.none or colors.semantic.bg.dark,
             bg = colors.semantic.bg.dark,
         },
         NeoTreeNormalNC = {
             fg = colors.semantic.fg.main,
-            -- bg = config.transparent and colors.none or colors.semantic.bg.dark,
             bg = colors.semantic.bg.dark,
         },
         NeoTreeEndOfBuffer = {
-            fg = config.ending_tildes and colors.palette.red
-                or colors.semantic.bg.dark,
+            fg = config.ending_tildes and colors.palette.red or colors.semantic.bg.dark,
             bg = config.transparent and colors.none or colors.semantic.bg.dark,
         },
         NeoTreeWinSeparator = {
@@ -490,8 +352,7 @@ local function get_default_highlights(colors, config)
             bg = config.transparent and colors.none or colors.semantic.bg.main,
         },
         NvimTreeEndOfBuffer = {
-            fg = config.ending_tildes and colors.semantic.bg.light
-                or colors.semantic.bg.main,
+            fg = config.ending_tildes and colors.semantic.bg.light or colors.semantic.bg.main,
             bg = config.transparent and colors.none or colors.semantic.bg.dark,
         },
         NvimTreeRootFolder = { fg = colors.palette.dark_yellow, bold = true },
@@ -511,18 +372,11 @@ local function get_default_highlights(colors, config)
             fg = colors.semantic.fg.neutral,
             bg = config.transparent and colors.none or colors.semantic.bg.main,
         },
-        NvimTreeWindowPicker = {
-            fg = colors.palette.white,
-            bg = colors.palette.gray,
-        },
+        NvimTreeWindowPicker = { fg = colors.palette.white, bg = colors.palette.gray },
     }
 
     ---@type HighlightGroup
     highlights.plugins.indent_blankline = {
-        -- IndentBlanklineChar
-        -- IndentBlanklineSpaceChar
-        -- IndentBlanklineSpaceCharBlankline
-        -- IndentBlanklineContextSpaceChar
         IndentBlanklineContextChar = { fg = colors.semantic.fg.active },
         IndentBlanklineIndent1 = { fg = colors.primary[2] },
         IndentBlanklineIndent2 = { fg = colors.primary[3] },
@@ -559,10 +413,7 @@ local function get_default_highlights(colors, config)
     ---https://github.com/DNLHC/glance.nvim
     ---@type HighlightGroup
     highlights.plugins.glance = {
-        GlancePreviewNormal = {
-            fg = colors.semantic.fg.main,
-            bg = colors.semantic.bg.dark,
-        },
+        GlancePreviewNormal = { fg = colors.semantic.fg.main, bg = colors.semantic.bg.dark },
         -- GlancePreviewMatch
         -- GlancePreviewCursorLine
         -- GlancePreviewSignColumn
@@ -723,34 +574,19 @@ local function get_default_highlights(colors, config)
 
     ---@type HighlightGroup
     highlights.langs.php = {
-        phpFunctions = extend_with_code_style(
-            { fg = colors.semantic.fg.main },
-            config.code_style.functions
-        ),
+        phpFunctions = with_code_style({ fg = colors.semantic.fg.main }, config.code_style.functions),
         phpMethods = { fg = colors.palette.cyan },
         phpStructure = { fg = colors.palette.magenta },
         phpOperator = { fg = colors.palette.magenta },
         phpMemberSelector = { fg = colors.semantic.fg.main },
-        phpVarSelector = extend_with_code_style(
-            { fg = colors.palette.dark_yellow },
-            config.code_style.variables
-        ),
-        phpIdentifier = extend_with_code_style(
-            { fg = colors.palette.dark_yellow },
-            config.code_style.variables
-        ),
+        phpVarSelector = with_code_style({ fg = colors.palette.dark_yellow }, config.code_style.variables),
+        phpIdentifier = with_code_style({ fg = colors.palette.dark_yellow }, config.code_style.variables),
         phpBoolean = { fg = colors.palette.cyan },
         phpNumber = { fg = colors.palette.dark_yellow },
         phpHereDoc = { fg = colors.palette.green },
         phpNowDoc = { fg = colors.palette.green },
-        phpSCKeyword = extend_with_code_style(
-            { fg = colors.palette.magenta },
-            config.code_style.keywords
-        ),
-        phpFCKeyword = extend_with_code_style(
-            { fg = colors.palette.magenta },
-            config.code_style.keywords
-        ),
+        phpSCKeyword = with_code_style({ fg = colors.palette.magenta }, config.code_style.keywords),
+        phpFCKeyword = with_code_style({ fg = colors.palette.magenta }, config.code_style.keywords),
         phpRegion = { fg = colors.palette.blue },
     }
 
@@ -761,19 +597,13 @@ local function get_default_highlights(colors, config)
         scalaInterpolation = { fg = colors.palette.magenta },
         scalaTypeOperator = { fg = colors.palette.red },
         scalaOperator = { fg = colors.palette.red },
-        scalaKeywordModifier = extend_with_code_style(
-            { fg = colors.palette.red },
-            config.code_style.keywords
-        ),
+        scalaKeywordModifier = with_code_style({ fg = colors.palette.red }, config.code_style.keywords),
     }
 
     ---@type HighlightGroup
     highlights.langs.tex = {
         latexTSInclude = { fg = colors.palette.blue },
-        latexTSFuncMacro = extend_with_code_style(
-            { fg = colors.semantic.fg.main },
-            config.code_style.functions
-        ),
+        latexTSFuncMacro = with_code_style({ fg = colors.semantic.fg.main }, config.code_style.functions),
         latexTSEnvironment = { fg = colors.palette.cyan, bold = true },
         latexTSEnvironmentName = { fg = colors.palette.yellow },
         texCmdEnv = { fg = colors.palette.cyan },
@@ -801,17 +631,11 @@ local function get_default_highlights(colors, config)
         vimNotation = { fg = colors.palette.red },
         vimMapLhs = { fg = colors.semantic.fg.main },
         vimMapRhs = { fg = colors.palette.blue },
-        vimVar = extend_with_code_style(
-            { fg = colors.semantic.fg.main },
-            config.code_style.variables
-        ),
-        vimCommentTitle = extend_with_code_style(
-            { fg = colors.palette.light_gray },
-            config.code_style.comments
-        ),
+        vimVar = with_code_style({ fg = colors.semantic.fg.main }, config.code_style.variables),
+        vimCommentTitle = with_code_style({ fg = colors.palette.light_gray }, config.code_style.comments),
     }
 
-    highlights.lsp_kind_icons_color = {
+    local lsp_kind_icons_color = {
         Default = colors.palette.magenta,
         Class = colors.palette.yellow,
         Color = colors.palette.green,
@@ -840,10 +664,9 @@ local function get_default_highlights(colors, config)
         Variable = colors.palette.magenta,
     }
 
-    for kind, color in pairs(highlights.lsp_kind_icons_color) do
+    for kind, color in pairs(lsp_kind_icons_color) do
         highlights.plugins.cmp["CmpItemKind" .. kind] = {
             fg = color,
-            -- TODO: Test!
             config.cmp_itemkind_reverse and { reverse = true },
         }
         highlights.plugins.outline["Aerial" .. kind .. "Icon"] = { fg = color }
