@@ -45,29 +45,30 @@ M.setup = function(highlights, colors, config)
         ),
         ["@include"] = { fg = colors.palette.magenta },
         ["@keyword"] = extend_with_code_style({
-            fg = colors.palette.red,
+            fg = colors.palette.magenta,
             bold = true,
+            italic = true,
         }, config.code_style.keywords),
         ["@keyword.function"] = extend_with_code_style(
             { fg = colors.palette.magenta },
             config.code_style.functions
         ),
         ["@keyword.operator"] = extend_with_code_style(
-            { fg = colors.palette.red },
+            { fg = colors.palette.magenta },
             config.code_style.keywords
         ),
         ["@label"] = { fg = colors.palette.dark_yellow },
         ["@metod"] = { fg = colors.palette.blue },
-        ["@namespace"] = { fg = colors.palette.yellow },
+        ["@namespace"] = { fg = colors.palette.dark_blue },
         ["@none"] = { fg = colors.semantic.fg.main },
         ["@number"] = { fg = colors.palette.dark_yellow },
-        ["@operator"] = { fg = colors.palette.white },
-        ["@parameter"] = { fg = colors.palette.blue },
+        ["@operator"] = { link = "Operator" },
+        ["@parameter"] = { fg = colors.palette.dark_yellow },
         ["@parameter.reference"] = { fg = colors.semantic.fg.main },
         ["@property"] = { fg = colors.palette.dark_blue },
-        ["@punctuation.delimiter"] = { fg = colors.palette.white },
-        ["@punctuation.bracket"] = { fg = colors.palette.white },
-        ["@punctuation.special"] = { fg = colors.palette.white },
+        ["@punctuation.delimiter"] = { fg = colors.semantic.fg.main },
+        ["@punctuation.bracket"] = { fg = colors.semantic.fg.main },
+        ["@punctuation.special"] = { fg = colors.semantic.fg.main },
         ["@repeat"] = extend_with_code_style(
             { fg = colors.palette.magenta },
             config.code_style.keywords
@@ -110,6 +111,7 @@ M.setup = function(highlights, colors, config)
         ["@text.todo.unchecked"] = { fg = colors.semantic.fg.neutral },
         ["@text.todo.checked"] = { fg = colors.semantic.fg.active },
         ["@type"] = { fg = colors.palette.cyan },
+        ["@interface"] = { fg = colors.palette.cyan },
         ["@type.builtin"] = { fg = colors.palette.dark_cyan },
         ["@variable"] = extend_with_code_style(
             { fg = colors.palette.blue },
