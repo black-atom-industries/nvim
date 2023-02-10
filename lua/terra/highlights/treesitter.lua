@@ -16,7 +16,7 @@ M.setup = function(highlights, colors, config)
         ["@character"] = { fg = colors.palette.dark_yellow },
         ["@character.special"] = { fg = colors.palette.dark_yellow },
         ["@comment"] = extend_with_code_style(
-            { fg = colors.semantic.fg.neutral },
+            { link = "Comment" },
             config.code_style.comments
         ),
         ["@conditional"] = extend_with_code_style(
