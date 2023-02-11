@@ -436,13 +436,12 @@ local function get_default_highlights(colors, config)
             bg = config.transparent and colors.none or colors.semantic.bg.dark,
         },
         NeoTreeEndOfBuffer = {
-            fg = config.ending_tildes and colors.palette.red
+            fg = config.ending_tildes and colors.semantic.fg.dark
                 or colors.semantic.bg.dark,
             bg = config.transparent and colors.none or colors.semantic.bg.dark,
         },
         NeoTreeWinSeparator = {
-            fg = config.transparent and colors.semantic.bg.dark
-                or colors.semantic.fg.main,
+            fg = colors.semantic.bg.main,
             bg = config.transparent and colors.none or colors.semantic.bg.dark,
         },
     }
