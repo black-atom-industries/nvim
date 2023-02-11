@@ -32,7 +32,7 @@ M.setup = function(highlights, colors, config)
         ["@field"] = { fg = colors.palette.cyan },
         ["@float"] = { fg = colors.palette.dark_yellow },
         ["@function"] = extend_with_code_style(
-            { fg = colors.palette.yellow },
+            { fg = colors.palette.yellow, bold = true },
             config.code_style.functions
         ),
         ["@function.builtin"] = extend_with_code_style(
@@ -63,7 +63,7 @@ M.setup = function(highlights, colors, config)
         ["@none"] = { fg = colors.semantic.fg.main },
         ["@number"] = { fg = colors.palette.dark_yellow },
         ["@operator"] = { link = "Operator" },
-        ["@parameter"] = { fg = colors.palette.dark_yellow },
+        ["@parameter"] = { fg = colors.palette.dark_yellow, italic = true },
         ["@parameter.reference"] = { fg = colors.semantic.fg.main },
         ["@property"] = { fg = colors.palette.dark_blue },
         ["@punctuation.delimiter"] = { fg = colors.semantic.fg.main },
