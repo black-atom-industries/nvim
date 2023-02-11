@@ -287,39 +287,6 @@ local function get_default_highlights(colors, config)
     }
 
     ---@type HighlightGroup
-    highlights.plugins.bufferline = {
-        -- BufferLineFill = {
-        --     bg = config.transparent and colors.none or colors.semantic.bg.dark,
-        -- },
-        -- BufferLineBackground = {
-        --     bg = config.transparent and colors.none or colors.semantic.bg.dark,
-        -- },
-        -- BufferLineTabSeparator = {
-        --     bg = config.transparent and colors.none or colors.semantic.bg.dark,
-        -- },
-        -- BufferLineOffsetSeparator = {
-        --     fg = config.transparent and colors.none or colors.semantic.fg.neutral,
-        --     bg = config.transparent and colors.none or colors.semantic.bg.main,
-        -- },
-        BufferLineTabSelected = {
-            fg = colors.semantic.fg.active,
-            -- bg = colors.semantic.bg.main,
-        },
-        -- BufferLineIndicatorSelected = {
-        --     fg = colors.semantic.bg.main,
-        -- },
-        BufferLineBufferSelected = {
-            fg = colors.semantic.fg.active,
-            -- bg = colors.semantic.bg.dark,
-            bold = true,
-        },
-        -- BufferLineCloseButtonSelected = {
-        --     fg = colors.semantic.fg.neutral,
-        --     bg = colors.semantic.bg.main,
-        -- },
-    }
-
-    ---@type HighlightGroup
     highlights.plugins.cmp = {
         CmpItemAbbr = { fg = colors.semantic.fg.main },
         CmpItemAbbrDeprecated = {
@@ -462,13 +429,11 @@ local function get_default_highlights(colors, config)
     highlights.plugins.neotree = {
         NeoTreeNormal = {
             fg = colors.semantic.fg.main,
-            -- bg = config.transparent and colors.none or colors.semantic.bg.dark,
-            bg = colors.semantic.bg.dark,
+            bg = config.transparent and colors.none or colors.semantic.bg.dark,
         },
         NeoTreeNormalNC = {
             fg = colors.semantic.fg.main,
-            -- bg = config.transparent and colors.none or colors.semantic.bg.dark,
-            bg = colors.semantic.bg.dark,
+            bg = config.transparent and colors.none or colors.semantic.bg.dark,
         },
         NeoTreeEndOfBuffer = {
             fg = config.ending_tildes and colors.palette.red
@@ -476,8 +441,9 @@ local function get_default_highlights(colors, config)
             bg = config.transparent and colors.none or colors.semantic.bg.dark,
         },
         NeoTreeWinSeparator = {
-            fg = colors.semantic.fg.neutral,
-            bg = colors.semantic.bg.dark,
+            fg = config.transparent and colors.semantic.bg.dark
+                or colors.semantic.fg.main,
+            bg = config.transparent and colors.none or colors.semantic.bg.dark,
         },
     }
 
