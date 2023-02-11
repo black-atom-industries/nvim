@@ -21,7 +21,7 @@ local function get_default_highlights(colors, config)
         },
         Terminal = {
             fg = colors.semantic.fg.main,
-            bg = config.transparent and colors.none or colors.semantic.bg.main,
+            bg = config.transparent and colors.none or colors.semantic.bg.dark,
         },
         EndOfBuffer = {
             fg = config.ending_tildes and colors.semantic.bg.light
@@ -29,11 +29,11 @@ local function get_default_highlights(colors, config)
             bg = config.transparent and colors.none or colors.semantic.bg.main,
         },
         FoldColumn = {
-            fg = colors.palette.gray,
+            fg = colors.semantic.fg.neutral,
             bg = config.transparent and colors.none or colors.semantic.bg.main,
         },
         Folded = {
-            fg = colors.palette.gray,
+            fg = colors.semantic.fg.neutral,
             bg = config.transparent and colors.none or colors.semantic.bg.main,
         },
         SignColumn = {
@@ -47,10 +47,10 @@ local function get_default_highlights(colors, config)
         lCursor = { reverse = true },
         CursorIM = { reverse = true },
         CursorColumn = { bg = colors.semantic.bg.light },
-        CursorLine = { bg = colors.semantic.bg.light },
-        ColorColumn = { bg = colors.semantic.bg.light },
+        CursorLine = { bg = colors.semantic.bg.dark },
+        ColorColumn = { bg = colors.semantic.bg.dark },
         CursorLineNr = { fg = colors.palette.yellow },
-        LineNr = { fg = colors.palette.gray },
+        LineNr = { fg = colors.semantic.fg.neutral },
         Conceal = { fg = colors.palette.gray, bg = colors.semantic.bg.main },
         DiffAdd = { fg = colors.semantic.fg.diff.add },
         DiffChange = { fg = colors.semantic.fg.diff.change },
@@ -64,8 +64,8 @@ local function get_default_highlights(colors, config)
         ErrorMsg = { fg = colors.palette.red, bold = true },
         WarningMsg = { fg = colors.palette.yellow, bold = true },
         MoreMsg = { fg = colors.palette.blue, bold = true },
-        IncSearch = { fg = colors.semantic.bg.dark, bg = colors.palette.blue },
-        Search = { fg = colors.semantic.bg.dark, bg = colors.palette.blue },
+        IncSearch = { link = "Search" },
+        Search = { bg = colors.semantic.bg.active, bold = true },
         Substitute = { fg = colors.semantic.bg.dark, bg = colors.palette.green },
         MatchParen = { fg = colors.none, bg = colors.palette.gray },
         NonText = { fg = colors.palette.gray },
@@ -94,7 +94,7 @@ local function get_default_highlights(colors, config)
         TabLine = { fg = colors.semantic.fg.main, bg = colors.semantic.bg.main },
         TabLineFill = { fg = colors.palette.gray, bg = colors.semantic.bg.main },
         TabLineSel = { fg = colors.semantic.fg.main, bg = colors.semantic.bg.light },
-        VertSplit = { fg = colors.palette.gray },
+        VertSplit = { fg = colors.semantic.fg.neutral },
         Visual = { bg = colors.semantic.bg.active },
         VisualNOS = { bg = colors.semantic.bg.active },
         QuickFixLine = { fg = colors.palette.blue, bg = colors.semantic.bg.light },
@@ -102,8 +102,13 @@ local function get_default_highlights(colors, config)
         debugPC = { fg = colors.semantic.bg.dark, bg = colors.palette.green },
         debugBreakpoint = { fg = colors.semantic.bg.dark, bg = colors.palette.red },
         ToolbarButton = { fg = colors.semantic.bg.dark, bg = colors.palette.blue },
-        FloatBorder = { fg = colors.palette.gray, bg = colors.semantic.bg.main },
-        NormalFloat = { fg = colors.semantic.fg.main, bg = colors.semantic.bg.main },
+        FloatBorder = {
+            fg = colors.semantic.fg.neutral,
+            bg = colors.semantic.bg.dark,
+        },
+        NormalFloat = { fg = colors.semantic.fg.main, bg = colors.semantic.bg.dark },
+        Float = { fg = colors.semantic.fg.main, bg = colors.semantic.bg.dark },
+        NvimFloat = { fg = colors.semantic.fg.main, bg = colors.semantic.bg.dark },
         WinBar = { link = "StatusLine" },
         WinBarNC = { link = "StatusLineNC" },
     }
@@ -318,56 +323,6 @@ local function get_default_highlights(colors, config)
         WhichKeySeperator = { fg = colors.palette.green },
     }
 
-    -- QUESTION: Solvable with a Link to ToggleTermNormal?
-    ---@type HighlightGroup
-    highlights.plugins.toggleterm = {
-        ToggleTerm1FloatBorder = { fg = colors.palette.gray },
-        ToggleTerm1NormalFloat = {
-            fg = colors.semantic.fg.main,
-            bg = colors.semantic.bg.main,
-        },
-        ToggleTerm2FloatBorder = { fg = colors.palette.gray },
-        ToggleTerm2NormalFloat = {
-            fg = colors.semantic.fg.main,
-            bg = colors.semantic.bg.main,
-        },
-        ToggleTerm3FloatBorder = { fg = colors.palette.gray },
-        ToggleTerm3NormalFloat = {
-            fg = colors.semantic.fg.main,
-            bg = colors.semantic.bg.main,
-        },
-        ToggleTerm4FloatBorder = { fg = colors.palette.gray },
-        ToggleTerm4NormalFloat = {
-            fg = colors.semantic.fg.main,
-            bg = colors.semantic.bg.main,
-        },
-        ToggleTerm5FloatBorder = { fg = colors.palette.gray },
-        ToggleTerm5NormalFloat = {
-            fg = colors.semantic.fg.main,
-            bg = colors.semantic.bg.main,
-        },
-        ToggleTerm6FloatBorder = { fg = colors.palette.gray },
-        ToggleTerm6NormalFloat = {
-            fg = colors.semantic.fg.main,
-            bg = colors.semantic.bg.main,
-        },
-        ToggleTerm7FloatBorder = { fg = colors.palette.gray },
-        ToggleTerm7NormalFloat = {
-            fg = colors.semantic.fg.main,
-            bg = colors.semantic.bg.main,
-        },
-        ToggleTerm8FloatBorder = { fg = colors.palette.gray },
-        ToggleTerm8NormalFloat = {
-            fg = colors.semantic.fg.main,
-            bg = colors.semantic.bg.main,
-        },
-        ToggleTerm9FloatBorder = { fg = colors.palette.gray },
-        ToggleTerm9NormalFloat = {
-            fg = colors.semantic.fg.main,
-            bg = colors.semantic.bg.main,
-        },
-    }
-
     ---@type HighlightGroup
     highlights.plugins.gitgutter = {
         GitGutterAdd = { fg = colors.palette.green },
@@ -486,33 +441,24 @@ local function get_default_highlights(colors, config)
 
     ---@type HighlightGroup
     highlights.plugins.indent_blankline = {
-        -- IndentBlanklineChar
-        -- IndentBlanklineSpaceChar
-        -- IndentBlanklineSpaceCharBlankline
-        -- IndentBlanklineContextSpaceChar
+        IndentBlanklineChar = { fg = colors.semantic.fg.neutral },
         IndentBlanklineContextChar = { fg = colors.semantic.fg.active },
-        IndentBlanklineIndent1 = { fg = colors.primary[2] },
-        IndentBlanklineIndent2 = { fg = colors.primary[3] },
-        IndentBlanklineIndent3 = { fg = colors.primary[4] },
-        IndentBlanklineIndent4 = { fg = colors.primary[5] },
-        IndentBlanklineIndent5 = { fg = colors.primary[6] },
-        IndentBlanklineIndent6 = { fg = colors.primary[7] },
-        IndentBlanklineIndent7 = { fg = colors.primary[8] },
-        IndentBlanklineIndent8 = { fg = colors.primary[9] },
     }
 
     ---@type HighlightGroup
     highlights.plugins.telescope = {
-        TelescopeNormal = { bg = colors.semantic.bg.main },
-        TelescopeTitle = { fg = colors.palette.dark_yellow },
-        TelescopeBorder = { fg = colors.palette.red },
-        TelescopePromptBorder = { fg = colors.palette.gray },
-        TelescopeResultsBorder = { fg = colors.palette.gray },
-        TelescopePreviewBorder = { fg = colors.palette.gray },
-        TelescopeMatching = { fg = colors.palette.dark_yellow, bold = true },
-        TelescopePromptPrefix = { fg = colors.palette.green },
-        TelescopeSelection = { bg = colors.semantic.bg.light },
-        TelescopeSelectionCaret = { fg = colors.palette.yellow },
+        TelescopeNormal = { bg = colors.semantic.bg.dark },
+        TelescopeBorder = {
+            fg = colors.semantic.fg.neutral,
+            bg = colors.semantic.bg.dark,
+        },
+        TelescopeTitle = { fg = colors.semantic.fg.active },
+        TelescopePromptPrefix = { fg = colors.semantic.fg.active },
+        TelescopeMatching = { fg = colors.semantic.fg.active },
+        TelescopeSelection = {
+            fg = colors.semantic.fg.active,
+            bg = colors.semantic.bg.main,
+        },
     }
 
     ---@type HighlightGroup
@@ -521,44 +467,6 @@ local function get_default_highlights(colors, config)
         DashboardHeader = { fg = colors.palette.yellow },
         DashboardCenter = { fg = colors.palette.cyan },
         DashboardFooter = { fg = colors.palette.dark_red, italic = true },
-    }
-
-    ---https://github.com/DNLHC/glance.nvim
-    ---@type HighlightGroup
-    highlights.plugins.glance = {
-        GlancePreviewNormal = {
-            fg = colors.semantic.fg.main,
-            bg = colors.semantic.bg.dark,
-        },
-        -- GlancePreviewMatch
-        -- GlancePreviewCursorLine
-        -- GlancePreviewSignColumn
-        -- GlancePreviewEndOfBuffer
-        -- GlancePreviewLineNr
-        GlancePreviewBorderBottom = { fg = colors.semantic.fg.active },
-        GlanceWinBarFilename = {
-            fg = colors.semantic.fg.active,
-            bg = colors.semantic.bg.dark,
-        },
-        GlanceWinBarFilepath = {
-            fg = colors.semantic.fg.neutral,
-            bg = colors.semantic.bg.dark,
-        },
-        -- GlanceWinBarTitle = { fg = colors.semantic.fg.active, bg = colors.semantic.bg.dark, },
-        GlanceListNormal = {
-            fg = colors.semantic.fg.main,
-            bg = colors.semantic.bg.dark,
-        },
-        -- GlanceListFilename
-        -- GlanceListFilepath
-        -- GlanceListCount
-        GlanceListMatch = { fg = colors.semantic.fg.active },
-        -- GlanceListCursorLine
-        -- GlanceListEndOfBuffer
-        GlanceListBorderBottom = { fg = colors.semantic.fg.active },
-        -- GlanceFoldIcon
-        -- GlanceIndent
-        GlanceBorderTop = { fg = colors.semantic.fg.active },
     }
 
     ---@type HighlightGroup
