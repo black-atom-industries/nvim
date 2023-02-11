@@ -55,11 +55,6 @@ function M.select_season()
         -- Give feedback to user about selected season
         local formatted_season = capitalize(selected_season)
 
-        notify("You selected '" .. formatted_season .. "'!", "success", {
-            title = formatted_season,
-            icon = vim.g.terra_config.icons[selected_season],
-        })
-
         M.set_options({
             season = selected_season,
         })
@@ -67,6 +62,11 @@ function M.select_season()
         M.sync_vim_opt_background_with_terra_time(vim.g.terra_config.time)
 
         reload_colorscheme()
+
+        notify("You selected '" .. formatted_season .. "'!", "success", {
+            title = formatted_season,
+            icon = vim.g.terra_config.icons[selected_season],
+        })
     end
 
     ---@param item unknown
