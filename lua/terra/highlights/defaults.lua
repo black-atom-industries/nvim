@@ -127,7 +127,7 @@ local function get_default_highlights(colors, config)
         PreProc = { fg = colors.palette.magenta },
         PreCondit = { fg = colors.palette.magenta },
         Include = { fg = colors.palette.magenta },
-        Keyword = extend({ fg = colors.palette.red }, config.code_style.keywords),
+        Keyword = extend({ fg = colors.palette.magenta }, config.code_style.keywords),
         Define = { fg = colors.palette.magenta },
         Typedef = { fg = colors.palette.magenta },
         Exception = { fg = colors.palette.magenta },
@@ -289,7 +289,6 @@ local function get_default_highlights(colors, config)
         HopUnmatched = { fg = colors.palette.gray },
     }
 
-    -- comment
     ---@type HighlightGroup
     highlights.plugins.diffview = {
         DiffviewFilePanelTitle = { fg = colors.palette.blue, bold = true },
@@ -340,6 +339,9 @@ local function get_default_highlights(colors, config)
         NeoTreeNormalNC = {
             fg = colors.semantic.fg.main,
             bg = config.transparent and colors.none or colors.semantic.bg.dark,
+        },
+        NeoTreeCursorLine = {
+            bg = colors.semantic.bg.main,
         },
         NeoTreeEndOfBuffer = {
             fg = config.ending_tildes and colors.semantic.fg.dark or colors.semantic.bg.dark,
