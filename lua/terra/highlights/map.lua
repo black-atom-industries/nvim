@@ -3,11 +3,13 @@ local actions = require("terra.actions")
 local extend = actions.highlights.extend_with_code_style
 local darken = actions.color.darken
 
----Returns the default Highlights
+local M = {}
+
 ---@param colors TerraColors
 ---@param config TerraConfig
-local function get_default_highlights(colors, config)
-    ---@type Highlights
+---@return HighlightsMap
+M.get_highlights_map = function(colors, config)
+    ---@type HighlightsMap
     local highlights = {
         langs = {},
         plugins = {},
@@ -610,7 +612,7 @@ local function get_default_highlights(colors, config)
         vimCommentTitle = extend({ fg = colors.palette.light_gray }, config.code_style.comments),
     }
 
-    highlights.lsp_kind_icons_color = {
+    local lsp_kind_icons_color = {
         Default = colors.palette.magenta,
         Class = colors.palette.yellow,
         Color = colors.palette.green,
@@ -639,10 +641,9 @@ local function get_default_highlights(colors, config)
         Variable = colors.palette.magenta,
     }
 
-    for kind, color in pairs(highlights.lsp_kind_icons_color) do
+    for kind, color in pairs(lsp_kind_icons_color) do
         highlights.plugins.cmp["CmpItemKind" .. kind] = {
             fg = color,
-            -- TODO: Test!
             config.cmp_itemkind_reverse and { reverse = true },
         }
         highlights.plugins.outline["Aerial" .. kind .. "Icon"] = { fg = color }
@@ -653,4 +654,4 @@ local function get_default_highlights(colors, config)
     return highlights
 end
 
-return get_default_highlights
+return M

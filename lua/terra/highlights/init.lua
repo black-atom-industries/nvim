@@ -1,33 +1,29 @@
-local colors = require("terra.colors")
 local set_highlight_group = require("terra.actions.highlights").set_highlight_group
-local notify = require("terra.actions.ui").notify
+local get_highlights_map = require("terra.highlights.map").get_highlights_map
 
-local themes = {
-    spring = {
-        night = require("terra.themes.spring.night").highlights,
-        day = require("terra.themes.spring.day").highlights,
-    },
-    summer = {
-        night = require("terra.themes.summer.night").highlights,
-        day = require("terra.themes.summer.day").highlights,
-    },
-    fall = {
-        night = require("terra.themes.fall.night").highlights,
-        day = require("terra.themes.fall.day").highlights,
-    },
-    winter = {
-        night = require("terra.themes.winter.night").highlights,
-        day = require("terra.themes.winter.day").highlights,
-    },
-}
+local seasons = require("terra.config").seasons
+local times = require("terra.config").times
+
+local theme_color_palettes = {}
+
+for _, season in pairs(seasons) do
+    theme_color_palettes[season] = {}
+    for _, time in pairs(times) do
+        theme_color_palettes[season][time] = require("terra.themes." .. season .. "." .. time).colors()
+    end
+end
 
 local M = {}
 
-function M.setup()
-    local season = vim.g.terra_config.season
-    local time = vim.g.terra_config.time
+---Setup highlights for a given season and time
+---@param config TerraConfig
+function M.setup(config)
+    local season = config.season
+    local time = config.time
 
-    local highlights = themes[season][time]
+    local colors = theme_color_palettes[season][time]
+
+    local highlights = get_highlights_map(colors, config)
 
     -- Set common highlights
     set_highlight_group(highlights.common)
@@ -42,40 +38,6 @@ function M.setup()
     -- Set plugin highlights
     for _, group in pairs(highlights.plugins) do
         set_highlight_group(group)
-    end
-
-    -- user defined highlights: set_highlights function cannot be used because it sets an attribute to none if not specified
-    local function replace_color(prefix, color_name)
-        if not color_name then
-            return ""
-        end
-
-        if color_name:sub(1, 1) == "$" then
-            local name = color_name:sub(2, -1)
-            color_name = colors[name]
-
-            if not color_name then
-                vim.schedule(function()
-                    notify('terra.nvim: unknown color "' .. name .. '"', vim.log.levels.ERROR, { title = "Terra - Error" })
-                end)
-                return ""
-            end
-        end
-        return prefix .. "=" .. color_name
-    end
-
-    -- Replace custom set highlights from the config
-    for group_name, group_settings in pairs(vim.g.terra_config.highlights) do
-        vim.api.nvim_command(
-            string.format(
-                "highlight %s %s %s %s %s",
-                group_name,
-                replace_color("guifg", group_settings.fg),
-                replace_color("guibg", group_settings.bg),
-                replace_color("guisp", group_settings.sp),
-                replace_color("gui", group_settings.fmt)
-            )
-        )
     end
 end
 

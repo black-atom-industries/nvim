@@ -26,9 +26,6 @@ function M.set_highlight_group(highlight_group)
     ---@param group_name HighlightGroupName
     ---@param group_definition HighlightDefinitionMap
     local apply_highlights = function(group_name, group_definition)
-        -- fg = hl_group_settings.fg or "none",
-        -- TODO: Make this more consise while looping through table and use defaults
-        -- QUESTION: The user should probaly not be able to overwrite fg and bg via the config.code_style table
         vim.api.nvim_set_hl(0, group_name, {
             fg = group_definition.fg or "none",
             bg = group_definition.bg or "none",
@@ -50,14 +47,6 @@ function M.set_highlight_group(highlight_group)
     for group_name, group_definition in pairs(highlight_group) do
         apply_highlights(group_name, group_definition)
     end
-end
-
----@param colors TerraColors
----@param overrides Highlights
----@return Highlights
-function M.extend_defaults(colors, overrides)
-    local defaults = require("terra.highlights.defaults")(colors, vim.g.terra_config)
-    return vim.tbl_deep_extend("force", defaults, overrides or {})
 end
 
 return M
