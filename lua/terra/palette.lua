@@ -19,10 +19,7 @@ local get_palette = function(season, time)
 
         return
     else
-        local season_palette = "terra.themes." .. season
-        local palette = require(season_palette)[time]
-
-        return palette
+        return require("terra.themes." .. season .. "." .. time)
     end
 end
 
