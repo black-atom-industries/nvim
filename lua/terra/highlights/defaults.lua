@@ -122,7 +122,7 @@ local function get_default_highlights(colors, config)
         Type = { fg = colors.palette.yellow },
         Structure = { fg = colors.palette.yellow },
         StorageClass = { fg = colors.palette.blue },
-        Identifier = extend({ fg = colors.palette.red }, config.code_style.variables),
+        Identifier = extend({ fg = colors.semantic.fg.active }, config.code_style.variables),
         Constant = { fg = colors.palette.dark_yellow },
         PreProc = { fg = colors.palette.magenta },
         PreCondit = { fg = colors.palette.magenta },
