@@ -103,5 +103,4 @@
 ---@field cmp_itemkind_reverse                    boolean Wether to reverse item kind highlights in cmp menu
 ---@field code_style                              TerraConfig.CodeStyle Code styling options
 ---@field colors                                  table<string, string> Override default colors
----@field highlights                              table<string, string> Override highlight colors
 ---@field diagnostics                             TerraConfig.Diagnostics Diagnostics related settings

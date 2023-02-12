@@ -44,7 +44,6 @@ M.default_config = {
     },
 
     colors = {},
-    highlights = {},
 
     diagnostics = {
         darker = false,
