@@ -33,6 +33,7 @@ M.default_config = {
         },
         keywords = {
             bold = true,
+            italic = true,
         },
         functions = {},
         strings = {
