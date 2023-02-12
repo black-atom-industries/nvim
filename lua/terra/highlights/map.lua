@@ -7,15 +7,15 @@ local M = {}
 
 ---@param colors TerraColors
 ---@param config TerraConfig
----@return HighlightsMap
+---@return TerraHighlightsMap
 M.get_highlights_map = function(colors, config)
-    ---@type HighlightsMap
+    ---@type TerraHighlightsMap
     local highlights = {
         langs = {},
         plugins = {},
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.common = {
         Normal = {
             fg = colors.semantic.fg.main,
@@ -114,7 +114,7 @@ M.get_highlights_map = function(colors, config)
         WinBarNC = { link = "StatusLineNC" },
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.syntax = {
         String = extend({ fg = colors.palette.cyan }, config.code_style.strings),
         Character = { fg = colors.palette.yellow },
@@ -165,7 +165,7 @@ M.get_highlights_map = function(colors, config)
     local diagnostics_warn_color = config.diagnostics.darker and colors.palette.dark_yellow or colors.palette.yellow
     local diagnostics_info_color = config.diagnostics.darker and colors.palette.dark_cyan or colors.palette.cyan
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.plugins.lsp = {
         LspCxxHlGroupEnumConstant = { fg = colors.palette.dark_yellow },
         LspCxxHlGroupMemberVariable = { fg = colors.palette.dark_yellow },
@@ -237,14 +237,14 @@ M.get_highlights_map = function(colors, config)
     highlights.plugins.lsp.LspDiagnosticsVirtualTextInformation = highlights.plugins.lsp.DiagnosticVirtualTextInfo
     highlights.plugins.lsp.LspDiagnosticsVirtualTextHint = highlights.plugins.lsp.DiagnosticVirtualTextHint
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.plugins.ale = {
         ALEErrorSign = highlights.plugins.lsp.DiagnosticError,
         ALEInfoSign = highlights.plugins.lsp.DiagnosticInfo,
         ALEWarningSign = highlights.plugins.lsp.DiagnosticWarn,
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.plugins.cmp = {
         CmpItemAbbr = { fg = colors.semantic.fg.main },
         CmpItemAbbrDeprecated = {
@@ -260,7 +260,7 @@ M.get_highlights_map = function(colors, config)
         },
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.plugins.coc = {
         CocErrorSign = highlights.plugins.lsp.DgnosticError,
         CocHintSign = highlights.plugins.lsp.DiagnosticHint,
@@ -268,7 +268,7 @@ M.get_highlights_map = function(colors, config)
         CocWarningSign = highlights.plugins.lsp.DiagnosticWarn,
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.plugins.whichkey = {
         WhichKey = { fg = colors.palette.red },
         WhichKeyDesc = { fg = colors.palette.blue },
@@ -276,14 +276,14 @@ M.get_highlights_map = function(colors, config)
         WhichKeySeperator = { fg = colors.palette.green },
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.plugins.gitgutter = {
         GitGutterAdd = { fg = colors.palette.green },
         GitGutterChange = { fg = colors.palette.blue },
         GitGutterDelete = { fg = colors.palette.red },
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.plugins.hop = {
         HopNextKey = { fg = colors.palette.red, bold = true },
         HopNextKey1 = { fg = colors.palette.cyan, bold = true },
@@ -291,7 +291,7 @@ M.get_highlights_map = function(colors, config)
         HopUnmatched = { fg = colors.palette.gray },
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.plugins.diffview = {
         DiffviewFilePanelTitle = { fg = colors.palette.blue, bold = true },
         DiffviewFilePanelCounter = { fg = colors.palette.magenta, bold = true },
@@ -319,7 +319,7 @@ M.get_highlights_map = function(colors, config)
         DiffviewStatusBroken = { fg = colors.palette.red },
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.plugins.gitsigns = {
         GitSignsAdd = { fg = colors.palette.green },
         GitSignsAddLn = { fg = colors.palette.green },
@@ -332,7 +332,7 @@ M.get_highlights_map = function(colors, config)
         GitSignsDeleteNr = { fg = colors.palette.red },
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.plugins.neotree = {
         NeoTreeNormal = {
             fg = colors.semantic.fg.main,
@@ -355,7 +355,7 @@ M.get_highlights_map = function(colors, config)
         },
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.plugins.nvim_tree = {
         NvimTreeNormal = {
             fg = colors.semantic.fg.main,
@@ -392,13 +392,13 @@ M.get_highlights_map = function(colors, config)
         },
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.plugins.indent_blankline = {
         IndentBlanklineChar = { fg = colors.semantic.fg.neutral },
         IndentBlanklineContextChar = { fg = colors.semantic.fg.active },
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.plugins.telescope = {
         TelescopeNormal = { bg = colors.semantic.bg.dark },
         TelescopeBorder = {
@@ -414,7 +414,7 @@ M.get_highlights_map = function(colors, config)
         },
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.plugins.dashboard = {
         DashboardShortCut = { fg = colors.palette.blue },
         DashboardHeader = { fg = colors.palette.yellow },
@@ -422,7 +422,7 @@ M.get_highlights_map = function(colors, config)
         DashboardFooter = { fg = colors.palette.dark_red, italic = true },
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.plugins.outline = {
         FocusedSymbol = {
             fg = colors.palette.magenta,
@@ -436,7 +436,7 @@ M.get_highlights_map = function(colors, config)
         },
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.plugins.ts_rainbow = {
         rainbowcol1 = { fg = colors.palette.gray },
         rainbowcol2 = { fg = colors.palette.yellow },
@@ -447,7 +447,7 @@ M.get_highlights_map = function(colors, config)
         rainbowcol7 = { fg = colors.palette.red },
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.plugins.incline = {
         InclineNormal = {
             fg = colors.semantic.fg.active,
@@ -460,20 +460,20 @@ M.get_highlights_map = function(colors, config)
         },
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.plugins.indent_scope = {
         MiniIndentscopeSymbol = {
             fg = colors.semantic.fg.active,
         },
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.langs.typescript = {
         typescriptArrowFuncDef = { fg = colors.palette.dark_yellow },
         typescriptVariable = { fg = colors.palette.red },
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.langs.css = {
         cssPositioningAttr = { fg = colors.palette.yellow },
         cssBoxAttr = { fg = colors.palette.yellow },
@@ -485,7 +485,7 @@ M.get_highlights_map = function(colors, config)
         cssValueLength = { fg = colors.palette.dark_blue },
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.langs.sass = {
         sassVariable = { fg = colors.palette.dark_yellow },
         sassProperty = { fg = colors.palette.blue },
@@ -497,7 +497,7 @@ M.get_highlights_map = function(colors, config)
         Character = { fg = colors.palette.yellow },
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.langs.c = {
         cInclude = { fg = colors.palette.blue },
         cStorageClass = { fg = colors.palette.magenta },
@@ -509,7 +509,7 @@ M.get_highlights_map = function(colors, config)
         cTSOperator = { fg = colors.palette.magenta },
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.langs.cpp = {
         cppStatement = { fg = colors.palette.magenta, bold = true },
         cppTSInclude = { fg = colors.palette.blue },
@@ -518,7 +518,7 @@ M.get_highlights_map = function(colors, config)
         cppTSOperator = { fg = colors.palette.magenta },
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.langs.markdown = {
         markdownBlockquote = { fg = colors.palette.gray },
         markdownBold = { fg = colors.none, bold = true },
@@ -549,7 +549,7 @@ M.get_highlights_map = function(colors, config)
         markdownUrlTitleDelimiter = { fg = colors.palette.green },
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.langs.php = {
         phpFunctions = extend({ fg = colors.semantic.fg.main }, config.code_style.functions),
         phpMethods = { fg = colors.palette.cyan },
@@ -567,7 +567,7 @@ M.get_highlights_map = function(colors, config)
         phpRegion = { fg = colors.palette.blue },
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.langs.scala = {
         scalaNameDefinition = { fg = colors.semantic.fg.main },
         scalaInterpolationBoundary = { fg = colors.palette.magenta },
@@ -577,7 +577,7 @@ M.get_highlights_map = function(colors, config)
         scalaKeywordModifier = extend({ fg = colors.palette.red }, config.code_style.keywords),
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.langs.tex = {
         latexTSInclude = { fg = colors.palette.blue },
         latexTSFuncMacro = extend({ fg = colors.semantic.fg.main }, config.code_style.functions),
@@ -599,7 +599,7 @@ M.get_highlights_map = function(colors, config)
         texPgfType = { fg = colors.palette.yellow },
     }
 
-    ---@type HighlightGroup
+    ---@type TerraHighlightGroup
     highlights.langs.vim = {
         vimOption = { fg = colors.palette.red },
         vimSetEqual = { fg = colors.palette.yellow },

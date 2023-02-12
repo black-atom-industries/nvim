@@ -1,6 +1,6 @@
 local M = {}
 
----@type TerraPrimaryColors
+---@type TerraColors.Primaries
 M.primary = {
     -- Lows
     "#191e25",
@@ -21,7 +21,7 @@ M.primary = {
     "#f4f3f1",
 }
 
----@type TerraPaletteColors
+---@type TerraColors.Palette
 M.palette = {
     black = M.primary[4],
     gray = M.primary[5],
@@ -48,7 +48,7 @@ M.palette = {
     white = M.primary[11],
 }
 
----@type TerraSemanticColors
+---@type TerraColors.Semantics
 M.semantic = {
     bg = {
         dark = M.primary[1],

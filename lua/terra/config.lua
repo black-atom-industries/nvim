@@ -1,12 +1,12 @@
 local M = {}
 
----@type Time[]
+---@type TerraConfig.Time[]
 M.times = {
     "night",
     "day",
 }
 
----@type Season[]
+---@type TerraConfig.Season[]
 M.seasons = {
     "spring",
     "summer",
