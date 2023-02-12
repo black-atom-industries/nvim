@@ -23,7 +23,7 @@
 
 -------------------------------------------Colors
 
----@class TerraColors.Primaries                      string[]
+---@class TerraColors.Primaries                   string[]
 
 ---@class TerraColors.Palette
 ---@field black                                   string
@@ -70,7 +70,7 @@
 
 ---@class TerraColors
 ---@field none                                    string
----@field primary                                 TerraColors.Primaries
+---@field primaries                               TerraColors.Primaries
 ---@field palette                                 TerraColors.Palette
 ---@field semantics                               TerraColors.Semantics
 
