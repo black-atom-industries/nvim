@@ -49,7 +49,7 @@ M.palette = {
 }
 
 ---@type TerraColors.Semantics
-M.semantic = {
+M.semantics = {
     bg = {
         dark = M.primary[1],
         main = M.primary[2],
@@ -83,7 +83,7 @@ M.colors = function()
         none = "none",
         primary = M.primary,
         palette = M.palette,
-        semantic = M.semantic,
+        semantics = M.semantics,
     }
 end
 

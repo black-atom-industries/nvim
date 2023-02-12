@@ -72,7 +72,7 @@
 ---@field none                                    string
 ---@field primary                                 TerraColors.Primaries
 ---@field palette                                 TerraColors.Palette
----@field semantic                                TerraColors.Semantics
+---@field semantics                               TerraColors.Semantics
 
 -------------------------------------------Config
 
