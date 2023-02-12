@@ -9,9 +9,7 @@ local get_palette = function(season, time)
     if not valid_season then
         local notify = require("terra.actions.ui").notify
 
-        local error_message = "Unknown season '"
-            .. season
-            .. "'!\nCheck for typos.\nCurrently only 'spring' is available!"
+        local error_message = "Unknown season '" .. season .. "'!\nCheck for typos.\nCurrently only 'spring' is available!"
 
         notify(error_message, "error", {
             title = "Terra - Error",

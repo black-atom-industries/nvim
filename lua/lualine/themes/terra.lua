@@ -20,7 +20,7 @@ return {
         c = { fg = c.semantic.fg.dark, bg = colors.bg },
     },
     normal = {
-        a = { fg = colors.bg, bg = colors.green, gui = "bold" },
+        a = { fg = colors.bg, bg = c.semantic.fg.active, gui = "bold" },
         b = { fg = c.semantic.fg.main, bg = c.semantic.bg.dark },
         c = { fg = c.semantic.fg.dark, bg = c.semantic.bg.main },
     },

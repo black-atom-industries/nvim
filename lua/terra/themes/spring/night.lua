@@ -4,42 +4,47 @@ local M = {}
 
 ---@type TerraPrimaryColors
 M.primary = {
-    "#141F19",
-    "#17251E",
-    "#1B2C24",
-    "#284336",
-    "#4E7E66",
-    "#5D9579",
-    "#71A78C",
-    "#89B69F",
-    "#A1C4B2",
-    "#B8D3C6",
-    "#D0E2D9",
-    "#E7F0EC",
+    -- Lows
+    "#18251f",
+    "#1c2a23",
+    "#21322a",
+    "#293e34",
+
+    -- Mids
+    "#334d3f",
+    "#486c59",
+    "#5c8972",
+    "#75a48c",
+
+    -- Highs
+    "#d3cec5",
+    "#dfdbd3",
+    "#e9e6e1",
+    "#f4f3f1",
 }
 
 ---@type TerraPaletteColors
 M.palette = {
-    black = M.primary[1],
-    gray = M.primary[4],
+    black = M.primary[4],
+    gray = M.primary[5],
 
     dark_red = "#d6582e",
     red = "#da714d",
 
-    dark_green = "#5b9257",
-    green = "#83c67f",
+    dark_green = "#639f5f",
+    green = "#83C57D",
 
-    dark_yellow = "#faa04c",
-    yellow = "#F2C14E",
+    dark_yellow = "#ffa552",
+    yellow = "#f6cb62",
 
-    dark_blue = "#6199d1",
-    blue = "#7CA6CF",
+    dark_blue = "#8fb7ef",
+    blue = "#78cfec",
 
-    dark_magenta = "#B07BAC",
-    magenta = "#BFA9D6",
+    dark_magenta = "#bb8eb8",
+    magenta = "#c5aadf",
 
-    dark_cyan = "#5aaf7d",
-    cyan = "#75bd93",
+    dark_cyan = "#4ebb7b",
+    cyan = "#75d79d",
 
     light_gray = M.primary[9],
     white = M.primary[11],
@@ -60,10 +65,10 @@ M.semantic = {
         },
     },
     fg = {
-        dark = M.primary[9],
-        main = M.primary[10],
-        light = M.primary[11],
-        active = M.palette.yellow,
+        dark = M.primary[7],
+        main = M.primary[11],
+        light = M.primary[12],
+        active = M.palette.green,
         neutral = M.primary[5],
         diff = {
             add = M.palette.green,

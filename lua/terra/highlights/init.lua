@@ -52,11 +52,7 @@ function M.setup()
 
             if not color_name then
                 vim.schedule(function()
-                    notify(
-                        'terra.nvim: unknown color "' .. name .. '"',
-                        vim.log.levels.ERROR,
-                        { title = "Terra - Error" }
-                    )
+                    notify('terra.nvim: unknown color "' .. name .. '"', vim.log.levels.ERROR, { title = "Terra - Error" })
                 end)
                 return ""
             end

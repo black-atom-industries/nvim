@@ -4,18 +4,23 @@ local M = {}
 
 ---@type TerraPrimaryColors
 M.primary = {
-    "#121821",
-    "#151D28",
-    "#19222E",
-    "#1D2735",
+    -- Lows
+    "#191e25",
+    "#1d232b",
+    "#212831",
+    "#252d38",
+
+    -- Mids
     "#3E5574",
     "#506D95",
     "#6A87AF",
     "#8BA1C1",
-    "#9CAFC9",
-    "#ACBCD2",
-    "#CDD7E4",
-    "#DEE4ED",
+
+    -- Highs
+    "#d3cec5",
+    "#dfdbd3",
+    "#e9e6e1",
+    "#f4f3f1",
 }
 
 ---@type TerraPaletteColors
@@ -32,8 +37,8 @@ M.palette = {
     dark_yellow = "#F99B48",
     yellow = "#F1BF4B",
 
-    dark_blue = "#6299D0",
-    blue = "#79A3CD",
+    dark_blue = "#8fb7ef",
+    blue = "#78cfec",
 
     dark_magenta = "#AF79AB",
     magenta = "#BFA9D6",
@@ -60,9 +65,9 @@ M.semantic = {
         },
     },
     fg = {
-        dark = M.primary[9],
+        dark = M.primary[7],
         main = M.primary[10],
-        light = M.primary[11],
+        light = M.primary[12],
         active = M.palette.yellow,
         neutral = M.primary[5],
         diff = {
