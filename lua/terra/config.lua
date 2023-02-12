@@ -1,5 +1,11 @@
 local M = {}
 
+---@type Time[]
+M.times = {
+    "night",
+    "day",
+}
+
 ---@type Season[]
 M.seasons = {
     "spring",
@@ -11,7 +17,7 @@ M.seasons = {
 ---@type TerraConfig
 M.default_config = {
     season = M.seasons[1],
-    time = "night",
+    time = M.times[1],
 
     icons = {
         spring = " ",

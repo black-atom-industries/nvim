@@ -1,33 +1,29 @@
-local colors = require("terra.colors")
 local set_highlight_group = require("terra.actions.highlights").set_highlight_group
-local notify = require("terra.actions.ui").notify
+local get_highlights_map = require("terra.highlights.map").get_highlights_map
 
-local themes = {
-    spring = {
-        night = require("terra.themes.spring.night").highlights,
-        day = require("terra.themes.spring.day").highlights,
-    },
-    summer = {
-        night = require("terra.themes.summer.night").highlights,
-        day = require("terra.themes.summer.day").highlights,
-    },
-    fall = {
-        night = require("terra.themes.fall.night").highlights,
-        day = require("terra.themes.fall.day").highlights,
-    },
-    winter = {
-        night = require("terra.themes.winter.night").highlights,
-        day = require("terra.themes.winter.day").highlights,
-    },
-}
+local seasons = require("terra.config").seasons
+local times = require("terra.config").times
+
+local theme_color_palettes = {}
+
+for _, season in pairs(seasons) do
+    theme_color_palettes[season] = {}
+    for _, time in pairs(times) do
+        theme_color_palettes[season][time] = require("terra.themes." .. season .. "." .. time).colors()
+    end
+end
 
 local M = {}
 
-function M.setup()
-    local season = vim.g.terra_config.season
-    local time = vim.g.terra_config.time
+---Setup highlights for a given season and time
+---@param config TerraConfig
+function M.setup(config)
+    local season = config.season
+    local time = config.time
 
-    local highlights = themes[season][time]
+    local colors = theme_color_palettes[season][time]
+
+    local highlights = get_highlights_map(colors, config)
 
     -- Set common highlights
     set_highlight_group(highlights.common)

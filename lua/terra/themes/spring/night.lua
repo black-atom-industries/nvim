@@ -1,5 +1,3 @@
-local extend_defaults = require("terra.actions.highlights").extend_defaults
-
 local M = {}
 
 ---@type TerraPrimaryColors
@@ -88,8 +86,5 @@ M.colors = function()
         semantic = M.semantic,
     }
 end
-
--- QUESTION: What is this?
-M.highlights = extend_defaults(M.colors(), {})
 
 return M

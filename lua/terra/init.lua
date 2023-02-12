@@ -17,7 +17,7 @@ function M.colorscheme()
     actions.config.sync_vim_opt_background_with_terra_time(vim.o.background)
 
     -- Now set up the highlights and terminal
-    require("terra.highlights").setup()
+    require("terra.highlights").setup(vim.g.terra_config)
     require("terra.terminal").setup()
 end
 

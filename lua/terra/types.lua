@@ -19,7 +19,7 @@
 
 ---@alias HighlightGroupName                      string
 ---@alias HighlightGroup                          table<HighlightGroupName, HighlightDefinitionMap>
----@alias Highlights                              table<string, HighlightGroup>
+---@alias HighlightsMap                           table<string, table<string, HighlightDefinitionMap>>
 
 -------------------------------------------Colors
 
