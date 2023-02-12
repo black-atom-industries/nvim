@@ -2,8 +2,8 @@ local c = require("terra.colors")
 
 ---@doc https://github.com/nvim-lualine/lualine.nvim/wiki/Writing-a-theme
 local colors = {
-    bg = c.semantic.bg.dark,
-    fg = c.semantic.fg.dark,
+    bg = c.semantics.bg.dark,
+    fg = c.semantics.fg.dark,
     red = c.palette.red,
     green = c.palette.green,
     yellow = c.palette.yellow,
@@ -15,14 +15,14 @@ local colors = {
 
 return {
     inactive = {
-        a = { fg = c.semantic.fg.dark, bg = colors.bg, gui = "bold" },
-        b = { fg = c.semantic.fg.dark, bg = colors.bg },
-        c = { fg = c.semantic.fg.dark, bg = colors.bg },
+        a = { fg = c.semantics.fg.dark, bg = colors.bg, gui = "bold" },
+        b = { fg = c.semantics.fg.dark, bg = colors.bg },
+        c = { fg = c.semantics.fg.dark, bg = colors.bg },
     },
     normal = {
-        a = { fg = colors.bg, bg = c.semantic.fg.active, gui = "bold" },
-        b = { fg = c.semantic.fg.main, bg = c.semantic.bg.dark },
-        c = { fg = c.semantic.fg.dark, bg = c.semantic.bg.main },
+        a = { fg = colors.bg, bg = c.semantics.fg.active, gui = "bold" },
+        b = { fg = c.semantics.fg.main, bg = c.semantics.bg.dark },
+        c = { fg = c.semantics.fg.dark, bg = c.semantics.bg.main },
     },
     visual = { a = { fg = colors.bg, bg = colors.magenta, gui = "bold" } },
     replace = { a = { fg = colors.bg, bg = colors.red, gui = "bold" } },

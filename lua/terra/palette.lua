@@ -1,8 +1,8 @@
 local seasons = require("terra.config").seasons
 local validate_season = require("terra.actions.config").validate_season
 
----@param season Season
----@param time Time
+---@param season TerraConfig.Season
+---@param time TerraConfig.Time
 local get_palette = function(season, time)
     local valid_season = validate_season(seasons, season)
 

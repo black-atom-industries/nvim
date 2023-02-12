@@ -14,7 +14,7 @@ end
 -- NOTE: Introduce `M.get_options(options)` which receives a table of config keys and returns current values as a table
 
 ---Syncs `vim.o.background` of Vim with `time` of TerraConfig
----@param time Time
+---@param time TerraConfig.Time
 ---@return nil
 function M.sync_vim_opt_background_with_terra_time(time)
     if time == "day" then
@@ -143,7 +143,7 @@ function M.select_time()
 end
 
 ---Runtime validation for `season` setting
----@param season Season
+---@param season TerraConfig.Season
 ---@return boolean
 function M.validate_season(seasons, season)
     if includes(seasons, season) then

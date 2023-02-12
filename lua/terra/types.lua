@@ -1,6 +1,6 @@
 ----------------------------------------Highlight
 
----@class HighlightDefinitionMap
+---@class TerraHighlightDefinitionMap
 ---@field fg                                      string
 ---@field bg                                      string
 ---@field sp                                      string
@@ -17,15 +17,15 @@
 ---@field reverse                                 boolean
 ---@field link                                    string
 
----@alias HighlightGroupName                      string
----@alias HighlightGroup                          table<HighlightGroupName, HighlightDefinitionMap>
----@alias HighlightsMap                           table<string, table<string, HighlightDefinitionMap>>
+---@alias TerraHighlightGroupName                 string
+---@alias TerraHighlightGroup                     table<TerraHighlightGroupName, TerraHighlightDefinitionMap>
+---@alias TerraHighlightsMap                      table<string, table<string, TerraHighlightDefinitionMap>>
 
 -------------------------------------------Colors
 
----@class TerraPrimaryColors                      string[]
+---@class TerraColors.Primaries                   string[]
 
----@class TerraPaletteColors
+---@class TerraColors.Palette
 ---@field black                                   string
 ---@field gray                                    string
 ---@field dark_red                                string
@@ -43,48 +43,48 @@
 ---@field light_gray                              string
 ---@field white                                   string
 
----@class TerraSemanticGit
+---@class TerraColors.Semantics.Git
 ---@field add                                     string
 ---@field delete                                  string
 ---@field change                                  string
 ---@field text                                    string
 
----@class TerraSemanticBackground
+---@class TerraColors.Semantics.Background
 ---@field dark                                    string
 ---@field main                                    string
 ---@field light                                   string
 ---@field active                                  string
----@field diff                                    TerraSemanticGit
+---@field diff                                    TerraColors.Semantics.Git
 
----@class TerraSemanticForeground
+---@class TerraColors.Semantics.Foreground
 ---@field dark                                    string
 ---@field main                                    string
 ---@field light                                   string
 ---@field active                                  string
 ---@field neutral                                 string
----@field diff                                    TerraSemanticGit
+---@field diff                                    TerraColors.Semantics.Git
 
----@class TerraSemanticColors
----@field bg                                      TerraSemanticBackground
----@field fg                                      TerraSemanticForeground
+---@class TerraColors.Semantics
+---@field bg                                      TerraColors.Semantics.Background
+---@field fg                                      TerraColors.Semantics.Foreground
 
 ---@class TerraColors
 ---@field none                                    string
----@field primary                                 TerraPrimaryColors
----@field palette                                 TerraPaletteColors
----@field semantic                                TerraSemanticColors
+---@field primaries                               TerraColors.Primaries
+---@field palette                                 TerraColors.Palette
+---@field semantics                               TerraColors.Semantics
 
 -------------------------------------------Config
 
----@alias Season                                  "spring" | "summer" | "fall" | "winter"
----@alias Time                                    "day" | "night"
+---@alias TerraConfig.Season                      "spring" | "summer" | "fall" | "winter"
+---@alias TerraConfig.Time                        "day" | "night"
 
 ---@class TerraConfig.CodeStyle
----@field comments                                HighlightDefinitionMap
----@field keywords                                HighlightDefinitionMap
----@field functions                               HighlightDefinitionMap
----@field strings                                 HighlightDefinitionMap
----@field variables                               HighlightDefinitionMap
+---@field comments                                TerraHighlightDefinitionMap
+---@field keywords                                TerraHighlightDefinitionMap
+---@field functions                               TerraHighlightDefinitionMap
+---@field strings                                 TerraHighlightDefinitionMap
+---@field variables                               TerraHighlightDefinitionMap
 
 ---@class TerraConfig.Diagnostics
 ---@field darker                                  boolean Wether to use darker colors for diagnostics
@@ -92,8 +92,8 @@
 ---@field background                              boolean Wether to use background color for virtual text
 
 ---@class TerraConfig
----@field season                                  Season Currently set season
----@field time                                    Time Current set time of day
+---@field season                                  TerraConfig.Season Currently set season
+---@field time                                    TerraConfig.Time Current set time of day
 ---@field icons                                   table Icons associated with each season
 ---@field select_time                             string Normal mode mapping string for triggering the `time` selection
 ---@field select_season                           string Normal mode mapping string for triggering the `season` selection

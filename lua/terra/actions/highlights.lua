@@ -13,18 +13,18 @@ function M.reset()
 end
 
 ---Extends the highlight with optional code styles from the user config
----@param highlight HighlightDefinitionMap
----@param code_style HighlightDefinitionMap
----@return HighlightDefinitionMap
+---@param highlight TerraHighlightDefinitionMap
+---@param code_style TerraHighlightDefinitionMap
+---@return TerraHighlightDefinitionMap
 function M.extend_with_code_style(highlight, code_style)
     return vim.tbl_extend("force", highlight, code_style)
 end
 
 ---Apply `highlight` command for each group in highlights
----@param highlight_group HighlightGroup
+---@param highlight_group TerraHighlightGroup
 function M.set_highlight_group(highlight_group)
-    ---@param group_name HighlightGroupName
-    ---@param group_definition HighlightDefinitionMap
+    ---@param group_name TerraHighlightGroupName
+    ---@param group_definition TerraHighlightDefinitionMap
     local apply_highlights = function(group_name, group_definition)
         vim.api.nvim_set_hl(0, group_name, {
             fg = group_definition.fg or "none",
