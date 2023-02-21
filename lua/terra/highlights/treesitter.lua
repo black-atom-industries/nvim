@@ -1,6 +1,6 @@
 local actions = require("terra.actions")
 
-local extend = actions.highlights.extend_with_code_style
+local extend = actions.highlights.extend_highlight
 
 local M = {}
 
