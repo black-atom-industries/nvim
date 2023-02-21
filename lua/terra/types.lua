@@ -49,19 +49,23 @@
 ---@field change                                  string
 ---@field text                                    string
 
----@class TerraColors.Semantics.Background
+---@class TerraColors.Semantics.Shades
 ---@field dark                                    string
 ---@field main                                    string
 ---@field light                                   string
+
+---@class TerraColors.Semantics.Background
+---@field primary                                 TerraColors.Semantics.Shades
+---@field secondary                               TerraColors.Semantics.Shades
 ---@field active                                  string
 ---@field diff                                    TerraColors.Semantics.Git
 
 ---@class TerraColors.Semantics.Foreground
----@field dark                                    string
----@field main                                    string
----@field light                                   string
+---@field primary                                 TerraColors.Semantics.Shades
+---@field secondary                               TerraColors.Semantics.Shades
 ---@field active                                  string
 ---@field neutral                                 string
+---@field invert                                  string
 ---@field diff                                    TerraColors.Semantics.Git
 
 ---@class TerraColors.Semantics

@@ -50,9 +50,16 @@ M.palette = {
 ---@type TerraColors.Semantics
 M.semantics = {
     bg = {
-        dark = M.primaries[9],
-        main = M.palette.white,
-        light = M.primaries[7],
+        primary = {
+            dark = M.primaries[10],
+            main = M.primaries[11],
+            light = M.primaries[12],
+        },
+        secondary = {
+            dark = M.primaries[7],
+            main = M.primaries[8],
+            light = M.primaries[9],
+        },
         active = M.primaries[5],
         diff = {
             add = M.palette.green,
@@ -62,9 +69,16 @@ M.semantics = {
         },
     },
     fg = {
-        dark = M.primaries[1],
-        main = M.primaries[2],
-        light = M.primaries[3],
+        primary = {
+            dark = M.primaries[1],
+            main = M.primaries[2],
+            light = M.primaries[3],
+        },
+        secondary = {
+            dark = M.primaries[4],
+            main = M.primaries[5],
+            light = M.primaries[6],
+        },
         active = M.palette.yellow,
         neutral = M.primaries[5],
         diff = {
