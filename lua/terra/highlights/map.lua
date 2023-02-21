@@ -349,10 +349,6 @@ M.get_highlights_map = function(colors, config)
             fg = config.ending_tildes and colors.semantics.fg.dark or colors.semantics.bg.dark,
             bg = config.transparent and colors.none or colors.semantics.bg.dark,
         },
-        NeoTreeWinSeparator = {
-            fg = colors.semantics.bg.main,
-            bg = config.transparent and colors.none or colors.semantics.bg.dark,
-        },
     }
 
     ---@type TerraHighlightGroup
