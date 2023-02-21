@@ -30,8 +30,6 @@ M.setup = function(highlights, colors, config)
         ["@function.macro"] = extend({ fg = colors.palette.cyan }, config.code_style.functions),
         ["@include"] = { fg = colors.palette.magenta },
         ["@keyword"] = { link = "Keyword" },
-        ["@keyword.function"] = { link = "Function" },
-        ["@keyword.operator"] = { link = "Operator" },
         ["@label"] = { fg = colors.palette.dark_yellow },
         ["@metod"] = { fg = colors.palette.blue },
         ["@namespace"] = { fg = colors.palette.dark_blue },
