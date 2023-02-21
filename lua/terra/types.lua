@@ -89,6 +89,7 @@
 ---@field functions                               TerraHighlightDefinition
 ---@field strings                                 TerraHighlightDefinition
 ---@field variables                               TerraHighlightDefinition
+---@field messages                                TerraHighlightDefinition Affects: `WarningMsg`, `ErrorMsg`, `MoreMsg`, `ModeMsg`
 
 ---@class TerraConfig.Diagnostics
 ---@field darker                                  boolean Wether to use darker colors for diagnostics

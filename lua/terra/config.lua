@@ -47,6 +47,9 @@ M.default_config = {
             italic = true,
         },
         variables = {},
+        messages = {
+            bold = true,
+        },
     },
 
     colors = {},
