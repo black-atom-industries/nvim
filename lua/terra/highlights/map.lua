@@ -18,41 +18,41 @@ M.get_highlights_map = function(colors, config)
     ---@type TerraHighlightGroup
     highlights.common = {
         Normal = {
-            fg = colors.semantics.fg.main,
-            bg = config.transparent and colors.none or colors.semantics.bg.main,
+            fg = colors.semantics.fg.primary.main,
+            bg = config.transparent and colors.none or colors.semantics.bg.primary.main,
         },
         Terminal = {
-            fg = colors.semantics.fg.main,
-            bg = config.transparent and colors.none or colors.semantics.bg.dark,
+            fg = colors.semantics.fg.primary.main,
+            bg = config.transparent and colors.none or colors.semantics.bg.primary.dark,
         },
         EndOfBuffer = {
-            fg = config.ending_tildes and colors.semantics.bg.light or colors.semantics.bg.main,
-            bg = config.transparent and colors.none or colors.semantics.bg.main,
+            fg = config.ending_tildes and colors.semantics.bg.primary.light or colors.semantics.bg.primary.main,
+            bg = config.transparent and colors.none or colors.semantics.bg.primary.main,
         },
         FoldColumn = {
             fg = colors.semantics.fg.neutral,
-            bg = config.transparent and colors.none or colors.semantics.bg.main,
+            bg = config.transparent and colors.none or colors.semantics.bg.primary.main,
         },
         Folded = {
             fg = colors.semantics.fg.neutral,
-            bg = config.transparent and colors.none or colors.semantics.bg.main,
+            bg = config.transparent and colors.none or colors.semantics.bg.primary.main,
         },
         SignColumn = {
-            fg = colors.semantics.fg.main,
-            bg = config.transparent and colors.none or colors.semantics.bg.main,
+            fg = colors.semantics.fg.primary.main,
+            bg = config.transparent and colors.none or colors.semantics.bg.primary.main,
         },
-        ToolbarLine = { fg = colors.semantics.fg.main },
+        ToolbarLine = { fg = colors.semantics.fg.primary.main },
         Cursor = { reverse = true },
         vCursor = { reverse = true },
         iCursor = { reverse = true },
         lCursor = { reverse = true },
         CursorIM = { reverse = true },
-        CursorColumn = { bg = colors.semantics.bg.light },
-        CursorLine = { bg = colors.semantics.bg.dark },
-        ColorColumn = { bg = colors.semantics.bg.dark },
+        CursorColumn = { bg = colors.semantics.bg.primary.light },
+        CursorLine = { bg = colors.semantics.bg.primary.dark },
+        ColorColumn = { bg = colors.semantics.bg.primary.dark },
         CursorLineNr = { fg = colors.palette.yellow },
         LineNr = { fg = colors.semantics.fg.neutral },
-        Conceal = { fg = colors.palette.gray, bg = colors.semantics.bg.main },
+        Conceal = { fg = colors.palette.gray, bg = colors.semantics.bg.primary.main },
         DiffAdd = { fg = colors.semantics.fg.diff.add },
         DiffChange = { fg = colors.semantics.fg.diff.change },
         DiffDelete = { fg = colors.semantics.fg.diff.delete },
@@ -67,49 +67,49 @@ M.get_highlights_map = function(colors, config)
         MoreMsg = { fg = colors.palette.blue, bold = true },
         IncSearch = { link = "Search" },
         Search = { bg = colors.semantics.bg.active, bold = true },
-        Substitute = { fg = colors.semantics.bg.dark, bg = colors.palette.green },
+        Substitute = { fg = colors.semantics.bg.primary.dark, bg = colors.palette.green },
         MatchParen = { fg = colors.none, bg = colors.palette.gray },
         NonText = { fg = colors.palette.gray },
         Whitespace = { fg = colors.palette.gray },
         SpecialKey = { fg = colors.palette.gray },
-        Pmenu = { fg = colors.semantics.fg.main, bg = colors.semantics.bg.dark },
-        PmenuSbar = { fg = colors.none, bg = colors.semantics.bg.dark },
-        PmenuSel = { fg = colors.semantics.bg.dark, bg = colors.palette.blue },
-        WildMenu = { fg = colors.semantics.bg.dark, bg = colors.palette.blue },
+        Pmenu = { fg = colors.semantics.fg.primary.main, bg = colors.semantics.bg.primary.dark },
+        PmenuSbar = { fg = colors.none, bg = colors.semantics.bg.primary.dark },
+        PmenuSel = { fg = colors.semantics.bg.primary.dark, bg = colors.palette.blue },
+        WildMenu = { fg = colors.semantics.bg.primary.dark, bg = colors.palette.blue },
         PmenuThumb = { fg = colors.none, bg = colors.palette.gray },
         Question = { fg = colors.palette.yellow },
         SpellBad = { fg = colors.palette.red, sp = colors.palette.red },
         SpellCap = { fg = colors.palette.yellow, sp = colors.palette.yellow },
         SpellLocal = { fg = colors.palette.blue, sp = colors.palette.blue },
         SpellRare = { fg = colors.palette.magenta, sp = colors.palette.magenta },
-        StatusLine = { fg = colors.semantics.fg.main, bg = colors.semantics.bg.dark },
+        StatusLine = { fg = colors.semantics.fg.primary.main, bg = colors.semantics.bg.primary.dark },
         StatusLineTerm = {
-            fg = colors.semantics.fg.main,
-            bg = colors.semantics.bg.dark,
+            fg = colors.semantics.fg.primary.main,
+            bg = colors.semantics.bg.primary.dark,
         },
-        StatusLineNC = { fg = colors.palette.gray, bg = colors.semantics.bg.dark },
+        StatusLineNC = { fg = colors.palette.gray, bg = colors.semantics.bg.primary.dark },
         StatusLineTermNC = {
             fg = colors.palette.gray,
-            bg = colors.semantics.bg.dark,
+            bg = colors.semantics.bg.primary.dark,
         },
-        TabLine = { fg = colors.semantics.fg.main, bg = colors.semantics.bg.main },
-        TabLineFill = { fg = colors.palette.gray, bg = colors.semantics.bg.main },
-        TabLineSel = { fg = colors.semantics.fg.main, bg = colors.semantics.bg.light },
+        TabLine = { fg = colors.semantics.fg.primary.main, bg = colors.semantics.bg.primary.main },
+        TabLineFill = { fg = colors.palette.gray, bg = colors.semantics.bg.primary.main },
+        TabLineSel = { fg = colors.semantics.fg.primary.main, bg = colors.semantics.bg.primary.light },
         VertSplit = { fg = colors.semantics.fg.neutral },
         Visual = { bg = colors.semantics.bg.active },
         VisualNOS = { bg = colors.semantics.bg.active },
-        QuickFixLine = { fg = colors.palette.blue, bg = colors.semantics.bg.light },
+        QuickFixLine = { fg = colors.palette.blue, bg = colors.semantics.bg.primary.light },
         Debug = { fg = colors.palette.yellow },
-        debugPC = { fg = colors.semantics.bg.dark, bg = colors.palette.green },
-        debugBreakpoint = { fg = colors.semantics.bg.dark, bg = colors.palette.red },
-        ToolbarButton = { fg = colors.semantics.bg.dark, bg = colors.palette.blue },
+        debugPC = { fg = colors.semantics.bg.primary.dark, bg = colors.palette.green },
+        debugBreakpoint = { fg = colors.semantics.bg.primary.dark, bg = colors.palette.red },
+        ToolbarButton = { fg = colors.semantics.bg.primary.dark, bg = colors.palette.blue },
         FloatBorder = {
             fg = colors.semantics.fg.neutral,
-            bg = colors.semantics.bg.dark,
+            bg = colors.semantics.bg.primary.dark,
         },
-        NormalFloat = { fg = colors.semantics.fg.main, bg = colors.semantics.bg.dark },
-        Float = { fg = colors.semantics.fg.main, bg = colors.semantics.bg.dark },
-        NvimFloat = { fg = colors.semantics.fg.main, bg = colors.semantics.bg.dark },
+        NormalFloat = { fg = colors.semantics.fg.primary.main, bg = colors.semantics.bg.primary.dark },
+        Float = { fg = colors.semantics.fg.primary.main, bg = colors.semantics.bg.primary.dark },
+        NvimFloat = { fg = colors.semantics.fg.primary.main, bg = colors.semantics.bg.primary.dark },
         WinBar = { link = "StatusLine" },
         WinBarNC = { link = "StatusLineNC" },
     }
@@ -142,12 +142,12 @@ M.get_highlights_map = function(colors, config)
         Special = { fg = colors.palette.red },
         SpecialChar = { fg = colors.palette.red },
         Function = extend({ fg = colors.palette.yellow }, config.code_style.functions),
-        Operator = { fg = colors.semantics.fg.main },
+        Operator = { fg = colors.semantics.fg.primary.main },
         Title = { fg = colors.palette.cyan },
         Tag = { fg = colors.palette.green },
         Delimiter = { fg = colors.palette.light_gray },
-        Comment = extend({ fg = colors.semantics.fg.dark }, config.code_style.comments),
-        SpecialComment = extend({ fg = colors.semantics.fg.dark }, config.code_style.comments),
+        Comment = extend({ fg = colors.semantics.fg.secondary.dark }, config.code_style.comments),
+        SpecialComment = extend({ fg = colors.semantics.fg.secondary.dark }, config.code_style.comments),
         Todo = { fg = colors.semantics.fg.neutral },
     }
 
@@ -179,22 +179,22 @@ M.get_highlights_map = function(colors, config)
         DiagnosticWarn = { fg = colors.palette.yellow },
 
         DiagnosticVirtualTextError = {
-            bg = config.diagnostics.background and darken(diagnostics_error_color, 0.1, colors.semantics.bg.main)
+            bg = config.diagnostics.background and darken(diagnostics_error_color, 0.1, colors.semantics.bg.primary.main)
                 or colors.none,
             fg = diagnostics_error_color,
         },
         DiagnosticVirtualTextWarn = {
-            bg = config.diagnostics.background and darken(diagnostics_warn_color, 0.1, colors.semantics.bg.main)
+            bg = config.diagnostics.background and darken(diagnostics_warn_color, 0.1, colors.semantics.bg.primary.main)
                 or colors.none,
             fg = diagnostics_warn_color,
         },
         DiagnosticVirtualTextInfo = {
-            bg = config.diagnostics.background and darken(diagnostics_info_color, 0.1, colors.semantics.bg.main)
+            bg = config.diagnostics.background and darken(diagnostics_info_color, 0.1, colors.semantics.bg.primary.main)
                 or colors.none,
             fg = diagnostics_info_color,
         },
         DiagnosticVirtualTextHint = {
-            bg = config.diagnostics.background and darken(diagnostics_hint_color, 0.1, colors.semantics.bg.main)
+            bg = config.diagnostics.background and darken(diagnostics_hint_color, 0.1, colors.semantics.bg.primary.main)
                 or colors.none,
             fg = diagnostics_hint_color,
         },
@@ -216,9 +216,9 @@ M.get_highlights_map = function(colors, config)
             sp = colors.palette.yellow,
         },
 
-        LspReferenceText = { bg = colors.semantics.bg.light },
-        LspReferenceWrite = { bg = colors.semantics.bg.light },
-        LspReferenceRead = { bg = colors.semantics.bg.light },
+        LspReferenceText = { bg = colors.semantics.bg.primary.light },
+        LspReferenceWrite = { bg = colors.semantics.bg.primary.light },
+        LspReferenceRead = { bg = colors.semantics.bg.primary.light },
 
         LspCodeLens = { fg = colors.palette.gray },
         LspCodeLensSeparator = { fg = colors.palette.gray },
@@ -246,7 +246,7 @@ M.get_highlights_map = function(colors, config)
 
     ---@type TerraHighlightGroup
     highlights.plugins.cmp = {
-        CmpItemAbbr = { fg = colors.semantics.fg.main },
+        CmpItemAbbr = { fg = colors.semantics.fg.primary.main },
         CmpItemAbbrDeprecated = {
             fg = colors.palette.light_gray,
             strikethrough = true,
@@ -295,7 +295,7 @@ M.get_highlights_map = function(colors, config)
     highlights.plugins.diffview = {
         DiffviewFilePanelTitle = { fg = colors.palette.blue, bold = true },
         DiffviewFilePanelCounter = { fg = colors.palette.magenta, bold = true },
-        DiffviewFilePanelFileName = { fg = colors.semantics.fg.main },
+        DiffviewFilePanelFileName = { fg = colors.semantics.fg.primary.main },
         DiffviewNormal = highlights.common.Normal,
         DiffviewCursorLine = highlights.common.CursorLine,
         DiffviewVertSplit = highlights.common.VertSplit,
@@ -335,56 +335,52 @@ M.get_highlights_map = function(colors, config)
     ---@type TerraHighlightGroup
     highlights.plugins.neotree = {
         NeoTreeNormal = {
-            fg = colors.semantics.fg.main,
-            bg = config.transparent and colors.none or colors.semantics.bg.dark,
+            fg = colors.semantics.fg.primary.main,
+            bg = config.transparent and colors.none or colors.semantics.bg.primary.dark,
         },
         NeoTreeNormalNC = {
-            fg = colors.semantics.fg.main,
-            bg = config.transparent and colors.none or colors.semantics.bg.dark,
+            fg = colors.semantics.fg.primary.main,
+            bg = config.transparent and colors.none or colors.semantics.bg.primary.dark,
         },
         NeoTreeCursorLine = {
-            bg = colors.semantics.bg.main,
+            bg = colors.semantics.bg.primary.main,
         },
         NeoTreeEndOfBuffer = {
-            fg = config.ending_tildes and colors.semantics.fg.dark or colors.semantics.bg.dark,
-            bg = config.transparent and colors.none or colors.semantics.bg.dark,
-        },
-        NeoTreeWinSeparator = {
-            fg = colors.semantics.bg.main,
-            bg = config.transparent and colors.none or colors.semantics.bg.dark,
+            fg = config.ending_tildes and colors.semantics.fg.secondary.dark or colors.semantics.bg.primary.dark,
+            bg = config.transparent and colors.none or colors.semantics.bg.primary.dark,
         },
     }
 
     ---@type TerraHighlightGroup
     highlights.plugins.nvim_tree = {
         NvimTreeNormal = {
-            fg = colors.semantics.fg.main,
-            bg = config.transparent and colors.none or colors.semantics.bg.dark,
+            fg = colors.semantics.fg.primary.main,
+            bg = config.transparent and colors.none or colors.semantics.bg.primary.dark,
         },
         NvimTreeVertSplit = {
             fg = colors.palette.gray,
-            bg = config.transparent and colors.none or colors.semantics.bg.main,
+            bg = config.transparent and colors.none or colors.semantics.bg.primary.main,
         },
         NvimTreeEndOfBuffer = {
-            fg = config.ending_tildes and colors.semantics.bg.light or colors.semantics.bg.main,
-            bg = config.transparent and colors.none or colors.semantics.bg.dark,
+            fg = config.ending_tildes and colors.semantics.bg.primary.light or colors.semantics.bg.primary.main,
+            bg = config.transparent and colors.none or colors.semantics.bg.primary.dark,
         },
         NvimTreeRootFolder = { fg = colors.palette.dark_yellow, bold = true },
         NvimTreeGitDirty = { fg = colors.palette.yellow },
         NvimTreeGitNew = { fg = colors.palette.green },
         NvimTreeGitDeleted = { fg = colors.palette.red },
         NvimTreeSpecialFile = { fg = colors.palette.yellow, underline = true },
-        NvimTreeIndentMarker = { fg = colors.semantics.fg.main },
+        NvimTreeIndentMarker = { fg = colors.semantics.fg.primary.main },
         NvimTreeImageFile = { fg = colors.palette.dark_magenta },
         NvimTreeSymlink = { fg = colors.palette.magenta },
         NvimTreeFolderName = {
             fg = colors.palette.blue,
-            bg = config.transparent and colors.none or colors.semantics.bg.dark,
+            bg = config.transparent and colors.none or colors.semantics.bg.primary.dark,
         },
-        NvimTreeCursorLine = { bg = colors.semantics.bg.main },
+        NvimTreeCursorLine = { bg = colors.semantics.bg.primary.main },
         NvimTreeWinSeparator = {
             fg = colors.semantics.fg.neutral,
-            bg = config.transparent and colors.none or colors.semantics.bg.main,
+            bg = config.transparent and colors.none or colors.semantics.bg.primary.main,
         },
         NvimTreeWindowPicker = {
             fg = colors.palette.white,
@@ -400,17 +396,17 @@ M.get_highlights_map = function(colors, config)
 
     ---@type TerraHighlightGroup
     highlights.plugins.telescope = {
-        TelescopeNormal = { bg = colors.semantics.bg.dark },
+        TelescopeNormal = { bg = colors.semantics.bg.primary.dark },
         TelescopeBorder = {
             fg = colors.semantics.fg.neutral,
-            bg = colors.semantics.bg.dark,
+            bg = colors.semantics.bg.primary.dark,
         },
         TelescopeTitle = { fg = colors.semantics.fg.active },
         TelescopePromptPrefix = { fg = colors.semantics.fg.active },
         TelescopeMatching = { fg = colors.semantics.fg.active },
         TelescopeSelection = {
             fg = colors.semantics.fg.active,
-            bg = colors.semantics.bg.main,
+            bg = colors.semantics.bg.primary.main,
         },
     }
 
@@ -426,12 +422,12 @@ M.get_highlights_map = function(colors, config)
     highlights.plugins.outline = {
         FocusedSymbol = {
             fg = colors.palette.magenta,
-            bg = colors.semantics.bg.light,
+            bg = colors.semantics.bg.primary.light,
             bold = true,
         },
         AerialLine = {
             fg = colors.palette.magenta,
-            bg = colors.semantics.bg.light,
+            bg = colors.semantics.bg.primary.light,
             bold = true,
         },
     }
@@ -451,12 +447,12 @@ M.get_highlights_map = function(colors, config)
     highlights.plugins.incline = {
         InclineNormal = {
             fg = colors.semantics.fg.active,
-            bg = colors.semantics.bg.dark,
+            bg = colors.semantics.bg.primary.dark,
             bold = true,
         },
         InclineNormalNC = {
             fg = colors.semantics.fg.neutral,
-            bg = colors.semantics.bg.dark,
+            bg = colors.semantics.bg.primary.dark,
         },
     }
 
@@ -551,11 +547,11 @@ M.get_highlights_map = function(colors, config)
 
     ---@type TerraHighlightGroup
     highlights.langs.php = {
-        phpFunctions = extend({ fg = colors.semantics.fg.main }, config.code_style.functions),
+        phpFunctions = extend({ fg = colors.semantics.fg.primary.main }, config.code_style.functions),
         phpMethods = { fg = colors.palette.cyan },
         phpStructure = { fg = colors.palette.magenta },
         phpOperator = { fg = colors.palette.magenta },
-        phpMemberSelector = { fg = colors.semantics.fg.main },
+        phpMemberSelector = { fg = colors.semantics.fg.primary.main },
         phpVarSelector = extend({ fg = colors.palette.dark_yellow }, config.code_style.variables),
         phpIdentifier = extend({ fg = colors.palette.dark_yellow }, config.code_style.variables),
         phpBoolean = { fg = colors.palette.cyan },
@@ -569,7 +565,7 @@ M.get_highlights_map = function(colors, config)
 
     ---@type TerraHighlightGroup
     highlights.langs.scala = {
-        scalaNameDefinition = { fg = colors.semantics.fg.main },
+        scalaNameDefinition = { fg = colors.semantics.fg.primary.main },
         scalaInterpolationBoundary = { fg = colors.palette.magenta },
         scalaInterpolation = { fg = colors.palette.magenta },
         scalaTypeOperator = { fg = colors.palette.red },
@@ -580,7 +576,7 @@ M.get_highlights_map = function(colors, config)
     ---@type TerraHighlightGroup
     highlights.langs.tex = {
         latexTSInclude = { fg = colors.palette.blue },
-        latexTSFuncMacro = extend({ fg = colors.semantics.fg.main }, config.code_style.functions),
+        latexTSFuncMacro = extend({ fg = colors.semantics.fg.primary.main }, config.code_style.functions),
         latexTSEnvironment = { fg = colors.palette.cyan, bold = true },
         latexTSEnvironmentName = { fg = colors.palette.yellow },
         texCmdEnv = { fg = colors.palette.cyan },
@@ -606,9 +602,9 @@ M.get_highlights_map = function(colors, config)
         vimMap = { fg = colors.palette.magenta },
         vimMapModKey = { fg = colors.palette.dark_yellow },
         vimNotation = { fg = colors.palette.red },
-        vimMapLhs = { fg = colors.semantics.fg.main },
+        vimMapLhs = { fg = colors.semantics.fg.primary.main },
         vimMapRhs = { fg = colors.palette.blue },
-        vimVar = extend({ fg = colors.semantics.fg.main }, config.code_style.variables),
+        vimVar = extend({ fg = colors.semantics.fg.primary.main }, config.code_style.variables),
         vimCommentTitle = extend({ fg = colors.palette.light_gray }, config.code_style.comments),
     }
 

@@ -2,18 +2,23 @@ local M = {}
 
 ---@type TerraColors.Primaries
 M.primaries = {
-    "#141F19",
-    "#17251E",
-    "#1B2C24",
-    "#284336",
-    "#4E7E66",
-    "#5D9579",
-    "#71A78C",
-    "#89B69F",
-    "#A1C4B2",
-    "#B8D3C6",
-    "#D0E2D9",
-    "#E7F0EC",
+    -- Lows
+    "#18251f",
+    "#1c2a23",
+    "#21322a",
+    "#293e34",
+
+    -- Mids
+    "#334d3f",
+    "#486c59",
+    "#5c8972",
+    "#75a48c",
+
+    -- Highs
+    "#d3cec5",
+    "#dfdbd3",
+    "#e9e6e1",
+    "#f4f3f1",
 }
 
 ---@type TerraColors.Palette
@@ -46,9 +51,16 @@ M.palette = {
 ---@type TerraColors.Semantics
 M.semantics = {
     bg = {
-        dark = M.primaries[9],
-        main = M.palette.white,
-        light = M.primaries[7],
+        primary = {
+            dark = M.primaries[10],
+            main = M.primaries[11],
+            light = M.primaries[12],
+        },
+        secondary = {
+            dark = M.primaries[7],
+            main = M.primaries[8],
+            light = M.primaries[9],
+        },
         active = M.primaries[5],
         diff = {
             add = M.palette.green,
@@ -58,9 +70,16 @@ M.semantics = {
         },
     },
     fg = {
-        dark = M.primaries[1],
-        main = M.primaries[2],
-        light = M.primaries[3],
+        primary = {
+            dark = M.primaries[1],
+            main = M.primaries[2],
+            light = M.primaries[3],
+        },
+        secondary = {
+            dark = M.primaries[4],
+            main = M.primaries[5],
+            light = M.primaries[6],
+        },
         active = M.palette.yellow,
         neutral = M.primaries[5],
         diff = {

@@ -1,32 +1,23 @@
-local c = require("terra.colors")
+local colors = require("terra.colors")
 
----@doc https://github.com/nvim-lualine/lualine.nvim/wiki/Writing-a-theme
-local colors = {
-    bg = c.semantics.bg.dark,
-    fg = c.semantics.fg.dark,
-    red = c.palette.red,
-    green = c.palette.green,
-    yellow = c.palette.yellow,
-    blue = c.palette.blue,
-    magenta = c.palette.magenta,
-    cyan = c.palette.cyan,
-    gray = c.palette.gray,
-}
+local fg = colors.semantics.fg
+local bg = colors.semantics.bg
+local palette = colors.palette
 
 return {
     inactive = {
-        a = { fg = c.semantics.fg.dark, bg = colors.bg, gui = "bold" },
-        b = { fg = c.semantics.fg.dark, bg = colors.bg },
-        c = { fg = c.semantics.fg.dark, bg = colors.bg },
+        a = { fg = fg.secondary.dark, bg = bg.secondary.dark, gui = "bold" },
+        b = { fg = fg.secondary.dark, bg = bg.secondary.dark },
+        c = { fg = fg.secondary.dark, bg = bg.secondary.dark },
     },
     normal = {
-        a = { fg = colors.bg, bg = c.semantics.fg.active, gui = "bold" },
-        b = { fg = c.semantics.fg.main, bg = c.semantics.bg.dark },
-        c = { fg = c.semantics.fg.dark, bg = c.semantics.bg.main },
+        a = { fg = fg.invert, bg = fg.active, gui = "bold" },
+        b = { fg = fg.primary.main, bg = bg.primary.dark },
+        c = { fg = fg.secondary.dark, bg = bg.primary.main },
     },
-    visual = { a = { fg = colors.bg, bg = colors.magenta, gui = "bold" } },
-    replace = { a = { fg = colors.bg, bg = colors.red, gui = "bold" } },
-    insert = { a = { fg = colors.bg, bg = colors.blue, gui = "bold" } },
-    command = { a = { fg = colors.bg, bg = colors.yellow, gui = "bold" } },
-    terminal = { a = { fg = colors.bg, bg = colors.cyan, gui = "bold" } },
+    visual = { a = { fg = fg.invert, bg = palette.magenta, gui = "bold" } },
+    replace = { a = { fg = fg.invert, bg = palette.red, gui = "bold" } },
+    insert = { a = { fg = fg.invert, bg = palette.blue, gui = "bold" } },
+    command = { a = { fg = fg.invert, bg = palette.yellow, gui = "bold" } },
+    terminal = { a = { fg = fg.invert, bg = palette.cyan, gui = "bold" } },
 }
