@@ -1,6 +1,6 @@
 ----------------------------------------Highlight
 
----@class TerraHighlightDefinitionMap
+---@class TerraHighlightDefinition
 ---@field fg                                      string
 ---@field bg                                      string
 ---@field sp                                      string
@@ -18,8 +18,8 @@
 ---@field link                                    string
 
 ---@alias TerraHighlightGroupName                 string
----@alias TerraHighlightGroup                     table<TerraHighlightGroupName, TerraHighlightDefinitionMap>
----@alias TerraHighlightsMap                      table<string, table<string, TerraHighlightDefinitionMap>>
+---@alias TerraHighlightGroup                     table<TerraHighlightGroupName, TerraHighlightDefinition>
+---@alias TerraHighlightsMap                      table<string, table<string, TerraHighlightDefinition>>
 
 -------------------------------------------Colors
 
@@ -84,11 +84,11 @@
 ---@alias TerraConfig.Time                        "day" | "night"
 
 ---@class TerraConfig.CodeStyle
----@field comments                                TerraHighlightDefinitionMap
----@field keywords                                TerraHighlightDefinitionMap
----@field functions                               TerraHighlightDefinitionMap
----@field strings                                 TerraHighlightDefinitionMap
----@field variables                               TerraHighlightDefinitionMap
+---@field comments                                TerraHighlightDefinition
+---@field keywords                                TerraHighlightDefinition
+---@field functions                               TerraHighlightDefinition
+---@field strings                                 TerraHighlightDefinition
+---@field variables                               TerraHighlightDefinition
 
 ---@class TerraConfig.Diagnostics
 ---@field darker                                  boolean Wether to use darker colors for diagnostics
