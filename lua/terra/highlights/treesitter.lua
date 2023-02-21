@@ -5,7 +5,7 @@ local extend = actions.highlights.extend_with_code_style
 local M = {}
 
 ---Sets up Treesitter Highlights
----@param highlights Highlights
+---@param highlights TerraHighlightsMap
 ---@param colors TerraColors
 ---@param config TerraConfig
 M.setup = function(highlights, colors, config)
