@@ -97,6 +97,7 @@
 ---@field background                              boolean Wether to use background color for virtual text
 
 ---@class TerraConfig
+---@field loaded                                  boolean Wether the config has been loaded
 ---@field season                                  TerraConfig.Season Currently set season
 ---@field time                                    TerraConfig.Time Current set time of day
 ---@field icons                                   table Icons associated with each season
