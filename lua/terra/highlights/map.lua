@@ -350,6 +350,20 @@ M.get_highlights_map = function(colors, config)
             fg = config.ending_tildes and colors.semantics.fg.secondary.dark or colors.semantics.bg.primary.dark,
             bg = config.transparent and colors.none or colors.semantics.bg.primary.dark,
         },
+        NeoTreeTabActive = {
+            fg = colors.semantics.fg.primary.main,
+            bg = config.transparent and colors.none or colors.semantics.bg.primary.main,
+        },
+        NeoTreeTabSeparatorActive = {
+            link = "NeoTreeTabActive",
+        },
+        NeoTreeTabInactive = {
+            fg = colors.semantics.fg.neutral,
+            bg = config.transparent and colors.none or colors.semantics.bg.primary.dark,
+        },
+        NeoTreeTabSeparatorInactive = {
+            link = "NeoTreeTabInactive",
+        },
     }
 
     ---@type TerraHighlightGroup
