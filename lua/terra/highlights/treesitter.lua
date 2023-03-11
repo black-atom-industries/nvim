@@ -73,6 +73,22 @@ M.setup = function(highlights, colors, config)
         ["@type.builtin"] = { fg = colors.palette.dark_cyan },
         ["@variable"] = extend({ fg = colors.palette.blue }, config.code_style.variables),
         ["@variable.builtin"] = extend({ fg = colors.palette.blue }, config.code_style.variables),
+
+        -- Treesitter Semantic Tokens
+        ["@lsp.type.namespace"] = { link = "@namespace" },
+        ["@lsp.type.type"] = { link = "@type" },
+        ["@lsp.type.class"] = { link = "@type" },
+        ["@lsp.type.enum"] = { link = "@type" },
+        ["@lsp.type.interface"] = { link = "@type" },
+        ["@lsp.type.struct"] = { link = "@structure" },
+        ["@lsp.type.parameter"] = { link = "@parameter" },
+        ["@lsp.type.variable"] = { link = "@variable" },
+        ["@lsp.type.property"] = { link = "@property" },
+        ["@lsp.type.enumMember"] = { link = "@constant" },
+        ["@lsp.type.function"] = { link = "@function" },
+        ["@lsp.type.method"] = { link = "@method" },
+        ["@lsp.type.macro"] = { link = "@macro" },
+        ["@lsp.type.decorator"] = { link = "@function" },
     }
 end
 
