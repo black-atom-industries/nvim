@@ -13,6 +13,14 @@ for _, season in pairs(seasons) do
     end
 end
 
+---@type TerraHighlightsMap
+local highlights = {
+    common = {},
+    syntax = {},
+    langs = {},
+    plugins = {},
+}
+
 local M = {}
 
 ---Setup highlights for a given season and time
@@ -23,7 +31,7 @@ function M.setup(config)
 
     local colors = theme_color_palettes[season][time]
 
-    local highlights = get_highlights_map(colors, config)
+    local highlights = get_highlights_map(highlights, colors, config)
 
     -- Set common highlights
     set_highlight_group(highlights.common)
