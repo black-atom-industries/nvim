@@ -4,4 +4,5 @@ return {
     ui = require("terra.actions.ui"),
     utils = require("terra.actions.utils"),
     highlights = require("terra.actions.highlights"),
+    files = require("terra.actions.files"),
 }
