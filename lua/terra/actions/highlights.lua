@@ -22,7 +22,7 @@ end
 
 ---Apply `highlight` command for each group in highlights
 ---@param highlight_group TerraHighlightGroup
-function M.set_highlight_group(highlight_group)
+function M.apply_highlight_group(highlight_group)
     ---@param group_name TerraHighlightGroupName
     ---@param group_definition TerraHighlightDefinition
     local apply_highlights = function(group_name, group_definition)

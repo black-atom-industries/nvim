@@ -4,12 +4,50 @@ local extend = actions.highlights.extend_highlight
 
 local M = {}
 
----Sets up Treesitter Highlights
+---Sets up Native and Treesitter Syntax Highlights
 ---@param highlights TerraHighlightsMap
 ---@param colors TerraColors
 ---@param config TerraConfig
 M.setup = function(highlights, colors, config)
-    highlights.treesitter = {
+    ---@type TerraHighlightGroup
+    highlights.syntax.default = {
+        -- Native Regex Highlights
+        Boolean = { fg = colors.palette.dark_yellow },
+        Character = { fg = colors.palette.yellow },
+        Comment = extend({ fg = colors.semantics.fg.secondary.dark }, config.code_style.comments),
+        Conditional = extend({ fg = colors.palette.magenta }, config.code_style.keywords),
+        Constant = { fg = colors.palette.dark_yellow },
+        Define = { fg = colors.palette.magenta },
+        Delimiter = { fg = colors.palette.light_gray },
+        Error = { fg = colors.palette.magenta },
+        Exception = { fg = colors.palette.magenta },
+        Float = { fg = colors.palette.dark_yellow },
+        Function = extend({ fg = colors.palette.yellow }, config.code_style.functions),
+        Identifier = extend({ fg = colors.semantics.fg.active }, config.code_style.variables),
+        Include = { fg = colors.palette.magenta },
+        Keyword = extend({ fg = colors.palette.magenta }, config.code_style.keywords),
+        Label = { fg = colors.palette.magenta },
+        Macro = { fg = colors.palette.red },
+        Number = { fg = colors.palette.dark_yellow },
+        Operator = { fg = colors.semantics.fg.primary.main },
+        PreCondit = { fg = colors.palette.magenta },
+        PreProc = { fg = colors.palette.magenta },
+        Repeat = extend({ fg = colors.palette.magenta }, config.code_style.keywords),
+        Special = { fg = colors.palette.red },
+        SpecialChar = { fg = colors.palette.red },
+        SpecialComment = extend({ fg = colors.semantics.fg.secondary.dark }, config.code_style.comments),
+        Statement = { fg = colors.palette.magenta },
+        StorageClass = { fg = colors.palette.blue },
+        String = extend({ fg = colors.palette.cyan }, config.code_style.strings),
+        Structure = { fg = colors.palette.yellow },
+        Tag = { fg = colors.palette.green },
+        Title = { fg = colors.palette.cyan },
+        Todo = { fg = colors.semantics.fg.neutral },
+        Type = { fg = colors.palette.yellow },
+        Typedef = { fg = colors.palette.magenta },
+
+        -- Treesitter Highlights
+        -- If you want to add TreeSitter highlights, you can do so here.
         ["@annotation"] = { fg = colors.semantics.fg.primary.main },
 
         ["@attribute"] = { fg = colors.palette.cyan },
@@ -49,7 +87,7 @@ M.setup = function(highlights, colors, config)
 
         ["@label"] = { fg = colors.palette.dark_yellow },
 
-        ["@metod"] = { fg = colors.palette.blue },
+        ["@method"] = { fg = colors.palette.yellow },
 
         ["@namespace"] = { fg = colors.palette.dark_blue },
 
