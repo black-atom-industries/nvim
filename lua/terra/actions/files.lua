@@ -45,7 +45,7 @@ end
 ---@param tbl table
 ---@param fn fun(entry: any): nil
 ---@return nil
-function M.run_on_entry(tbl, fn)
+function M.for_each_entry(tbl, fn)
     for _, entry in pairs(tbl) do
         fn(entry)
     end
