@@ -21,6 +21,13 @@
 ---@alias TerraHighlightGroup                     table<TerraHighlightGroupName, TerraHighlightDefinition>
 ---@alias TerraHighlightsMap                      table<string, table<string, TerraHighlightDefinition>>
 
+-------------------------------------------TerraHighlightMapExtension
+
+---Function to setup highlight groups for a plugin. It receives the highlights map, colors and config as arguments.
+---@alias TerraHighlightMapExtension.setup       fun(highlights: TerraHighlightsMap, colors: TerraColors, config: TerraConfig) 
+---@class TerraHighlightMapExtension
+---@field setup                                  TerraHighlightMapExtension.setup
+
 -------------------------------------------Colors
 
 ---@class TerraColors.Primaries                   string[]

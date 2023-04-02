@@ -41,6 +41,7 @@ function M.scan_path_for_filenames(path, file_extension)
     return filenames
 end
 
+-- TODO:60 This can be replaced with vim.tbl_map
 ---Run a function on each entry in a table. The function receives the entry as an argument.
 ---@param tbl table
 ---@param fn fun(entry: any): nil

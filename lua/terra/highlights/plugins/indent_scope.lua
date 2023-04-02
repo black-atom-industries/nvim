@@ -1,15 +1,13 @@
-local M = {}
+---@type TerraHighlightMapExtension
+local highlight_map_extension = {
+    setup = function(highlights, colors)
+        ---@type TerraHighlightGroup
+        highlights.plugins.indent_scope = {
+            MiniIndentscopeSymbol = {
+                fg = colors.semantics.fg.active,
+            },
+        }
+    end,
+}
 
----@param highlights TerraHighlightsMap
----@param colors TerraColors
----@param config TerraConfig
-M.setup = function(highlights, colors, config)
-    ---@type TerraHighlightGroup
-    highlights.plugins.indent_scope = {
-        MiniIndentscopeSymbol = {
-            fg = colors.semantics.fg.active,
-        },
-    }
-end
-
-return M
+return highlight_map_extension

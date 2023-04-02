@@ -1,162 +1,157 @@
-local actions = require("terra.actions")
+local extend = require("terra.actions").highlights.extend_highlight
 
-local extend = actions.highlights.extend_highlight
+---@type TerraHighlightMapExtension
+local highlight_map_extension = {
+    setup = function(highlights, colors, config)
+        ---@type TerraHighlightGroup
+        highlights.syntax.default = {
+            -- Native Regex Highlights
+            Boolean = { fg = colors.palette.dark_yellow },
+            Character = { fg = colors.palette.yellow },
+            Comment = extend({ fg = colors.semantics.fg.secondary.dark }, config.code_style.comments),
+            Conditional = extend({ fg = colors.palette.magenta }, config.code_style.keywords),
+            Constant = { fg = colors.palette.dark_yellow },
+            Define = { fg = colors.palette.magenta },
+            Delimiter = { fg = colors.palette.light_gray },
+            Error = { fg = colors.palette.magenta },
+            Exception = { fg = colors.palette.magenta },
+            Float = { fg = colors.palette.dark_yellow },
+            Function = extend({ fg = colors.palette.yellow }, config.code_style.functions),
+            Identifier = extend({ fg = colors.semantics.fg.active }, config.code_style.variables),
+            Include = { fg = colors.palette.magenta },
+            Keyword = extend({ fg = colors.palette.magenta }, config.code_style.keywords),
+            Label = { fg = colors.palette.magenta },
+            Macro = { fg = colors.palette.red },
+            Number = { fg = colors.palette.dark_yellow },
+            Operator = { fg = colors.semantics.fg.primary.main },
+            PreCondit = { fg = colors.palette.magenta },
+            PreProc = { fg = colors.palette.magenta },
+            Repeat = extend({ fg = colors.palette.magenta }, config.code_style.keywords),
+            Special = { fg = colors.palette.red },
+            SpecialChar = { fg = colors.palette.red },
+            SpecialComment = extend({ fg = colors.semantics.fg.secondary.dark }, config.code_style.comments),
+            Statement = { fg = colors.palette.magenta },
+            StorageClass = { fg = colors.palette.blue },
+            String = extend({ fg = colors.palette.cyan }, config.code_style.strings),
+            Structure = { fg = colors.palette.yellow },
+            Tag = { fg = colors.palette.green },
+            Title = { fg = colors.palette.cyan },
+            Todo = { fg = colors.semantics.fg.neutral },
+            Type = { fg = colors.palette.yellow },
+            Typedef = { fg = colors.palette.magenta },
 
-local M = {}
+            -- Treesitter Highlights
+            -- If you want to add TreeSitter highlights, you can do so here.
+            ["@annotation"] = { fg = colors.semantics.fg.primary.main },
 
----Sets up Native and Treesitter Syntax Highlights
----@param highlights TerraHighlightsMap
----@param colors TerraColors
----@param config TerraConfig
-M.setup = function(highlights, colors, config)
-    ---@type TerraHighlightGroup
-    highlights.syntax.default = {
-        -- Native Regex Highlights
-        Boolean = { fg = colors.palette.dark_yellow },
-        Character = { fg = colors.palette.yellow },
-        Comment = extend({ fg = colors.semantics.fg.secondary.dark }, config.code_style.comments),
-        Conditional = extend({ fg = colors.palette.magenta }, config.code_style.keywords),
-        Constant = { fg = colors.palette.dark_yellow },
-        Define = { fg = colors.palette.magenta },
-        Delimiter = { fg = colors.palette.light_gray },
-        Error = { fg = colors.palette.magenta },
-        Exception = { fg = colors.palette.magenta },
-        Float = { fg = colors.palette.dark_yellow },
-        Function = extend({ fg = colors.palette.yellow }, config.code_style.functions),
-        Identifier = extend({ fg = colors.semantics.fg.active }, config.code_style.variables),
-        Include = { fg = colors.palette.magenta },
-        Keyword = extend({ fg = colors.palette.magenta }, config.code_style.keywords),
-        Label = { fg = colors.palette.magenta },
-        Macro = { fg = colors.palette.red },
-        Number = { fg = colors.palette.dark_yellow },
-        Operator = { fg = colors.semantics.fg.primary.main },
-        PreCondit = { fg = colors.palette.magenta },
-        PreProc = { fg = colors.palette.magenta },
-        Repeat = extend({ fg = colors.palette.magenta }, config.code_style.keywords),
-        Special = { fg = colors.palette.red },
-        SpecialChar = { fg = colors.palette.red },
-        SpecialComment = extend({ fg = colors.semantics.fg.secondary.dark }, config.code_style.comments),
-        Statement = { fg = colors.palette.magenta },
-        StorageClass = { fg = colors.palette.blue },
-        String = extend({ fg = colors.palette.cyan }, config.code_style.strings),
-        Structure = { fg = colors.palette.yellow },
-        Tag = { fg = colors.palette.green },
-        Title = { fg = colors.palette.cyan },
-        Todo = { fg = colors.semantics.fg.neutral },
-        Type = { fg = colors.palette.yellow },
-        Typedef = { fg = colors.palette.magenta },
+            ["@attribute"] = { fg = colors.palette.cyan },
 
-        -- Treesitter Highlights
-        -- If you want to add TreeSitter highlights, you can do so here.
-        ["@annotation"] = { fg = colors.semantics.fg.primary.main },
+            ["@boolean"] = { fg = colors.palette.dark_yellow },
 
-        ["@attribute"] = { fg = colors.palette.cyan },
+            ["@character"] = { fg = colors.palette.dark_yellow },
+            ["@character.special"] = { fg = colors.palette.dark_yellow },
 
-        ["@boolean"] = { fg = colors.palette.dark_yellow },
+            ["@comment"] = { link = "Comment" },
 
-        ["@character"] = { fg = colors.palette.dark_yellow },
-        ["@character.special"] = { fg = colors.palette.dark_yellow },
+            ["@conditional"] = extend({ fg = colors.palette.magenta }, config.code_style.keywords),
 
-        ["@comment"] = { link = "Comment" },
+            ["@constant"] = { fg = colors.palette.dark_yellow },
+            ["@constant.builtin"] = { fg = colors.palette.dark_yellow },
+            ["@constant.macro"] = { fg = colors.palette.dark_yellow },
 
-        ["@conditional"] = extend({ fg = colors.palette.magenta }, config.code_style.keywords),
+            ["@constructor"] = { fg = colors.palette.yellow, bold = true },
 
-        ["@constant"] = { fg = colors.palette.dark_yellow },
-        ["@constant.builtin"] = { fg = colors.palette.dark_yellow },
-        ["@constant.macro"] = { fg = colors.palette.dark_yellow },
+            ["@error"] = { fg = colors.semantics.fg.primary.main },
 
-        ["@constructor"] = { fg = colors.palette.yellow, bold = true },
+            ["@exception"] = { fg = colors.palette.magenta },
 
-        ["@error"] = { fg = colors.semantics.fg.primary.main },
+            ["@field"] = { fg = colors.palette.blue },
 
-        ["@exception"] = { fg = colors.palette.magenta },
+            ["@float"] = { fg = colors.palette.dark_yellow },
 
-        ["@field"] = { fg = colors.palette.blue },
+            ["@function"] = extend({ fg = colors.palette.yellow, bold = true }, config.code_style.functions),
+            ["@function.builtin"] = extend({ fg = colors.palette.cyan }, config.code_style.functions),
+            ["@function.macro"] = extend({ fg = colors.palette.cyan }, config.code_style.functions),
 
-        ["@float"] = { fg = colors.palette.dark_yellow },
+            ["@include"] = { fg = colors.palette.magenta },
 
-        ["@function"] = extend({ fg = colors.palette.yellow, bold = true }, config.code_style.functions),
-        ["@function.builtin"] = extend({ fg = colors.palette.cyan }, config.code_style.functions),
-        ["@function.macro"] = extend({ fg = colors.palette.cyan }, config.code_style.functions),
+            ["@interface"] = { fg = colors.palette.cyan },
 
-        ["@include"] = { fg = colors.palette.magenta },
+            ["@keyword"] = { link = "Keyword" },
 
-        ["@interface"] = { fg = colors.palette.cyan },
+            ["@label"] = { fg = colors.palette.dark_yellow },
 
-        ["@keyword"] = { link = "Keyword" },
+            ["@method"] = { fg = colors.palette.yellow },
 
-        ["@label"] = { fg = colors.palette.dark_yellow },
+            ["@namespace"] = { fg = colors.palette.dark_blue },
 
-        ["@method"] = { fg = colors.palette.yellow },
+            ["@none"] = { fg = colors.semantics.fg.primary.main },
 
-        ["@namespace"] = { fg = colors.palette.dark_blue },
+            ["@number"] = { fg = colors.palette.dark_yellow },
 
-        ["@none"] = { fg = colors.semantics.fg.primary.main },
+            ["@operator"] = { link = "Operator" },
 
-        ["@number"] = { fg = colors.palette.dark_yellow },
+            ["@parameter"] = { fg = colors.palette.dark_yellow, italic = true },
+            ["@parameter.reference"] = { fg = colors.semantics.fg.primary.main },
+            ["@property"] = { fg = colors.palette.dark_blue },
+            ["@punctuation.bracket"] = { fg = colors.semantics.fg.primary.main },
+            ["@punctuation.delimiter"] = { fg = colors.semantics.fg.primary.main },
+            ["@punctuation.special"] = { fg = colors.semantics.fg.primary.main },
 
-        ["@operator"] = { link = "Operator" },
+            ["@repeat"] = extend({ fg = colors.palette.magenta }, config.code_style.keywords),
 
-        ["@parameter"] = { fg = colors.palette.dark_yellow, italic = true },
-        ["@parameter.reference"] = { fg = colors.semantics.fg.primary.main },
-        ["@property"] = { fg = colors.palette.dark_blue },
-        ["@punctuation.bracket"] = { fg = colors.semantics.fg.primary.main },
-        ["@punctuation.delimiter"] = { fg = colors.semantics.fg.primary.main },
-        ["@punctuation.special"] = { fg = colors.semantics.fg.primary.main },
+            ["@string"] = extend({ fg = colors.palette.green }, config.code_style.strings),
+            ["@string.escape"] = extend({ fg = colors.palette.red }, config.code_style.strings),
+            ["@string.regex"] = extend({ fg = colors.palette.dark_yellow }, config.code_style.strings),
+            ["@string.special"] = extend({ fg = colors.palette.green }, config.code_style.strings),
 
-        ["@repeat"] = extend({ fg = colors.palette.magenta }, config.code_style.keywords),
+            ["@symbol"] = { fg = colors.palette.cyan },
 
-        ["@string"] = extend({ fg = colors.palette.green }, config.code_style.strings),
-        ["@string.escape"] = extend({ fg = colors.palette.red }, config.code_style.strings),
-        ["@string.regex"] = extend({ fg = colors.palette.dark_yellow }, config.code_style.strings),
-        ["@string.special"] = extend({ fg = colors.palette.green }, config.code_style.strings),
+            ["@tag"] = { fg = colors.palette.yellow },
+            ["@tag.attribute"] = { fg = colors.palette.dark_yellow },
+            ["@tag.delimiter"] = { fg = colors.palette.dark_yellow },
 
-        ["@symbol"] = { fg = colors.palette.cyan },
+            ["@text"] = { fg = colors.semantics.fg.primary.main },
+            ["@text.danger"] = { fg = colors.semantics.fg.primary.main },
+            ["@text.emphasis"] = { fg = colors.semantics.fg.primary.main, italic = true },
+            ["@text.environment"] = { fg = colors.semantics.fg.primary.main },
+            ["@text.environment.name"] = { fg = colors.semantics.fg.primary.main },
+            ["@text.literal"] = { fg = colors.palette.green },
+            ["@text.math"] = { fg = colors.semantics.fg.primary.main },
+            ["@text.note"] = { fg = colors.semantics.fg.primary.main },
+            ["@text.reference"] = { fg = colors.palette.blue },
+            ["@text.strike"] = { fg = colors.semantics.fg.primary.main, strikethrough = true },
+            ["@text.strong"] = { fg = colors.semantics.fg.primary.main, bold = true },
+            ["@text.title"] = { fg = colors.palette.dark_yellow, bold = true },
+            ["@text.todo.checked"] = { fg = colors.semantics.fg.active },
+            ["@text.todo.unchecked"] = { fg = colors.semantics.fg.neutral },
+            ["@text.underline"] = { fg = colors.semantics.fg.primary.main, underline = true },
+            ["@text.uri"] = { fg = colors.palette.cyan, underline = true },
+            ["@text.warning"] = { fg = colors.semantics.fg.primary.main },
 
-        ["@tag"] = { fg = colors.palette.yellow },
-        ["@tag.attribute"] = { fg = colors.palette.dark_yellow },
-        ["@tag.delimiter"] = { fg = colors.palette.dark_yellow },
+            ["@type"] = { fg = colors.palette.cyan },
+            ["@type.builtin"] = { fg = colors.palette.dark_cyan },
 
-        ["@text"] = { fg = colors.semantics.fg.primary.main },
-        ["@text.danger"] = { fg = colors.semantics.fg.primary.main },
-        ["@text.emphasis"] = { fg = colors.semantics.fg.primary.main, italic = true },
-        ["@text.environment"] = { fg = colors.semantics.fg.primary.main },
-        ["@text.environment.name"] = { fg = colors.semantics.fg.primary.main },
-        ["@text.literal"] = { fg = colors.palette.green },
-        ["@text.math"] = { fg = colors.semantics.fg.primary.main },
-        ["@text.note"] = { fg = colors.semantics.fg.primary.main },
-        ["@text.reference"] = { fg = colors.palette.blue },
-        ["@text.strike"] = { fg = colors.semantics.fg.primary.main, strikethrough = true },
-        ["@text.strong"] = { fg = colors.semantics.fg.primary.main, bold = true },
-        ["@text.title"] = { fg = colors.palette.dark_yellow, bold = true },
-        ["@text.todo.checked"] = { fg = colors.semantics.fg.active },
-        ["@text.todo.unchecked"] = { fg = colors.semantics.fg.neutral },
-        ["@text.underline"] = { fg = colors.semantics.fg.primary.main, underline = true },
-        ["@text.uri"] = { fg = colors.palette.cyan, underline = true },
-        ["@text.warning"] = { fg = colors.semantics.fg.primary.main },
+            ["@variable"] = extend({ fg = colors.palette.blue }, config.code_style.variables),
+            ["@variable.builtin"] = extend({ fg = colors.palette.blue }, config.code_style.variables),
 
-        ["@type"] = { fg = colors.palette.cyan },
-        ["@type.builtin"] = { fg = colors.palette.dark_cyan },
+            -- Treesitter Semantic Tokens
+            ["@lsp.type.namespace"] = { link = "@namespace" },
+            ["@lsp.type.type"] = { link = "@type" },
+            ["@lsp.type.class"] = { link = "@type" },
+            ["@lsp.type.enum"] = { link = "@type" },
+            ["@lsp.type.interface"] = { link = "@type" },
+            ["@lsp.type.struct"] = { link = "@structure" },
+            ["@lsp.type.parameter"] = { link = "@parameter" },
+            ["@lsp.type.variable"] = { link = "@variable" },
+            ["@lsp.type.property"] = { link = "@property" },
+            ["@lsp.type.enumMember"] = { link = "@constant" },
+            ["@lsp.type.function"] = { link = "@function" },
+            ["@lsp.type.method"] = { link = "@method" },
+            ["@lsp.type.macro"] = { link = "@macro" },
+            ["@lsp.type.decorator"] = { link = "@function" },
+        }
+    end,
+}
 
-        ["@variable"] = extend({ fg = colors.palette.blue }, config.code_style.variables),
-        ["@variable.builtin"] = extend({ fg = colors.palette.blue }, config.code_style.variables),
-
-        -- Treesitter Semantic Tokens
-        ["@lsp.type.namespace"] = { link = "@namespace" },
-        ["@lsp.type.type"] = { link = "@type" },
-        ["@lsp.type.class"] = { link = "@type" },
-        ["@lsp.type.enum"] = { link = "@type" },
-        ["@lsp.type.interface"] = { link = "@type" },
-        ["@lsp.type.struct"] = { link = "@structure" },
-        ["@lsp.type.parameter"] = { link = "@parameter" },
-        ["@lsp.type.variable"] = { link = "@variable" },
-        ["@lsp.type.property"] = { link = "@property" },
-        ["@lsp.type.enumMember"] = { link = "@constant" },
-        ["@lsp.type.function"] = { link = "@function" },
-        ["@lsp.type.method"] = { link = "@method" },
-        ["@lsp.type.macro"] = { link = "@macro" },
-        ["@lsp.type.decorator"] = { link = "@function" },
-    }
-end
-
-return M
+return highlight_map_extension

@@ -1,16 +1,14 @@
-local M = {}
+---@type TerraHighlightMapExtension
+local highlight_map_extension = {
+    setup = function(highlights, colors)
+        ---@type TerraHighlightGroup
+        highlights.plugins.whichkey = {
+            WhichKey = { fg = colors.palette.cyan },
+            WhichKeyDesc = { fg = colors.palette.blue },
+            WhichKeyGroup = { fg = colors.palette.dark_yellow },
+            WhichKeySeperator = { fg = colors.palette.green },
+        }
+    end,
+}
 
----@param highlights TerraHighlightsMap
----@param colors TerraColors
----@param config TerraConfig
-M.setup = function(highlights, colors, config)
-    ---@type TerraHighlightGroup
-    highlights.plugins.whichkey = {
-        WhichKey = { fg = colors.palette.red },
-        WhichKeyDesc = { fg = colors.palette.blue },
-        WhichKeyGroup = { fg = colors.palette.dark_yellow },
-        WhichKeySeperator = { fg = colors.palette.green },
-    }
-end
-
-return M
+return highlight_map_extension
