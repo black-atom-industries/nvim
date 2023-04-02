@@ -32,4 +32,20 @@ function M.includes(tab, val)
     return false
 end
 
+---Merge multiple tables into target
+---@param target table
+---@vararg table
+---@return table
+function M.merge_multiple_tables(target, ...)
+    local result = target
+
+    for _, tbl in ipairs({ ... }) do
+        for _, value in ipairs(tbl) do
+            table.insert(result, value)
+        end
+    end
+
+    return result
+end
+
 return M

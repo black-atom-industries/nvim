@@ -1,14 +1,15 @@
 local M = {}
 
----Get the path of the terra plugin
+---Get the path of a plugin
+---@param plugin_name? string Default is "terra.nvim"
 ---@return string
-function M.get_terra_plugin_path()
-    local terra_plugin_name = "terra.nvim"
+function M.get_plugin_path(plugin_name)
+    plugin_name = plugin_name or "terra.nvim"
     local runtimepaths = vim.api.nvim_get_option("runtimepath")
     local plugin_directory = nil
 
     for _, path in ipairs(vim.split(runtimepaths, ",")) do
-        if path:find(terra_plugin_name) then
+        if path:find(plugin_name) then
             plugin_directory = path
             break
         end
@@ -17,47 +18,85 @@ function M.get_terra_plugin_path()
     return plugin_directory
 end
 
----Scan a directory for lua files and return their names
+function M.build_path(base_path, ...)
+    local path = base_path
+
+    for _, subpath in ipairs({ ... }) do
+        path = path .. "/" .. subpath
+    end
+
+    return path
+end
+
+---Scan a directory for lua files and return their full paths
 ---@param path string
+---@param ignore_pattern string
 ---@param file_extension? string Default is "lua"
 ---@return string[]
-function M.scan_path_for_filenames(path, file_extension)
-    local extension = file_extension or "lua"
+function M.scan_path_for_files(path, ignore_pattern, file_extension)
+    file_extension = file_extension or "lua"
 
-    -- get all files in the directory
-    local lua_files = vim.fn.glob(path .. "/*." .. extension, true, true)
+    -- recursely scan the path for files with the given extension
+    local files = vim.fn.glob(path .. "/**/*." .. file_extension, true, true)
 
-    -- remove the the paths to only get the file names
-    local filenames = vim.tbl_map(function(file)
-        -- remove the path from the file
-        local file_name = vim.fn.fnamemodify(file, ":t")
+    -- filter files that match the ignore pattern
+    if ignore_pattern then
+        local filtered_files = {}
 
-        -- remove the extension from the file
-        local file_name_no_ext = vim.fn.fnamemodify(file_name, ":r")
+        for _, file in ipairs(files) do
+            if not file:find(ignore_pattern) then
+                table.insert(filtered_files, file)
+            end
+        end
 
-        return file_name_no_ext
-    end, lua_files)
-
-    return filenames
-end
-
----Run a function on each entry in a table. The function receives the entry as an argument.
----@param tbl table
----@param fn fun(entry: any): nil
----@return nil
-function M.for_each_entry(tbl, fn)
-    for _, entry in pairs(tbl) do
-        fn(entry)
+        files = filtered_files
     end
+
+    return files
 end
 
----Get the names of all the files in a subdirectory of the highlights folder
----@param subdirectory "plugins"|"syntax"
+---Convert a file path to a module path
+---@param filepath string
+---@param path_to_remove string
+---@return string
+function M.convert_filepath_to_modulepath(filepath, path_to_remove)
+    local function escape_pattern(text)
+        return text:gsub("([^%w])", "%%%1")
+    end
+
+    -- replace the path_to_remove, from filepath, with an empty string
+    local module_path = filepath:gsub(escape_pattern(path_to_remove), "")
+
+    -- remove the extension from the file
+    module_path = vim.fn.fnamemodify(module_path, ":r")
+
+    -- replace the "/" with "." (for unix)
+    module_path = module_path:gsub("/", ".")
+
+    -- replace the "\" with "." (for windows)
+    module_path = module_path:gsub("\\", ".")
+
+    -- remove the first "." from the string
+    module_path = module_path:gsub("^.", "")
+
+    return module_path
+end
+
+---Get the paths of all the modules in a subdirectory of the highlights folder
+---@param highlight_maps_path string
+---@param ignore_pattern string
 ---@return string[]
-function M.get_highlight_files(subdirectory)
-    local plugin_path = M.get_terra_plugin_path()
-    local highlight_files = M.scan_path_for_filenames(plugin_path .. "/lua/terra/highlights/" .. subdirectory)
-    return highlight_files
+function M.get_highlight_modules(highlight_maps_path, ignore_pattern)
+    local plugin_path = M.get_plugin_path()
+
+    local highlight_files = M.scan_path_for_files(M.build_path(plugin_path, highlight_maps_path), ignore_pattern)
+
+    local module_pathes = vim.tbl_map(function(file_path)
+        local path_to_remove = M.build_path(plugin_path, "lua")
+        return M.convert_filepath_to_modulepath(file_path, path_to_remove)
+    end, highlight_files)
+
+    return module_pathes
 end
 
 return M
