@@ -16,7 +16,7 @@ M.seasons = {
 
 ---@type TerraConfig
 M.default_config = {
-    debug = true,
+    debug = false,
 
     season = M.seasons[1],
     time = M.times[1],

@@ -7,17 +7,6 @@ function M.capitalize(str)
     return string.gsub(" " .. str, "%W%l", string.upper):sub(2)
 end
 
-function M.concat(...)
-    local args = { ... }
-    local result = ""
-
-    for _, str in ipairs(args) do
-        result = result .. str
-    end
-
-    return result
-end
-
 ---Calls a function conditionally
 ---@param condition boolean
 ---@param cb_true function

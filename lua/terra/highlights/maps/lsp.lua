@@ -13,7 +13,8 @@ local highlight_map_extension = {
             LspCxxHlGroupEnumConstant = { fg = colors.palette.dark_yellow },
             LspCxxHlGroupMemberVariable = { fg = colors.palette.dark_yellow },
             LspCxxHlGroupNamespace = { fg = colors.palette.blue },
-            LspCxxHlSkippedRegion = { fg = colors.palette.gray }, LspCxxHlSkippedRegionBeginEnd = { fg = colors.palette.red },
+            LspCxxHlSkippedRegion = { fg = colors.palette.gray },
+            LspCxxHlSkippedRegionBeginEnd = { fg = colors.palette.red },
 
             DiagnosticError = { fg = colors.palette.red },
             DiagnosticHint = { fg = colors.palette.blue },

@@ -21,7 +21,9 @@ local M = {}
 ---@param config TerraConfig
 ---@return TerraHighlights
 M.build_highlights_map = function(colors, config)
-    local modules = get_highlight_modules("lua/terra/highlights/maps")
+    local default_ignore_pattern = ".*_template.lua$"
+
+    local modules = get_highlight_modules("lua/terra/highlights/maps", default_ignore_pattern)
 
     local highlights_map = aggregate_highlight_maps(modules, colors, config)
 

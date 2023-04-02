@@ -30,12 +30,29 @@ end
 
 ---Scan a directory for lua files and return their full paths
 ---@param path string
+---@param ignore_pattern string
 ---@param file_extension? string Default is "lua"
 ---@return string[]
-function M.scan_path_for_files(path, file_extension)
+function M.scan_path_for_files(path, ignore_pattern, file_extension)
     file_extension = file_extension or "lua"
+
     -- recursely scan the path for files with the given extension
-    return vim.fn.glob(path .. "/**/*." .. file_extension, true, true)
+    local files = vim.fn.glob(path .. "/**/*." .. file_extension, true, true)
+
+    -- filter files that match the ignore pattern
+    if ignore_pattern then
+        local filtered_files = {}
+
+        for _, file in ipairs(files) do
+            if not file:find(ignore_pattern) then
+                table.insert(filtered_files, file)
+            end
+        end
+
+        files = filtered_files
+    end
+
+    return files
 end
 
 ---Convert a file path to a module path
@@ -67,11 +84,12 @@ end
 
 ---Get the paths of all the modules in a subdirectory of the highlights folder
 ---@param highlight_maps_path string
+---@param ignore_pattern string
 ---@return string[]
-function M.get_highlight_modules(highlight_maps_path)
+function M.get_highlight_modules(highlight_maps_path, ignore_pattern)
     local plugin_path = M.get_plugin_path()
 
-    local highlight_files = M.scan_path_for_files(M.build_path(plugin_path, highlight_maps_path))
+    local highlight_files = M.scan_path_for_files(M.build_path(plugin_path, highlight_maps_path), ignore_pattern)
 
     local module_pathes = vim.tbl_map(function(file_path)
         local path_to_remove = M.build_path(plugin_path, "lua")
