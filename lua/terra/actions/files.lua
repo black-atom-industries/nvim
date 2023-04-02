@@ -41,17 +41,6 @@ function M.scan_path_for_filenames(path, file_extension)
     return filenames
 end
 
--- TODO:60 This can be replaced with vim.tbl_map
----Run a function on each entry in a table. The function receives the entry as an argument.
----@param tbl table
----@param fn fun(entry: any): nil
----@return nil
-function M.for_each_entry(tbl, fn)
-    for _, entry in pairs(tbl) do
-        fn(entry)
-    end
-end
-
 ---Get the names of all the files in a subdirectory of the highlights folder
 ---@param subdirectory "plugins"|"syntax"
 ---@return string[]
