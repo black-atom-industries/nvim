@@ -17,16 +17,16 @@
 ---@field reverse                                 boolean
 ---@field link                                    string
 
----@alias TerraHighlightGroupName                 string
----@alias TerraHighlightGroup                     table<TerraHighlightGroupName, TerraHighlightDefinition>
----@alias TerraHighlightsMap                      table<string, table<string, TerraHighlightDefinition>>
+---@alias TerraHighlights                      table<string, TerraHighlightDefinition>>
 
 -------------------------------------------TerraHighlightMapExtension
 
----Function to setup highlight groups for a plugin. It receives the highlights map, colors and config as arguments.
----@alias TerraHighlightMapExtension.setup       fun(highlights: TerraHighlightsMap, colors: TerraColors, config: TerraConfig) 
----@class TerraHighlightMapExtension
----@field setup                                  TerraHighlightMapExtension.setup
+---Function to setup highlight groups for a plugin. It receives the colors and config as arguments.
+---@alias TerraHighlightMapExtension.map          fun(colors: TerraColors, config: TerraConfig): TerraHighlights
+
+---@class TerraHighlightsSpec
+---@field enabled                                 boolean Whether or not the highlight map should be enabled
+---@field map                                     TerraHighlightMapExtension.map 
 
 -------------------------------------------Colors
 
@@ -105,6 +105,7 @@
 
 ---@class TerraConfig
 ---@field loaded                                  boolean Wether the config has been loaded
+---@field debug                                   boolean Enables the Debug Mode (Enables various debug messages)
 ---@field season                                  TerraConfig.Season Currently set season
 ---@field time                                    TerraConfig.Time Current set time of day
 ---@field icons                                   table Icons associated with each season

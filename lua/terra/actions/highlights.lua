@@ -1,3 +1,5 @@
+local notify = require("terra.actions.ui").notify
+
 local M = {}
 
 ---Reset Vim Highlights and Syntax
@@ -20,12 +22,60 @@ function M.extend_highlight(highlight, code_style)
     return vim.tbl_extend("force", highlight, code_style)
 end
 
----Apply `highlight` command for each group in highlights
----@param highlight_group TerraHighlightGroup
-function M.apply_highlight_group(highlight_group)
-    ---@param group_name TerraHighlightGroupName
-    ---@param group_definition TerraHighlightDefinition
-    local apply_highlights = function(group_name, group_definition)
+function M.building_error_notification(message)
+    local notification_opts = {
+        title = "Terra Theme - Highlights Error",
+        timeout = 10000, -- Timeout in milliseconds; set to 0 for no timeout
+        hl_group = "ErrorMsg", -- Highlight group for the notification text
+        close_on_click = true, -- Close the notification when clicked
+    }
+
+    notify(message, vim.log.levels.ERROR, notification_opts)
+end
+
+---Aggregate the highlight maps from the highlight files
+---@param files string[]
+---@param colors TerraColors
+---@param config TerraConfig
+---@return TerraHighlights
+function M.aggregate_highlight_maps(files, colors, config)
+    local highlights_map = {}
+
+    for _, file in ipairs(files) do
+        ---@type TerraHighlightsSpec
+        local highlight_map_extension = require(file)
+
+        -- Check if the highlight map is enabled - Default to true if it's not set
+        local highlight_map_is_enabled = highlight_map_extension.enabled == nil or highlight_map_extension.enabled
+
+        -- If the highlight map is enabled, get the map from the extension and add it to the highlights map
+        if highlight_map_is_enabled then
+            -- If a file does not have a map function, print a warning and skip its highlights
+            if not highlight_map_extension.map then
+                M.building_error_notification("Error: Highlight map extension does not have a map method: " .. file)
+            else
+                ---@type TerraHighlights
+                local highlights = highlight_map_extension.map(colors, config)
+
+                -- Check for duplicate highlight keys and print a warning if one is found
+                for key, value in pairs(highlights) do
+                    if highlights_map[key] then
+                        M.building_error_notification("Error: Duplicate highlight key found: " .. key)
+                    else
+                        highlights_map[key] = value
+                    end
+                end
+            end
+        end
+    end
+
+    return vim.tbl_deep_extend("force", {}, highlights_map)
+end
+
+---Apply the highlights to the editor via the API (nvim_set_hl)
+---@param highlight_groups TerraHighlights
+function M.set_highlights(highlight_groups)
+    for group_name, group_definition in pairs(highlight_groups) do
         vim.api.nvim_set_hl(0, group_name, {
             fg = group_definition.fg or "none",
             bg = group_definition.bg or "none",
@@ -42,10 +92,6 @@ function M.apply_highlight_group(highlight_group)
             standout = group_definition.standout or false,
             link = group_definition.link or nil,
         })
-    end
-
-    for group_name, group_definition in pairs(highlight_group) do
-        apply_highlights(group_name, group_definition)
     end
 end
 
