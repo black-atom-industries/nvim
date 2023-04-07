@@ -65,6 +65,7 @@
 ---@field primary                                 TerraColors.Semantics.Shades
 ---@field secondary                               TerraColors.Semantics.Shades
 ---@field active                                  string
+---@field match                                   string
 ---@field diff                                    TerraColors.Semantics.Git
 
 ---@class TerraColors.Semantics.Foreground
