@@ -15,10 +15,8 @@ end
 function M.ccall(condition, cb_true, cb_false)
     if condition then
         cb_true()
-    else
-        if cb_false then
-            cb_false()
-        end
+    elseif cb_false then
+        cb_false()
     end
 end
 
