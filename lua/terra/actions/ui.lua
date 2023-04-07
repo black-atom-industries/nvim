@@ -2,7 +2,7 @@ local M = {}
 
 ---Notification which conditionally calls `nvim-notify` when available
 ---@param message string Notification message
----@param level number Log level - Use `vim.log.levels`
+---@param level? number Log level - Use `vim.log.levels`
 ---@param opts? table<string, any> nvim-notify options. See notify.Options
 ---@return nil
 ---@usage

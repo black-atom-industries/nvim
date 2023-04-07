@@ -1,5 +1,4 @@
 local config = require("terra.config")
-local includes = require("terra.actions.utils").includes
 local notify = require("terra.actions.ui").notify
 
 local M = {}
@@ -45,7 +44,7 @@ function M.select_season()
     local handle_select_season = function(selected_season)
         -- Handle abort
         if selected_season == nil then
-            notify("Aborted: No Season selected!", "warn", {
+            notify("Aborted: No Season selected!", vim.log.levels.WARN, {
                 title = "Warning",
                 icon = " ",
             })
@@ -63,7 +62,7 @@ function M.select_season()
 
         reload_colorscheme()
 
-        notify("You selected '" .. formatted_season .. "'!", "success", {
+        notify("You selected '" .. formatted_season .. "'!", vim.log.levels.INFO, {
             title = formatted_season,
             icon = vim.g.terra_config.icons[selected_season],
         })
@@ -94,14 +93,13 @@ function M.select_time()
     local handle_select_time = function(selected_time)
         -- Handle abort
         if selected_time == nil then
-            notify("Aborted: No Time selected!", "warn", {
+            notify("Aborted: No Time selected!", vim.log.levels.WARN, {
                 title = "Warning",
                 icon = " ",
             })
             return
         end
 
-        -- FIX: Default messages console doesnt clear after selection
         if selected_time == "day" then
             notify("`day` themes for nvim are not ready yet! Abort!")
             return
@@ -110,7 +108,7 @@ function M.select_time()
         -- Give feedback to user about selected time
         local formatted_time = capitalize(selected_time)
 
-        notify("You selected '" .. formatted_time .. "'!", "success", {
+        notify("You selected '" .. formatted_time .. "'!", vim.log.levels.INFO, {
             title = formatted_time,
             icon = vim.g.terra_config.icons[selected_time],
         })
@@ -146,7 +144,7 @@ end
 ---@param season TerraConfig.Season
 ---@return boolean
 function M.validate_season(seasons, season)
-    if includes(seasons, season) then
+    if vim.tbl_contains(seasons, season) then
         return true
     else
         return false

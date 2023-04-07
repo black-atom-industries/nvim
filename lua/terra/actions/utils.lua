@@ -15,21 +15,9 @@ end
 function M.ccall(condition, cb_true, cb_false)
     if condition then
         cb_true()
-    else
-        if cb_false then
-            cb_false()
-        end
+    elseif cb_false then
+        cb_false()
     end
-end
-
-function M.includes(tab, val)
-    for _, value in ipairs(tab) do
-        if value == val then
-            return true
-        end
-    end
-
-    return false
 end
 
 ---Merge multiple tables into target

@@ -22,9 +22,11 @@ local highlight_map_extension = {
             DiagnosticWarn = { fg = colors.palette.yellow },
 
             DiagnosticVirtualTextError = {
-                bg = config.diagnostics.background
-                        and darken(diagnostics_error_color, 0.1, colors.semantics.bg.primary.main)
-                    or colors.none,
+                bg = config.diagnostics.background and darken(
+                    diagnostics_error_color,
+                    0.1,
+                    colors.semantics.bg.primary.main
+                ) or colors.none,
                 fg = diagnostics_error_color,
             },
             DiagnosticVirtualTextWarn = {
