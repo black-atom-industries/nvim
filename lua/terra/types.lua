@@ -29,6 +29,10 @@
 ---@field map                                     TerraHighlightMapExtension.map 
 
 -------------------------------------------Colors
+---@class TerraColors.Debug
+---@field neon_pink                               string
+---@field electric_lime                           string
+---@field vivid_cyan                              string
 
 ---@class TerraColors.Primaries                   string[]
 
@@ -80,8 +84,10 @@
 ---@field bg                                      TerraColors.Semantics.Background
 ---@field fg                                      TerraColors.Semantics.Foreground
 
+
 ---@class TerraColors
 ---@field none                                    string
+---@field debug                                   TerraColors.Debug
 ---@field primaries                               TerraColors.Primaries
 ---@field palette                                 TerraColors.Palette
 ---@field semantics                               TerraColors.Semantics

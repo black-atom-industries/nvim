@@ -2,8 +2,16 @@ local darken = require("terra.actions.color").darken
 
 local M = {}
 
+---@type TerraColors.Debug
+M.debug = {
+    neon_pink = "#FF69B4",
+    electric_lime = "#CCFF00",
+    vivid_cyan = "#00FFFF",
+}
+
 ---@type TerraColors.Primaries
 M.primaries = {
+    -- Lows
     "#1e1e1e",
     "#232323",
     "#2c2928",
@@ -78,7 +86,7 @@ M.semantics = {
             light = M.primaries[12],
         },
         secondary = {
-            dark = M.primaries[7], -- TODO:NVIM-31 formerly primary.dark
+            dark = M.primaries[7],
             main = M.primaries[8],
             light = M.primaries[9],
         },
@@ -98,6 +106,7 @@ M.semantics = {
 M.colors = function()
     return {
         none = "none",
+        debug = M.debug,
         primary = M.primaries,
         palette = M.palette,
         semantics = M.semantics,
