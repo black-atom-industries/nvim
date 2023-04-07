@@ -81,7 +81,7 @@ local highlight_map_extension = {
 
             ["@label"] = { fg = colors.palette.dark_yellow },
 
-            ["@method"] = { fg = colors.palette.yellow },
+            ["@method"] = { fg = colors.palette.yellow, bold = true },
 
             ["@namespace"] = { fg = colors.palette.dark_blue },
 
