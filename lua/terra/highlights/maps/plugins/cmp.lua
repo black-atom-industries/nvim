@@ -1,6 +1,6 @@
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {
-    map = function(colors, config)
+    map = function(colors)
         ---@type TerraHighlights
         local highlights_map = {
             CmpItemAbbr = { fg = colors.semantics.fg.primary.main },
@@ -11,18 +11,15 @@ local highlight_map_extension = {
             CmpItemAbbrMatch = { fg = colors.palette.cyan },
             CmpItemAbbrMatchFuzzy = { fg = colors.palette.cyan, underline = true },
             CmpItemMenu = { fg = colors.palette.light_gray },
-            CmpItemKind = {
-                fg = colors.palette.magenta,
-                config.cmp_itemkind_reverse and { reverse = true },
-            },
+            CmpItemKind = { fg = colors.palette.magenta },
         }
 
         local lsp_kind_icons_color = {
-            Default = colors.palette.magenta,
             Class = colors.palette.yellow,
             Color = colors.palette.green,
             Constant = colors.palette.dark_yellow,
             Constructor = colors.palette.blue,
+            Default = colors.palette.magenta,
             Enum = colors.palette.magenta,
             EnumMember = colors.palette.yellow,
             Event = colors.palette.yellow,
@@ -30,11 +27,11 @@ local highlight_map_extension = {
             File = colors.palette.blue,
             Folder = colors.palette.dark_yellow,
             Function = colors.palette.blue,
-            Interface = colors.palette.green,
-            Keyword = colors.palette.cyan,
-            Method = colors.palette.blue,
+            Interface = colors.palette.cyan,
+            Keyword = colors.palette.magenta,
+            Method = colors.palette.yellow,
             Module = colors.palette.dark_yellow,
-            Operator = colors.palette.red,
+            Operator = colors.palette.magenta,
             Property = colors.palette.cyan,
             Reference = colors.palette.dark_yellow,
             Snippet = colors.palette.red,
@@ -47,10 +44,7 @@ local highlight_map_extension = {
         }
 
         for kind, color in pairs(lsp_kind_icons_color) do
-            highlights_map["CmpItemKind" .. kind] = {
-                fg = color,
-                config.cmp_itemkind_reverse and { reverse = true },
-            }
+            highlights_map["CmpItemKind" .. kind] = { fg = color }
         end
 
         return highlights_map

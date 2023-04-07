@@ -1,3 +1,5 @@
+local darken = require("terra.actions.color").darken
+
 local M = {}
 
 ---@type TerraColors.Primaries
@@ -61,6 +63,8 @@ M.semantics = {
             main = M.primaries[8],
             light = M.primaries[9],
         },
+        active = M.primaries[5],
+        match = darken(M.palette.magenta, 0.25, M.primaries[1]),
         diff = {
             add = M.palette.green,
             delete = M.palette.red,

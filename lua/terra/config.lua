@@ -34,7 +34,6 @@ M.default_config = {
     transparent = false,
     term_colors = true,
     ending_tildes = false,
-    cmp_itemkind_reverse = false,
 
     code_style = {
         comments = {
