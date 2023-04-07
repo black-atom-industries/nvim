@@ -4,7 +4,7 @@
 local highlight_map_spec = {
     enabled = true,
 
-    map = function(colors )
+    map = function(colors)
         local bg = colors.semantics.bg
         local bg_main = bg.primary.main
         local bg_dark = bg.primary.dark

@@ -26,7 +26,7 @@
 
 ---@class TerraHighlightsSpec
 ---@field enabled                                 boolean Whether or not the highlight map should be enabled
----@field map                                     TerraHighlightMapExtension.map 
+---@field map                                     TerraHighlightMapExtension.map
 
 -------------------------------------------Colors
 ---@class TerraColors.Debug
@@ -83,7 +83,6 @@
 ---@class TerraColors.Semantics
 ---@field bg                                      TerraColors.Semantics.Background
 ---@field fg                                      TerraColors.Semantics.Foreground
-
 
 ---@class TerraColors
 ---@field none                                    string
