@@ -11,7 +11,7 @@ local get_palette = function(season, time)
 
         local error_message = "Unknown season '" .. season .. "'!\nCheck for typos.\nCurrently only 'spring' is available!"
 
-        notify(error_message, "error", {
+        notify(error_message, vim.log.levels.ERROR, {
             title = "Terra - Error",
             timeout = 5000,
             icon = "",
