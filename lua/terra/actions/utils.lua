@@ -36,6 +36,14 @@ end
 ---@param target table
 ---@vararg table
 ---@return table
+---@example
+---```lua
+---local a = { 1, 2, 3 }
+---local b = { 4, 5, 6 }
+---local c = { 7, 8, 9 }
+---local d = M.merge_multiple_tables({}, a, b, c)
+---print(vim.inspect(d))`
+---```
 function M.merge_multiple_tables(target, ...)
     local result = target
 
