@@ -115,7 +115,6 @@
 ---@field transparent                             boolean Wether to render the background color
 ---@field term_colors                             boolean Wether to enable terminal colors
 ---@field ending_tildes                           boolean Wether to show the end-of-buffer tildes
----@field cmp_itemkind_reverse                    boolean Wether to reverse item kind highlights in cmp menu
 ---@field code_style                              TerraConfig.CodeStyle Code styling options
 ---@field colors                                  table<string, string> Override default colors
 ---@field diagnostics                             TerraConfig.Diagnostics Diagnostics related settings

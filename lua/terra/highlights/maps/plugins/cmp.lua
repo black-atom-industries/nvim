@@ -1,6 +1,6 @@
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {
-    map = function(colors, config)
+    map = function(colors)
         ---@type TerraHighlights
         local highlights_map = {
             CmpItemAbbr = { fg = colors.semantics.fg.primary.main },
@@ -11,10 +11,6 @@ local highlight_map_extension = {
             CmpItemAbbrMatch = { fg = colors.palette.cyan },
             CmpItemAbbrMatchFuzzy = { fg = colors.palette.cyan, underline = true },
             CmpItemMenu = { fg = colors.palette.light_gray },
-            CmpItemKind = {
-                fg = colors.palette.magenta,
-                config.cmp_itemkind_reverse and { reverse = true },
-            },
         }
 
         local lsp_kind_icons_color = {
@@ -47,10 +43,7 @@ local highlight_map_extension = {
         }
 
         for kind, color in pairs(lsp_kind_icons_color) do
-            highlights_map["CmpItemKind" .. kind] = {
-                fg = color,
-                config.cmp_itemkind_reverse and { reverse = true },
-            }
+            highlights_map["CmpItemKind" .. kind] = { fg = color }
         end
 
         return highlights_map
