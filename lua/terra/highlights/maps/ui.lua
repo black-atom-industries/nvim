@@ -86,9 +86,9 @@ local highlight_map_extension = {
             debugPC = { fg = colors.semantics.bg.primary.dark, bg = colors.palette.green },
             debugBreakpoint = { fg = colors.semantics.bg.primary.dark, bg = colors.palette.red },
             ToolbarButton = { fg = colors.semantics.bg.primary.dark, bg = colors.palette.blue },
-            FloatBorder = { fg = colors.semantics.fg.neutral, bg = colors.semantics.bg.primary.dark },
-            NormalFloat = { fg = colors.semantics.fg.primary.main, bg = colors.semantics.bg.primary.dark },
-            NvimFloat = { fg = colors.semantics.fg.primary.main, bg = colors.semantics.bg.primary.dark },
+            FloatBorder = { fg = colors.semantics.fg.neutral, bg = colors.semantics.bg.primary.main },
+            NormalFloat = { fg = colors.semantics.fg.primary.main, bg = colors.semantics.bg.primary.main },
+            NvimFloat = { fg = colors.semantics.fg.primary.main, bg = colors.semantics.bg.primary.main },
             WinBar = { link = "StatusLine" },
             WinBarNC = { link = "StatusLineNC" },
         }
