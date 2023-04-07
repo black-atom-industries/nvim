@@ -34,7 +34,7 @@ end
 local default_bg = "#000000"
 local default_fg = "#ffffff"
 
--- QUESTION: What does this do?
+-- Darken a color by blending it with black or a custom color
 ---@param hex_string string
 ---@param amount number
 ---@param bg? string
@@ -43,7 +43,7 @@ function M.darken(hex_string, amount, bg)
     return M.blend(hex_string, bg or default_bg, math.abs(amount))
 end
 
--- QUESTION: What does this do?
+-- Lighten a color by blending it with white or a custom color
 ---@param hex_string string
 ---@param amount number
 ---@param fg? string
