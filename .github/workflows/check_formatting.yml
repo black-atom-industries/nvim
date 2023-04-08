@@ -1,0 +1,24 @@
+name: Check Formatting with StyLua
+
+on:
+  pull_request:
+    types:
+      - ready_for_review
+      - synchronize
+      - opened
+
+jobs:
+  check_formatting:
+    if: "!github.event.pull_request.draft"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Set up StyLua
+        uses: JohnnyMorganz/stylua-action@v2
+        with:
+          token: ${{ secrets.TERRA_TOKEN }}
+          version: 0.13.1
+          args: --check .

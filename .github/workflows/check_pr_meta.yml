@@ -1,0 +1,52 @@
+name: Check Pull Request Meta
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - edited
+
+jobs:
+  check-pr-meta:
+    runs-on: ubuntu-20.04
+    env:
+      REGEX_VALIDATION_PATTERN: '^DEV-[0-9]+\ (feat|fix|refactor|chore|tests|docs|style|perf|build|ci|revert|deps):\ '
+
+    steps:
+      - name: Check PR Title
+        if: github.event_name == 'pull_request'
+        env:
+          PR_TITLE: "${{ github.event.pull_request.title }}"
+        run: |
+          # Check PR Title
+          if ! echo "$PR_TITLE" | grep --perl-regexp --quiet "${{ env.REGEX_VALIDATION_PATTERN }}"
+          then
+            echo "Error: PR title in wrong format: \"$PR_TITLE\""
+            echo "Please prefix the title with the issue number followed by a space, a conventional commit prefix, and a colon (e.g. \"DEV-XXXX feat: \")"
+            exit 1
+          fi
+
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Check PR Commit Messages
+        run: |
+          # Check PR Commit Messages
+          commit_range=""
+          if [ "${{ github.event_name }}" == "push" ]; then
+            commit_range="${{ github.event.before }}..${{ github.event.after }}"
+          elif [ "${{ github.event_name }}" == "pull_request" ]; then
+            commit_range="${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}"
+          fi
+
+          for commit_sha in $(git rev-list --no-merges "${commit_range}"); do
+            commit_message=$(git log --format=%B -n 1 "${commit_sha}")
+            if [[ ! "${commit_message}" =~ ${{ env.REGEX_VALIDATION_PATTERN }} ]]; then
+              echo "Error: Commit message in wrong format: \"${commit_message}\""
+              echo "Please prefix the commit message with the issue number followed by a space, a conventional commit prefix, and a colon (e.g. \"DEV-XXXX feat: \")"
+              exit 1
+            fi
+          done
