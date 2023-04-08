@@ -6,9 +6,6 @@ on:
       - opened
       - synchronize
       - edited
-  push:
-    branches:
-      - "**"
 
 jobs:
   check-pr-meta:

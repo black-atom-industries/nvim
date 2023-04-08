@@ -6,9 +6,6 @@ on:
       - ready_for_review
       - synchronize
       - opened
-  push:
-    branches:
-      - "**"
 
 jobs:
   check_formatting:
