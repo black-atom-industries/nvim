@@ -32,6 +32,7 @@ M.default_config = {
     select_time = "<leader>Tt",
 
     transparent = false,
+    dim_inactive_panes = false,
     term_colors = true,
     ending_tildes = false,
 

@@ -1,13 +1,15 @@
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {
-    map = function()
+    map = function(colors)
         ---@type TerraHighlights
         local highlights_map = {
             TreesitterContext = {
-                link = "StatusLine",
+                fg = colors.semantics.fg.neutral,
+                bg = colors.semantics.bg.primary.main,
             },
             TreesitterContextLineNumber = {
-                link = "StatusLine",
+                fg = colors.semantics.fg.neutral,
+                bg = colors.semantics.bg.primary.main,
             },
         }
 
