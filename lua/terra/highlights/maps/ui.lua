@@ -9,27 +9,36 @@ local highlight_map_extension = {
                 fg = colors.semantics.fg.primary.main,
                 bg = config.transparent and colors.none or colors.semantics.bg.primary.main,
             },
-            Terminal = {
-                fg = colors.semantics.fg.primary.main,
-                bg = config.transparent and colors.none or colors.semantics.bg.primary.dark,
+            NormalNC = {
+                fg = colors.semantics.fg.primary.dark,
+                bg = config.transparent and colors.none
+                    or config.dim_inactive_panes and colors.semantics.bg.primary.dark
+                    or colors.semantics.bg.primary.main,
             },
+            NormalFloat = { link = "Normal" },
             EndOfBuffer = {
                 fg = config.ending_tildes and colors.semantics.bg.primary.light or colors.semantics.bg.primary.main,
-                bg = config.transparent and colors.none or colors.semantics.bg.primary.main,
+                bg = config.transparent and colors.none
+                    or config.dim_inactive_panes and colors.none
+                    or colors.semantics.bg.primary.main,
             },
-            FoldColumn = {
-                fg = colors.semantics.fg.neutral,
-                bg = config.transparent and colors.none or colors.semantics.bg.primary.main,
-            },
+            SignColumn = { fg = colors.semantics.fg.neutral },
+            FoldColumn = { fg = colors.semantics.fg.neutral },
             Folded = {
                 fg = colors.semantics.fg.neutral,
                 bg = config.transparent and colors.none or colors.semantics.bg.primary.main,
             },
-            SignColumn = {
+            Terminal = {
                 fg = colors.semantics.fg.primary.main,
-                bg = config.transparent and colors.none or colors.semantics.bg.primary.main,
+                bg = config.transparent and colors.none or colors.semantics.bg.primary.dark,
             },
+            StatusLine = { fg = colors.semantics.fg.primary.main, bg = colors.semantics.bg.primary.dark },
+            StatusLineTerm = { fg = colors.semantics.fg.primary.main, bg = colors.semantics.bg.primary.dark },
+            StatusLineNC = { fg = colors.palette.gray, bg = colors.semantics.bg.primary.dark },
+            StatusLineTermNC = { fg = colors.palette.gray, bg = colors.semantics.bg.primary.dark },
             ToolbarLine = { fg = colors.semantics.fg.primary.main },
+            WinBar = { link = "Normal" },
+            WinBarNC = { link = "NormalNC" },
             Cursor = { reverse = true },
             vCursor = { reverse = true },
             iCursor = { reverse = true },
@@ -71,14 +80,13 @@ local highlight_map_extension = {
             SpellCap = { fg = colors.palette.yellow, sp = colors.palette.yellow },
             SpellLocal = { fg = colors.palette.blue, sp = colors.palette.blue },
             SpellRare = { fg = colors.palette.magenta, sp = colors.palette.magenta },
-            StatusLine = { fg = colors.semantics.fg.primary.main, bg = colors.semantics.bg.primary.dark },
-            StatusLineTerm = { fg = colors.semantics.fg.primary.main, bg = colors.semantics.bg.primary.dark },
-            StatusLineNC = { fg = colors.palette.gray, bg = colors.semantics.bg.primary.dark },
-            StatusLineTermNC = { fg = colors.palette.gray, bg = colors.semantics.bg.primary.dark },
             TabLine = { fg = colors.semantics.fg.primary.main, bg = colors.semantics.bg.primary.main },
             TabLineFill = { fg = colors.palette.gray, bg = colors.semantics.bg.primary.main },
             TabLineSel = { fg = colors.semantics.fg.primary.main, bg = colors.semantics.bg.primary.light },
-            VertSplit = { fg = colors.semantics.fg.neutral },
+            VertSplit = {
+                fg = colors.semantics.fg.neutral,
+                bg = config.dim_inactive_panes and colors.semantics.bg.primary.dark or colors.semantics.bg.primary.main,
+            },
             Visual = { bg = colors.semantics.bg.match },
             VisualNOS = { link = "Visual" },
             QuickFixLine = { fg = colors.palette.blue, bg = colors.semantics.bg.primary.light },
@@ -87,10 +95,7 @@ local highlight_map_extension = {
             debugBreakpoint = { fg = colors.semantics.bg.primary.dark, bg = colors.palette.red },
             ToolbarButton = { fg = colors.semantics.bg.primary.dark, bg = colors.palette.blue },
             FloatBorder = { fg = colors.semantics.fg.neutral, bg = colors.semantics.bg.primary.main },
-            NormalFloat = { fg = colors.semantics.fg.primary.main, bg = colors.semantics.bg.primary.main },
             NvimFloat = { fg = colors.semantics.fg.primary.main, bg = colors.semantics.bg.primary.main },
-            WinBar = { link = "StatusLine" },
-            WinBarNC = { link = "StatusLineNC" },
         }
 
         return highlights_map

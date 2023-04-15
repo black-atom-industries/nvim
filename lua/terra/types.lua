@@ -118,6 +118,7 @@
 ---@field select_time                             string Normal mode mapping string for triggering the `time` selection
 ---@field select_season                           string Normal mode mapping string for triggering the `season` selection
 ---@field transparent                             boolean Wether to render the background color
+---@field dim_inactive_panes                      boolean Wether to dim inactive panes
 ---@field term_colors                             boolean Wether to enable terminal colors
 ---@field ending_tildes                           boolean Wether to show the end-of-buffer tildes
 ---@field code_style                              TerraConfig.CodeStyle Code styling options
