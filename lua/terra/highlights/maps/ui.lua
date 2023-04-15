@@ -1,4 +1,5 @@
 local extend = require("terra.actions").highlights.extend_highlight
+local cond_highlight = require("terra.actions").highlights.cond_highlight
 
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {
@@ -7,20 +8,26 @@ local highlight_map_extension = {
         local highlights_map = {
             Normal = {
                 fg = colors.semantics.fg.primary.main,
-                bg = config.transparent and colors.none or colors.semantics.bg.primary.main,
+                bg = cond_highlight(colors.semantics.bg.primary.main, {
+                    [config.transparent] = colors.none,
+                }),
             },
             NormalNC = {
                 fg = colors.semantics.fg.primary.dark,
-                bg = config.transparent and colors.none
-                    or config.dim_inactive_panes and colors.semantics.bg.primary.dark
-                    or colors.semantics.bg.primary.main,
+                bg = cond_highlight(colors.semantics.bg.primary.main, {
+                    [config.dim_inactive_panes] = colors.semantics.bg.primary.dark,
+                    [config.transparent] = colors.none,
+                }),
             },
             NormalFloat = { link = "Normal" },
             EndOfBuffer = {
-                fg = config.ending_tildes and colors.semantics.bg.primary.light or colors.semantics.bg.primary.main,
-                bg = config.transparent and colors.none
-                    or config.dim_inactive_panes and colors.none
-                    or colors.semantics.bg.primary.main,
+                fg = cond_highlight(colors.semantics.bg.primary.main, {
+                    [config.ending_tildes] = colors.semantics.fg.neutral,
+                }),
+                bg = cond_highlight(colors.semantics.bg.primary.main, {
+                    [config.dim_inactive_panes] = colors.none,
+                    [config.transparent] = colors.none,
+                }),
             },
             SignColumn = { fg = colors.semantics.fg.neutral },
             FoldColumn = { fg = colors.semantics.fg.neutral },
@@ -30,7 +37,9 @@ local highlight_map_extension = {
             },
             Terminal = {
                 fg = colors.semantics.fg.primary.main,
-                bg = config.transparent and colors.none or colors.semantics.bg.primary.dark,
+                bg = cond_highlight(colors.semantics.bg.primary.dark, {
+                    [config.transparent] = colors.none,
+                }),
             },
             StatusLine = { fg = colors.semantics.fg.primary.main, bg = colors.semantics.bg.primary.dark },
             StatusLineTerm = { fg = colors.semantics.fg.primary.main, bg = colors.semantics.bg.primary.dark },
@@ -62,7 +71,7 @@ local highlight_map_extension = {
             ErrorMsg = extend({ fg = colors.palette.red }, config.code_style.messages),
             WarningMsg = extend({ fg = colors.palette.yellow }, config.code_style.messages),
             MoreMsg = extend({ fg = colors.palette.blue }, config.code_style.messages),
-            ModeMsg = extend({}, config.code_style.messages),
+            ModeMsg = extend({ fg = colors.semantics.fg.primary.main }, config.code_style.messages),
             IncSearch = { link = "Search" },
             Search = { bg = colors.semantics.bg.match },
             Substitute = { fg = colors.semantics.bg.primary.dark, bg = colors.palette.green },

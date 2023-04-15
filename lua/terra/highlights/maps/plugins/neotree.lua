@@ -1,3 +1,5 @@
+local cond_highlight = require("terra.actions").highlights.cond_highlight
+
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {
     map = function(colors, config)
@@ -5,29 +7,41 @@ local highlight_map_extension = {
         local highlights_map = {
             NeoTreeNormal = {
                 fg = colors.semantics.fg.primary.main,
-                bg = config.transparent and colors.none or colors.semantics.bg.primary.dark,
+                bg = cond_highlight(colors.semantics.bg.primary.dark, {
+                    [config.transparent] = colors.none,
+                }),
             },
             NeoTreeNormalNC = {
                 fg = colors.semantics.fg.primary.main,
-                bg = config.transparent and colors.none or colors.semantics.bg.primary.dark,
+                bg = cond_highlight(colors.semantics.bg.primary.dark, {
+                    [config.transparent] = colors.none,
+                }),
             },
             NeoTreeCursorLine = {
                 bg = colors.semantics.bg.primary.main,
             },
             NeoTreeEndOfBuffer = {
-                fg = config.ending_tildes and colors.semantics.fg.secondary.dark or colors.semantics.bg.primary.dark,
-                bg = config.transparent and colors.none or colors.semantics.bg.primary.dark,
+                fg = cond_highlight(colors.semantics.bg.primary.dark, {
+                    [config.ending_tildes] = colors.semantics.fg.secondary.dark,
+                }),
+                bg = cond_highlight(colors.semantics.bg.primary.dark, {
+                    [config.transparent] = colors.none,
+                }),
             },
             NeoTreeTabActive = {
                 fg = colors.semantics.fg.primary.main,
-                bg = config.transparent and colors.none or colors.semantics.bg.primary.main,
+                bg = cond_highlight(colors.semantics.bg.primary.main, {
+                    [config.transparent] = colors.none,
+                }),
             },
             NeoTreeTabSeparatorActive = {
                 link = "NeoTreeTabActive",
             },
             NeoTreeTabInactive = {
                 fg = colors.semantics.fg.neutral,
-                bg = config.transparent and colors.none or colors.semantics.bg.primary.dark,
+                bg = cond_highlight(colors.semantics.bg.primary.dark, {
+                    [config.transparent] = colors.none,
+                }),
             },
             NeoTreeTabSeparatorInactive = {
                 link = "NeoTreeTabInactive",
