@@ -19,7 +19,7 @@ local highlight_map_spec = {
         local highlights_map = {
             NavbuddyName = { fg = fg_active, bg = bg_dark }, -- highlight for name in source buffer
             NavbuddyScope = match_style, -- highlight for scope of context in source buffer
-            NavbuddyFloatBorder = { link = "Floatborder" }, -- Floatborder highlight
+            NavbuddyFloatBorder = { fg = palette.cyan }, -- Floatborder highlight
         }
 
         local lsp_kind_icons = {
