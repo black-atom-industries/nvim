@@ -92,9 +92,7 @@
 ---@field semantics                               TerraColors.Semantics
 
 -------------------------------------------Config
-
----@alias TerraConfig.Season                      "spring" | "summer" | "fall" | "winter"
----@alias TerraConfig.Time                        "day" | "night"
+---The types for `Season` and `Time` are infered at the declaration. @see `lua/terra/config.lua` 
 
 ---@class TerraConfig.CodeStyle
 ---@field comments                                TerraHighlightDefinition

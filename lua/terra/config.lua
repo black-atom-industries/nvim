@@ -1,12 +1,13 @@
 local M = {}
 
----@type TerraConfig.Time[]
+---@class TerraConfig.Time[]
 M.times = {
     "night",
     "day",
 }
 
----@type TerraConfig.Season[]
+---The name of a theme needs to be equal to the name of the folder in `lua/terra/themes/`!
+---@class TerraConfig.Season[]
 M.seasons = {
     "spring",
     "summer",
