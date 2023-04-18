@@ -26,7 +26,7 @@ local highlight_map_extension = {
             Label = { fg = palette.magenta },
             Macro = { fg = palette.red },
             Number = { fg = palette.dark_yellow },
-            Operator = { fg = fg.primary.main },
+            Operator = { fg = fg.primary.dark },
             PreCondit = { fg = palette.magenta },
             PreProc = { fg = palette.magenta },
             Repeat = extend({ fg = palette.magenta }, config.code_style.keywords),
