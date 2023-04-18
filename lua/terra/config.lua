@@ -13,6 +13,7 @@ M.seasons = {
     "summer",
     "fall",
     "winter",
+    "kurzgesagt_beta",
 }
 
 ---@type TerraConfig
@@ -27,6 +28,7 @@ M.default_config = {
         summer = " ",
         fall = " ",
         winter = " ",
+        kurzgesagt_beta = " ",
     },
 
     select_season = "<leader>Ts",
