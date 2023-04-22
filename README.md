@@ -1,6 +1,7 @@
-# Terra Theme for Neovim
+# Terra Theme `core` for Neovim
 
-Terra will be a multi-platform theme collection with various nature inspired themes for each season, with a day and night variant.
+This is the core of the Terra Theme for Neovim.
+It serves as a base for all other Terra Theme colorscheme plugins.
 
 ## 🚧 &nbsp;Status: Early development &nbsp;🚧</p>
 
@@ -10,6 +11,8 @@ Structure, colors and things can (and will) change.
 
 This is all a work in progress.
 
+**Current usage is not recommended.**
+
 ## Development
 
 ### Linting
@@ -17,7 +20,7 @@ This is all a work in progress.
 Lint whole project with `lua-language-server` while respecting the `.luarc.json`.
 
 ```bash
-lua-language-server --check ./lua --checklevel=Warning --logpath . --configpath /Users/nikolausbrunner/Documents/dev/repos/terra-theme/terra.nvim/.luarc.json
+lua-language-server --check ./lua --checklevel=Warning --logpath . --configpath /Users/nikolausbrunner/Documents/dev/repos/terra-theme/core.nvim/.luarc.json
 ```
 
 > Note: This currently works only with absolute paths. This seems to be a bug in `lua-language-server`, and I commented on a similar issue [here](https://github.com/LuaLS/lua-language-server/issues/2038#issuecomment-1500215468).
