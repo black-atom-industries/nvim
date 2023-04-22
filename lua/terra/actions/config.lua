@@ -40,7 +40,7 @@ function M.select_season()
     local reload_colorscheme = require("terra.init").load
     local capitalize = require("terra.actions.utils").capitalize
 
-    ---@param selected_season string|nil
+    ---@param selected_season TerraConfig.Season|nil
     local handle_select_season = function(selected_season)
         -- Handle abort
         if selected_season == nil then
