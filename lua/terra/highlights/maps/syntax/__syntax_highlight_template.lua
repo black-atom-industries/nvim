@@ -1,6 +1,6 @@
 --[[
     Hello there!
-    Thank you for wanting to contribute to the terra.nvim plugin!
+    Thank you for wanting to contribute to the Terra Theme core.nvim plugin!
 
     To create or expand the highlight map for a specific language, simply copy this template and rename it to a suitable name, such as "go.lua".
 
@@ -18,7 +18,7 @@
     you can test it by running by running Neovim in a separate window 
     and see if your highlights are applied correctly, 
     or turn on `debug` mode inside "lua/terra/config.lua" to see a generated file with all highlights.
-    This will be placed in the `debug` folder inside the `terra.nvim` plugin folder.
+    This will be placed in the `debug` folder inside the `core.nvim` plugin folder.
 ]]
 --
 

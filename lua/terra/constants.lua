@@ -1,0 +1,1 @@
+TERRA_CORE_PLUGIN_NAME = "core.nvim"
