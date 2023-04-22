@@ -1,3 +1,6 @@
+-- Initialize constants
+require("terra.constants")
+
 local actions = require("terra.actions")
 
 local M = {}

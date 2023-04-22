@@ -1,10 +1,10 @@
 local M = {}
 
 ---Get the path of a plugin
----@param plugin_name? string Default is "terra.nvim"
+---@param plugin_name? string Default is TERRA_CORE_PLUGIN_NAME("core.nvim")
 ---@return string
 function M.get_plugin_path(plugin_name)
-    plugin_name = plugin_name or "terra.nvim"
+    plugin_name = plugin_name or TERRA_CORE_PLUGIN_NAME
     local runtimepaths = vim.api.nvim_get_option("runtimepath")
     local plugin_directory = nil
 
