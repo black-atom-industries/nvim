@@ -94,6 +94,9 @@
 -------------------------------------------Config
 ---The types for `Season` and `Time` are infered at the declaration. @see `lua/terra/config.lua` 
 
+---@alias TerraConfig.Time                        "day" | "night"
+---@alias TerraConfig.Season                      "spring" | "summer" | "fall" | "winter" | "control_beta" | "kurzgesagt_beta"
+
 ---@class TerraConfig.CodeStyle
 ---@field comments                                TerraHighlightDefinition
 ---@field keywords                                TerraHighlightDefinition
@@ -112,7 +115,7 @@
 ---@field debug                                   boolean Enables the Debug Mode (Enables various debug messages)
 ---@field season                                  TerraConfig.Season Currently set season
 ---@field time                                    TerraConfig.Time Current set time of day
----@field icons                                   table Icons associated with each season
+---@field icons                                   table<TerraConfig.Season, string> Icons associated with each season
 ---@field select_time                             string Normal mode mapping string for triggering the `time` selection
 ---@field select_season                           string Normal mode mapping string for triggering the `season` selection
 ---@field transparent                             boolean Wether to render the background color
