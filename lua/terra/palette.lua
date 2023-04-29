@@ -1,15 +1,15 @@
-local seasons = require("terra.config").seasons
-local validate_season = require("terra.actions.config").validate_season
+local themes = require("terra.config").themes
+local validate_theme = require("terra.actions.config").validate_theme
 
----@param season TerraConfig.Season
----@param time TerraConfig.Time
-local get_palette = function(season, time)
-    local valid_season = validate_season(seasons, season)
+---@param theme TerraConfig.Theme
+---@param variant TerraConfig.Variant
+local get_palette = function(theme, variant)
+    local valid_theme = validate_theme(themes, theme)
 
-    if not valid_season then
+    if not valid_theme then
         local notify = require("terra.actions.ui").notify
 
-        local error_message = "Unknown season '" .. season .. "'!\nCheck for typos.\nCurrently only 'spring' is available!"
+        local error_message = "Unknown theme '" .. theme .. "'!\nCheck for typos.\nCurrently only 'spring' is available!"
 
         notify(error_message, vim.log.levels.ERROR, {
             title = "Terra - Error",
@@ -19,7 +19,7 @@ local get_palette = function(season, time)
 
         return
     else
-        return require("terra.themes." .. season .. "." .. time)
+        return require("terra.themes." .. theme .. "." .. variant)
     end
 end
 

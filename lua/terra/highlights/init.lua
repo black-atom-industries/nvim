@@ -3,15 +3,15 @@ local get_highlight_modules = require("terra.actions.files").get_highlight_modul
 local write_debug_highlights_file = require("terra.actions.debug").write_debug_highlights_file
 local aggregate_highlight_maps = require("terra.actions.highlights").aggregate_highlight_maps
 
-local seasons = require("terra.config").seasons
-local times = require("terra.config").times
+local themes = require("terra.config").themes
+local variants = require("terra.config").variants
 
 local theme_color_palettes = {}
 
-for _, season in pairs(seasons) do
-    theme_color_palettes[season] = {}
-    for _, time in pairs(times) do
-        theme_color_palettes[season][time] = require("terra.themes." .. season .. "." .. time).colors()
+for _, theme in pairs(themes) do
+    theme_color_palettes[theme] = {}
+    for _, variant in pairs(variants) do
+        theme_color_palettes[theme][variant] = require("terra.themes." .. theme .. "." .. variant).colors()
     end
 end
 
@@ -34,14 +34,11 @@ M.build_highlights_map = function(colors, config)
     return highlights_map
 end
 
----Setup highlights for a given season and time
+---Setup highlights for a given theme and variant
 ---@param config TerraConfig
 ---@return nil
 function M.setup(config)
-    local season = config.season
-    local time = config.time
-
-    local colors = theme_color_palettes[season][time]
+    local colors = theme_color_palettes[config.theme][config.variant]
 
     local highlights = M.build_highlights_map(colors, config)
 

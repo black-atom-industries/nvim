@@ -92,10 +92,8 @@
 ---@field semantics                               TerraColors.Semantics
 
 -------------------------------------------Config
----The types for `Season` and `Time` are infered at the declaration. @see `lua/terra/config.lua` 
-
----@alias TerraConfig.Time                        "day" | "night"
----@alias TerraConfig.Season                      "spring" | "summer" | "fall" | "winter" | "control_beta" | "kurzgesagt_beta"
+---@alias TerraConfig.Variant                    "day" | "night"
+---@alias TerraConfig.Theme                      "spring" | "summer" | "fall" | "winter" | "control_beta" | "kurzgesagt_beta"
 
 ---@class TerraConfig.CodeStyle
 ---@field comments                                TerraHighlightDefinition
@@ -113,11 +111,11 @@
 ---@class TerraConfig
 ---@field loaded                                  boolean Wether the config has been loaded
 ---@field debug                                   boolean Enables the Debug Mode (Enables various debug messages)
----@field season                                  TerraConfig.Season Currently set season
----@field time                                    TerraConfig.Time Current set time of day
----@field icons                                   table<TerraConfig.Season, string> Icons associated with each season
----@field select_time                             string Normal mode mapping string for triggering the `time` selection
----@field select_season                           string Normal mode mapping string for triggering the `season` selection
+---@field theme                                   TerraConfig.Theme Currently set theme
+---@field variant                                 TerraConfig.Variant Currently set variant
+---@field icons                                   table<TerraConfig.Theme, string> Icons associated with each theme
+---@field select_variant                          string Normal mode mapping string for triggering the `variant` selection
+---@field select_theme                            string Normal mode mapping string for triggering the `theme` selection
 ---@field transparent                             boolean Wether to render the background color
 ---@field dim_inactive_panes                      boolean Wether to dim inactive panes
 ---@field term_colors                             boolean Wether to enable terminal colors
