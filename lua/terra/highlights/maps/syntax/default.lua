@@ -11,7 +11,7 @@ local highlight_map_extension = {
             -- Native Regex Highlights
             Boolean = { fg = palette.dark_yellow },
             Character = { fg = palette.yellow },
-            Comment = extend({ fg = fg.secondary.dark }, config.code_style.comments),
+            Comment = extend({ fg = fg.neutral }, config.code_style.comments),
             Conditional = extend({ fg = palette.magenta }, config.code_style.keywords),
             Constant = { fg = palette.dark_yellow },
             Define = { fg = palette.magenta },
