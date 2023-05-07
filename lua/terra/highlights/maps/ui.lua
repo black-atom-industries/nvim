@@ -99,7 +99,10 @@ local highlight_map_extension = {
             TabLineSel = { fg = fg.primary.main, bg = bg.primary.light },
             VertSplit = {
                 fg = fg.neutral,
-                bg = config.dim_inactive_panes and bg.primary.dark or bg.primary.main,
+                bg = cond_highlight(bg.primary.main, {
+                    [config.dim_inactive_panes] = bg.primary.dark,
+                    [config.transparent] = no_color,
+                }),
             },
             Visual = { bg = bg.match },
             VisualNOS = { link = "Visual" },
@@ -108,7 +111,12 @@ local highlight_map_extension = {
             debugPC = { fg = bg.primary.dark, bg = palette.green },
             debugBreakpoint = { fg = bg.primary.dark, bg = palette.red },
             ToolbarButton = { fg = bg.primary.dark, bg = palette.blue },
-            FloatBorder = { fg = fg.neutral, bg = bg.primary.main },
+            FloatBorder = {
+                fg = fg.neutral,
+                bg = cond_highlight(bg.primary.main, {
+                    [config.transparent] = no_color,
+                }),
+            },
             NvimFloat = { fg = fg.primary.main, bg = bg.primary.main },
         }
 
