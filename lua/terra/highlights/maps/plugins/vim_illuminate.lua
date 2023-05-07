@@ -1,12 +1,11 @@
 -- Repository: https://github.com/RRethy/vim-illuminate
-local darken = require("terra.actions.color").darken
 
 ---@type TerraHighlightsSpec
 local highlight_map_spec = {
     enabled = true,
 
     map = function(colors)
-        local match_style = { bg = darken(colors.palette.blue, 0.35) }
+        local match_style = { bg = colors.semantics.bg.match }
 
         ---@type TerraHighlights
         local highlights_map = {
