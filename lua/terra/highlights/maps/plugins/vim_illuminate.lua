@@ -1,11 +1,10 @@
--- Repository: https://github.com/RRethy/vim-illuminate
-
+---Repository: https://github.com/RRethy/vim-illuminate
 ---@type TerraHighlightsSpec
 local highlight_map_spec = {
     enabled = true,
 
     map = function(colors)
-        local match_style = { bg = colors.semantics.bg.match }
+        local match_style = { bg = colors.semantics.bg.match.passive }
 
         ---@type TerraHighlights
         local highlights_map = {

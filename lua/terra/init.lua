@@ -17,7 +17,7 @@ function M.colorscheme()
     vim.g.colors_name = "terra"
 
     -- Sync `vim.o.background` of Vim with `time` of TerraConfig
-    actions.config.sync_vim_opt_background_with_terra_time(vim.g.terra_config.time)
+    actions.config.sync_vim_opt_background_with_terra_variant(vim.g.terra_config.variant)
 
     -- Now set up the highlights and terminal
     require("terra.highlights").setup(vim.g.terra_config)
@@ -46,11 +46,11 @@ function M.setup(opts)
         actions.config.set_options(opts)
     end
 
-    -- Set the select season binding from config
+    -- Set the select theme binding from config
     vim.api.nvim_set_keymap(
         "n",
-        vim.g.terra_config.select_season,
-        '<cmd>lua require("terra.actions.config").select_season()<CR>',
+        vim.g.terra_config.select_theme,
+        'lua require("terra.actions.config").select_theme()<CR>',
         { noremap = true, silent = true }
     )
 end

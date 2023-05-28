@@ -11,7 +11,7 @@ local highlight_map_extension = {
             -- Native Regex Highlights
             Boolean = { fg = palette.dark_yellow },
             Character = { fg = palette.yellow },
-            Comment = extend({ fg = fg.secondary.dark }, config.code_style.comments),
+            Comment = extend({ fg = fg.neutral }, config.code_style.comments),
             Conditional = extend({ fg = palette.magenta }, config.code_style.keywords),
             Constant = { fg = palette.dark_yellow },
             Define = { fg = palette.magenta },
@@ -26,7 +26,7 @@ local highlight_map_extension = {
             Label = { fg = palette.magenta },
             Macro = { fg = palette.red },
             Number = { fg = palette.dark_yellow },
-            Operator = { fg = fg.primary.dark },
+            Operator = { fg = palette.magenta },
             PreCondit = { fg = palette.magenta },
             PreProc = { fg = palette.magenta },
             Repeat = extend({ fg = palette.magenta }, config.code_style.keywords),
@@ -73,8 +73,8 @@ local highlight_map_extension = {
             ["@float"] = { fg = palette.dark_yellow },
 
             ["@function"] = extend({ fg = palette.yellow, bold = true }, config.code_style.functions),
-            ["@function.builtin"] = extend({ fg = palette.cyan }, config.code_style.functions),
-            ["@function.macro"] = extend({ fg = palette.cyan }, config.code_style.functions),
+            ["@function.builtin"] = extend({ fg = palette.yellow }, config.code_style.functions),
+            ["@function.macro"] = extend({ fg = palette.yellow }, config.code_style.functions),
 
             ["@include"] = { fg = palette.magenta },
 
@@ -129,7 +129,7 @@ local highlight_map_extension = {
             ["@text.todo.checked"] = { fg = fg.active },
             ["@text.todo.unchecked"] = { fg = fg.neutral },
             ["@text.underline"] = { fg = fg.primary.main, underline = true },
-            ["@text.uri"] = { fg = palette.cyan, underline = true },
+            ["@text.uri"] = { fg = palette.blue, underline = true },
             ["@text.warning"] = { fg = fg.primary.main },
 
             ["@type"] = { fg = palette.cyan },

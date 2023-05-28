@@ -22,7 +22,7 @@ local highlight_map_spec = {
         local neutral_element_style = { fg = fg_neutral, bg = bg.primary.dark }
         local file_name_style = { fg = fg_active, bg = bg.primary.dark }
         local file_path_style = neutral_element_style
-        local match_style = { bg = bg.match }
+        local match_style = { bg = bg.match.active }
 
         local preview_bg = bg_main
         local preview_normal_style = { fg = fg_main, bg = preview_bg }

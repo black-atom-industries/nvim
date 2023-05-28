@@ -78,7 +78,7 @@ local highlight_map_extension = {
             MoreMsg = extend({ fg = palette.blue }, config.code_style.messages),
             ModeMsg = extend({ fg = fg.primary.main }, config.code_style.messages),
             IncSearch = { link = "Search" },
-            Search = { bg = bg.match },
+            Search = { bg = bg.match.active },
             Substitute = { fg = bg.primary.dark, bg = palette.green },
             MatchParen = { fg = no_color, bg = palette.gray },
             NonText = { fg = palette.gray },
@@ -99,16 +99,24 @@ local highlight_map_extension = {
             TabLineSel = { fg = fg.primary.main, bg = bg.primary.light },
             VertSplit = {
                 fg = fg.neutral,
-                bg = config.dim_inactive_panes and bg.primary.dark or bg.primary.main,
+                bg = cond_highlight(bg.primary.main, {
+                    [config.dim_inactive_panes] = bg.primary.dark,
+                    [config.transparent] = no_color,
+                }),
             },
-            Visual = { bg = bg.match },
+            Visual = { bg = bg.match.active },
             VisualNOS = { link = "Visual" },
             QuickFixLine = { fg = palette.blue, bg = bg.primary.light },
             Debug = { fg = palette.yellow },
             debugPC = { fg = bg.primary.dark, bg = palette.green },
             debugBreakpoint = { fg = bg.primary.dark, bg = palette.red },
             ToolbarButton = { fg = bg.primary.dark, bg = palette.blue },
-            FloatBorder = { fg = fg.neutral, bg = bg.primary.main },
+            FloatBorder = {
+                fg = fg.neutral,
+                bg = cond_highlight(bg.primary.main, {
+                    [config.transparent] = no_color,
+                }),
+            },
             NvimFloat = { fg = fg.primary.main, bg = bg.primary.main },
         }
 

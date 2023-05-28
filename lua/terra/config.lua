@@ -1,14 +1,14 @@
 local M = {}
 
----@type TerraConfig.Time[]
-M.times = {
+---@type TerraConfig.Variant[]
+M.variants = {
     "night",
     "day",
 }
 
 ---The name of a theme needs to be equal to the name of the folder in `lua/terra/themes/`!
----@type TerraConfig.Season[]
-M.seasons = {
+---@type TerraConfig.Theme[]
+M.themes = {
     "spring",
     "summer",
     "fall",
@@ -21,8 +21,8 @@ M.seasons = {
 M.default_config = {
     debug = false,
 
-    season = M.seasons[1],
-    time = M.times[1],
+    theme = M.themes[1],
+    variant = M.variants[1],
 
     icons = {
         spring = " ",
@@ -33,8 +33,8 @@ M.default_config = {
         control_beta = " ",
     },
 
-    select_season = "<leader>Ts",
-    select_time = "<leader>Tt",
+    select_theme = "<leader>Tt",
+    select_variant = "<leader>Tv",
 
     transparent = false,
     dim_inactive_panes = false,
