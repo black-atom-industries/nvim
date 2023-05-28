@@ -64,12 +64,16 @@
 ---@field dark                                    string
 ---@field main                                    string
 ---@field light                                   string
+--
+---@class TerraColors.Semantics.Background.Match
+---@field active                                  string Used for highlighting matches in the foreground for like visual selections
+---@field passive                                 string Used for highlighting matches in the background like for illuminate
 
 ---@class TerraColors.Semantics.Background
 ---@field primary                                 TerraColors.Semantics.Shades
 ---@field secondary                               TerraColors.Semantics.Shades
 ---@field active                                  string
----@field match                                   string
+---@field match                                   TerraColors.Semantics.Background.Match
 ---@field diff                                    TerraColors.Semantics.Git
 
 ---@class TerraColors.Semantics.Foreground
