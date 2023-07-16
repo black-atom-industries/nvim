@@ -118,8 +118,6 @@
 ---@field theme                                   TerraConfig.Theme Currently set theme
 ---@field variant                                 TerraConfig.Variant Currently set variant
 ---@field icons                                   table<TerraConfig.Theme, string> Icons associated with each theme
----@field select_variant                          string Normal mode mapping string for triggering the `variant` selection
----@field select_theme                            string Normal mode mapping string for triggering the `theme` selection
 ---@field transparent                             boolean Wether to render the background color
 ---@field dim_inactive_panes                      boolean Wether to dim inactive panes
 ---@field term_colors                             boolean Wether to enable terminal colors

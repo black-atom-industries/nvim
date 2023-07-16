@@ -33,9 +33,6 @@ M.default_config = {
         control_beta = " ",
     },
 
-    select_theme = "<leader>Tt",
-    select_variant = "<leader>Tv",
-
     transparent = false,
     dim_inactive_panes = false,
     term_colors = true,
