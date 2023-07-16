@@ -12,7 +12,7 @@ return {
     },
     normal = {
         a = { fg = fg.invert, bg = fg.active, gui = "bold" },
-        b = { fg = fg.primary.main, bg = bg.primary.dark },
+        b = { fg = fg.secondary.dark, bg = bg.primary.dark },
         c = { fg = fg.secondary.dark, bg = bg.primary.main },
     },
     visual = { a = { fg = fg.invert, bg = palette.magenta, gui = "bold" } },
