@@ -42,14 +42,6 @@ function M.setup(opts)
     if opts then
         actions.config.set_options(opts)
     end
-
-    -- Set the select theme binding from config
-    vim.api.nvim_set_keymap(
-        "n",
-        vim.g.terra_config.select_theme,
-        'lua require("terra-core.actions.config").select_theme()<CR>',
-        { noremap = true, silent = true }
-    )
 end
 
 ---Loads the colorscheme
