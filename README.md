@@ -32,3 +32,38 @@ Format whole project with `stylua`.
 ```bash
 stylua lua/**/*.lua
 ```
+
+## Setting up a theme
+
+To select a theme, there are some options to go about.j
+Here is an example with `lazy.nvim`:
+
+```lua
+return {
+    "terra-theme/terra-core.nvim",
+    priority = 1000,
+    ---@type TerraConfig
+    opts = {
+      -- Set up your default theme and variant here
+      theme = "fall",
+      variant = "night",
+    },
+    keys = {
+    -- You can also select a theme via a keymap
+    -- NOTE: This will open a telescope picker and temporarily set the theme
+      {
+        "<leader>Tt",
+        function()
+          require("terra-core.actions.config").select_theme()
+        end,
+        desc = "Select a Terra theme",
+      },
+    },
+
+    -- If you want to setup a theme via vim.cmd.colorscheme you can do it like this
+    -- NOTE: This will override the options set above
+    config = function()
+      vim.cmd.colorscheme("terra_control_night")
+    end,
+  }
+```
