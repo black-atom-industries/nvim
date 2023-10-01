@@ -4,7 +4,7 @@ local M = {}
 ---@return string
 function M.get_plugin_path()
     local runtimepaths = vim.api.nvim_get_option("runtimepath")
-    local plugin_path = nil
+    local plugin_path = ""
 
     for _, path in ipairs(vim.split(runtimepaths, ",")) do
         if path:find("terra%-core") then

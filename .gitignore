@@ -1,4 +1,3 @@
 debug
-service.log
 check.json
-file_Users_nikolausbrunner_Documents_dev_repos_terra-theme_core.nvim_._lua.log
+*.log

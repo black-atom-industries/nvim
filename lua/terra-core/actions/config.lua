@@ -114,13 +114,16 @@ function M.select_variant()
             icon = vim.g.terra_config.icons[selected_variant],
         })
 
+        -- construct colorscheme name
+        local colorscheme_name = "terra_" .. vim.g.terra_config.theme .. "_" .. selected_variant
+
         M.set_options({
             variant = selected_variant,
         })
 
         M.sync_vim_opt_background_with_terra_variant(vim.g.terra_config.variant)
 
-        reload_colorscheme()
+        reload_colorscheme(colorscheme_name)
     end
 
     ---@param item unknown
