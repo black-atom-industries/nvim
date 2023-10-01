@@ -20,7 +20,7 @@ This is all a work in progress.
 Lint whole project with `lua-language-server` while respecting the `.luarc.json`.
 
 ```bash
-lua-language-server --check ./lua --checklevel=Warning --logpath . --configpath /Users/nikolausbrunner/Documents/dev/repos/terra-theme/core.nvim/.luarc.json
+lua-language-server --check ./lua --checklevel=Warning --logpath . --configpath /Users/nikolausbrunner/Documents/dev/repos/terra-theme/terra-core.nvim/.luarc.json
 ```
 
 > Note: This currently works only with absolute paths. This seems to be a bug in `lua-language-server`, and I commented on a similar issue [here](https://github.com/LuaLS/lua-language-server/issues/2038#issuecomment-1500215468).

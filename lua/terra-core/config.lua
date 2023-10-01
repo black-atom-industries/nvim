@@ -19,6 +19,7 @@ M.themes = {
 
 ---@type TerraConfig
 M.default_config = {
+    loaded = false,
     debug = false,
 
     theme = M.themes[1],
@@ -44,6 +45,7 @@ M.default_config = {
         },
         keywords = {
             bold = true,
+            italic = true,
         },
         functions = {
             bold = true,
