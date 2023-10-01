@@ -10,8 +10,6 @@ function M.set_options(options)
     vim.g.terra_config = vim.tbl_deep_extend("force", vim.g.terra_config, options)
 end
 
--- NOTE: Introduce `M.get_options(options)` which receives a table of config keys and returns current values as a table
-
 ---Syncs `vim.o.background` of Vim with `variant` of TerraConfig
 ---@param variant TerraConfig.Variant
 ---@return nil
@@ -37,7 +35,7 @@ end
 ---Select a Terra Theme
 ---@return nil
 function M.select_theme()
-    local reload_colorscheme = require("terra-core.init").load
+    local reload_colorscheme = require("terra-core").load
     local capitalize = require("terra-core.actions.utils").capitalize
 
     ---@param selected_theme TerraConfig.Theme|nil
@@ -60,7 +58,10 @@ function M.select_theme()
 
         M.sync_vim_opt_background_with_terra_variant(vim.g.terra_config.variant)
 
-        reload_colorscheme()
+        -- construct colorscheme name
+        local colorscheme_name = "terra_" .. selected_theme .. "_" .. vim.g.terra_config.variant
+
+        reload_colorscheme(colorscheme_name)
 
         notify("You selected '" .. formatted_theme .. "'!", vim.log.levels.INFO, {
             title = formatted_theme,
@@ -86,7 +87,7 @@ end
 ---Select a Terra Variant
 ---@return nil
 function M.select_variant()
-    local reload_colorscheme = require("terra-core.init").load
+    local reload_colorscheme = require("terra-core").load
     local capitalize = require("terra-core.actions.utils").capitalize
 
     ---@param selected_variant string|nil

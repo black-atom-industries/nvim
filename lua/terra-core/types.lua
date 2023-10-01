@@ -97,7 +97,7 @@
 
 -------------------------------------------Config
 ---@alias TerraConfig.Variant                    "day" | "night"
----@alias TerraConfig.Theme                      "spring" | "summer" | "fall" | "winter" | "control_beta" | "kurzgesagt_beta"
+---@alias TerraConfig.Theme                      "spring" | "summer" | "fall" | "winter" | "control" | "kurzgesagt"
 
 ---@class TerraConfig.CodeStyle
 ---@field comments                                TerraHighlightDefinition

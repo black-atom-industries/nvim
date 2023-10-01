@@ -13,8 +13,8 @@ M.themes = {
     "summer",
     "fall",
     "winter",
-    "control_beta",
-    "kurzgesagt_beta",
+    "control",
+    "kurzgesagt",
 }
 
 ---@type TerraConfig
@@ -29,8 +29,8 @@ M.default_config = {
         summer = " ",
         fall = " ",
         winter = " ",
-        kurzgesagt_beta = " ",
-        control_beta = " ",
+        kurzgesagt = " ",
+        control = " ",
     },
 
     transparent = false,
@@ -44,9 +44,10 @@ M.default_config = {
         },
         keywords = {
             bold = true,
-            italic = true,
         },
-        functions = {},
+        functions = {
+            bold = true,
+        },
         strings = {
             italic = true,
         },
