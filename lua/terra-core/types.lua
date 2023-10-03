@@ -139,7 +139,6 @@
 ---@field debug?                                  boolean Enables the Debug Mode (Enables various debug messages) (Default: false)
 ---@field theme?                                  TerraConfig.ThemeKey Currently set theme (Default: "spring")
 ---@field variant?                                TerraConfig.ThemeVariantKey Currently set variant (Default: "night")
----@field icons?                                  table<TerraConfig.ThemeKey, string> Icons associated with each theme
 ---@field transparent?                            boolean Wether to render the background color (Default: false)
 ---@field dim_inactive_panes?                     boolean Wether to dim inactive panes (Default: false)
 ---@field term_colors?                            boolean Wether to enable terminal colors (Default: true)

@@ -8,16 +8,6 @@ M.default_config = {
     theme = "spring",
     variant = "night",
 
-    -- TODO: resolve
-    icons = {
-        spring = " ",
-        summer = " ",
-        fall = " ",
-        winter = " ",
-        kurzgesagt = " ",
-        control = " ",
-    },
-
     transparent = false,
     dim_inactive_panes = false,
     term_colors = true,
