@@ -16,7 +16,7 @@ end
 ---Syncs `vim.o.background` of Vim with `variant` of TerraConfig
 ---@param variant TerraConfig.ThemeVariantKey
 ---@return nil
-function M.sync_vim_opt_background_with_terra_variant(variant)
+function M.sync_vim_bg_with_terra_variant(variant)
     if variant == "day" then
         vim.o.background = "light"
     else
@@ -27,7 +27,7 @@ end
 ---Syncs `variant` of TerraConfig with `vim.o.background` of Vim
 ---@param background "light" | "dark"
 ---@return nil
-function M.sync_terra_variant_with_vim_opt_background(background)
+function M.sync_terra_variant_with_vim_bg(background)
     if background == "light" then
         M.set_terra_runtime_config({
             variant = "day",
@@ -130,7 +130,7 @@ function M.select_theme()
                     theme = selected_theme_key,
                 })
 
-                M.sync_vim_opt_background_with_terra_variant(vim.g.terra_config.variant)
+                M.sync_vim_bg_with_terra_variant(vim.g.terra_config.variant)
 
                 require("terra-core").load(
                     get_variant_value(selected_theme_key, vim.g.terra_config.variant, "colorscheme_name")
@@ -200,7 +200,7 @@ function M.select_variant()
                     variant = selected_variant_key,
                 })
 
-                M.sync_vim_opt_background_with_terra_variant(vim.g.terra_config.variant)
+                M.sync_vim_bg_with_terra_variant(vim.g.terra_config.variant)
 
                 require("terra-core").load(
                     get_variant_value(vim.g.terra_config.theme, selected_variant_key, "colorscheme_name")

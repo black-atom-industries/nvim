@@ -14,8 +14,7 @@ function M.colorscheme(colorscheme_name)
     -- Set "terra" to the vim `colors_name` global variable
     vim.g.colors_name = colorscheme_name
 
-    -- Sync `vim.o.background` of Vim with `time` of TerraConfig
-    actions.config.sync_vim_opt_background_with_terra_variant(vim.g.terra_config.variant)
+    actions.config.sync_vim_bg_with_terra_variant(vim.g.terra_config.variant)
 
     -- Now set up the highlights and terminal
     require("terra-core.highlights").setup(vim.g.terra_config)
