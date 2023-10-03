@@ -34,14 +34,14 @@ function M.setup(opts)
         vim.g.terra_config = default_config
 
         -- Mark the theme as loaded
-        actions.config.set_options({
+        actions.config.set_terra_runtime_config({
             loaded = true,
         })
     end
 
     -- If there are defined options, set them in the global config
     if opts then
-        actions.config.set_options(opts)
+        actions.config.set_terra_runtime_config(opts)
     end
 end
 

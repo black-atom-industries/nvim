@@ -7,10 +7,9 @@ local get_variant_value = require("terra-core.themes").get_variant_value
 
 local M = {}
 
----Change terra option (vim.g.terra_config.option)
 ---@param options TerraConfig
 ---@return nil
-function M.set_options(options)
+function M.set_terra_runtime_config(options)
     vim.g.terra_config = vim.tbl_deep_extend("force", vim.g.terra_config, options)
 end
 
@@ -30,7 +29,7 @@ end
 ---@return nil
 function M.sync_terra_variant_with_vim_opt_background(background)
     if background == "light" then
-        M.set_options({
+        M.set_terra_runtime_config({
             variant = "day",
         })
     end
@@ -127,7 +126,7 @@ function M.select_theme()
             end
 
             M.dev_status_warning(themes, selected_theme_key, vim.g.terra_config.variant, function()
-                M.set_options({
+                M.set_terra_runtime_config({
                     theme = selected_theme_key,
                 })
 
@@ -197,7 +196,7 @@ function M.select_variant()
                     icon = current_theme.icon,
                 })
 
-                M.set_options({
+                M.set_terra_runtime_config({
                     variant = selected_variant_key,
                 })
 
