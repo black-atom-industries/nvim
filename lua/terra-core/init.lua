@@ -31,11 +31,4 @@ function M.setup(opts)
     end
 end
 
----Loads the colorscheme
----@param theme string
----@return nil
-function M.load(theme)
-    vim.cmd.colorscheme(theme)
-end
-
 return M

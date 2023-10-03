@@ -132,7 +132,7 @@ function M.select_theme()
 
                 M.sync_vim_bg_with_terra_variant(vim.g.terra_config.variant)
 
-                require("terra-core").load(
+                require("terra-core").load_colorscheme(
                     get_variant_value(selected_theme_key, vim.g.terra_config.variant, "colorscheme_name")
                 )
 
@@ -202,7 +202,7 @@ function M.select_variant()
 
                 M.sync_vim_bg_with_terra_variant(vim.g.terra_config.variant)
 
-                require("terra-core").load(
+                require("terra-core").load_colorscheme(
                     get_variant_value(vim.g.terra_config.theme, selected_variant_key, "colorscheme_name")
                 )
             end)
