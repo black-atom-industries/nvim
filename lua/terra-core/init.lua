@@ -3,7 +3,7 @@ local actions = require("terra-core.actions")
 local M = {}
 
 ---Apply the colorscheme (same as ':colorscheme terra')
----@param colorscheme_name string: the name of the colorscheme
+---@param colorscheme_name TerraConfig.ColorSchemeName
 function M.colorscheme(colorscheme_name)
     -- Reset Vim Highlights and Syntax
     actions.highlights.reset()
@@ -46,7 +46,7 @@ function M.setup(opts)
 end
 
 ---Loads the colorscheme
----@param theme TerraConfig.Theme
+---@param theme string
 ---@return nil
 function M.load(theme)
     vim.cmd.colorscheme(theme)

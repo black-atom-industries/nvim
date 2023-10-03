@@ -44,4 +44,16 @@ function M.merge_multiple_tables(target, ...)
     return result
 end
 
+---Lua equavalent of Array.prototype.map
+---@param tbl table
+---@param func function
+---@return table
+function M.map(tbl, func)
+    local newTbl = {}
+    for i, v in pairs(tbl) do
+        newTbl[i] = func(v, i, tbl)
+    end
+    return newTbl
+end
+
 return M

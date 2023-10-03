@@ -1,6 +1,6 @@
 ---@diagnostic disable: missing-fields
 require("terra-core").setup({
-    theme = "kurzgesagt",
+    theme = "spring",
     variant = "night",
 })
-require("terra-core").colorscheme("terra_kurzgesagt_night")
+require("terra-core").colorscheme("terra_spring_night")

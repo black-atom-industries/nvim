@@ -1,7 +1,19 @@
-local get_palette = require("terra-core.palette")
+local themes = require("terra-core.themes").themes
+local dev_status_warning = require("terra-core.actions.config").dev_status_warning
+
+local M = {}
+
+--- Get the palette for a theme and variant
+---@param theme_key TerraConfig.ThemeKey
+---@param variant_key TerraConfig.ThemeVariantKey
+local function get_palette(theme_key, variant_key)
+    dev_status_warning(themes, theme_key, variant_key)
+
+    return require(themes[theme_key].variants[variant_key].path)
+end
 
 ---@return TerraColors
-local function get_colors()
+function M.get_colors()
     local colors = {}
 
     local extend_colors = function(tbl_1, tbl_2)
@@ -19,4 +31,4 @@ local function get_colors()
     return colors
 end
 
-return get_colors()
+return M.get_colors()
