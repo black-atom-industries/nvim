@@ -37,12 +37,15 @@ end
 
 ---Notify the user about the status of the current theme
 ---@param themes TerraConfig.ThemeDefinitionMap
----@param theme_key TerraConfig.ThemeKey
----@param variant_key TerraConfig.ThemeVariantKey
+---@param theme_key? TerraConfig.ThemeKey
+---@param variant_key? TerraConfig.ThemeVariantKey
 ---@param on_allow? fun(): nil Callback which is called when the theme is allowed to use
 ---@return nil
 ---@diagnostic disable-next-line: redefined-local
 function M.dev_status_warning(themes, theme_key, variant_key, on_allow)
+    theme_key = theme_key or vim.g.terra_config.theme
+    variant_key = variant_key or vim.g.terra_config.variant
+
     local theme = themes[theme_key]
     local status = theme.variants[variant_key].status
 
