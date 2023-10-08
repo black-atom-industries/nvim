@@ -1,38 +1,12 @@
 local M = {}
 
----@type TerraConfig.Variant[]
-M.variants = {
-    "night",
-    "day",
-}
-
----The name of a theme needs to be equal to the name of the folder in `lua/terra/themes/`!
----@type TerraConfig.Theme[]
-M.themes = {
-    "spring",
-    "summer",
-    "fall",
-    "winter",
-    "control",
-    "kurzgesagt",
-}
-
 ---@type TerraConfig
 M.default_config = {
     loaded = false,
     debug = false,
 
-    theme = M.themes[1],
-    variant = M.variants[1],
-
-    icons = {
-        spring = " ",
-        summer = " ",
-        fall = " ",
-        winter = " ",
-        kurzgesagt = " ",
-        control = " ",
-    },
+    theme = "spring",
+    variant = "night",
 
     transparent = false,
     dim_inactive_panes = false,

@@ -3,4 +3,4 @@ require("terra-core").setup({
     theme = "fall",
     variant = "night",
 })
-require("terra-core").colorscheme("terra_fall_night")
+require("terra-core").load_colorscheme("terra_fall_night")

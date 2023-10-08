@@ -98,8 +98,28 @@
 
 -------------------------------------------Config
 
----@alias TerraConfig.Variant                    "day" | "night"
----@alias TerraConfig.Theme                      "spring" | "summer" | "fall" | "winter" | "control" | "kurzgesagt"
+---@alias TerraConfig.ThemeVariantKey             "day" | "night"
+---@alias TerraConfig.ThemeKey                    "spring" | "summer" | "fall" | "winter"
+---@alias TerraConfig.ColorSchemeName             "terra_spring_night" | "terra_spring_day" | "terra_summer_night" | "terra_summer_day" | "terra_fall_night" | "terra_fall_day" | "terra_winter_night" | "terra_winter_day"
+
+---@class TerraConfig.VariantDefinition
+---@field label                                   string Display name
+---@field key                                     TerraConfig.ThemeVariantKey Unique Variant Key
+---@field icon                                    string Icon to display in the UI
+---@field colorscheme_name                        TerraConfig.ColorSchemeName Name of the colorscheme which will appear in :colorscheme <name>
+---@field path                                    string Path to the variant module
+---@field status                                  "development" | "beta" | "release" Status of the variant
+
+---@class TerraConfig.ThemeDefinition
+---@field label                                   string Display name
+---@field key                                     TerraConfig.ThemeKey Unique Theme Key
+---@field icon                                    string Icon to display in the UI
+---@field path                                    string Path to the theme module
+---@field order                                   integer Order in which the theme will appear in custom picker
+---@field group                                   "seasons" Theme group to which the theme belongs
+---@field variants                                table<TerraConfig.ThemeVariantKey, TerraConfig.VariantDefinition>
+
+---@alias TerraConfig.ThemeDefinitionMap          table<TerraConfig.ThemeKey, TerraConfig.ThemeDefinition>
 
 ---@class TerraConfig.CodeStyle
 ---@field comments?                               TerraHighlightDefinition
@@ -117,9 +137,8 @@
 ---@class TerraConfig
 ---@field loaded?                                 boolean Wether the config has been loaded. (Default: false)
 ---@field debug?                                  boolean Enables the Debug Mode (Enables various debug messages) (Default: false)
----@field theme?                                  TerraConfig.Theme Currently set theme (Default: "spring")
----@field variant?                                TerraConfig.Variant Currently set variant (Default: "night")
----@field icons?                                  table<TerraConfig.Theme, string> Icons associated with each theme
+---@field theme?                                  TerraConfig.ThemeKey Currently set theme (Default: "spring")
+---@field variant?                                TerraConfig.ThemeVariantKey Currently set variant (Default: "night")
 ---@field transparent?                            boolean Wether to render the background color (Default: false)
 ---@field dim_inactive_panes?                     boolean Wether to dim inactive panes (Default: false)
 ---@field term_colors?                            boolean Wether to enable terminal colors (Default: true)

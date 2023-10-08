@@ -17,7 +17,15 @@ function M.notify(message, level, opts)
     local nvim_notify_ok, nvim_notify = pcall(require, "notify")
 
     if nvim_notify_ok then
-        nvim_notify(message, level, opts)
+        nvim_notify(
+            message,
+            level,
+            vim.tbl_deep_extend("force", opts, {
+                background_colour = "NormalFloat",
+                render = "compact",
+                stages = "fade",
+            })
+        )
     else
         vim.api.nvim_notify(message, level, opts)
     end
