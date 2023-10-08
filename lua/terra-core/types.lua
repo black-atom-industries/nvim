@@ -144,5 +144,4 @@
 ---@field term_colors?                            boolean Wether to enable terminal colors (Default: true)
 ---@field ending_tildes?                          boolean Wether to show the end-of-buffer tildes (Default: false)
 ---@field code_style?                             TerraConfig.CodeStyle Code styling options (Default: See Documentation)
----@field colors?                                 table<string, string> Override default colors (Default: {})
 ---@field diagnostics?                            TerraConfig.Diagnostics Diagnostics related settings (Default: See Documentation)

@@ -33,8 +33,6 @@ M.default_config = {
         },
     },
 
-    colors = {},
-
     diagnostics = {
         darker = false,
         undercurl = false,
