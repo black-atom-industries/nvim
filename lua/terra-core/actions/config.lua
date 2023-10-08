@@ -51,7 +51,7 @@ function M.dev_status_warning(themes, theme_key, variant_key, on_allow)
 
     if status == "development" then
         local error_message = string.format(
-            "Theme '%s %s' is currently in %s status. This is not ready to be used. Theme switch aborted.",
+            "Theme '%s %s' is currently in %s status.\nThis is not ready to be used. Theme switch aborted.",
             theme.label,
             theme.variants[variant_key].label,
             theme.variants[variant_key].status
@@ -64,7 +64,7 @@ function M.dev_status_warning(themes, theme_key, variant_key, on_allow)
         })
     elseif status == "beta" then
         local error_message = string.format(
-            "Theme '%s %s' is currently in %s status. Bugs and Errors are to be expected. Use at your own risk.",
+            "Theme '%s %s' is currently in %s status.\nBugs and Errors are to be expected. Use at your own risk.",
             theme.label,
             theme.variants[variant_key].label,
             theme.variants[variant_key].status
