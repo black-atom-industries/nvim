@@ -57,7 +57,7 @@ local highlight_map_extension = {
             CursorColumn = { bg = bg.primary.light },
             CursorLine = { bg = bg.primary.dark },
             ColorColumn = { bg = bg.primary.dark },
-            CursorLineNr = { fg = palette.yellow },
+            CursorLineNr = { fg = palette.yellow, bg = bg.primary.dark },
             LineNr = { fg = fg.neutral },
             Conceal = { fg = palette.gray, bg = bg.primary.main },
             DiffAdd = { fg = fg.diff.add },
@@ -94,7 +94,7 @@ local highlight_map_extension = {
             TabLineFill = { fg = palette.gray, bg = bg.primary.main },
             TabLineSel = { fg = fg.primary.main, bg = bg.primary.light },
             VertSplit = {
-                fg = fg.neutral,
+                fg = bg.primary.dark,
                 bg = cond_highlight(bg.primary.main, {
                     [config.dim_inactive_panes] = bg.primary.dark,
                     [config.transparent] = no_color,
@@ -113,7 +113,6 @@ local highlight_map_extension = {
                     [config.transparent] = no_color,
                 }),
             },
-            NvimFloat = { fg = fg.primary.main, bg = bg.primary.main },
         }
 
         return highlights_map

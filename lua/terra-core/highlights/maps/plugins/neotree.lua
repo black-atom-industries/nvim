@@ -1,50 +1,23 @@
-local cond_highlight = require("terra-core.actions").highlights.cond_highlight
-
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {
+    ---@diagnostic disable-next-line: unused-local
     map = function(colors, config)
         ---@type TerraHighlights
         local highlights_map = {
             NeoTreeNormal = {
                 fg = colors.semantics.fg.primary.main,
-                bg = cond_highlight(colors.semantics.bg.primary.dark, {
-                    [config.transparent] = colors.none,
-                }),
+                bg = colors.semantics.bg.primary.dark,
             },
             NeoTreeNormalNC = {
-                fg = colors.semantics.fg.primary.main,
-                bg = cond_highlight(colors.semantics.bg.primary.dark, {
-                    [config.transparent] = colors.none,
-                }),
+                fg = colors.semantics.fg.secondary.main,
+                bg = colors.semantics.bg.primary.dark,
             },
             NeoTreeCursorLine = {
-                bg = colors.semantics.bg.primary.main,
+                bg = colors.semantics.bg.secondary.dark,
             },
-            NeoTreeEndOfBuffer = {
-                fg = cond_highlight(colors.semantics.bg.primary.dark, {
-                    [config.ending_tildes] = colors.semantics.fg.secondary.dark,
-                }),
-                bg = cond_highlight(colors.semantics.bg.primary.dark, {
-                    [config.transparent] = colors.none,
-                }),
-            },
-            NeoTreeTabActive = {
-                fg = colors.semantics.fg.primary.main,
-                bg = cond_highlight(colors.semantics.bg.primary.main, {
-                    [config.transparent] = colors.none,
-                }),
-            },
-            NeoTreeTabSeparatorActive = {
-                link = "NeoTreeTabActive",
-            },
-            NeoTreeTabInactive = {
-                fg = colors.semantics.fg.neutral,
-                bg = cond_highlight(colors.semantics.bg.primary.dark, {
-                    [config.transparent] = colors.none,
-                }),
-            },
-            NeoTreeTabSeparatorInactive = {
-                link = "NeoTreeTabInactive",
+            NeoTreeFloatBorder = {
+                fg = colors.semantics.bg.primary.dark,
+                bg = colors.semantics.bg.primary.dark,
             },
         }
 
