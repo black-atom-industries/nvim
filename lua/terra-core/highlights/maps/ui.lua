@@ -29,10 +29,6 @@ local highlight_map_extension = {
                 fg = cond_highlight(bg.primary.main, {
                     [config.ending_tildes] = fg.neutral,
                 }),
-                bg = cond_highlight(bg.primary.main, {
-                    [config.dim_inactive_panes] = no_color,
-                    [config.transparent] = no_color,
-                }),
             },
             SignColumn = { fg = fg.neutral },
             FoldColumn = { fg = fg.neutral },
