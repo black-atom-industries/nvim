@@ -140,7 +140,6 @@
 ---@field theme?                                  TerraConfig.ThemeKey Currently set theme (Default: "spring")
 ---@field variant?                                TerraConfig.ThemeVariantKey Currently set variant (Default: "night")
 ---@field transparent?                            boolean Wether to render the background color (Default: false)
----@field dim_inactive_panes?                     boolean Wether to dim inactive panes (Default: false)
 ---@field term_colors?                            boolean Wether to enable terminal colors (Default: true)
 ---@field ending_tildes?                          boolean Wether to show the end-of-buffer tildes (Default: false)
 ---@field code_style?                             TerraConfig.CodeStyle Code styling options (Default: See Documentation)

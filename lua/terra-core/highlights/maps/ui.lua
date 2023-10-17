@@ -93,13 +93,7 @@ local highlight_map_extension = {
             TabLine = { fg = fg.primary.main, bg = bg.primary.main },
             TabLineFill = { fg = palette.gray, bg = bg.primary.main },
             TabLineSel = { fg = fg.primary.main, bg = bg.primary.light },
-            VertSplit = {
-                fg = bg.primary.dark,
-                bg = cond_highlight(bg.primary.main, {
-                    [config.dim_inactive_panes] = bg.primary.dark,
-                    [config.transparent] = no_color,
-                }),
-            },
+            VertSplit = { fg = bg.primary.dark, bg = bg.primary.main },
             Visual = { bg = bg.match.active },
             VisualNOS = { link = "Visual" },
             QuickFixLine = { fg = palette.blue, bg = bg.primary.light },
