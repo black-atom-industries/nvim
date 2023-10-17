@@ -18,13 +18,19 @@ local highlight_map_extension = {
                 }),
             },
             NormalNC = {
-                fg = fg.primary.dark,
+                fg = fg.primary.main,
                 bg = cond_highlight(bg.primary.main, {
-                    [config.dim_inactive_panes] = bg.primary.dark,
                     [config.transparent] = no_color,
                 }),
             },
-            NormalFloat = { link = "Normal" },
+            NormalFloat = {
+                fg = fg.primary.main,
+                bg = bg.primary.dark,
+            },
+            FloatBorder = {
+                fg = bg.primary.dark,
+                bg = bg.primary.dark,
+            },
             EndOfBuffer = {
                 fg = cond_highlight(bg.primary.main, {
                     [config.ending_tildes] = fg.neutral,
@@ -101,12 +107,6 @@ local highlight_map_extension = {
             debugPC = { fg = bg.primary.dark, bg = palette.green },
             debugBreakpoint = { fg = bg.primary.dark, bg = palette.red },
             ToolbarButton = { fg = bg.primary.dark, bg = palette.blue },
-            FloatBorder = {
-                fg = fg.neutral,
-                bg = cond_highlight(bg.primary.main, {
-                    [config.transparent] = no_color,
-                }),
-            },
         }
 
         return highlights_map
