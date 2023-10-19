@@ -1,5 +1,3 @@
-local map = require("terra-core.actions.utils").map
-
 local M = {}
 
 ---@type TerraConfig.ThemeDefinitionMap
@@ -127,29 +125,16 @@ function M.get_sorted_variant_keys()
     return sorted_variant_keys
 end
 
-function M.get_sorted_theme_keys()
-    ---Convert themes to a sorted array of themes without the theme key
-    local function get_sorted_themes()
-        local themesArray = {}
+---Returns a ordered list of theme keys (based on their `order` property)
+---@return TerraConfig.ThemeKey[]
+function M.get_ordered_theme_keys()
+    local ordered_theme_keys = {}
 
-        -- Insert each theme into the array
-        for _, v in pairs(M.themes) do
-            table.insert(themesArray, v)
-        end
-
-        -- Sort the array based on the 'order' field of each theme
-        table.sort(themesArray, function(a, b)
-            return a.order < b.order
-        end)
-
-        return themesArray
+    for _, theme in pairs(M.themes) do
+        table.insert(ordered_theme_keys, theme.order, theme.key)
     end
 
-    local sorted_theme_keys = map(get_sorted_themes(), function(theme)
-        return theme.key
-    end)
-
-    return sorted_theme_keys
+    return ordered_theme_keys
 end
 
 ---Get a property value from a theme variant
