@@ -1,10 +1,9 @@
-local get_plugin_path = require("terra-core.actions.files").get_plugin_path
-local build_path = require("terra-core.actions.files").build_path
+local utils_files = require("terra-core.utils.files")
 
 local M = {}
 
 M.pathes = {
-    debug_dir = build_path(get_plugin_path(), "debug"),
+    debug_dir = utils_files.build_path(utils_files.get_plugin_path(), "debug"),
     highlights_map_debug_filename = "highlights_debug_map.txt",
     errors_debug_filename = "errors_debug.txt",
 }
@@ -25,7 +24,7 @@ end
 ---@param modules string[] -@param highlights_map TerraHighlightsMap
 ---@return nil
 M.write_debug_highlights_file = function(modules, highlights_map)
-    local filepath = build_path(M.pathes.debug_dir, M.pathes.highlights_map_debug_filename)
+    local filepath = utils_files.build_path(M.pathes.debug_dir, M.pathes.highlights_map_debug_filename)
 
     M.create_debug_dir()
 

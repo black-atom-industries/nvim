@@ -1,5 +1,5 @@
 local themes = require("terra-core.themes")
-local actions = require("terra-core.actions")
+local actions = require("terra-core.utils")
 
 local M = {}
 

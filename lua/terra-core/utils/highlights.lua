@@ -1,4 +1,4 @@
-local notify = require("terra-core.actions.ui").notify
+local utils_ui = require("terra-core.utils.ui")
 
 local M = {}
 
@@ -30,7 +30,7 @@ function M.building_error_notification(message)
         close_on_click = true, -- Close the notification when clicked
     }
 
-    notify(message, vim.log.levels.ERROR, notification_opts)
+    utils_ui.notify(message, vim.log.levels.ERROR, notification_opts)
 end
 
 ---Aggregate the highlight maps from the highlight files

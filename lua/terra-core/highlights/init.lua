@@ -1,10 +1,10 @@
-local set_highlights = require("terra-core.actions.highlights").set_highlights
-local get_highlight_modules = require("terra-core.actions.files").get_highlight_modules
-local write_debug_highlights_file = require("terra-core.actions.debug").write_debug_highlights_file
-local aggregate_highlight_maps = require("terra-core.actions.highlights").aggregate_highlight_maps
+local set_highlights = require("terra-core.utils.highlights").set_highlights
+local get_highlight_modules = require("terra-core.utils.files").get_highlight_modules
+local write_debug_highlights_file = require("terra-core.utils.debug").write_debug_highlights_file
+local aggregate_highlight_maps = require("terra-core.utils.highlights").aggregate_highlight_maps
 
 local themes = require("terra-core.themes")
-local variant_keys = require("terra-core.actions.themes").get_sorted_variant_keys(themes)
+local variant_keys = require("terra-core.utils.themes").get_sorted_variant_keys(themes)
 
 local theme_color_palettes = {}
 

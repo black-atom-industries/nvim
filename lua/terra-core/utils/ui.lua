@@ -5,9 +5,8 @@ local M = {}
 ---@param level? number Log level - Use `vim.log.levels`
 ---@param opts? table<string, any> nvim-notify options. See notify.Options
 ---@return nil
----@usage
 ---```lua
------ Example:
+-----Example:
 ---notify("Hello World", vim.log.levels.INFO, { title = "Hello" })
 ---```
 function M.notify(message, level, opts)

@@ -1,5 +1,5 @@
-local darken = require("terra-core.actions").color.darken
-local cond_highlight = require("terra-core.actions").highlights.cond_highlight
+local darken = require("terra-core.utils").color.darken
+local cond_highlight = require("terra-core.utils").highlights.cond_highlight
 
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {

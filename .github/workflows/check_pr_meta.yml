@@ -11,7 +11,7 @@ jobs:
   check-pr-meta:
     runs-on: ubuntu-20.04
     env:
-      REGEX_VALIDATION_PATTERN: '^DEV-[0-9]+\ (feat|themes|highlights|actions|config|fix|refactor|chore|tests|docs|style|perf|build|ci|revert|deps)(\(.*\))?:\ '
+      REGEX_VALIDATION_PATTERN: '^DEV-[0-9]+\ (feat|themes|highlights|utils|config|fix|refactor|chore|tests|docs|style|perf|build|ci|revert|deps)(\(.*\))?:\ '
 
     steps:
       - name: Check PR Title

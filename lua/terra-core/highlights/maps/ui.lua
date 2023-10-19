@@ -1,5 +1,5 @@
-local extend = require("terra-core.actions").highlights.extend_highlight
-local cond_highlight = require("terra-core.actions").highlights.cond_highlight
+local extend = require("terra-core.utils").highlights.extend_highlight
+local cond_highlight = require("terra-core.utils").highlights.cond_highlight
 
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {
