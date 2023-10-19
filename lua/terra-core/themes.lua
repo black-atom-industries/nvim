@@ -1,7 +1,5 @@
-local M = {}
-
 ---@type TerraConfig.ThemeDefinitionMap
-M.themes = {
+local themes = {
     spring = {
         order = 1,
         key = "spring",
@@ -108,41 +106,4 @@ M.themes = {
     },
 }
 
---- Get all unique variant keys from all themes
----@return TerraConfig.ThemeVariantKey[]
-function M.get_sorted_variant_keys()
-    local sorted_variant_keys = {}
-
-    for _, theme in pairs(M.themes) do
-        for _, variant in pairs(theme.variants) do
-            -- if the variant is not already in the array, add it
-            if not vim.tbl_contains(sorted_variant_keys, variant.key) then
-                table.insert(sorted_variant_keys, variant.key)
-            end
-        end
-    end
-
-    return sorted_variant_keys
-end
-
----Returns a ordered list of theme keys (based on their `order` property)
----@return TerraConfig.ThemeKey[]
-function M.get_ordered_theme_keys()
-    local ordered_theme_keys = {}
-
-    for _, theme in pairs(M.themes) do
-        table.insert(ordered_theme_keys, theme.order, theme.key)
-    end
-
-    return ordered_theme_keys
-end
-
----Get a property value from a theme variant
----@param theme_key TerraConfig.ThemeKey
----@param variant_key TerraConfig.ThemeVariantKey
----@param property string
-function M.get_variant_value(theme_key, variant_key, property)
-    return M.themes[theme_key].variants[variant_key][property]
-end
-
-return M
+return themes

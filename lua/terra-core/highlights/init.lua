@@ -3,14 +3,14 @@ local get_highlight_modules = require("terra-core.actions.files").get_highlight_
 local write_debug_highlights_file = require("terra-core.actions.debug").write_debug_highlights_file
 local aggregate_highlight_maps = require("terra-core.actions.highlights").aggregate_highlight_maps
 
-local themes = require("terra-core.themes").themes
-local variants = require("terra-core.themes").get_sorted_variant_keys()
+local themes = require("terra-core.themes")
+local variant_keys = require("terra-core.actions.themes").get_sorted_variant_keys(themes)
 
 local theme_color_palettes = {}
 
 for _, theme in pairs(themes) do
     theme_color_palettes[theme.key] = {}
-    for _, variant in pairs(variants) do
+    for _, variant in pairs(variant_keys) do
         theme_color_palettes[theme.key][variant] = require("terra-core.themes." .. theme.key .. "." .. variant).colors()
     end
 end

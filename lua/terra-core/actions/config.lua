@@ -1,9 +1,10 @@
 local notify = require("terra-core.actions.ui").notify
 
-local themes = require("terra-core.themes").themes
-local sorted_variant_keys = require("terra-core.themes").get_sorted_variant_keys()
-local sorted_theme_keys = require("terra-core.themes").get_ordered_theme_keys()
-local get_variant_value = require("terra-core.themes").get_variant_value
+local themes = require("terra-core.themes")
+
+local sorted_variant_keys = require("terra-core.actions.themes").get_sorted_variant_keys(themes)
+local sorted_theme_keys = require("terra-core.actions.themes").get_ordered_theme_keys(themes)
+local get_variant_value = require("terra-core.actions.themes").get_variant_value
 
 local M = {}
 
