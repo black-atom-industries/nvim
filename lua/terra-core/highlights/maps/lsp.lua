@@ -1,19 +1,21 @@
-local darken = require("terra-core.actions").color.darken
-local cond_highlight = require("terra-core.actions").highlights.cond_highlight
+local utils = require("terra-core.utils")
+
+local darken = utils.color.darken
+local cond_hl = utils.highlights.conditional_hl
 
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {
     map = function(colors, config)
-        local diagnostics_error_color = cond_highlight(colors.palette.red, {
+        local diagnostics_error_color = cond_hl(colors.palette.red, {
             [config.diagnostics.darker] = colors.palette.dark_red,
         })
-        local diagnostics_warn_color = cond_highlight(colors.palette.yellow, {
+        local diagnostics_warn_color = cond_hl(colors.palette.yellow, {
             [config.diagnostics.darker] = colors.palette.dark_yellow,
         })
-        local diagnostics_hint_color = cond_highlight(colors.palette.blue, {
+        local diagnostics_hint_color = cond_hl(colors.palette.blue, {
             [config.diagnostics.darker] = colors.palette.dark_blue,
         })
-        local diagnostics_info_color = cond_highlight(colors.palette.green, {
+        local diagnostics_info_color = cond_hl(colors.palette.green, {
             [config.diagnostics.darker] = colors.palette.dark_green,
         })
 
@@ -31,25 +33,25 @@ local highlight_map_extension = {
             DiagnosticWarn = { fg = colors.palette.yellow },
 
             DiagnosticVirtualTextError = {
-                bg = cond_highlight(colors.none, {
+                bg = cond_hl(colors.none, {
                     [config.diagnostics.background] = darken(diagnostics_error_color, 0.1, colors.semantics.bg.primary.main),
                 }),
                 fg = diagnostics_error_color,
             },
             DiagnosticVirtualTextWarn = {
-                bg = cond_highlight(colors.none, {
+                bg = cond_hl(colors.none, {
                     [config.diagnostics.background] = darken(diagnostics_warn_color, 0.1, colors.semantics.bg.primary.main),
                 }),
                 fg = diagnostics_warn_color,
             },
             DiagnosticVirtualTextInfo = {
-                bg = cond_highlight(colors.none, {
+                bg = cond_hl(colors.none, {
                     [config.diagnostics.background] = darken(diagnostics_info_color, 0.1, colors.semantics.bg.primary.main),
                 }),
                 fg = diagnostics_info_color,
             },
             DiagnosticVirtualTextHint = {
-                bg = cond_highlight(colors.none, {
+                bg = cond_hl(colors.none, {
                     [config.diagnostics.background] = darken(diagnostics_hint_color, 0.1, colors.semantics.bg.primary.main),
                 }),
                 fg = diagnostics_hint_color,

@@ -1,5 +1,7 @@
-local extend = require("terra-core.actions").highlights.extend_highlight
-local cond_highlight = require("terra-core.actions").highlights.cond_highlight
+local utils = require("terra-core.utils")
+
+local cond_hl = utils.highlights.conditional_hl
+local extend_hl = utils.highlights.extend_hl_with_code_style
 
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {
@@ -13,20 +15,26 @@ local highlight_map_extension = {
         local highlights_map = {
             Normal = {
                 fg = fg.primary.main,
-                bg = cond_highlight(bg.primary.main, {
+                bg = cond_hl(bg.primary.main, {
                     [config.transparent] = no_color,
                 }),
             },
             NormalNC = {
-                fg = fg.primary.dark,
-                bg = cond_highlight(bg.primary.main, {
-                    [config.dim_inactive_panes] = bg.primary.dark,
+                fg = fg.primary.main,
+                bg = cond_hl(bg.primary.main, {
                     [config.transparent] = no_color,
                 }),
             },
-            NormalFloat = { link = "Normal" },
+            NormalFloat = {
+                fg = fg.primary.main,
+                bg = bg.primary.dark,
+            },
+            FloatBorder = {
+                fg = bg.primary.dark,
+                bg = bg.primary.dark,
+            },
             EndOfBuffer = {
-                fg = cond_highlight(bg.primary.main, {
+                fg = cond_hl(bg.primary.main, {
                     [config.ending_tildes] = fg.neutral,
                 }),
             },
@@ -38,7 +46,7 @@ local highlight_map_extension = {
             },
             Terminal = {
                 fg = fg.primary.main,
-                bg = cond_highlight(bg.primary.dark, {
+                bg = cond_hl(bg.primary.dark, {
                     [config.transparent] = no_color,
                 }),
             },
@@ -69,10 +77,10 @@ local highlight_map_extension = {
             DiffFile = { fg = palette.cyan },
             DiffIndexLine = { fg = palette.gray },
             Directory = { fg = palette.blue },
-            ErrorMsg = extend({ fg = palette.red }, config.code_style.messages),
-            WarningMsg = extend({ fg = palette.yellow }, config.code_style.messages),
-            MoreMsg = extend({ fg = palette.blue }, config.code_style.messages),
-            ModeMsg = extend({ fg = fg.primary.main }, config.code_style.messages),
+            ErrorMsg = extend_hl({ fg = palette.red }, config.code_style.messages),
+            WarningMsg = extend_hl({ fg = palette.yellow }, config.code_style.messages),
+            MoreMsg = extend_hl({ fg = palette.blue }, config.code_style.messages),
+            ModeMsg = extend_hl({ fg = fg.primary.main }, config.code_style.messages),
             IncSearch = { link = "Search" },
             Search = { bg = bg.match.active },
             Substitute = { fg = bg.primary.dark, bg = palette.green },
@@ -93,13 +101,7 @@ local highlight_map_extension = {
             TabLine = { fg = fg.primary.main, bg = bg.primary.main },
             TabLineFill = { fg = palette.gray, bg = bg.primary.main },
             TabLineSel = { fg = fg.primary.main, bg = bg.primary.light },
-            VertSplit = {
-                fg = bg.primary.dark,
-                bg = cond_highlight(bg.primary.main, {
-                    [config.dim_inactive_panes] = bg.primary.dark,
-                    [config.transparent] = no_color,
-                }),
-            },
+            VertSplit = { fg = bg.primary.dark, bg = bg.primary.main },
             Visual = { bg = bg.match.active },
             VisualNOS = { link = "Visual" },
             QuickFixLine = { fg = palette.blue, bg = bg.primary.light },
@@ -107,12 +109,6 @@ local highlight_map_extension = {
             debugPC = { fg = bg.primary.dark, bg = palette.green },
             debugBreakpoint = { fg = bg.primary.dark, bg = palette.red },
             ToolbarButton = { fg = bg.primary.dark, bg = palette.blue },
-            FloatBorder = {
-                fg = fg.neutral,
-                bg = cond_highlight(bg.primary.main, {
-                    [config.transparent] = no_color,
-                }),
-            },
         }
 
         return highlights_map

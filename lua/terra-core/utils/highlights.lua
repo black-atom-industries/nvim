@@ -1,4 +1,4 @@
-local notify = require("terra-core.actions.ui").notify
+local utils_ui = require("terra-core.utils.ui")
 
 local M = {}
 
@@ -14,11 +14,10 @@ function M.reset()
     end
 end
 
----Extends the highlight with optional code styles from the user config
 ---@param highlight TerraHighlightDefinition
 ---@param code_style TerraHighlightDefinition
 ---@return TerraHighlightDefinition
-function M.extend_highlight(highlight, code_style)
+function M.extend_hl_with_code_style(highlight, code_style)
     return vim.tbl_extend("force", highlight, code_style)
 end
 
@@ -30,7 +29,7 @@ function M.building_error_notification(message)
         close_on_click = true, -- Close the notification when clicked
     }
 
-    notify(message, vim.log.levels.ERROR, notification_opts)
+    utils_ui.notify(message, vim.log.levels.ERROR, notification_opts)
 end
 
 ---Aggregate the highlight maps from the highlight files
@@ -97,11 +96,10 @@ end
 
 ---Returns the appropriate highlight value based on the provided conditions.
 ---If no conditions evaluate to true, the default highlight value is returned.
----
 ---@param default_highlight string The default highlight value to return if no conditions are true.
 ---@param conditional_highlight_map table<boolean, string> A table mapping conditions (booleans) to their respective highlight values.
 ---@return string
-function M.cond_highlight(default_highlight, conditional_highlight_map)
+function M.conditional_hl(default_highlight, conditional_highlight_map)
     for condition, highlight in pairs(conditional_highlight_map) do
         if condition then
             return highlight

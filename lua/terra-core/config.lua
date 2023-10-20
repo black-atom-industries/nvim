@@ -9,7 +9,6 @@ M.default_config = {
     variant = "night",
 
     transparent = false,
-    dim_inactive_panes = false,
     term_colors = true,
     ending_tildes = false,
 

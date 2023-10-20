@@ -1,17 +1,14 @@
-local set_highlights = require("terra-core.actions.highlights").set_highlights
-local get_highlight_modules = require("terra-core.actions.files").get_highlight_modules
-local write_debug_highlights_file = require("terra-core.actions.debug").write_debug_highlights_file
-local aggregate_highlight_maps = require("terra-core.actions.highlights").aggregate_highlight_maps
-
-local themes = require("terra-core.themes").themes
-local variants = require("terra-core.themes").get_sorted_variant_keys()
+local themes = require("terra-core.themes")
 
 local theme_color_palettes = {}
 
+local variant_keys = require("terra-core.utils.themes").get_sorted_variant_keys(themes)
+
 for _, theme in pairs(themes) do
     theme_color_palettes[theme.key] = {}
-    for _, variant in pairs(variants) do
-        theme_color_palettes[theme.key][variant] = require("terra-core.themes." .. theme.key .. "." .. variant).colors()
+    for _, variant_key in pairs(variant_keys) do
+        theme_color_palettes[theme.key][variant_key] =
+            require("terra-core.themes." .. theme.key .. "." .. variant_key).colors()
     end
 end
 
@@ -23,12 +20,15 @@ local M = {}
 function M.build_highlights_map(colors, config)
     local default_ignore_pattern = ".*_template.lua$"
 
-    local modules = get_highlight_modules("lua/terra-core/highlights/maps", default_ignore_pattern)
+    local highlight_modules = require("terra-core.utils.files").get_highlight_modules(
+        "lua/terra-core/highlights/maps",
+        default_ignore_pattern
+    )
 
-    local highlights_map = aggregate_highlight_maps(modules, colors, config)
+    local highlights_map = require("terra-core.utils.highlights").aggregate_highlight_maps(highlight_modules, colors, config)
 
     if config.debug then
-        write_debug_highlights_file(modules, highlights_map)
+        require("terra-core.utils.debug").write_debug_highlights_file(highlight_modules, highlights_map)
     end
 
     return highlights_map
@@ -42,7 +42,7 @@ function M.setup(config)
 
     local highlights = M.build_highlights_map(colors, config)
 
-    set_highlights(highlights)
+    require("terra-core.utils.highlights").set_highlights(highlights)
 end
 
 return M

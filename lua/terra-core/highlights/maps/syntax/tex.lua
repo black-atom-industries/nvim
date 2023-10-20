@@ -1,4 +1,6 @@
-local extend = require("terra-core.actions").highlights.extend_highlight
+local utils = require("terra-core.utils")
+
+local extend_hl = utils.highlights.extend_hl_with_code_style
 
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {
@@ -8,7 +10,7 @@ local highlight_map_extension = {
             -- Native Regex Highlights
             latexTSEnvironment = { fg = colors.palette.cyan, bold = true },
             latexTSEnvironmentName = { fg = colors.palette.yellow },
-            latexTSFuncMacro = extend({ fg = colors.semantics.fg.primary.main }, config.code_style.functions),
+            latexTSFuncMacro = extend_hl({ fg = colors.semantics.fg.primary.main }, config.code_style.functions),
             latexTSInclude = { fg = colors.palette.blue },
             latexTSMath = { fg = colors.palette.dark_yellow },
             latexTSTitle = { fg = colors.palette.green },
