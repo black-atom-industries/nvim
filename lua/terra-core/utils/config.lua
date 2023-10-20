@@ -5,8 +5,7 @@ local utils_themes = require("terra-core.utils.themes")
 local M = {}
 
 ---Sets options for the TerraConfig during runtime
----@param options TerraConfig
----@return nil
+---@param options TerraConfig -@return nil
 function M.set_terra_rt_config(options)
     vim.g.terra_config = vim.tbl_deep_extend("force", vim.g.terra_config, options)
 end
@@ -136,7 +135,12 @@ function M.select_theme()
                 M.sync_vim_bg_with_terra_variant(vim.g.terra_config.variant)
 
                 require("terra-core").load_colorscheme(
-                    utils_themes.get_variant_value(selected_theme_key, vim.g.terra_config.variant, "colorscheme_name")
+                    utils_themes.get_variant_value(
+                        themes,
+                        selected_theme_key,
+                        vim.g.terra_config.variant,
+                        "colorscheme_name"
+                    )
                 )
 
                 utils_ui.notify("You selected '" .. themeConfig.label .. "'!", vim.log.levels.INFO, {
@@ -208,7 +212,12 @@ function M.select_variant()
                 M.sync_vim_bg_with_terra_variant(vim.g.terra_config.variant)
 
                 require("terra-core").load_colorscheme(
-                    utils_themes.get_variant_value(vim.g.terra_config.theme, selected_variant_key, "colorscheme_name")
+                    utils_themes.get_variant_value(
+                        themes,
+                        vim.g.terra_config.theme,
+                        selected_variant_key,
+                        "colorscheme_name"
+                    )
                 )
             end)
         end

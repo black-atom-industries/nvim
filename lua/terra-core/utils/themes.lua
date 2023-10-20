@@ -32,11 +32,12 @@ function M.get_sorted_variant_keys(themes)
 end
 
 ---Get a property value from a theme variant
+---@param themes TerraConfig.ThemeDefinitionMap
 ---@param theme_key TerraConfig.ThemeKey
 ---@param variant_key TerraConfig.ThemeVariantKey
 ---@param property string
-function M.get_variant_value(theme_key, variant_key, property)
-    return M.themes[theme_key].variants[variant_key][property]
+function M.get_variant_value(themes, theme_key, variant_key, property)
+    return themes[theme_key].variants[variant_key][property]
 end
 
 return M
