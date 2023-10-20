@@ -1,5 +1,3 @@
-----------------------------------------Highlight
-
 ---@class TerraHighlightDefinition
 ---@field fg?                                     string
 ---@field bg?                                     string
@@ -17,9 +15,7 @@
 ---@field reverse?                                boolean
 ---@field link?                                   string
 
----@alias TerraHighlights                      table<string, TerraHighlightDefinition>>
-
--------------------------------------------TerraHighlightMapExtension
+---@alias TerraHighlights                         table<string, TerraHighlightDefinition>>
 
 ---Function to setup highlight groups for a plugin. It receives the colors and config as arguments.
 ---@alias TerraHighlightMapExtension.map          fun(colors: TerraColors, config: TerraConfig): TerraHighlights
@@ -27,8 +23,6 @@
 ---@class TerraHighlightsSpec
 ---@field enabled?                                boolean Default: true
 ---@field map                                     TerraHighlightMapExtension.map
-
--------------------------------------------Colors
 
 ---@class TerraColors.Debug
 ---@field neon_pink                               string
@@ -96,7 +90,6 @@
 ---@field palette                                 TerraColors.Palette
 ---@field semantics                               TerraColors.Semantics
 
--------------------------------------------Config
 
 ---@alias TerraConfig.ThemeVariantKey             "day" | "night"
 ---@alias TerraConfig.ThemeKey                    "spring" | "summer" | "fall" | "winter"
