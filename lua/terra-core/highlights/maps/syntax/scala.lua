@@ -1,5 +1,8 @@
-local extend = require("terra-core.utils").highlights.extend_highlight
+local utils = require("terra-core.utils")
 
+local extend_hl = utils.highlights.extend_highlight
+
+---TODO: Do we need this? Treesitter shoudl be able to handle this.
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {
     map = function(colors, config)
@@ -11,7 +14,7 @@ local highlight_map_extension = {
             scalaInterpolation = { fg = colors.palette.magenta },
             scalaTypeOperator = { fg = colors.palette.red },
             scalaOperator = { fg = colors.palette.red },
-            scalaKeywordModifier = extend({ fg = colors.palette.red }, config.code_style.keywords),
+            scalaKeywordModifier = extend_hl({ fg = colors.palette.red }, config.code_style.keywords),
 
             -- TreeSitter Highlights
             -- If you want to add TreeSitter highlights, you can do so here.

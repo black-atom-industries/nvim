@@ -14,6 +14,7 @@ function M.reset()
     end
 end
 
+---TODO:107 Rename
 ---Extends the highlight with optional code styles from the user config
 ---@param highlight TerraHighlightDefinition
 ---@param code_style TerraHighlightDefinition
@@ -95,6 +96,7 @@ function M.set_highlights(highlight_groups)
     end
 end
 
+---TODO:107 Rename
 ---Returns the appropriate highlight value based on the provided conditions.
 ---If no conditions evaluate to true, the default highlight value is returned.
 ---
