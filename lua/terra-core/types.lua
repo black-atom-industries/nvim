@@ -90,7 +90,6 @@
 ---@field palette                                 TerraColors.Palette
 ---@field semantics                               TerraColors.Semantics
 
-
 ---@alias TerraConfig.ThemeVariantKey             "day" | "night"
 ---@alias TerraConfig.ThemeKey                    "spring" | "summer" | "fall" | "winter"
 ---@alias TerraConfig.ColorSchemeName             "terra_spring_night" | "terra_spring_day" | "terra_summer_night" | "terra_summer_day" | "terra_fall_night" | "terra_fall_day" | "terra_winter_night" | "terra_winter_day"

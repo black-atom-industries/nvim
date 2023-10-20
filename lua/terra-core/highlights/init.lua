@@ -20,8 +20,10 @@ local M = {}
 function M.build_highlights_map(colors, config)
     local default_ignore_pattern = ".*_template.lua$"
 
-    local highlight_modules =
-        require("terra-core.utils.files").get_highlight_modules("lua/terra-core/highlights/maps", default_ignore_pattern)
+    local highlight_modules = require("terra-core.utils.files").get_highlight_modules(
+        "lua/terra-core/highlights/maps",
+        default_ignore_pattern
+    )
 
     local highlights_map = require("terra-core.utils.highlights").aggregate_highlight_maps(highlight_modules, colors, config)
 
