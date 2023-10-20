@@ -1,7 +1,7 @@
 local utils = require("terra-core.utils")
 
 local darken = utils.color.darken
-local cond_hl = utils.highlights.cond_highlight
+local cond_hl = utils.highlights.conditional_hl
 
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {

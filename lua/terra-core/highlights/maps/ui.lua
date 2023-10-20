@@ -1,7 +1,7 @@
 local utils = require("terra-core.utils")
 
-local cond_hl = utils.highlights.cond_highlight
-local extend_hl = utils.highlights.extend_highlight
+local cond_hl = utils.highlights.conditional_hl
+local extend_hl = utils.highlights.extend_hl_with_code_style
 
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {

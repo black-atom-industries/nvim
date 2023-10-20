@@ -1,6 +1,6 @@
 local utils = require("terra-core.utils")
 
-local extend_hl = utils.highlights.extend_highlight
+local extend_hl = utils.highlights.extend_hl_with_code_style
 
 ---TODO: Do we need this? Treesitter shoudl be able to handle this.
 ---@type TerraHighlightsSpec
