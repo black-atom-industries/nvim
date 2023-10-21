@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup()
-    local config = vim.g.terra_config
+    local config = vim.g[TerraConfigNameSpace]
 
     if not config.term_colors then
         return
