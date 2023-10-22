@@ -131,25 +131,9 @@ end
 ---@param config TerraConfig
 ---@return nil
 function M.setup(config)
-    local themes = require("terra-core.themes")
+    local colors = require("terra-core.colors")
 
-    local theme_color_palettes = {}
-
-    local variant_keys = require("terra-core.utils.themes").get_sorted_variant_keys(themes)
-
-    for _, theme in pairs(themes) do
-        theme_color_palettes[theme.key] = {}
-        for _, variant_key in pairs(variant_keys) do
-            theme_color_palettes[theme.key][variant_key] =
-                require("terra-core.themes." .. theme.key .. "." .. variant_key).colors()
-        end
-    end
-
-    local colors = theme_color_palettes[config.theme][config.variant]
-
-    local highlights = M.build_highlights_map(colors, config)
-
-    M.set_highlights(highlights)
+    M.set_highlights(M.build_highlights_map(colors, config))
 end
 
 return M

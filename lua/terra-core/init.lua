@@ -9,10 +9,9 @@ local M = {}
 function M.load_colorscheme(colorscheme_name)
     utils.highlights.reset()
 
+    utils.config.sync_vim_bg_with_terra_variant(vim.g[TerraConfigNameSpace].variant)
     vim.o.termguicolors = true
     vim.g.colors_name = colorscheme_name
-
-    utils.config.sync_vim_bg_with_terra_variant(vim.g[TerraConfigNameSpace].variant)
 
     require("terra-core.utils.highlights").setup(vim.g[TerraConfigNameSpace])
     require("terra-core.terminal").setup()
