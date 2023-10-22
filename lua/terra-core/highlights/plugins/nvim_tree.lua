@@ -1,3 +1,5 @@
+local cond_hl = require("terra-core.utils").highlights.conditional_hl
+
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {
     map = function(colors, config)
@@ -5,19 +7,29 @@ local highlight_map_extension = {
         local highlights_map = {
             NvimTreeNormal = {
                 fg = colors.semantics.fg.primary.main,
-                bg = config.transparent and colors.none
-                    or colors.semantics.bg.primary.dark,
+                bg = cond_hl(colors.semantics.bg.primary.dark, {
+                    [config.transparent] = colors.none,
+                }),
+            },
+            NvimTreeNormalNC = {
+                fg = colors.semantics.fg.secondary.main,
+                bg = cond_hl(colors.semantics.bg.primary.dark, {
+                    [config.transparent] = colors.none,
+                }),
             },
             NvimTreeVertSplit = {
                 fg = colors.palette.gray,
-                bg = config.transparent and colors.none
-                    or colors.semantics.bg.primary.main,
+                bg = cond_hl(colors.semantics.bg.primary.main, {
+                    [config.transparent] = colors.none,
+                }),
             },
             NvimTreeEndOfBuffer = {
-                fg = config.ending_tildes and colors.semantics.bg.primary.light
-                    or colors.semantics.bg.primary.main,
-                bg = config.transparent and colors.none
-                    or colors.semantics.bg.primary.dark,
+                fg = cond_hl(colors.semantics.bg.primary.main, {
+                    [config.ending_tildes] = colors.semantics.bg.primary.light,
+                }),
+                bg = cond_hl(colors.semantics.bg.primary.dark, {
+                    [config.transparent] = colors.none,
+                }),
             },
             NvimTreeRootFolder = { fg = colors.palette.dark_yellow, bold = true },
             NvimTreeGitDirty = { fg = colors.palette.yellow },
@@ -29,14 +41,16 @@ local highlight_map_extension = {
             NvimTreeSymlink = { fg = colors.palette.magenta },
             NvimTreeFolderName = {
                 fg = colors.palette.blue,
-                bg = config.transparent and colors.none
-                    or colors.semantics.bg.primary.dark,
+                bg = cond_hl(colors.semantics.bg.primary.dark, {
+                    [config.transparent] = colors.none,
+                }),
             },
             NvimTreeCursorLine = { bg = colors.semantics.bg.primary.main },
             NvimTreeWinSeparator = {
                 fg = colors.semantics.fg.neutral,
-                bg = config.transparent and colors.none
-                    or colors.semantics.bg.primary.main,
+                bg = cond_hl(colors.semantics.bg.primary.main, {
+                    [config.transparent] = colors.none,
+                }),
             },
             NvimTreeWindowPicker = {
                 fg = colors.palette.white,
