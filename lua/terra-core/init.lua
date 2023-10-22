@@ -14,7 +14,7 @@ function M.load_colorscheme(colorscheme_name)
     vim.o.termguicolors = true
     vim.g.colors_name = colorscheme_name
 
-    require("terra-core.utils.highlights").setup(TerraConfig)
+    require("terra-core.utils.highlights").setup()
     require("terra-core.terminal").setup()
 end
 

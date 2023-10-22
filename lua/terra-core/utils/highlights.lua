@@ -127,13 +127,11 @@ function M.conditional_hl(default_highlight, conditional_highlight_map)
     return default_highlight
 end
 
----Setup all highlights for a given config
----@param config TerraConfig
 ---@return nil
-function M.setup(config)
+function M.setup()
     local colors = require("terra-core.colors")
 
-    M.set_highlights(M.build_highlights_map(colors, config))
+    M.set_highlights(M.build_highlights_map(colors, TerraConfig))
 end
 
 return M
