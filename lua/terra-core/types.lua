@@ -122,7 +122,6 @@
 ---@field messages?                               TerraHighlightDefinition Affects: `WarningMsg`, `ErrorMsg`, `MoreMsg`, `ModeMsg`
 
 ---@class TerraConfig.Diagnostics
----@field darker                                  boolean Wether to use darker colors for diagnostics (Default: false)
 ---@field undercurl                               boolean Wether to use undercurls for diagnostics (Default: false)
 ---@field background                              boolean Wether to use background color for virtual text (Default: false)
 

@@ -6,18 +6,10 @@ local cond_hl = utils.highlights.conditional_hl
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {
     map = function(colors, config)
-        local diagnostics_error_color = cond_hl(colors.palette.red, {
-            [config.diagnostics.darker] = colors.palette.dark_red,
-        })
-        local diagnostics_warn_color = cond_hl(colors.palette.yellow, {
-            [config.diagnostics.darker] = colors.palette.dark_yellow,
-        })
-        local diagnostics_hint_color = cond_hl(colors.palette.blue, {
-            [config.diagnostics.darker] = colors.palette.dark_blue,
-        })
-        local diagnostics_info_color = cond_hl(colors.palette.green, {
-            [config.diagnostics.darker] = colors.palette.dark_green,
-        })
+        local diagnostics_error_color = colors.palette.red
+        local diagnostics_warn_color = colors.palette.yellow
+        local diagnostics_hint_color = colors.palette.blue
+        local diagnostics_info_color = colors.palette.green
 
         ---@type TerraHighlights
         local highlights_map = {
