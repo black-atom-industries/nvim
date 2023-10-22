@@ -1,13 +1,20 @@
 local themes = require("terra-core.themes")
 local utils_ui = require("terra-core.utils.ui")
-local utils_themes = require("terra-core.utils.themes")
 
 local M = {}
 
+function M.set_terra_config_defaults()
+    TerraConfig = vim.tbl_deep_extend(
+        "force",
+        {},
+        require("terra-core.config").default_config
+    )
+end
+
 ---Sets options for the TerraConfig during runtime
 ---@param options TerraConfig -@return nil
-function M.set_terra_rt_config(options)
-    vim.g[TerraConfigNameSpace] = vim.tbl_deep_extend("force", vim.g[TerraConfigNameSpace], options)
+function M.set_terra_config(options)
+    TerraConfig = vim.tbl_deep_extend("force", TerraConfig, options)
 end
 
 ---Syncs `vim.o.background` of Vim with `variant` of TerraConfig
@@ -26,7 +33,7 @@ end
 ---@return nil
 function M.sync_terra_variant_with_vim_bg(background)
     if background == "light" then
-        M.set_terra_rt_config({
+        M.set_terra_config({
             variant = "day",
         })
     end
@@ -40,8 +47,8 @@ end
 ---@return nil
 ---@diagnostic disable-next-line: redefined-local
 function M.dev_status_warning(themes, theme_key, variant_key, on_allow)
-    theme_key = theme_key or vim.g[TerraConfigNameSpace].theme
-    variant_key = variant_key or vim.g[TerraConfigNameSpace].variant
+    theme_key = theme_key or TerraConfig.theme
+    variant_key = variant_key or TerraConfig.variant
 
     local theme = themes[theme_key]
     local status = theme.variants[variant_key].status
@@ -54,7 +61,7 @@ function M.dev_status_warning(themes, theme_key, variant_key, on_allow)
             theme.variants[variant_key].status
         )
 
-        utils_ui.notify(error_message, vim.log.levels.ERROR, {
+        require("terra-core.utils.ui").notify(error_message, vim.log.levels.ERROR, {
             title = "Terra - Error",
             timeout = 5000,
             icon = " ",
@@ -67,7 +74,7 @@ function M.dev_status_warning(themes, theme_key, variant_key, on_allow)
             theme.variants[variant_key].status
         )
 
-        utils_ui.notify(error_message, vim.log.levels.WARN, {
+        require("terra-core.utils.ui").notify(error_message, vim.log.levels.WARN, {
             title = "Terra Config Warning",
             timeout = 5000,
             icon = "",
@@ -86,11 +93,14 @@ end
 ---Select a Terra Theme during runtime
 ---@return nil
 function M.select_theme()
-    local sorted_theme_keys = utils_themes.get_ordered_theme_keys(themes)
+    local sorted_theme_keys =
+        require("terra-core.utils.themes").get_ordered_theme_keys(
+            themes
+        )
 
     -- filter the current theme_key from the list of themes
     local theme_select_items = vim.tbl_filter(function(theme_key)
-        return theme_key ~= vim.g[TerraConfigNameSpace].theme
+        return theme_key ~= TerraConfig.theme
     end, sorted_theme_keys)
 
     vim.ui.select(
@@ -103,7 +113,7 @@ function M.select_theme()
                 local theme = themes[theme_key]
 
                 ---@type TerraConfig.ThemeVariantKey
-                local variant_key = vim.g[TerraConfigNameSpace].variant
+                local variant_key = TerraConfig.variant
 
                 return string.format(
                     "%s %s %s %s",
@@ -120,34 +130,48 @@ function M.select_theme()
             local themeConfig = themes[selected_theme_key]
 
             if selected_theme_key == nil then
-                utils_ui.notify("Aborted: No Theme selected!", vim.log.levels.INFO, {
-                    title = "Warning",
-                    icon = " ",
-                })
+                require("terra-core.utils.ui").notify(
+                    "Aborted: No Theme selected!",
+                    vim.log.levels.INFO,
+                    {
+                        title = "Warning",
+                        icon = " ",
+                    }
+                )
                 return
             end
 
-            M.dev_status_warning(themes, selected_theme_key, vim.g[TerraConfigNameSpace].variant, function()
-                M.set_terra_rt_config({
-                    theme = selected_theme_key,
-                })
+            M.dev_status_warning(
+                themes,
+                selected_theme_key,
+                TerraConfig.variant,
+                function()
+                    M.set_terra_config({
+                        theme = selected_theme_key,
+                    })
 
-                M.sync_vim_bg_with_terra_variant(vim.g[TerraConfigNameSpace].variant)
+                    -- M.sync_vim_bg_with_terra_variant(TerraConfig.variant)
 
-                require("terra-core").load_colorscheme(
-                    utils_themes.get_variant_value(
-                        themes,
-                        selected_theme_key,
-                        vim.g[TerraConfigNameSpace].variant,
-                        "colorscheme_name"
+                    local colorscheme_name =
+                        require("terra-core.utils.themes").get_variant_value(
+                            themes,
+                            selected_theme_key,
+                            TerraConfig.variant,
+                            "colorscheme_name"
+                        )
+
+                    require("terra-core").load_colorscheme(colorscheme_name)
+
+                    require("terra-core.utils.ui").notify(
+                        "You selected '" .. themeConfig.label .. "'!",
+                        vim.log.levels.INFO,
+                        {
+                            title = themeConfig.label,
+                            icon = themeConfig.icon,
+                        }
                     )
-                )
-
-                utils_ui.notify("You selected '" .. themeConfig.label .. "'!", vim.log.levels.INFO, {
-                    title = themeConfig.label,
-                    icon = themeConfig.icon,
-                })
-            end)
+                end
+            )
         end
     )
 end
@@ -167,11 +191,14 @@ function M.select_variant()
         )
     end
 
-    local sorted_variant_keys = utils_themes.get_sorted_variant_keys(themes)
+    local sorted_variant_keys =
+        require("terra-core.utils.themes").get_sorted_variant_keys(
+            themes
+        )
 
     -- filter out current variant_key from the list of variants
     local variant_select_items = vim.tbl_filter(function(variant_key)
-        return variant_key ~= vim.g[TerraConfigNameSpace].variant
+        return variant_key ~= TerraConfig.variant
     end, sorted_variant_keys)
 
     vim.ui.select(
@@ -180,46 +207,63 @@ function M.select_variant()
             prompt = "Terra - Please select a variant for your current theme",
             telescope = require("telescope.themes").get_dropdown(),
             format_item = function(variant_key)
-                return formatted_variant(themes[vim.g[TerraConfigNameSpace].theme], variant_key)
+                return formatted_variant(themes[TerraConfig.theme], variant_key)
             end,
         },
 
         ---@param selected_variant_key TerraConfig.ThemeVariantKey|nil
         function(selected_variant_key)
             if selected_variant_key == nil then
-                utils_ui.notify("Aborted: No variant selected!", vim.log.levels.INFO, {
-                    title = "Info",
-                    icon = " ",
-                })
+                require("terra-core.utils.ui").notify(
+                    "Aborted: No variant selected!",
+                    vim.log.levels.INFO,
+                    {
+                        title = "Info",
+                        icon = " ",
+                    }
+                )
                 return
             end
 
             ---@type TerraConfig.ThemeKey
-            local current_theme_key = vim.g[TerraConfigNameSpace].theme
+            local current_theme_key = TerraConfig.theme
             local current_theme = themes[current_theme_key]
-            local formatted_variant_label = formatted_variant(current_theme, selected_variant_key)
+            local formatted_variant_label = formatted_variant(
+                current_theme,
+                selected_variant_key
+            )
 
-            M.dev_status_warning(themes, current_theme_key, selected_variant_key, function()
-                utils_ui.notify(string.format("You selected '%s'!", formatted_variant_label), vim.log.levels.INFO, {
-                    title = formatted_variant_label,
-                    icon = current_theme.icon,
-                })
-
-                M.set_terra_rt_config({
-                    variant = selected_variant_key,
-                })
-
-                M.sync_vim_bg_with_terra_variant(vim.g[TerraConfigNameSpace].variant)
-
-                require("terra-core").load_colorscheme(
-                    utils_themes.get_variant_value(
-                        themes,
-                        vim.g[TerraConfigNameSpace].theme,
-                        selected_variant_key,
-                        "colorscheme_name"
+            M.dev_status_warning(
+                themes,
+                current_theme_key,
+                selected_variant_key,
+                function()
+                    require("terra-core.utils.ui").notify(
+                        string.format("You selected '%s'!", formatted_variant_label),
+                        vim.log.levels.INFO,
+                        {
+                            title = formatted_variant_label,
+                            icon = current_theme.icon,
+                        }
                     )
-                )
-            end)
+
+                    M.set_terra_config({
+                        variant = selected_variant_key,
+                    })
+
+                    M.sync_vim_bg_with_terra_variant(TerraConfig.variant)
+
+                    local colorscheme_name =
+                        require("terra-core.utils.themes").get_variant_value(
+                            themes,
+                            TerraConfig.theme,
+                            selected_variant_key,
+                            "colorscheme_name"
+                        )
+
+                    require("terra-core").load_colorscheme(colorscheme_name)
+                end
+            )
         end
     )
 end

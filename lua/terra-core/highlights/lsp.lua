@@ -6,18 +6,10 @@ local cond_hl = utils.highlights.conditional_hl
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {
     map = function(colors, config)
-        local diagnostics_error_color = cond_hl(colors.palette.red, {
-            [config.diagnostics.darker] = colors.palette.dark_red,
-        })
-        local diagnostics_warn_color = cond_hl(colors.palette.yellow, {
-            [config.diagnostics.darker] = colors.palette.dark_yellow,
-        })
-        local diagnostics_hint_color = cond_hl(colors.palette.blue, {
-            [config.diagnostics.darker] = colors.palette.dark_blue,
-        })
-        local diagnostics_info_color = cond_hl(colors.palette.green, {
-            [config.diagnostics.darker] = colors.palette.dark_green,
-        })
+        local diagnostics_error_color = colors.palette.red
+        local diagnostics_warn_color = colors.palette.yellow
+        local diagnostics_hint_color = colors.palette.blue
+        local diagnostics_info_color = colors.palette.green
 
         ---@type TerraHighlights
         local highlights_map = {
@@ -34,25 +26,41 @@ local highlight_map_extension = {
 
             DiagnosticVirtualTextError = {
                 bg = cond_hl(colors.none, {
-                    [config.diagnostics.background] = darken(diagnostics_error_color, 0.1, colors.semantics.bg.primary.main),
+                    [config.diagnostics.background] = darken(
+                        diagnostics_error_color,
+                        0.1,
+                        colors.semantics.bg.primary.main
+                    ),
                 }),
                 fg = diagnostics_error_color,
             },
             DiagnosticVirtualTextWarn = {
                 bg = cond_hl(colors.none, {
-                    [config.diagnostics.background] = darken(diagnostics_warn_color, 0.1, colors.semantics.bg.primary.main),
+                    [config.diagnostics.background] = darken(
+                        diagnostics_warn_color,
+                        0.1,
+                        colors.semantics.bg.primary.main
+                    ),
                 }),
                 fg = diagnostics_warn_color,
             },
             DiagnosticVirtualTextInfo = {
                 bg = cond_hl(colors.none, {
-                    [config.diagnostics.background] = darken(diagnostics_info_color, 0.1, colors.semantics.bg.primary.main),
+                    [config.diagnostics.background] = darken(
+                        diagnostics_info_color,
+                        0.1,
+                        colors.semantics.bg.primary.main
+                    ),
                 }),
                 fg = diagnostics_info_color,
             },
             DiagnosticVirtualTextHint = {
                 bg = cond_hl(colors.none, {
-                    [config.diagnostics.background] = darken(diagnostics_hint_color, 0.1, colors.semantics.bg.primary.main),
+                    [config.diagnostics.background] = darken(
+                        diagnostics_hint_color,
+                        0.1,
+                        colors.semantics.bg.primary.main
+                    ),
                 }),
                 fg = diagnostics_hint_color,
             },
@@ -87,11 +95,17 @@ local highlight_map_extension = {
             LspDiagnosticsDefaultWarning = { link = "DiagnosticWarn" },
             LspDiagnosticsUnderlineError = { link = "DiagnosticUnderlineError" },
             LspDiagnosticsUnderlineHint = { link = "DiagnosticUnderlineHint" },
-            LspDiagnosticsUnderlineInformation = { link = "DiagnosticUnderlineInfo" },
+            LspDiagnosticsUnderlineInformation = {
+                link = "DiagnosticUnderlineInfo",
+            },
             LspDiagnosticsUnderlineWarning = { link = "DiagnosticUnderlineWarn" },
             LspDiagnosticsVirtualTextError = { link = "DiagnosticVirtualTextError" },
-            LspDiagnosticsVirtualTextWarning = { link = "DiagnosticVirtualTextWarn" },
-            LspDiagnosticsVirtualTextInformation = { link = "DiagnosticVirtualTextInfo" },
+            LspDiagnosticsVirtualTextWarning = {
+                link = "DiagnosticVirtualTextWarn",
+            },
+            LspDiagnosticsVirtualTextInformation = {
+                link = "DiagnosticVirtualTextInfo",
+            },
             LspDiagnosticsVirtualTextHint = { link = "DiagnosticVirtualTextHint" },
         }
 

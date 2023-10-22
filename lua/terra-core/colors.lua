@@ -1,16 +1,11 @@
-local themes = require("terra-core.themes")
-local utils = require("terra-core.utils")
+local M = {}
 
+---Returns the colors for the currently set theme and variant.
 ---@return TerraColors
-local function get_colors()
-    local theme_key = vim.g[TerraConfigNameSpace].theme
-    local variant_key = vim.g[TerraConfigNameSpace].variant
-
-    utils.config.dev_status_warning(themes, theme_key, variant_key)
-
-    ---Based on the theme and variant keys, load the theme variant by their defined variant path
-    ---@type TerraColors
-    return require(themes[theme_key].variants[variant_key].path)
+function M.get()
+    return require(
+        require("terra-core.themes")[TerraConfig.theme].variants[TerraConfig.variant].path
+    )
 end
 
-return get_colors()
+return M

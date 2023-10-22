@@ -122,12 +122,10 @@
 ---@field messages?                               TerraHighlightDefinition Affects: `WarningMsg`, `ErrorMsg`, `MoreMsg`, `ModeMsg`
 
 ---@class TerraConfig.Diagnostics
----@field darker                                  boolean Wether to use darker colors for diagnostics (Default: false)
 ---@field undercurl                               boolean Wether to use undercurls for diagnostics (Default: false)
 ---@field background                              boolean Wether to use background color for virtual text (Default: false)
 
 ---@class TerraConfig
----@field loaded?                                 boolean Wether the config has been loaded. (Default: false)
 ---@field debug?                                  boolean Enables the Debug Mode (Enables various debug messages) (Default: false)
 ---@field theme?                                  TerraConfig.ThemeKey Currently set theme (Default: "spring")
 ---@field variant?                                TerraConfig.ThemeVariantKey Currently set variant (Default: "night")

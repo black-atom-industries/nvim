@@ -1,13 +1,11 @@
 local M = {}
 
 function M.setup()
-    local config = vim.g[TerraConfigNameSpace]
-
-    if not config.term_colors then
+    if not TerraConfig.term_colors then
         return
     end
 
-    local colors = require("terra-core.colors")
+    local colors = require("terra-core.colors").get()
 
     vim.g.terminal_color_0 = colors.palette.gray
     vim.g.terminal_color_1 = colors.palette.red

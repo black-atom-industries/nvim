@@ -78,9 +78,15 @@ local highlight_map_extension = {
             DiffIndexLine = { fg = palette.gray },
             Directory = { fg = palette.blue },
             ErrorMsg = extend_hl({ fg = palette.red }, config.code_style.messages),
-            WarningMsg = extend_hl({ fg = palette.yellow }, config.code_style.messages),
+            WarningMsg = extend_hl(
+                { fg = palette.yellow },
+                config.code_style.messages
+            ),
             MoreMsg = extend_hl({ fg = palette.blue }, config.code_style.messages),
-            ModeMsg = extend_hl({ fg = fg.primary.main }, config.code_style.messages),
+            ModeMsg = extend_hl(
+                { fg = fg.primary.main },
+                config.code_style.messages
+            ),
             IncSearch = { link = "Search" },
             Search = { bg = bg.match.active },
             Substitute = { fg = bg.primary.dark, bg = palette.green },

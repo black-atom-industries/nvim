@@ -1,4 +1,4 @@
-local colors = require("terra-core.colors")
+local colors = require("terra-core.colors").get()
 
 local fg = colors.semantics.fg
 local bg = colors.semantics.bg

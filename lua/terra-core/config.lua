@@ -2,7 +2,6 @@ local M = {}
 
 ---@type TerraConfig
 M.default_config = {
-    loaded = false,
     debug = false,
 
     theme = "spring",
@@ -33,7 +32,6 @@ M.default_config = {
     },
 
     diagnostics = {
-        darker = false,
         undercurl = false,
         background = false,
     },
