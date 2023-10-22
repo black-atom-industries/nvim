@@ -14,7 +14,7 @@ function M.load_colorscheme(colorscheme_name)
 
     utils.config.sync_vim_bg_with_terra_variant(vim.g[TerraConfigNameSpace].variant)
 
-    require("terra-core.highlights").setup(vim.g[TerraConfigNameSpace])
+    require("terra-core.utils.highlights").setup(vim.g[TerraConfigNameSpace])
     require("terra-core.terminal").setup()
 end
 

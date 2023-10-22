@@ -32,6 +32,24 @@ function M.building_error_notification(message)
     utils_ui.notify(message, vim.log.levels.ERROR, notification_opts)
 end
 
+---@param colors TerraColors
+---@param config TerraConfig
+---@return TerraHighlights
+function M.build_highlights_map(colors, config)
+    local default_ignore_pattern = ".*_template.lua$"
+
+    local highlight_modules =
+        require("terra-core.utils.files").get_highlight_modules("lua/terra-core/highlights", default_ignore_pattern)
+
+    local highlights_map = M.aggregate_highlight_maps(highlight_modules, colors, config)
+
+    if config.debug then
+        require("terra-core.utils.debug").write_debug_highlights_file(highlight_modules, highlights_map)
+    end
+
+    return highlights_map
+end
+
 ---Aggregate the highlight maps from the highlight files
 ---@param files string[]
 ---@param colors TerraColors
@@ -107,6 +125,31 @@ function M.conditional_hl(default_highlight, conditional_highlight_map)
     end
 
     return default_highlight
+end
+
+---Setup all highlights for a given config
+---@param config TerraConfig
+---@return nil
+function M.setup(config)
+    local themes = require("terra-core.themes")
+
+    local theme_color_palettes = {}
+
+    local variant_keys = require("terra-core.utils.themes").get_sorted_variant_keys(themes)
+
+    for _, theme in pairs(themes) do
+        theme_color_palettes[theme.key] = {}
+        for _, variant_key in pairs(variant_keys) do
+            theme_color_palettes[theme.key][variant_key] =
+                require("terra-core.themes." .. theme.key .. "." .. variant_key).colors()
+        end
+    end
+
+    local colors = theme_color_palettes[config.theme][config.variant]
+
+    local highlights = M.build_highlights_map(colors, config)
+
+    M.set_highlights(highlights)
 end
 
 return M
