@@ -24,7 +24,10 @@ end
 ---@param modules string[] -@param highlights_map TerraHighlightsMap
 ---@return nil
 M.write_debug_highlights_file = function(modules, highlights_map)
-    local filepath = utils_files.build_path(M.pathes.debug_dir, M.pathes.highlights_map_debug_filename)
+    local filepath = utils_files.build_path(
+        M.pathes.debug_dir,
+        M.pathes.highlights_map_debug_filename
+    )
 
     M.create_debug_dir()
 

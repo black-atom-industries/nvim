@@ -4,13 +4,7 @@ local M = {}
 ---@return TerraColors
 function M.get()
     return require(
-        --
-        require("terra-core.themes")
-            --
-            [TerraConfig.theme]
-            .variants
-            [TerraConfig.variant]
-            .path
+        require("terra-core.themes")[TerraConfig.theme].variants[TerraConfig.variant].path
     )
 end
 

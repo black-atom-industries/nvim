@@ -32,8 +32,14 @@ local highlight_map_spec = {
         ---@type TerraHighlights
         local highlights_map = {
             MyHighlightGroup = { fg = colors.semantics.fg.primary.main },
-            MyOtherHighlightGroup = { fg = colors.palette.cyan, bg = colors.semantics.bg.primary.main },
-            MyHighlightGroupWithUnderline = { fg = colors.semantics.fg.primary.main, underline = true },
+            MyOtherHighlightGroup = {
+                fg = colors.palette.cyan,
+                bg = colors.semantics.bg.primary.main,
+            },
+            MyHighlightGroupWithUnderline = {
+                fg = colors.semantics.fg.primary.main,
+                underline = true,
+            },
         }
 
         return highlights_map
