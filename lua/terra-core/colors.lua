@@ -3,8 +3,8 @@ local utils = require("terra-core.utils")
 
 ---@return TerraColors
 local function get_colors()
-    local theme_key = vim.g[TerraConfigNameSpace].theme
-    local variant_key = vim.g[TerraConfigNameSpace].variant
+    local theme_key = TerraConfig.theme
+    local variant_key = TerraConfig.variant
 
     utils.config.dev_status_warning(themes, theme_key, variant_key)
 

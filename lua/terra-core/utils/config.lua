@@ -7,7 +7,7 @@ local M = {}
 ---Sets options for the TerraConfig during runtime
 ---@param options TerraConfig -@return nil
 function M.set_terra_rt_config(options)
-    vim.g[TerraConfigNameSpace] = vim.tbl_deep_extend("force", vim.g[TerraConfigNameSpace], options)
+    TerraConfig = vim.tbl_deep_extend("force", TerraConfig, options)
 end
 
 ---Syncs `vim.o.background` of Vim with `variant` of TerraConfig
@@ -40,8 +40,8 @@ end
 ---@return nil
 ---@diagnostic disable-next-line: redefined-local
 function M.dev_status_warning(themes, theme_key, variant_key, on_allow)
-    theme_key = theme_key or vim.g[TerraConfigNameSpace].theme
-    variant_key = variant_key or vim.g[TerraConfigNameSpace].variant
+    theme_key = theme_key or TerraConfig.theme
+    variant_key = variant_key or TerraConfig.variant
 
     local theme = themes[theme_key]
     local status = theme.variants[variant_key].status
@@ -90,7 +90,7 @@ function M.select_theme()
 
     -- filter the current theme_key from the list of themes
     local theme_select_items = vim.tbl_filter(function(theme_key)
-        return theme_key ~= vim.g[TerraConfigNameSpace].theme
+        return theme_key ~= TerraConfig.theme
     end, sorted_theme_keys)
 
     vim.ui.select(
@@ -103,7 +103,7 @@ function M.select_theme()
                 local theme = themes[theme_key]
 
                 ---@type TerraConfig.ThemeVariantKey
-                local variant_key = vim.g[TerraConfigNameSpace].variant
+                local variant_key = TerraConfig.variant
 
                 return string.format(
                     "%s %s %s %s",
@@ -127,18 +127,18 @@ function M.select_theme()
                 return
             end
 
-            M.dev_status_warning(themes, selected_theme_key, vim.g[TerraConfigNameSpace].variant, function()
+            M.dev_status_warning(themes, selected_theme_key, TerraConfig.variant, function()
                 M.set_terra_rt_config({
                     theme = selected_theme_key,
                 })
 
-                M.sync_vim_bg_with_terra_variant(vim.g[TerraConfigNameSpace].variant)
+                M.sync_vim_bg_with_terra_variant(TerraConfig.variant)
 
                 require("terra-core").load_colorscheme(
                     utils_themes.get_variant_value(
                         themes,
                         selected_theme_key,
-                        vim.g[TerraConfigNameSpace].variant,
+                        TerraConfig.variant,
                         "colorscheme_name"
                     )
                 )
@@ -171,7 +171,7 @@ function M.select_variant()
 
     -- filter out current variant_key from the list of variants
     local variant_select_items = vim.tbl_filter(function(variant_key)
-        return variant_key ~= vim.g[TerraConfigNameSpace].variant
+        return variant_key ~= TerraConfig.variant
     end, sorted_variant_keys)
 
     vim.ui.select(
@@ -180,7 +180,7 @@ function M.select_variant()
             prompt = "Terra - Please select a variant for your current theme",
             telescope = require("telescope.themes").get_dropdown(),
             format_item = function(variant_key)
-                return formatted_variant(themes[vim.g[TerraConfigNameSpace].theme], variant_key)
+                return formatted_variant(themes[TerraConfig.theme], variant_key)
             end,
         },
 
@@ -195,7 +195,7 @@ function M.select_variant()
             end
 
             ---@type TerraConfig.ThemeKey
-            local current_theme_key = vim.g[TerraConfigNameSpace].theme
+            local current_theme_key = TerraConfig.theme
             local current_theme = themes[current_theme_key]
             local formatted_variant_label = formatted_variant(current_theme, selected_variant_key)
 
@@ -209,12 +209,12 @@ function M.select_variant()
                     variant = selected_variant_key,
                 })
 
-                M.sync_vim_bg_with_terra_variant(vim.g[TerraConfigNameSpace].variant)
+                M.sync_vim_bg_with_terra_variant(TerraConfig.variant)
 
                 require("terra-core").load_colorscheme(
                     utils_themes.get_variant_value(
                         themes,
-                        vim.g[TerraConfigNameSpace].theme,
+                        TerraConfig.theme,
                         selected_variant_key,
                         "colorscheme_name"
                     )
