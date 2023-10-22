@@ -10,7 +10,7 @@ local highlight_map_extension = {
 
         ---@type TerraHighlights
         local highlights_map = {
-            -- Native Regex Highlights
+            -- Native Regex Highlights (See: `:h syntax`)
             Boolean = { fg = palette.dark_yellow },
             Character = { fg = palette.yellow },
             Comment = extend_hl({ fg = fg.neutral }, config.code_style.comments),
