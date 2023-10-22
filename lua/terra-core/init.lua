@@ -21,15 +21,12 @@ end
 ---@param opts TerraConfig
 ---@return nil
 function M.setup(opts)
-    -- If it's the first time setup() is called, load the default config
-    if not TerraConfig or not TerraConfig.loaded then
-        TerraConfig = require("terra-core.config").default_config
-        utils.config.set_terra_rt_config({ loaded = true })
+    if not TerraConfig then
+        utils.config.set_terra_config_defaults()
     end
 
-    -- If there are defined options, set them in the global config
     if opts then
-        utils.config.set_terra_rt_config(opts)
+        utils.config.set_terra_config(opts)
     end
 end
 

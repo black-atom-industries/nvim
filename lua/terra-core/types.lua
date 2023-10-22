@@ -127,7 +127,6 @@
 ---@field background                              boolean Wether to use background color for virtual text (Default: false)
 
 ---@class TerraConfig
----@field loaded?                                 boolean Wether the config has been loaded. (Default: false)
 ---@field debug?                                  boolean Enables the Debug Mode (Enables various debug messages) (Default: false)
 ---@field theme?                                  TerraConfig.ThemeKey Currently set theme (Default: "spring")
 ---@field variant?                                TerraConfig.ThemeVariantKey Currently set variant (Default: "night")

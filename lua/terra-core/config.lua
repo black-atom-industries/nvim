@@ -2,7 +2,6 @@ local M = {}
 
 ---@type TerraConfig
 M.default_config = {
-    loaded = false,
     debug = false,
 
     theme = "spring",

@@ -4,9 +4,13 @@ local utils_themes = require("terra-core.utils.themes")
 
 local M = {}
 
+function M.set_terra_config_defaults()
+    TerraConfig = vim.tbl_deep_extend("force", {}, require("terra-core.config").default_config)
+end
+
 ---Sets options for the TerraConfig during runtime
 ---@param options TerraConfig -@return nil
-function M.set_terra_rt_config(options)
+function M.set_terra_config(options)
     TerraConfig = vim.tbl_deep_extend("force", TerraConfig, options)
 end
 
@@ -26,7 +30,7 @@ end
 ---@return nil
 function M.sync_terra_variant_with_vim_bg(background)
     if background == "light" then
-        M.set_terra_rt_config({
+        M.set_terra_config({
             variant = "day",
         })
     end
@@ -128,19 +132,14 @@ function M.select_theme()
             end
 
             M.dev_status_warning(themes, selected_theme_key, TerraConfig.variant, function()
-                M.set_terra_rt_config({
+                M.set_terra_config({
                     theme = selected_theme_key,
                 })
 
                 M.sync_vim_bg_with_terra_variant(TerraConfig.variant)
 
                 require("terra-core").load_colorscheme(
-                    utils_themes.get_variant_value(
-                        themes,
-                        selected_theme_key,
-                        TerraConfig.variant,
-                        "colorscheme_name"
-                    )
+                    utils_themes.get_variant_value(themes, selected_theme_key, TerraConfig.variant, "colorscheme_name")
                 )
 
                 utils_ui.notify("You selected '" .. themeConfig.label .. "'!", vim.log.levels.INFO, {
@@ -205,19 +204,14 @@ function M.select_variant()
                     icon = current_theme.icon,
                 })
 
-                M.set_terra_rt_config({
+                M.set_terra_config({
                     variant = selected_variant_key,
                 })
 
                 M.sync_vim_bg_with_terra_variant(TerraConfig.variant)
 
                 require("terra-core").load_colorscheme(
-                    utils_themes.get_variant_value(
-                        themes,
-                        TerraConfig.theme,
-                        selected_variant_key,
-                        "colorscheme_name"
-                    )
+                    utils_themes.get_variant_value(themes, TerraConfig.theme, selected_variant_key, "colorscheme_name")
                 )
             end)
         end
