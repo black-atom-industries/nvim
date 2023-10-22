@@ -1,5 +1,3 @@
-local utils_ui = require("terra-core.utils.ui")
-
 local M = {}
 
 ---Reset Vim Highlights and Syntax
@@ -29,7 +27,7 @@ function M.building_error_notification(message)
         close_on_click = true, -- Close the notification when clicked
     }
 
-    utils_ui.notify(message, vim.log.levels.ERROR, notification_opts)
+    require("terra-core.utils.ui").notify(message, vim.log.levels.ERROR, notification_opts)
 end
 
 ---@param colors TerraColors
@@ -38,10 +36,11 @@ end
 function M.build_highlights_map(colors, config)
     local default_ignore_pattern = ".*_template.lua$"
 
-    local highlight_modules =
-        require("terra-core.utils.files").get_highlight_modules("lua/terra-core/highlights", default_ignore_pattern)
-
-    local highlights_map = M.aggregate_highlight_maps(highlight_modules, colors, config)
+    local highlights_map = M.aggregate_highlight_maps(
+        require("terra-core.utils.files").get_highlight_modules("lua/terra-core/highlights", default_ignore_pattern),
+        colors,
+        config
+    )
 
     if config.debug then
         require("terra-core.utils.debug").write_debug_highlights_file(highlight_modules, highlights_map)
@@ -129,9 +128,7 @@ end
 
 ---@return nil
 function M.setup()
-    local colors = require("terra-core.colors")
-
-    M.set_highlights(M.build_highlights_map(colors, TerraConfig))
+    M.set_highlights(M.build_highlights_map(require("terra-core.colors").get(), TerraConfig))
 end
 
 return M
