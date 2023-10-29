@@ -30,10 +30,7 @@ local highlight_map_extension = {
             ),
             Identifier = extend_hl({ fg = fg.active }, config.code_style.variables),
             Include = { fg = palette.magenta },
-            Keyword = extend_hl(
-                { fg = palette.magenta },
-                config.code_style.keywords
-            ),
+            Keyword = extend_hl({ fg = palette.red }, config.code_style.keywords),
             Label = { fg = palette.magenta },
             Macro = { fg = palette.red },
             Number = { fg = palette.dark_yellow },
