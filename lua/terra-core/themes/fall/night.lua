@@ -12,8 +12,8 @@ M.debug = {
 ---@type TerraColors.Primaries
 M.primaries = {
     -- Lows
-    "#1e1e1e",
-    "#232323",
+    "#1f1d1d",
+    "#242222",
     "#2c2928",
     "#322e2b",
 
@@ -24,10 +24,10 @@ M.primaries = {
     "#a89984",
 
     -- Highs
-    "#c5b7a0",
-    "#d8c8a8",
-    "#efe3c2",
-    "#fcf3d1",
+    "#ae8f85",
+    "#b99e95",
+    "#ccb9b3",
+    "#d6c7c2",
 }
 
 ---@type TerraColors.Palette
@@ -35,23 +35,23 @@ M.palette = {
     black = M.primaries[4],
     gray = M.primaries[5],
 
-    dark_red = "#D5552A",
-    red = "#D96E4A",
+    dark_red = "#c0603f",
+    red = "#c57054",
 
-    dark_green = "#5B8F56",
-    green = "#83C57D",
+    dark_green = "#7a895c",
+    green = "#a6bc90",
 
-    dark_yellow = "#ffa564",
-    yellow = "#ffcc69",
+    dark_yellow = "#ef9e74",
+    yellow = "#e0a66d",
 
-    dark_blue = "#8fb7ef",
-    blue = "#78cfec",
+    dark_blue = "#b6b3e5",
+    blue = "#a6bbd9",
 
-    dark_magenta = "#AF79AB",
-    magenta = "#BFA9D6",
+    dark_magenta = "#d2acc3",
+    magenta = "#c4b2d1",
 
-    dark_cyan = "#50b48a",
-    cyan = "#6bc791",
+    dark_cyan = "#6a9b86",
+    cyan = "#7fb395",
 
     light_gray = M.primaries[9],
     white = M.primaries[11],
