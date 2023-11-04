@@ -12,22 +12,22 @@ M.debug = {
 ---@type TerraColors.Primaries
 M.primaries = {
     -- Lows
-    "#191e25",
-    "#1d232b",
-    "#212831",
-    "#252d38",
+    "#1a1c24",
+    "#1f2129",
+    "#23262f",
+    "#282b35",
 
     -- Mids
-    "#3E5574",
-    "#506D95",
-    "#6A87AF",
-    "#8BA1C1",
+    "#47506b",
+    "#5b678a",
+    "#7581a4",
+    "#858fae",
 
     -- Highs
-    "#d3cec5",
-    "#dfdbd3",
-    "#e9e6e1",
-    "#f4f3f1",
+    "#91a0bc",
+    "#9facc6",
+    "#bcc9db",
+    "#c8d7e8",
 }
 
 ---@type TerraColors.Palette
@@ -35,23 +35,23 @@ M.palette = {
     black = M.primaries[4],
     gray = M.primaries[5],
 
-    dark_red = "#D5552A",
-    red = "#D96E4A",
+    dark_red = "#a64531",
+    red = "#c05e3f",
 
-    dark_green = "#5B8F56",
-    green = "#83C57D",
+    dark_green = "#729e60",
+    green = "#85b97e",
 
-    dark_yellow = "#F99B48",
-    yellow = "#F1BF4B",
+    dark_yellow = "#f2a557",
+    yellow = "#dca958",
 
-    dark_blue = "#8fb7ef",
-    blue = "#78cfec",
+    dark_blue = "#9f99e5",
+    blue = "#96b9e9",
 
-    dark_magenta = "#AF79AB",
-    magenta = "#BFA9D6",
+    dark_magenta = "#d5a9c3",
+    magenta = "#c4acd7",
 
-    dark_cyan = "#56AE89",
-    cyan = "#75BD93",
+    dark_cyan = "#619f80",
+    cyan = "#7bb7a4",
 
     light_gray = M.primaries[9],
     white = M.primaries[11],
