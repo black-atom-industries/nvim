@@ -122,7 +122,7 @@ local highlight_map_extension = {
 
             ["@parameter"] = { fg = palette.dark_yellow, italic = true },
             ["@parameter.reference"] = { fg = fg.primary.main },
-            ["@property"] = { fg = palette.dark_blue },
+            ["@property"] = { fg = palette.dark_yellow },
             ["@punctuation.bracket"] = { fg = fg.primary.main },
             ["@punctuation.delimiter"] = { fg = fg.primary.main },
             ["@punctuation.special"] = { fg = fg.primary.main },
