@@ -22,7 +22,7 @@ function M.notify(message, level, opts)
             vim.tbl_deep_extend("force", opts, {
                 background_colour = "NormalFloat",
                 render = "default",
-                stages = "fade",
+                stages = "static",
             })
         )
     else
