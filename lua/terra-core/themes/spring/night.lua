@@ -35,16 +35,16 @@ M.palette = {
     black = M.primaries[4],
     gray = M.primaries[5],
 
-    dark_red = "#b86447",
-    red = "#d18661",
+    dark_red = "#b95847",
+    red = "#ba6e5f",
 
     dark_green = "#6a9f60",
     green = "#8ac090",
 
-    dark_yellow = "#efa774",
-    yellow = "#d7b276",
+    dark_yellow = "#e89a61",
+    yellow = "#d1a762",
 
-    dark_blue = "#9f99e6",
+    dark_blue = "#899ddc",
     blue = "#99b9e6",
 
     dark_magenta = "#d5a9c3",
@@ -69,7 +69,7 @@ M.semantics = {
             main = M.primaries[5],
             light = M.primaries[6],
         },
-        active = M.primaries[5],
+        active = M.primaries[8],
         match = {
             active = utils.color.darken(M.palette.magenta, 0.35, M.primaries[3]),
             passive = utils.color.darken(M.palette.magenta, 0.15, M.primaries[1]),

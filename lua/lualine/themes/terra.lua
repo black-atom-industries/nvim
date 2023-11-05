@@ -1,23 +1,45 @@
 local colors = require("terra-core.colors").get()
 
+local M = {}
+
 local fg = colors.semantics.fg
 local bg = colors.semantics.bg
 local palette = colors.palette
 
-return {
-    inactive = {
-        a = { fg = fg.secondary.dark, bg = bg.secondary.dark, gui = "bold" },
-        b = { fg = fg.secondary.dark, bg = bg.secondary.dark },
-        c = { fg = fg.secondary.dark, bg = bg.secondary.dark },
-    },
-    normal = {
-        a = { fg = fg.invert, bg = fg.active, gui = "bold" },
-        b = { fg = fg.secondary.dark, bg = bg.primary.dark },
-        c = { fg = fg.secondary.dark, bg = bg.primary.main },
-    },
-    visual = { a = { fg = fg.invert, bg = palette.magenta, gui = "bold" } },
-    replace = { a = { fg = fg.invert, bg = palette.red, gui = "bold" } },
-    insert = { a = { fg = fg.invert, bg = palette.blue, gui = "bold" } },
-    command = { a = { fg = fg.invert, bg = palette.yellow, gui = "bold" } },
-    terminal = { a = { fg = fg.invert, bg = palette.cyan, gui = "bold" } },
+M.normal = {
+    a = { fg = fg.invert, bg = bg.active },
+    b = { fg = fg.neutral, bg = bg.primary.dark },
+    c = { fg = fg.neutral, bg = bg.primary.light },
 }
+
+M.inactive = {
+    a = { fg = fg.neutral, bg = bg.primary.dark },
+    b = { fg = fg.secondary.dark, bg = bg.secondary.dark },
+    c = { fg = fg.secondary.dark, bg = bg.secondary.dark },
+}
+
+M.visual = {
+    a = { fg = fg.invert, bg = palette.magenta },
+}
+
+M.replace = {
+    a = { fg = fg.invert, bg = palette.red },
+}
+
+M.insert = {
+    a = { fg = fg.invert, bg = palette.blue },
+}
+
+M.command = {
+    a = { fg = fg.invert, bg = palette.green },
+}
+
+M.terminal = {
+    a = { fg = fg.invert, bg = palette.cyan },
+}
+
+for _, mode in pairs(M) do
+    mode.a.gui = "bold"
+end
+
+return M
