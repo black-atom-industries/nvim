@@ -25,6 +25,12 @@ local highlight_map_extension = {
                 fg = colors.semantics.bg.primary.dark,
                 bg = colors.semantics.bg.primary.dark,
             },
+            NeoTreeGitConflict = {
+                fg = colors.semantics.fg.diff.change,
+            },
+            NeoTreeGitUntracked = {
+                fg = colors.semantics.fg.diff.add,
+            },
         }
 
         return highlights_map
