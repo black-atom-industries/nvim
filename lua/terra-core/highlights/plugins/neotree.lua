@@ -1,5 +1,3 @@
-local cond_hl = require("terra-core.utils").highlights.conditional_hl
-
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {
     ---@diagnostic disable-next-line: unused-local
@@ -8,15 +6,11 @@ local highlight_map_extension = {
         local highlights_map = {
             NeoTreeNormal = {
                 fg = colors.semantics.fg.primary.main,
-                bg = cond_hl(colors.semantics.bg.primary.dark, {
-                    [config.transparent] = colors.none,
-                }),
+                bg = colors.semantics.bg.primary.dark,
             },
             NeoTreeNormalNC = {
                 fg = colors.semantics.fg.secondary.main,
-                bg = cond_hl(colors.semantics.bg.primary.dark, {
-                    [config.transparent] = colors.none,
-                }),
+                bg = colors.semantics.bg.primary.dark,
             },
             NeoTreeCursorLine = {
                 bg = colors.semantics.bg.secondary.dark,
