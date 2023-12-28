@@ -39,15 +39,14 @@ end
 ---@return TerraHighlights
 function M.build_highlights_map(colors, config)
     local default_ignore_pattern = ".*_template.lua$"
-
-    local highlights_map = M.aggregate_highlight_maps(
+    local highlight_modules =
         require("terra-core.utils.files").get_highlight_modules(
             "lua/terra-core/highlights",
             default_ignore_pattern
-        ),
-        colors,
-        config
-    )
+        )
+
+    local highlights_map =
+        M.aggregate_highlight_maps(highlight_modules, colors, config)
 
     if config.debug then
         require("terra-core.utils.debug").write_debug_highlights_file(
