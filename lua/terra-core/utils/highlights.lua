@@ -132,13 +132,15 @@ end
 ---@param conditional_highlight_map table<boolean, string> A table mapping conditions (booleans) to their respective highlight values.
 ---@return string
 function M.conditional_hl(default_highlight, conditional_highlight_map)
+    local final_highlight = default_highlight
+
     for condition, highlight in pairs(conditional_highlight_map) do
         if condition then
-            return highlight
+            final_highlight = highlight
         end
     end
 
-    return default_highlight
+    return final_highlight
 end
 
 ---@return nil
