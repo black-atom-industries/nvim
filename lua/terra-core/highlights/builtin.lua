@@ -34,6 +34,49 @@ local highlight_map_extension = {
             Whitespace = { link = "NonText" },
             SpecialKey = { link = "NonText" },
 
+            -- Native Regex Highlights (See: `:h syntax`)
+            Boolean = { fg = palette.dark_yellow },
+            Character = { fg = palette.yellow },
+            Comment = extend_hl({ fg = fg.neutral }, config.code_style.comments),
+            Conditional = extend_hl(
+                { fg = palette.magenta },
+                config.code_style.keywords
+            ),
+            Constant = { fg = palette.dark_yellow },
+            Define = { fg = palette.magenta },
+            Delimiter = { fg = palette.light_gray },
+            Error = { fg = palette.magenta },
+            Exception = { fg = palette.magenta },
+            Float = { fg = palette.dark_yellow },
+            Function = extend_hl(
+                { fg = palette.yellow },
+                config.code_style.functions
+            ),
+            Identifier = extend_hl({ fg = fg.active }, config.code_style.variables),
+            Include = { fg = palette.magenta },
+            Keyword = extend_hl({ fg = palette.red }, config.code_style.keywords),
+            Label = { fg = palette.magenta },
+            Macro = { fg = palette.red },
+            Number = { fg = palette.dark_yellow },
+            Operator = { fg = palette.magenta },
+            PreCondit = { fg = palette.magenta },
+            PreProc = { fg = palette.magenta },
+            Repeat = extend_hl({ fg = palette.magenta }, config.code_style.keywords),
+            Special = { fg = palette.red },
+            SpecialChar = { fg = palette.red },
+            SpecialComment = extend_hl(
+                { fg = fg.secondary.dark },
+                config.code_style.comments
+            ),
+            Statement = { fg = palette.magenta },
+            StorageClass = { fg = palette.blue },
+            String = extend_hl({ fg = palette.cyan }, config.code_style.strings),
+            Structure = { fg = palette.yellow },
+            Tag = { fg = palette.green },
+            Todo = { fg = fg.neutral },
+            Type = { fg = palette.yellow },
+            Typedef = { fg = palette.magenta },
+
             -- Floating Windows
             NormalFloat = { fg = fg.primary.main, bg = bg.primary.dark },
             FloatBorder = { fg = bg.primary.main, bg = bg.primary.dark },
