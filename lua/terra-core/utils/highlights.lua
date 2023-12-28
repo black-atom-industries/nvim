@@ -144,9 +144,9 @@ end
 
 ---@return nil
 function M.setup()
-    M.set_highlights(
-        M.build_highlights_map(require("terra-core.colors").get(), TerraConfig)
-    )
+    local colors = require("terra-core.colors").get()
+
+    M.set_highlights(M.build_highlights_map(colors, TerraConfig))
 end
 
 return M

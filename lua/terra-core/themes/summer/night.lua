@@ -106,14 +106,12 @@ M.semantics = {
 }
 
 ---@return TerraColors
-M.colors = function()
-    return {
-        none = "none",
-        debug = M.debug,
-        primaries = M.primaries,
-        palette = M.palette,
-        semantics = M.semantics,
-    }
-end
+M.colors = {
+    none = "NONE",
+    debug = M.debug,
+    primaries = M.primaries,
+    palette = M.palette,
+    semantics = M.semantics,
+}
 
-return M
+return M.colors
