@@ -87,6 +87,7 @@ local highlight_map_extension = {
             ),
 
             -- Window & Tab Management
+            Title = { fg = fg.active, bg = bg.primary.dark },
             StatusLine = { fg = fg.primary.main, bg = bg.primary.dark },
             StatusLineNC = { fg = fg.neutral, bg = bg.primary.dark },
             TabLine = { fg = fg.primary.main, bg = bg.primary.main },

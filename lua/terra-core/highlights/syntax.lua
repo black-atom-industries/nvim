@@ -49,7 +49,6 @@ local highlight_map_extension = {
             String = extend_hl({ fg = palette.cyan }, config.code_style.strings),
             Structure = { fg = palette.yellow },
             Tag = { fg = palette.green },
-            Title = { fg = palette.cyan },
             Todo = { fg = fg.neutral },
             Type = { fg = palette.yellow },
             Typedef = { fg = palette.magenta },
