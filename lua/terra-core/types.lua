@@ -84,7 +84,7 @@
 ---@field fg                                      TerraColors.Semantics.Foreground
 
 ---@class TerraColors
----@field none                                    string
+---@field none                                    "NONE"
 ---@field debug                                   TerraColors.Debug
 ---@field primaries                               TerraColors.Primaries
 ---@field palette                                 TerraColors.Palette
