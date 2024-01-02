@@ -45,8 +45,11 @@ function M.build_highlights_map(colors, config)
             default_ignore_pattern
         )
 
-    local highlights_map =
-        M.aggregate_highlight_maps(highlight_modules, colors, config)
+    local highlights_map = M.aggregate_highlight_maps(
+        highlight_modules,
+        colors,
+        config
+    )
 
     if config.debug then
         require("terra-core.utils.debug").write_debug_highlights_file(
