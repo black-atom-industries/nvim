@@ -1,6 +1,6 @@
 local utils = require("terra-core.utils")
 
-local conditional_hl = utils.highlights.conditional_hl
+local cond_hl = utils.highlights.conditional_hl
 local extend_hl = utils.highlights.extend_hl_with_code_style
 
 ---@type TerraHighlightsSpec
@@ -15,18 +15,14 @@ local highlight_map_extension = {
             -- Basic Text
             Normal = {
                 fg = fg.primary.main,
-                bg = conditional_hl(bg.primary.main, {
-                    [config.transparent] = colors.none,
-                }),
+                bg = cond_hl(bg.primary.main, { [config.transparent] = colors.none }),
             },
             NormalNC = {
                 fg = fg.primary.main,
-                bg = conditional_hl(bg.primary.main, {
-                    [config.transparent] = colors.none,
-                }),
+                bg = cond_hl(bg.primary.main, { [config.transparent] = colors.none }),
             },
             EndOfBuffer = {
-                fg = conditional_hl(bg.primary.main, {
+                fg = cond_hl(bg.primary.main, {
                     [config.ending_tildes] = fg.neutral,
                 }),
             },
@@ -38,20 +34,14 @@ local highlight_map_extension = {
             Boolean = { fg = palette.dark_yellow },
             Character = { fg = palette.yellow },
             Comment = extend_hl({ fg = fg.neutral }, config.code_style.comments),
-            Conditional = extend_hl(
-                { fg = palette.magenta },
-                config.code_style.keywords
-            ),
+            Conditional = extend_hl({ fg = palette.magenta }, config.code_style.keywords),
             Constant = { fg = palette.dark_yellow },
             Define = { fg = palette.magenta },
             Delimiter = { fg = palette.light_gray },
             Error = { fg = palette.magenta },
             Exception = { fg = palette.magenta },
             Float = { fg = palette.dark_yellow },
-            Function = extend_hl(
-                { fg = palette.yellow },
-                config.code_style.functions
-            ),
+            Function = extend_hl({ fg = palette.yellow }, config.code_style.functions),
             Identifier = extend_hl({ fg = fg.active }, config.code_style.variables),
             Include = { fg = palette.magenta },
             Keyword = extend_hl({ fg = palette.red }, config.code_style.keywords),
@@ -64,10 +54,7 @@ local highlight_map_extension = {
             Repeat = extend_hl({ fg = palette.magenta }, config.code_style.keywords),
             Special = { fg = palette.red },
             SpecialChar = { fg = palette.red },
-            SpecialComment = extend_hl(
-                { fg = fg.secondary.dark },
-                config.code_style.comments
-            ),
+            SpecialComment = extend_hl({ fg = fg.secondary.dark }, config.code_style.comments),
             Statement = { fg = palette.magenta },
             StorageClass = { fg = palette.blue },
             String = extend_hl({ fg = palette.cyan }, config.code_style.strings),
@@ -120,14 +107,8 @@ local highlight_map_extension = {
             MoreMsg = extend_hl({
                 fg = palette.blue,
             }, config.code_style.messages),
-            ModeMsg = extend_hl(
-                { fg = fg.primary.main },
-                config.code_style.messages
-            ),
-            WarningMsg = extend_hl(
-                { fg = palette.yellow },
-                config.code_style.messages
-            ),
+            ModeMsg = extend_hl({ fg = fg.primary.main }, config.code_style.messages),
+            WarningMsg = extend_hl({ fg = palette.yellow }, config.code_style.messages),
 
             -- Window & Tab Management
             Title = { fg = fg.active, bg = bg.primary.dark },
@@ -140,17 +121,13 @@ local highlight_map_extension = {
             WinBarNC = { link = "StatusLineNC" },
             WinSeparator = {
                 fg = bg.primary.light,
-                bg = conditional_hl(bg.primary.main, {
-                    [config.transparent] = colors.none,
-                }),
+                bg = cond_hl(bg.primary.main, { [config.transparent] = colors.none }),
             },
 
             -- Folds & Signs
             Folded = {
                 fg = fg.neutral,
-                bg = conditional_hl(bg.primary.main, {
-                    [config.transparent] = colors.none,
-                }),
+                bg = cond_hl(bg.primary.main, { [config.transparent] = colors.none }),
             },
             FoldColumn = { fg = fg.neutral },
             SignColumn = { fg = fg.neutral },

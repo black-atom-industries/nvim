@@ -27,11 +27,7 @@ function M.building_error_notification(message)
         close_on_click = true, -- Close the notification when clicked
     }
 
-    require("terra-core.utils.ui").notify(
-        message,
-        vim.log.levels.ERROR,
-        notification_opts
-    )
+    require("terra-core.utils.ui").notify(message, vim.log.levels.ERROR, notification_opts)
 end
 
 ---@param colors TerraColors
@@ -39,23 +35,15 @@ end
 ---@return TerraHighlights
 function M.build_highlights_map(colors, config)
     local default_ignore_pattern = ".*_template.lua$"
-    local highlight_modules =
-        require("terra-core.utils.files").get_highlight_modules(
-            "lua/terra-core/highlights",
-            default_ignore_pattern
-        )
-
-    local highlights_map = M.aggregate_highlight_maps(
-        highlight_modules,
-        colors,
-        config
+    local highlight_modules = require("terra-core.utils.files").get_highlight_modules(
+        "lua/terra-core/highlights",
+        default_ignore_pattern
     )
 
+    local highlights_map = M.aggregate_highlight_maps(highlight_modules, colors, config)
+
     if config.debug then
-        require("terra-core.utils.debug").write_debug_highlights_file(
-            highlight_modules,
-            highlights_map
-        )
+        require("terra-core.utils.debug").write_debug_highlights_file(highlight_modules, highlights_map)
     end
 
     return highlights_map
@@ -74,17 +62,13 @@ function M.aggregate_highlight_maps(files, colors, config)
         local highlight_map_extension = require(file)
 
         -- Check if the highlight map is enabled - Default to true if it's not set
-        local highlight_map_is_enabled = highlight_map_extension.enabled == nil
-            or highlight_map_extension.enabled
+        local highlight_map_is_enabled = highlight_map_extension.enabled == nil or highlight_map_extension.enabled
 
         -- If the highlight map is enabled, get the map from the extension and add it to the highlights map
         if highlight_map_is_enabled then
             -- If a file does not have a map function, print a warning and skip its highlights
             if not highlight_map_extension.map then
-                M.building_error_notification(
-                    "Error: Highlight map extension does not have a map method: "
-                        .. file
-                )
+                M.building_error_notification("Error: Highlight map extension does not have a map method: " .. file)
             else
                 ---@type TerraHighlights
                 local highlights = highlight_map_extension.map(colors, config)
@@ -92,9 +76,7 @@ function M.aggregate_highlight_maps(files, colors, config)
                 -- Check for duplicate highlight keys and print a warning if one is found
                 for key, value in pairs(highlights) do
                     if highlights_map[key] then
-                        M.building_error_notification(
-                            "Error: Duplicate highlight key found: " .. key
-                        )
+                        M.building_error_notification("Error: Duplicate highlight key found: " .. key)
                     else
                         highlights_map[key] = value
                     end
