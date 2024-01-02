@@ -79,7 +79,7 @@ local highlight_map_extension = {
 
             -- Floating Windows
             NormalFloat = { fg = fg.primary.main, bg = bg.primary.dark },
-            FloatBorder = { fg = bg.primary.main, bg = bg.primary.dark },
+            FloatBorder = { fg = bg.primary.dark, bg = bg.primary.dark },
 
             -- Cursor
             Cursor = { reverse = true },
@@ -138,7 +138,7 @@ local highlight_map_extension = {
             TabLineSel = { fg = fg.primary.main, bg = bg.primary.light },
             WinBar = { link = "StatusLine" },
             WinBarNC = { link = "StatusLineNC" },
-            WinSeparator = { fg = bg.primary.light, bg = bg.primary.dark },
+            WinSeparator = { fg = bg.primary.light, bg = bg.primary.main },
 
             -- Folds & Signs
             Folded = {

@@ -10,13 +10,13 @@ local highlight_map_extension = {
         local highlights_map = {
             TreesitterContext = {
                 fg = fg.neutral,
-                bg = conditional_hl(bg.primary.dark, {
+                bg = conditional_hl(bg.primary.light, {
                     [config.transparent] = colors.none,
                 }),
             },
             TreesitterContextLineNumber = {
                 fg = fg.neutral,
-                bg = conditional_hl(bg.primary.dark, {
+                bg = conditional_hl(bg.primary.light, {
                     [config.transparent] = colors.none,
                 }),
             },
