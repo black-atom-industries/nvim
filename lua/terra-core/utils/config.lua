@@ -99,8 +99,7 @@ function M.select_theme()
     vim.ui.select(
         theme_select_items,
         {
-            prompt = "Terra - Please select a Theme:",
-            telescope = require("telescope.themes").get_dropdown(),
+            prompt = "Terra - Please select a Theme: ",
             format_item = function(theme_key)
                 ---@type TerraConfig.ThemeDefinition
                 local theme = themes[theme_key]
@@ -146,10 +145,14 @@ function M.select_theme()
 
                 require("terra-core").load_colorscheme(colorscheme_name)
 
-                require("terra-core.utils.ui").notify("You selected '" .. themeConfig.label .. "'!", vim.log.levels.INFO, {
-                    title = themeConfig.label,
-                    icon = themeConfig.icon,
-                })
+                require("terra-core.utils.ui").notify(
+                    "You selected '" .. themeConfig.label .. "'!",
+                    vim.log.levels.INFO,
+                    {
+                        title = themeConfig.label,
+                        icon = themeConfig.icon,
+                    }
+                )
             end)
         end
     )
@@ -180,8 +183,7 @@ function M.select_variant()
     vim.ui.select(
         variant_select_items,
         {
-            prompt = "Terra - Please select a variant for your current theme",
-            telescope = require("telescope.themes").get_dropdown(),
+            prompt = "Terra - Please select a variant for your current theme: ",
             format_item = function(variant_key)
                 return formatted_variant(themes[TerraConfig.theme], variant_key)
             end,
