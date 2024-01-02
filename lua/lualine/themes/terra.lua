@@ -8,14 +8,14 @@ local palette = colors.palette
 
 M.normal = {
     a = { fg = fg.invert, bg = bg.active },
-    b = { fg = fg.neutral, bg = bg.primary.dark },
-    c = { fg = fg.neutral, bg = bg.primary.light },
+    b = { fg = fg.primary.dark, bg = bg.primary.main },
+    c = { fg = fg.primary.dark, bg = bg.primary.main },
 }
 
 M.inactive = {
-    a = { fg = fg.neutral, bg = bg.primary.dark },
-    b = { fg = fg.secondary.dark, bg = bg.secondary.dark },
-    c = { fg = fg.secondary.dark, bg = bg.secondary.dark },
+    a = { fg = fg.invert, bg = bg.active },
+    b = { fg = fg.neutral, bg = bg.primary.main },
+    c = { fg = fg.neutral, bg = bg.primary.light },
 }
 
 M.visual = {
