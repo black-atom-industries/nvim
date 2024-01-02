@@ -138,7 +138,12 @@ local highlight_map_extension = {
             TabLineSel = { fg = fg.primary.main, bg = bg.primary.light },
             WinBar = { link = "StatusLine" },
             WinBarNC = { link = "StatusLineNC" },
-            WinSeparator = { fg = bg.primary.light, bg = bg.primary.main },
+            WinSeparator = {
+                fg = bg.primary.light,
+                bg = conditional_hl(bg.primary.main, {
+                    [config.transparent] = colors.none,
+                }),
+            },
 
             -- Folds & Signs
             Folded = {
