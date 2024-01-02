@@ -126,6 +126,26 @@ function M.set_highlights(highlight_groups)
     end
 end
 
+---@param colors TerraColors
+function M.set_term_highlights(colors)
+    vim.g.terminal_color_0 = colors.palette.gray
+    vim.g.terminal_color_1 = colors.palette.red
+    vim.g.terminal_color_2 = colors.palette.green
+    vim.g.terminal_color_3 = colors.palette.yellow
+    vim.g.terminal_color_4 = colors.palette.blue
+    vim.g.terminal_color_5 = colors.palette.magenta
+    vim.g.terminal_color_6 = colors.palette.cyan
+    vim.g.terminal_color_7 = colors.palette.light_gray
+    vim.g.terminal_color_8 = colors.palette.black
+    vim.g.terminal_color_9 = colors.palette.red
+    vim.g.terminal_color_10 = colors.palette.green
+    vim.g.terminal_color_11 = colors.palette.yellow
+    vim.g.terminal_color_12 = colors.palette.blue
+    vim.g.terminal_color_13 = colors.palette.magenta
+    vim.g.terminal_color_14 = colors.palette.cyan
+    vim.g.terminal_color_15 = colors.palette.white
+end
+
 ---Returns the appropriate highlight value based on the provided conditions.
 ---If no conditions evaluate to true, the default highlight value is returned.
 ---@param default_highlight string The default highlight value to return if no conditions are true.
@@ -146,6 +166,10 @@ end
 ---@return nil
 function M.setup()
     local colors = require("terra-core.colors").get()
+
+    if TerraConfig.term_colors then
+        M.set_term_highlights(colors)
+    end
 
     M.set_highlights(M.build_highlights_map(colors, TerraConfig))
 end
