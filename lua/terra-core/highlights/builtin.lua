@@ -64,10 +64,6 @@ local highlight_map_extension = {
             Type = { fg = palette.yellow },
             Typedef = { fg = palette.magenta },
 
-            -- Floating Windows
-            NormalFloat = { fg = fg.primary.main, bg = bg.primary.dark },
-            FloatBorder = { fg = bg.primary.dark, bg = bg.primary.dark },
-
             -- Cursor
             Cursor = { reverse = true },
             CursorIM = { reverse = true },
@@ -80,10 +76,10 @@ local highlight_map_extension = {
 
             -- Line Numbering
             LineNr = { fg = fg.neutral },
-            CursorLineNr = { fg = fg.active, bg = bg.primary.dark },
+            CursorLineNr = { fg = fg.active },
 
             -- Diff
-            DiffAdd = { fg = fg.diff.add },
+            DiffAdd = { fg = fg.invert, bg = bg.diff.add },
             DiffChange = { fg = fg.diff.change },
             DiffDelete = { fg = fg.diff.delete },
             DiffText = { fg = fg.diff.text },
@@ -111,17 +107,33 @@ local highlight_map_extension = {
             WarningMsg = extend_hl({ fg = palette.yellow }, config.code_style.messages),
 
             -- Window & Tab Management
-            Title = { fg = fg.active, bg = bg.primary.dark },
-            StatusLine = { fg = fg.primary.main, bg = bg.primary.dark },
-            StatusLineNC = { fg = fg.neutral, bg = bg.primary.dark },
+            Title = { fg = fg.active },
+            StatusLine = {
+                fg = fg.primary.main,
+                bg = cond_hl(bg.primary.dark, { [config.transparent] = colors.none }),
+            },
+            StatusLineNC = {
+                fg = fg.neutral,
+                bg = cond_hl(bg.primary.dark, { [config.transparent] = colors.none }),
+            },
             TabLine = { fg = fg.primary.main, bg = bg.primary.main },
             TabLineFill = { fg = fg.neutral, bg = bg.primary.main },
             TabLineSel = { fg = fg.primary.main, bg = bg.primary.light },
-            WinBar = { link = "StatusLine" },
-            WinBarNC = { link = "StatusLineNC" },
+            WinBar = { link = "Normal" },
+            WinBarNC = { link = "NormalNC" },
             WinSeparator = {
-                fg = bg.primary.light,
+                fg = bg.primary.dark,
                 bg = cond_hl(bg.primary.main, { [config.transparent] = colors.none }),
+            },
+
+            -- Floating Windows
+            NormalFloat = {
+                fg = fg.primary.main,
+                bg = cond_hl(bg.primary.dark, { [config.transparent] = colors.none }),
+            },
+            FloatBorder = {
+                fg = fg.active,
+                bg = cond_hl(bg.primary.dark, { [config.transparent] = colors.none }),
             },
 
             -- Folds & Signs
