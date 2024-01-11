@@ -12,22 +12,22 @@ M.debug = {
 ---@type TerraColors.Primaries
 M.primaries = {
     -- Lows
-    "#1f1d1d",
-    "#242222",
-    "#2c2928",
-    "#322e2b",
+    "#1d1e20",
+    "#232427",
+    "#27282b",
+    "#2b2c30",
 
     -- Mids
-    "#665c54",
-    "#7c6f64",
-    "#928374",
-    "#a89984",
+    "#3a3d47",
+    "#505563",
+    "#575f72",
+    "#6d7391",
 
     -- Highs
-    "#ae8f85",
-    "#b99e95",
-    "#ccb9b3",
-    "#d6c7c2",
+    "#97a2b6",
+    "#a0acc5",
+    "#bcc9db",
+    "#c9d7e7",
 }
 
 ---@type TerraColors.Palette
@@ -35,23 +35,23 @@ M.palette = {
     black = M.primaries[4],
     gray = M.primaries[5],
 
-    dark_red = "#c0603f",
-    red = "#c57054",
+    dark_red = "#a65959",
+    red = "#b86a6a",
 
-    dark_green = "#7a895c",
-    green = "#a6bc90",
+    dark_green = "#507765",
+    green = "#5e9e8b",
 
-    dark_yellow = "#ef9e74",
-    yellow = "#e0a66d",
+    dark_yellow = "#eba778",
+    yellow = "#d3b17a",
 
-    dark_blue = "#b6b3e5",
-    blue = "#a6bbd9",
+    dark_blue = "#7483a5",
+    blue = "#909dbe",
 
-    dark_magenta = "#d2acc3",
-    magenta = "#c4b2d1",
+    dark_magenta = "#b793b7",
+    magenta = "#c8adc8",
 
-    dark_cyan = "#6a9b86",
-    cyan = "#7fb395",
+    dark_cyan = "#568383",
+    cyan = "#67a5a5",
 
     light_gray = M.primaries[9],
     white = M.primaries[11],
@@ -70,9 +70,9 @@ M.semantics = {
             main = M.primaries[5],
             light = M.primaries[6],
         },
-        active = M.primaries[8],
+        active = M.primaries[4],
         match = {
-            active = utils.color.darken(M.palette.magenta, 0.35, M.primaries[3]),
+            active = utils.color.darken(M.palette.magenta, 0.25, M.primaries[1]),
             passive = utils.color.darken(M.palette.magenta, 0.15, M.primaries[1]),
         },
         diff = {
@@ -93,7 +93,7 @@ M.semantics = {
             main = M.primaries[8],
             light = M.primaries[9],
         },
-        active = M.palette.dark_yellow,
+        active = M.palette.cyan,
         invert = M.primaries[2],
         neutral = M.primaries[6],
         diff = {
@@ -106,14 +106,12 @@ M.semantics = {
 }
 
 ---@return TerraColors
-M.colors = function()
-    return {
-        none = "none",
-        debug = M.debug,
-        primary = M.primaries,
-        palette = M.palette,
-        semantics = M.semantics,
-    }
-end
+M.colors = {
+    none = "NONE",
+    debug = M.debug,
+    primaries = M.primaries,
+    palette = M.palette,
+    semantics = M.semantics,
+}
 
-return M
+return M.colors

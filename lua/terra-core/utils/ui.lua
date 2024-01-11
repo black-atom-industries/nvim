@@ -26,7 +26,7 @@ function M.notify(message, level, opts)
             })
         )
     else
-        vim.api.nvim_notify(message, level, opts)
+        vim.notify(message, level, opts)
     end
 end
 

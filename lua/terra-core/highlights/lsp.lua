@@ -1,7 +1,7 @@
 local utils = require("terra-core.utils")
 
 local darken = utils.color.darken
-local cond_hl = utils.highlights.conditional_hl
+local conditional_hl = utils.highlights.conditional_hl
 
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {
@@ -25,7 +25,7 @@ local highlight_map_extension = {
             DiagnosticWarn = { fg = colors.palette.yellow },
 
             DiagnosticVirtualTextError = {
-                bg = cond_hl(colors.none, {
+                bg = conditional_hl(colors.none, {
                     [config.diagnostics.background] = darken(
                         diagnostics_error_color,
                         0.1,
@@ -35,7 +35,7 @@ local highlight_map_extension = {
                 fg = diagnostics_error_color,
             },
             DiagnosticVirtualTextWarn = {
-                bg = cond_hl(colors.none, {
+                bg = conditional_hl(colors.none, {
                     [config.diagnostics.background] = darken(
                         diagnostics_warn_color,
                         0.1,
@@ -45,7 +45,7 @@ local highlight_map_extension = {
                 fg = diagnostics_warn_color,
             },
             DiagnosticVirtualTextInfo = {
-                bg = cond_hl(colors.none, {
+                bg = conditional_hl(colors.none, {
                     [config.diagnostics.background] = darken(
                         diagnostics_info_color,
                         0.1,
@@ -55,7 +55,7 @@ local highlight_map_extension = {
                 fg = diagnostics_info_color,
             },
             DiagnosticVirtualTextHint = {
-                bg = cond_hl(colors.none, {
+                bg = conditional_hl(colors.none, {
                     [config.diagnostics.background] = darken(
                         diagnostics_hint_color,
                         0.1,

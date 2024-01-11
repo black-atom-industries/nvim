@@ -12,16 +12,16 @@ M.debug = {
 ---@type TerraColors.Primaries
 M.primaries = {
     -- Lows
-    "#192125",
-    "#1d272c",
-    "#212c31",
-    "#24333a",
+    "#191e25",
+    "#1d232b",
+    "#212831",
+    "#252d38",
 
     -- Mids
-    "#475e6a",
-    "#516c7a",
-    "#5b7988",
-    "#7393a3",
+    "#3E5574",
+    "#506D95",
+    "#6A87AF",
+    "#8BA1C1",
 
     -- Highs
     "#d3cec5",
@@ -72,8 +72,8 @@ M.semantics = {
         },
         active = M.primaries[5],
         match = {
-            active = utils.color.darken(M.palette.magenta, 0.35, M.primaries[12]),
-            passive = utils.color.darken(M.palette.magenta, 0.15, M.primaries[10]),
+            active = utils.color.darken(M.palette.magenta, 0.25, M.primaries[12]),
+            passive = utils.color.darken(M.palette.magenta, 0.15, M.primaries[12]),
         },
         diff = {
             add = M.palette.green,
@@ -106,14 +106,12 @@ M.semantics = {
 }
 
 ---@return TerraColors
-M.colors = function()
-    return {
-        none = "none",
-        debug = M.debug,
-        primaries = M.primaries,
-        palette = M.palette,
-        semantics = M.semantics,
-    }
-end
+M.colors = {
+    none = "NONE",
+    debug = M.debug,
+    primaries = M.primaries,
+    palette = M.palette,
+    semantics = M.semantics,
+}
 
-return M
+return M.colors

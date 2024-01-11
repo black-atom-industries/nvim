@@ -1,3 +1,4 @@
+local cond_hl = require("terra-core.utils").highlights.conditional_hl
 local colors = require("terra-core.colors").get()
 
 local M = {}
@@ -8,14 +9,14 @@ local palette = colors.palette
 
 M.normal = {
     a = { fg = fg.invert, bg = bg.active },
-    b = { fg = fg.neutral, bg = bg.primary.dark },
-    c = { fg = fg.neutral, bg = bg.primary.light },
+    b = { fg = fg.primary.dark, bg = cond_hl(bg.primary.main, { [TerraConfig.transparent] = colors.none }) },
+    c = { fg = fg.primary.dark, bg = cond_hl(bg.primary.main, { [TerraConfig.transparent] = colors.none }) },
 }
 
 M.inactive = {
-    a = { fg = fg.neutral, bg = bg.primary.dark },
-    b = { fg = fg.secondary.dark, bg = bg.secondary.dark },
-    c = { fg = fg.secondary.dark, bg = bg.secondary.dark },
+    a = { fg = fg.invert, bg = bg.active },
+    b = { fg = fg.neutral, bg = cond_hl(bg.primary.main, { [TerraConfig.transparent] = colors.none }) },
+    c = { fg = fg.neutral, bg = cond_hl(bg.primary.light, { [TerraConfig.transparent] = colors.none }) },
 }
 
 M.visual = {

@@ -1,15 +1,24 @@
+local conditional_hl = require("terra-core.utils").highlights.conditional_hl
+
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {
-    map = function(colors)
+    map = function(colors, config)
+        local bg = colors.semantics.bg
+        local fg = colors.semantics.fg
+
         ---@type TerraHighlights
         local highlights_map = {
             TreesitterContext = {
-                fg = colors.semantics.fg.neutral,
-                bg = colors.semantics.bg.primary.dark,
+                fg = fg.neutral,
+                bg = conditional_hl(bg.primary.light, {
+                    [config.transparent] = colors.none,
+                }),
             },
             TreesitterContextLineNumber = {
-                fg = colors.semantics.fg.neutral,
-                bg = colors.semantics.bg.primary.dark,
+                fg = fg.neutral,
+                bg = conditional_hl(bg.primary.light, {
+                    [config.transparent] = colors.none,
+                }),
             },
         }
 

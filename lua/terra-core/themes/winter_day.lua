@@ -12,46 +12,46 @@ M.debug = {
 ---@type TerraColors.Primaries
 M.primaries = {
     -- Lows
-    "#1e1e1e",
-    "#232323",
-    "#2c2928",
-    "#322e2b",
+    "#192125",
+    "#1d272c",
+    "#212c31",
+    "#24333a",
 
     -- Mids
-    "#665c54",
-    "#7c6f64",
-    "#928374",
-    "#a89984",
+    "#475e6a",
+    "#516c7a",
+    "#5b7988",
+    "#7393a3",
 
     -- Highs
-    "#c5b7a0",
-    "#d8c8a8",
-    "#efe3c2",
-    "#fcf3d1",
+    "#d3cec5",
+    "#dfdbd3",
+    "#e9e6e1",
+    "#f4f3f1",
 }
 
 ---@type TerraColors.Palette
 M.palette = {
-    black = M.primaries[4],
-    gray = M.primaries[5],
+    black = M.primaries[1],
+    gray = M.primaries[4],
 
-    dark_red = "#D5552A",
-    red = "#D96E4A",
+    dark_red = "#d6582e",
+    red = "#da714d",
 
-    dark_green = "#5B8F56",
-    green = "#83C57D",
+    dark_green = "#5b9257",
+    green = "#83c67f",
 
-    dark_yellow = "#ffa564",
-    yellow = "#ffcc69",
+    dark_yellow = "#faa04c",
+    yellow = "#F2C14E",
 
-    dark_blue = "#8fb7ef",
-    blue = "#78cfec",
+    dark_blue = "#6199d1",
+    blue = "#7CA6CF",
 
-    dark_magenta = "#AF79AB",
+    dark_magenta = "#B07BAC",
     magenta = "#BFA9D6",
 
-    dark_cyan = "#50b48a",
-    cyan = "#6bc791",
+    dark_cyan = "#5aaf7d",
+    cyan = "#75bd93",
 
     light_gray = M.primaries[9],
     white = M.primaries[11],
@@ -72,8 +72,8 @@ M.semantics = {
         },
         active = M.primaries[5],
         match = {
-            active = utils.color.darken(M.palette.magenta, 0.35, M.primaries[12]),
-            passive = utils.color.darken(M.palette.magenta, 0.15, M.primaries[10]),
+            active = utils.color.darken(M.palette.magenta, 0.25, M.primaries[12]),
+            passive = utils.color.darken(M.palette.magenta, 0.15, M.primaries[12]),
         },
         diff = {
             add = M.palette.green,
@@ -106,14 +106,12 @@ M.semantics = {
 }
 
 ---@return TerraColors
-M.colors = function()
-    return {
-        none = "none",
-        debug = M.debug,
-        primaries = M.primaries,
-        palette = M.palette,
-        semantics = M.semantics,
-    }
-end
+M.colors = {
+    none = "NONE",
+    debug = M.debug,
+    primaries = M.primaries,
+    palette = M.palette,
+    semantics = M.semantics,
+}
 
-return M
+return M.colors

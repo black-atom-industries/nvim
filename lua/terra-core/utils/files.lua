@@ -87,10 +87,7 @@ end
 function M.get_highlight_modules(highlight_maps_path, ignore_pattern)
     local plugin_path = M.get_plugin_path()
 
-    local highlight_files = M.scan_path_for_files(
-        M.build_path(plugin_path, highlight_maps_path),
-        ignore_pattern
-    )
+    local highlight_files = M.scan_path_for_files(M.build_path(plugin_path, highlight_maps_path), ignore_pattern)
 
     local module_pathes = vim.tbl_map(function(file_path)
         local path_to_remove = M.build_path(plugin_path, "lua")
