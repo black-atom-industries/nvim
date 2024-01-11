@@ -1,4 +1,3 @@
-
 ---@type TerraHighlightsSpec
 local highlight_map_spec = {
     enabled = true,
