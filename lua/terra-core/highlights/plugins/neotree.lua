@@ -1,30 +1,29 @@
+local cond_hl = require("terra-core.utils").highlights.conditional_hl
+
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {
     ---@diagnostic disable-next-line: unused-local
     map = function(colors, config)
+        local fg = colors.semantics.fg
+        local bg = colors.semantics.bg
+
         ---@type TerraHighlights
         local highlights_map = {
             NeoTreeNormal = {
-                fg = colors.semantics.fg.primary.main,
-                bg = colors.semantics.bg.primary.dark,
+                fg = fg.primary.main,
+                bg = cond_hl(bg.primary.dark, { [config.transparent] = colors.none }),
             },
             NeoTreeNormalNC = {
-                fg = colors.semantics.fg.secondary.main,
-                bg = colors.semantics.bg.primary.dark,
-            },
-            NeoTreeCursorLine = {
-                bg = colors.semantics.bg.secondary.dark,
+                fg = fg.secondary.main,
+                bg = cond_hl(bg.primary.dark, { [config.transparent] = colors.none }),
             },
             NeoTreeFloatBorder = {
-                fg = colors.semantics.bg.primary.dark,
-                bg = colors.semantics.bg.primary.dark,
+                fg = bg.primary.dark,
+                bg = cond_hl(bg.primary.dark, { [config.transparent] = colors.none }),
             },
-            NeoTreeGitConflict = {
-                fg = colors.semantics.fg.diff.change,
-            },
-            NeoTreeGitUntracked = {
-                fg = colors.semantics.fg.diff.add,
-            },
+            NeoTreeCursorLine = { bg = bg.active },
+            NeoTreeGitConflict = { fg = fg.diff.change },
+            NeoTreeGitUntracked = { fg = fg.diff.add },
         }
 
         return highlights_map
