@@ -125,11 +125,13 @@
 ---@field undercurl                               boolean Wether to use undercurls for diagnostics (Default: false)
 ---@field background                              boolean Wether to use background color for virtual text (Default: false)
 
+---@alias TerraConfig.Transparency                "full" | "partial" | "none"
+
 ---@class TerraConfig
 ---@field debug?                                  boolean Enables the Debug Mode (Enables various debug messages) (Default: false)
 ---@field theme?                                  TerraConfig.ThemeKey Currently set theme (Default: "spring")
 ---@field variant?                                TerraConfig.ThemeVariantKey Currently set variant (Default: "night")
----@field transparent?                            boolean Wether to render the background color (Default: false)
+---@field transparency?                           TerraConfig.Transparency Transparency level (Default: "none")
 ---@field term_colors?                            boolean Wether to enable terminal colors (Default: true)
 ---@field ending_tildes?                          boolean Wether to show the end-of-buffer tildes (Default: false)
 ---@field code_style?                             TerraConfig.CodeStyle Code styling options (Default: See Documentation)

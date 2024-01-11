@@ -7,7 +7,7 @@ M.default_config = {
     theme = "spring",
     variant = "night",
 
-    transparent = false,
+    transparency = "none",
     term_colors = true,
     ending_tildes = false,
 
