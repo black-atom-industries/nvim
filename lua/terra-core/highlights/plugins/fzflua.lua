@@ -1,17 +1,16 @@
+
 ---@type TerraHighlightsSpec
 local highlight_map_spec = {
     enabled = true,
 
-    map = function(colors, config)
+    map = function(colors)
+        local fg = colors.semantics.fg
+
         ---@type TerraHighlights
         local highlights_map = {
-            FzfLuaNormal = {
-                bg = colors.semantics.bg.primary.dark,
-            },
-            FzfLuaBorder = {
-                fg = colors.semantics.fg.neutral,
-                bg = colors.semantics.bg.primary.dark,
-            },
+            FzfLuaTitle = { fg = fg.active },
+            FzfLuaBorder = { link = "FloatBorder" },
+            FzfLuaPreviewBorder = { link = "FloatBorder" },
         }
 
         return highlights_map
