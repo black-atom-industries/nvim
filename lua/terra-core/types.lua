@@ -125,6 +125,9 @@
 ---@field undercurl                               boolean Wether to use undercurls for diagnostics (Default: false)
 ---@field background                              boolean Wether to use background color for virtual text (Default: false)
 
+---@class TerraConfig.StylePresets
+---@field cmp_kind_color_mode?                    "fg" | "bg" (Default: "fg")
+
 ---@alias TerraConfig.Transparency                "full" | "partial" | "none"
 
 ---@class TerraConfig
@@ -133,6 +136,7 @@
 ---@field variant?                                TerraConfig.ThemeVariantKey Currently set variant (Default: "night")
 ---@field transparency?                           TerraConfig.Transparency Transparency level (Default: "none")
 ---@field term_colors?                            boolean Wether to enable terminal colors (Default: true)
+---@field style_presets?                          TerraConfig.StylePresets Various styles related settings (Default: See Documentation)
 ---@field ending_tildes?                          boolean Wether to show the end-of-buffer tildes (Default: false)
 ---@field code_style?                             TerraConfig.CodeStyle Code styling options (Default: See Documentation)
 ---@field diagnostics?                            TerraConfig.Diagnostics Diagnostics related settings (Default: See Documentation)

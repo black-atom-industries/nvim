@@ -67,3 +67,11 @@ return {
     end,
   }
 ```
+
+## Style Presets (`style_presets`)
+
+With `config.style_presets` the user can opt in to different style presets, which change the look of the theme.
+
+Available presets:
+
+-   `style_presets.cmp_kind_color_mode` (default: `bg`) - Change the color mode of the `cmp` kind icons. Available options: `bg`, `fg`
