@@ -72,4 +72,4 @@ return {
 
 With `config.styles` the user can opt in to different style presets, which change the look of the theme.
 
-https://github.com/terra-theme/terra-core.nvim/blob/1dfcd6e686ab58a64db6c9bd0132703960d480e0/lua/terra-core/types.lua#L128-L130
+https://github.com/terra-theme/terra-core.nvim/blob/1dfcd6e686ab58a64db6c9bd0132703960d480e0/lua/terra-core/types.lua#L130-L136
