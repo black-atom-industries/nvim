@@ -1,7 +1,4 @@
-local utils = require("terra-core.utils")
-
-local cond_hl = utils.highlights.conditional_hl
-local extend_hl = utils.highlights.extend_hl_with_code_style
+local lib = require("terra-core.lib")
 
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {
@@ -13,51 +10,48 @@ local highlight_map_extension = {
         ---@type TerraHighlights
         local highlights_map = {
             -- Basic Text
-            Normal = {
-                fg = fg.primary.main,
-                bg = cond_hl(bg.primary.main, { [config.transparent] = colors.none }),
-            },
-            NormalNC = {
-                fg = fg.primary.main,
-                bg = cond_hl(bg.primary.main, { [config.transparent] = colors.none }),
-            },
+            Normal = { fg = fg.primary.main, bg = lib.bg.main(config, colors) },
+            NormalNC = { fg = fg.primary.main, bg = lib.bg.main(config, colors) },
             EndOfBuffer = {
-                fg = cond_hl(bg.primary.main, {
-                    [config.ending_tildes] = fg.neutral,
-                }),
+                fg = lib.hls.conditional_hl(bg.primary.main, { [config.styles.ending_tildes] = fg.neutral }),
             },
             NonText = { fg = fg.neutral },
             Whitespace = { link = "NonText" },
             SpecialKey = { link = "NonText" },
 
+            -- Floating Windows
+            NormalFloat = { fg = fg.primary.main, bg = bg.primary.dark },
+            FloatBorder = { fg = fg.active, bg = bg.primary.dark },
+            FloatTitle = { fg = fg.active, bg = bg.primary.dark },
+
             -- Native Regex Highlights (See: `:h syntax`)
             Boolean = { fg = palette.dark_yellow },
             Character = { fg = palette.yellow },
-            Comment = extend_hl({ fg = fg.neutral }, config.code_style.comments),
-            Conditional = extend_hl({ fg = palette.magenta }, config.code_style.keywords),
+            Comment = lib.hls.extend_hl({ fg = fg.neutral }, config.styles.syntax.comments),
+            Conditional = lib.hls.extend_hl({ fg = palette.magenta }, config.styles.syntax.keywords),
             Constant = { fg = palette.dark_yellow },
             Define = { fg = palette.magenta },
             Delimiter = { fg = palette.light_gray },
             Error = { fg = palette.magenta },
             Exception = { fg = palette.magenta },
             Float = { fg = palette.dark_yellow },
-            Function = extend_hl({ fg = palette.yellow }, config.code_style.functions),
-            Identifier = extend_hl({ fg = fg.active }, config.code_style.variables),
+            Function = lib.hls.extend_hl({ fg = palette.yellow }, config.styles.syntax.functions),
+            Identifier = lib.hls.extend_hl({ fg = fg.active }, config.styles.syntax.variables),
             Include = { fg = palette.magenta },
-            Keyword = extend_hl({ fg = palette.red }, config.code_style.keywords),
+            Keyword = lib.hls.extend_hl({ fg = palette.red }, config.styles.syntax.keywords),
             Label = { fg = palette.magenta },
             Macro = { fg = palette.red },
             Number = { fg = palette.dark_yellow },
             Operator = { fg = palette.magenta },
             PreCondit = { fg = palette.magenta },
             PreProc = { fg = palette.magenta },
-            Repeat = extend_hl({ fg = palette.magenta }, config.code_style.keywords),
+            Repeat = lib.hls.extend_hl({ fg = palette.magenta }, config.styles.syntax.keywords),
             Special = { fg = palette.red },
             SpecialChar = { fg = palette.red },
-            SpecialComment = extend_hl({ fg = fg.secondary.dark }, config.code_style.comments),
+            SpecialComment = lib.hls.extend_hl({ fg = fg.secondary.dark }, config.styles.syntax.comments),
             Statement = { fg = palette.magenta },
             StorageClass = { fg = palette.blue },
-            String = extend_hl({ fg = palette.cyan }, config.code_style.strings),
+            String = lib.hls.extend_hl({ fg = palette.cyan }, config.styles.syntax.strings),
             Structure = { fg = palette.yellow },
             Tag = { fg = palette.green },
             Todo = { fg = fg.neutral },
@@ -67,7 +61,7 @@ local highlight_map_extension = {
             -- Cursor
             Cursor = { reverse = true },
             CursorIM = { reverse = true },
-            CursorColumn = { bg = bg.primary.light },
+            CursorColumn = { bg = bg.primary.dark },
             CursorLine = { bg = bg.primary.dark },
 
             -- Search
@@ -92,55 +86,39 @@ local highlight_map_extension = {
 
             -- Popup Menu
             Pmenu = { fg = fg.primary.main, bg = bg.primary.dark },
-            PmenuSel = { fg = bg.primary.dark, bg = bg.active },
+            PmenuSel = { bg = bg.active },
             PmenuSbar = { fg = colors.none, bg = bg.primary.dark },
             PmenuThumb = { fg = colors.none, bg = bg.active },
 
             -- Messages & Mode
-            ErrorMsg = extend_hl({
+            ErrorMsg = lib.hls.extend_hl({
                 fg = palette.red,
-            }, config.code_style.messages),
-            MoreMsg = extend_hl({
+            }, config.styles.syntax.messages),
+            MoreMsg = lib.hls.extend_hl({
                 fg = palette.blue,
-            }, config.code_style.messages),
-            ModeMsg = extend_hl({ fg = fg.primary.main }, config.code_style.messages),
-            WarningMsg = extend_hl({ fg = palette.yellow }, config.code_style.messages),
+            }, config.styles.syntax.messages),
+            ModeMsg = lib.hls.extend_hl({ fg = fg.primary.main }, config.styles.syntax.messages),
+            WarningMsg = lib.hls.extend_hl({ fg = palette.yellow }, config.styles.syntax.messages),
 
             -- Window & Tab Management
             Title = { fg = fg.active },
             StatusLine = {
                 fg = fg.primary.main,
-                bg = cond_hl(bg.primary.dark, { [config.transparent] = colors.none }),
+                bg = lib.hls.conditional_hl(bg.primary.dark, { [config.styles.transparency == "full"] = colors.none }),
             },
             StatusLineNC = {
                 fg = fg.neutral,
-                bg = cond_hl(bg.primary.dark, { [config.transparent] = colors.none }),
+                bg = lib.hls.conditional_hl(bg.primary.dark, { [config.styles.transparency == "full"] = colors.none }),
             },
             TabLine = { fg = fg.primary.main, bg = bg.primary.main },
             TabLineFill = { fg = fg.neutral, bg = bg.primary.main },
             TabLineSel = { fg = fg.primary.main, bg = bg.primary.light },
-            WinBar = { link = "Normal" },
-            WinBarNC = { link = "NormalNC" },
-            WinSeparator = {
-                fg = bg.primary.dark,
-                bg = cond_hl(bg.primary.main, { [config.transparent] = colors.none }),
-            },
-
-            -- Floating Windows
-            NormalFloat = {
-                fg = fg.primary.main,
-                bg = cond_hl(bg.primary.dark, { [config.transparent] = colors.none }),
-            },
-            FloatBorder = {
-                fg = fg.active,
-                bg = cond_hl(bg.primary.dark, { [config.transparent] = colors.none }),
-            },
+            WinBar = { link = "StatusLine" },
+            WinBarNC = { link = "StatusLineNC" },
+            WinSeparator = { fg = bg.primary.dark, bg = lib.bg.main(config, colors) },
 
             -- Folds & Signs
-            Folded = {
-                fg = fg.neutral,
-                bg = cond_hl(bg.primary.main, { [config.transparent] = colors.none }),
-            },
+            Folded = { fg = fg.neutral, bg = lib.bg.main(config, colors) },
             FoldColumn = { fg = fg.neutral },
             SignColumn = { fg = fg.neutral },
 

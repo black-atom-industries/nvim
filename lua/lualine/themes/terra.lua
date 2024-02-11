@@ -1,4 +1,4 @@
-local cond_hl = require("terra-core.utils").highlights.conditional_hl
+local cond_hl = require("terra-core.lib").hls.conditional_hl
 local colors = require("terra-core.colors").get()
 
 local M = {}
@@ -8,15 +8,45 @@ local bg = colors.semantics.bg
 local palette = colors.palette
 
 M.normal = {
-    a = { fg = fg.invert, bg = bg.active },
-    b = { fg = fg.primary.dark, bg = cond_hl(bg.primary.main, { [TerraConfig.transparent] = colors.none }) },
-    c = { fg = fg.primary.dark, bg = cond_hl(bg.primary.main, { [TerraConfig.transparent] = colors.none }) },
+    a = {
+        fg = fg.active,
+        bg = bg.active,
+    },
+    b = {
+        fg = fg.primary.dark,
+        bg = cond_hl(bg.primary.main, {
+            [TerraConfig.styles.transparency == "partial"] = bg.primary.main,
+            [TerraConfig.styles.transparency == "full"] = colors.none,
+        }),
+    },
+    c = {
+        fg = fg.primary.dark,
+        bg = cond_hl(bg.primary.main, {
+            [TerraConfig.styles.transparency == "partial"] = bg.primary.main,
+            [TerraConfig.styles.transparency == "full"] = colors.none,
+        }),
+    },
 }
 
 M.inactive = {
-    a = { fg = fg.invert, bg = bg.active },
-    b = { fg = fg.neutral, bg = cond_hl(bg.primary.main, { [TerraConfig.transparent] = colors.none }) },
-    c = { fg = fg.neutral, bg = cond_hl(bg.primary.light, { [TerraConfig.transparent] = colors.none }) },
+    a = {
+        fg = fg.active,
+        bg = bg.active,
+    },
+    b = {
+        fg = fg.neutral,
+        bg = cond_hl(bg.primary.main, {
+            [TerraConfig.styles.transparency == "partial"] = bg.primary.main,
+            [TerraConfig.styles.transparency == "full"] = colors.none,
+        }),
+    },
+    c = {
+        fg = fg.neutral,
+        bg = cond_hl(bg.primary.light, {
+            [TerraConfig.styles.transparency == "partial"] = bg.primary.main,
+            [TerraConfig.styles.transparency == "full"] = colors.none,
+        }),
+    },
 }
 
 M.visual = {
@@ -40,7 +70,7 @@ M.terminal = {
 }
 
 for _, mode in pairs(M) do
-    mode.a.gui = "bold"
+    mode.a.gui = "bold,italic"
 end
 
 return M

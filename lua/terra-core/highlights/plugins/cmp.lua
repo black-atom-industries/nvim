@@ -1,6 +1,6 @@
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {
-    map = function(colors)
+    map = function(colors, config)
         ---@type TerraHighlights
         local highlights_map = {
             CmpItemAbbr = { fg = colors.semantics.fg.primary.main },
@@ -44,7 +44,11 @@ local highlight_map_extension = {
         }
 
         for kind, color in pairs(lsp_kind_icons_color) do
-            highlights_map["CmpItemKind" .. kind] = { fg = color }
+            if config.styles.cmp_kind_color_mode == "fg" then
+                highlights_map["CmpItemKind" .. kind] = { fg = color }
+            else
+                highlights_map["CmpItemKind" .. kind] = { fg = colors.semantics.fg.invert, bg = color }
+            end
         end
 
         return highlights_map

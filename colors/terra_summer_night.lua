@@ -1,4 +1,3 @@
----@diagnostic disable: missing-fields
 require("terra-core").setup({
     theme = "summer",
     variant = "night",

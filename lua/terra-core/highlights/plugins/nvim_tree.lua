@@ -1,34 +1,34 @@
-local conditional_hl = require("terra-core.utils").highlights.conditional_hl
-
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {
     map = function(colors, config)
+        local conditional_hl = require("terra-core.lib").hls.conditional_hl
+
         ---@type TerraHighlights
         local highlights_map = {
             NvimTreeNormal = {
                 fg = colors.semantics.fg.primary.main,
                 bg = conditional_hl(colors.semantics.bg.primary.dark, {
-                    [config.transparent] = colors.none,
+                    [config.styles.transparency == "full"] = colors.none,
                 }),
             },
             NvimTreeNormalNC = {
                 fg = colors.semantics.fg.secondary.main,
                 bg = conditional_hl(colors.semantics.bg.primary.dark, {
-                    [config.transparent] = colors.none,
+                    [config.styles.transparency == "full"] = colors.none,
                 }),
             },
             NvimTreeVertSplit = {
                 fg = colors.palette.gray,
                 bg = conditional_hl(colors.semantics.bg.primary.main, {
-                    [config.transparent] = colors.none,
+                    [config.styles.transparency == "full"] = colors.none,
                 }),
             },
             NvimTreeEndOfBuffer = {
                 fg = conditional_hl(colors.semantics.bg.primary.main, {
-                    [config.ending_tildes] = colors.semantics.bg.primary.light,
+                    [config.styles.ending_tildes] = colors.semantics.bg.primary.light,
                 }),
                 bg = conditional_hl(colors.semantics.bg.primary.dark, {
-                    [config.transparent] = colors.none,
+                    [config.styles.transparency == "full"] = colors.none,
                 }),
             },
             NvimTreeRootFolder = { fg = colors.palette.dark_yellow, bold = true },
@@ -42,14 +42,14 @@ local highlight_map_extension = {
             NvimTreeFolderName = {
                 fg = colors.palette.blue,
                 bg = conditional_hl(colors.semantics.bg.primary.dark, {
-                    [config.transparent] = colors.none,
+                    [config.styles.transparency == "full"] = colors.none,
                 }),
             },
             NvimTreeCursorLine = { bg = colors.semantics.bg.primary.main },
             NvimTreeWinSeparator = {
                 fg = colors.semantics.fg.neutral,
                 bg = conditional_hl(colors.semantics.bg.primary.main, {
-                    [config.transparent] = colors.none,
+                    [config.styles.transparency == "full"] = colors.none,
                 }),
             },
             NvimTreeWindowPicker = {

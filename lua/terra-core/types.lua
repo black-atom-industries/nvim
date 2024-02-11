@@ -113,7 +113,7 @@
 
 ---@alias TerraConfig.ThemeDefinitionMap          table<TerraConfig.ThemeKey, TerraConfig.ThemeDefinition>
 
----@class TerraConfig.CodeStyle
+---@class TerraConfig.SyntaxStyle
 ---@field comments?                               TerraHighlightDefinition
 ---@field keywords?                               TerraHighlightDefinition
 ---@field functions?                              TerraHighlightDefinition
@@ -122,15 +122,22 @@
 ---@field messages?                               TerraHighlightDefinition Affects: `WarningMsg`, `ErrorMsg`, `MoreMsg`, `ModeMsg`
 
 ---@class TerraConfig.Diagnostics
----@field undercurl                               boolean Wether to use undercurls for diagnostics (Default: false)
----@field background                              boolean Wether to use background color for virtual text (Default: false)
+---@field undercurl?                              boolean Wether to use undercurls for diagnostics (Default: false)
+---@field background?                             boolean Wether to use background color for virtual text (Default: false)
+
+---@alias TerraConfig.Transparency                "full" | "partial" | "none"
+
+---@class TerraConfig.Styles
+---@field cmp_kind_color_mode?                    "fg" | "bg" (Default: "fg")
+---@field dark_sidebars?                          boolean Wether to use dark sidebars (Default: true)
+---@field transparency?                           TerraConfig.Transparency Transparency level (Default: "none")
+---@field diagnostics?                            TerraConfig.Diagnostics Diagnostics related settings (Default: See Documentation)
+---@field syntax?                                 TerraConfig.SyntaxStyle Syntax styling options (Default: See Documentation)
+---@field ending_tildes?                          boolean Wether to show the end-of-buffer tildes (Default: false)
 
 ---@class TerraConfig
 ---@field debug?                                  boolean Enables the Debug Mode (Enables various debug messages) (Default: false)
 ---@field theme?                                  TerraConfig.ThemeKey Currently set theme (Default: "spring")
 ---@field variant?                                TerraConfig.ThemeVariantKey Currently set variant (Default: "night")
----@field transparent?                            boolean Wether to render the background color (Default: false)
 ---@field term_colors?                            boolean Wether to enable terminal colors (Default: true)
----@field ending_tildes?                          boolean Wether to show the end-of-buffer tildes (Default: false)
----@field code_style?                             TerraConfig.CodeStyle Code styling options (Default: See Documentation)
----@field diagnostics?                            TerraConfig.Diagnostics Diagnostics related settings (Default: See Documentation)
+---@field styles?                                 TerraConfig.Styles Various styles related settings (Default: See Documentation)

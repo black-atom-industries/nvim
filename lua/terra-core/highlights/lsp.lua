@@ -1,7 +1,4 @@
-local utils = require("terra-core.utils")
-
-local darken = utils.color.darken
-local conditional_hl = utils.highlights.conditional_hl
+local lib = require("terra-core.lib")
 
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {
@@ -25,8 +22,8 @@ local highlight_map_extension = {
             DiagnosticWarn = { fg = colors.palette.yellow },
 
             DiagnosticVirtualTextError = {
-                bg = conditional_hl(colors.none, {
-                    [config.diagnostics.background] = darken(
+                bg = lib.hls.conditional_hl(colors.none, {
+                    [config.styles.diagnostics.background] = lib.color.darken(
                         diagnostics_error_color,
                         0.1,
                         colors.semantics.bg.primary.main
@@ -35,8 +32,8 @@ local highlight_map_extension = {
                 fg = diagnostics_error_color,
             },
             DiagnosticVirtualTextWarn = {
-                bg = conditional_hl(colors.none, {
-                    [config.diagnostics.background] = darken(
+                bg = lib.hls.conditional_hl(colors.none, {
+                    [config.styles.diagnostics.background] = lib.color.darken(
                         diagnostics_warn_color,
                         0.1,
                         colors.semantics.bg.primary.main
@@ -45,8 +42,8 @@ local highlight_map_extension = {
                 fg = diagnostics_warn_color,
             },
             DiagnosticVirtualTextInfo = {
-                bg = conditional_hl(colors.none, {
-                    [config.diagnostics.background] = darken(
+                bg = lib.hls.conditional_hl(colors.none, {
+                    [config.styles.diagnostics.background] = lib.color.darken(
                         diagnostics_info_color,
                         0.1,
                         colors.semantics.bg.primary.main
@@ -55,8 +52,8 @@ local highlight_map_extension = {
                 fg = diagnostics_info_color,
             },
             DiagnosticVirtualTextHint = {
-                bg = conditional_hl(colors.none, {
-                    [config.diagnostics.background] = darken(
+                bg = lib.hls.conditional_hl(colors.none, {
+                    [config.styles.diagnostics.background] = lib.color.darken(
                         diagnostics_hint_color,
                         0.1,
                         colors.semantics.bg.primary.main
@@ -67,18 +64,18 @@ local highlight_map_extension = {
 
             DiagnosticUnderlineError = {
                 sp = colors.palette.red,
-                config.diagnostics.undercurl and { undercurl = true },
+                config.styles.diagnostics.undercurl and { undercurl = true },
             },
             DiagnosticUnderlineHint = {
-                config.diagnostics.undercurl and { undercurl = true },
+                config.styles.diagnostics.undercurl and { undercurl = true },
                 sp = colors.palette.blue,
             },
             DiagnosticUnderlineInfo = {
-                config.diagnostics.undercurl and { undercurl = true },
+                config.styles.diagnostics.undercurl and { undercurl = true },
                 sp = colors.palette.blue,
             },
             DiagnosticUnderlineWarn = {
-                config.diagnostics.undercurl and { undercurl = true },
+                config.styles.diagnostics.undercurl and { undercurl = true },
                 sp = colors.palette.yellow,
             },
 
