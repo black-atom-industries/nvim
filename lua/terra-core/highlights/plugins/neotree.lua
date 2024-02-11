@@ -2,13 +2,13 @@
 local highlight_map_extension = {
     enabled = true,
     map = function(colors, config)
-        local utils = require("terra-core.utils")
+        local lib = require("terra-core.lib")
 
         local fg = colors.semantics.fg
         local bg = colors.semantics.bg
 
-        local bg_sidebar = utils.bg.sidebar(config, colors)
-        local bg_float = utils.bg.float(config, colors)
+        local bg_sidebar = lib.bg.sidebar(config, colors)
+        local bg_float = lib.bg.float(config, colors)
 
         ---@type TerraHighlights
         local highlights_map = {

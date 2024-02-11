@@ -54,7 +54,7 @@ return {
       {
         "<leader>Tt",
         function()
-          require("terra-core.utils.config").select_theme()
+          require("terra-core.lib.config").select_theme()
         end,
         desc = "Select a Terra theme",
       },

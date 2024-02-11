@@ -1,4 +1,4 @@
-local utils = require("terra-core.utils")
+local lib = require("terra-core.lib")
 
 local M = {}
 
@@ -72,8 +72,8 @@ M.semantics = {
         },
         active = M.primaries[5],
         match = {
-            active = utils.color.darken(M.palette.magenta, 0.25, M.primaries[12]),
-            passive = utils.color.darken(M.palette.magenta, 0.15, M.primaries[12]),
+            active = lib.color.darken(M.palette.magenta, 0.25, M.primaries[12]),
+            passive = lib.color.darken(M.palette.magenta, 0.15, M.primaries[12]),
         },
         diff = {
             add = M.palette.green,

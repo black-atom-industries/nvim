@@ -1,10 +1,10 @@
-local utils_files = require("terra-core.utils.files")
-local utils_ui = require("terra-core.utils.ui")
+local lib_files = require("terra-core.lib.files")
+local lib_ui = require("terra-core.lib.ui")
 
 local M = {}
 
 M.pathes = {
-    debug_dir = utils_files.build_path(utils_files.get_plugin_path(), "debug"),
+    debug_dir = lib_files.build_path(lib_files.get_plugin_path(), "debug"),
     highlights_map_debug_filename = "highlights_debug_map.txt",
     errors_debug_filename = "errors_debug.txt",
 }
@@ -25,7 +25,7 @@ end
 ---@param modules string[] -@param highlights_map TerraHighlightsMap
 ---@return nil
 M.write_debug_highlights_file = function(modules, highlights_map)
-    local filepath = utils_files.build_path(M.pathes.debug_dir, M.pathes.highlights_map_debug_filename)
+    local filepath = lib_files.build_path(M.pathes.debug_dir, M.pathes.highlights_map_debug_filename)
 
     M.create_debug_dir()
 
@@ -65,7 +65,7 @@ M.write_debug_highlights_file = function(modules, highlights_map)
 
         file:close()
 
-        utils_ui.notify("Terra Debug: Wrote highlight map to '" .. filepath .. "'", vim.log.levels.INFO, {
+        lib_ui.notify("Terra Debug: Wrote highlight map to '" .. filepath .. "'", vim.log.levels.INFO, {
             title = "Terra Debug",
             icon = "",
         })

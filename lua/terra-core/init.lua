@@ -1,31 +1,31 @@
 ---@type TerraConfig
 TerraConfig = vim.g.terra_config
 
-local utils = require("terra-core.utils")
+local lib = require("terra-core.lib")
 
 local M = {}
 
 ---@param colorscheme_name TerraConfig.ColorSchemeName
 ---@return nil
 function M.load_colorscheme(colorscheme_name)
-    utils.hls.reset()
+    lib.hls.reset()
 
-    utils.config.sync_vim_bg_with_terra_variant(TerraConfig.variant)
+    lib.config.sync_vim_bg_with_terra_variant(TerraConfig.variant)
     vim.o.termguicolors = true
     vim.g.colors_name = colorscheme_name
 
-    utils.hls.setup()
+    lib.hls.setup()
 end
 
 ---@param opts TerraConfig
 ---@return nil
 function M.setup(opts)
     if not TerraConfig then
-        utils.config.set_terra_config_defaults()
+        lib.config.set_terra_config_defaults()
     end
 
     if opts then
-        utils.config.set_terra_config(opts)
+        lib.config.set_terra_config(opts)
     end
 end
 

@@ -1,4 +1,4 @@
-local cond_hl = require("terra-core.utils").hls.conditional_hl
+local cond_hl = require("terra-core.lib").hls.conditional_hl
 local colors = require("terra-core.colors").get()
 
 local M = {}

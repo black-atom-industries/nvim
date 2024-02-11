@@ -1,4 +1,4 @@
-local utils = require("terra-core.utils")
+local lib = require("terra-core.lib")
 
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {
@@ -10,9 +10,9 @@ local highlight_map_extension = {
         ---@type TerraHighlights
         local highlights_map = {
             -- Basic Text
-            Normal = { fg = fg.primary.main, bg = utils.bg.main(config, colors) },
-            NormalNC = { fg = fg.primary.main, bg = utils.bg.main(config, colors) },
-            EndOfBuffer = { fg = utils.hls.conditional_hl(bg.primary.main, { [config.ending_tildes] = fg.neutral }) },
+            Normal = { fg = fg.primary.main, bg = lib.bg.main(config, colors) },
+            NormalNC = { fg = fg.primary.main, bg = lib.bg.main(config, colors) },
+            EndOfBuffer = { fg = lib.hls.conditional_hl(bg.primary.main, { [config.ending_tildes] = fg.neutral }) },
             NonText = { fg = fg.neutral },
             Whitespace = { link = "NonText" },
             SpecialKey = { link = "NonText" },
@@ -25,31 +25,31 @@ local highlight_map_extension = {
             -- Native Regex Highlights (See: `:h syntax`)
             Boolean = { fg = palette.dark_yellow },
             Character = { fg = palette.yellow },
-            Comment = utils.hls.extend_hl({ fg = fg.neutral }, config.code_style.comments),
-            Conditional = utils.hls.extend_hl({ fg = palette.magenta }, config.code_style.keywords),
+            Comment = lib.hls.extend_hl({ fg = fg.neutral }, config.code_style.comments),
+            Conditional = lib.hls.extend_hl({ fg = palette.magenta }, config.code_style.keywords),
             Constant = { fg = palette.dark_yellow },
             Define = { fg = palette.magenta },
             Delimiter = { fg = palette.light_gray },
             Error = { fg = palette.magenta },
             Exception = { fg = palette.magenta },
             Float = { fg = palette.dark_yellow },
-            Function = utils.hls.extend_hl({ fg = palette.yellow }, config.code_style.functions),
-            Identifier = utils.hls.extend_hl({ fg = fg.active }, config.code_style.variables),
+            Function = lib.hls.extend_hl({ fg = palette.yellow }, config.code_style.functions),
+            Identifier = lib.hls.extend_hl({ fg = fg.active }, config.code_style.variables),
             Include = { fg = palette.magenta },
-            Keyword = utils.hls.extend_hl({ fg = palette.red }, config.code_style.keywords),
+            Keyword = lib.hls.extend_hl({ fg = palette.red }, config.code_style.keywords),
             Label = { fg = palette.magenta },
             Macro = { fg = palette.red },
             Number = { fg = palette.dark_yellow },
             Operator = { fg = palette.magenta },
             PreCondit = { fg = palette.magenta },
             PreProc = { fg = palette.magenta },
-            Repeat = utils.hls.extend_hl({ fg = palette.magenta }, config.code_style.keywords),
+            Repeat = lib.hls.extend_hl({ fg = palette.magenta }, config.code_style.keywords),
             Special = { fg = palette.red },
             SpecialChar = { fg = palette.red },
-            SpecialComment = utils.hls.extend_hl({ fg = fg.secondary.dark }, config.code_style.comments),
+            SpecialComment = lib.hls.extend_hl({ fg = fg.secondary.dark }, config.code_style.comments),
             Statement = { fg = palette.magenta },
             StorageClass = { fg = palette.blue },
-            String = utils.hls.extend_hl({ fg = palette.cyan }, config.code_style.strings),
+            String = lib.hls.extend_hl({ fg = palette.cyan }, config.code_style.strings),
             Structure = { fg = palette.yellow },
             Tag = { fg = palette.green },
             Todo = { fg = fg.neutral },
@@ -89,34 +89,34 @@ local highlight_map_extension = {
             PmenuThumb = { fg = colors.none, bg = bg.active },
 
             -- Messages & Mode
-            ErrorMsg = utils.hls.extend_hl({
+            ErrorMsg = lib.hls.extend_hl({
                 fg = palette.red,
             }, config.code_style.messages),
-            MoreMsg = utils.hls.extend_hl({
+            MoreMsg = lib.hls.extend_hl({
                 fg = palette.blue,
             }, config.code_style.messages),
-            ModeMsg = utils.hls.extend_hl({ fg = fg.primary.main }, config.code_style.messages),
-            WarningMsg = utils.hls.extend_hl({ fg = palette.yellow }, config.code_style.messages),
+            ModeMsg = lib.hls.extend_hl({ fg = fg.primary.main }, config.code_style.messages),
+            WarningMsg = lib.hls.extend_hl({ fg = palette.yellow }, config.code_style.messages),
 
             -- Window & Tab Management
             Title = { fg = fg.active },
             StatusLine = {
                 fg = fg.primary.main,
-                bg = utils.hls.conditional_hl(bg.primary.dark, { [config.transparency == "full"] = colors.none }),
+                bg = lib.hls.conditional_hl(bg.primary.dark, { [config.transparency == "full"] = colors.none }),
             },
             StatusLineNC = {
                 fg = fg.neutral,
-                bg = utils.hls.conditional_hl(bg.primary.dark, { [config.transparency == "full"] = colors.none }),
+                bg = lib.hls.conditional_hl(bg.primary.dark, { [config.transparency == "full"] = colors.none }),
             },
             TabLine = { fg = fg.primary.main, bg = bg.primary.main },
             TabLineFill = { fg = fg.neutral, bg = bg.primary.main },
             TabLineSel = { fg = fg.primary.main, bg = bg.primary.light },
             WinBar = { link = "StatusLine" },
             WinBarNC = { link = "StatusLineNC" },
-            WinSeparator = { fg = bg.primary.dark, bg = utils.bg.main(config, colors) },
+            WinSeparator = { fg = bg.primary.dark, bg = lib.bg.main(config, colors) },
 
             -- Folds & Signs
-            Folded = { fg = fg.neutral, bg = utils.bg.main(config, colors) },
+            Folded = { fg = fg.neutral, bg = lib.bg.main(config, colors) },
             FoldColumn = { fg = fg.neutral },
             SignColumn = { fg = fg.neutral },
 

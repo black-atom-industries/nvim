@@ -1,4 +1,4 @@
-local conditional_hl = require("terra-core.utils.highlights").conditional_hl
+local conditional_hl = require("terra-core.lib.highlights").conditional_hl
 
 local M = {}
 

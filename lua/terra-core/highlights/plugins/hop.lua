@@ -1,4 +1,4 @@
-local darken = require("terra-core.utils").color.darken
+local darken = require("terra-core.lib").color.darken
 
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {

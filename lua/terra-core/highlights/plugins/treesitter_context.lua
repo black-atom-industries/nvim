@@ -1,7 +1,7 @@
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {
     map = function(colors, config)
-        local conditional_hl = require("terra-core.utils").hls.conditional_hl
+        local conditional_hl = require("terra-core.lib").hls.conditional_hl
 
         local bg = colors.semantics.bg
         local fg = colors.semantics.fg
