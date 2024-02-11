@@ -44,7 +44,7 @@ local highlight_map_extension = {
         }
 
         for kind, color in pairs(lsp_kind_icons_color) do
-            if config.style_presets.cmp_kind_color_mode == "fg" then
+            if config.styles.cmp_kind_color_mode == "fg" then
                 highlights_map["CmpItemKind" .. kind] = { fg = color }
             else
                 highlights_map["CmpItemKind" .. kind] = { fg = colors.semantics.fg.invert, bg = color }

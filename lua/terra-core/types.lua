@@ -127,7 +127,7 @@
 
 ---@alias TerraConfig.Transparency                "full" | "partial" | "none"
 
----@class TerraConfig.StylePresets
+---@class TerraConfig.Styles
 ---@field cmp_kind_color_mode?                    "fg" | "bg" (Default: "fg")
 ---@field dark_sidebars?                          boolean Wether to use dark sidebars (Default: true)
 ---@field transparency?                           TerraConfig.Transparency Transparency level (Default: "none")
@@ -140,4 +140,4 @@
 ---@field theme?                                  TerraConfig.ThemeKey Currently set theme (Default: "spring")
 ---@field variant?                                TerraConfig.ThemeVariantKey Currently set variant (Default: "night")
 ---@field term_colors?                            boolean Wether to enable terminal colors (Default: true)
----@field style_presets?                          TerraConfig.StylePresets Various styles related settings (Default: See Documentation)
+---@field styles?                                 TerraConfig.Styles Various styles related settings (Default: See Documentation)

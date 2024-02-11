@@ -8,8 +8,8 @@ function M.main(config, colors)
     local bg = colors.semantics.bg
 
     return require("terra-core.lib.hls").conditional_hl(bg.primary.main, {
-        [config.style_presets.transparency == "partial"] = no_color,
-        [config.style_presets.transparency == "full"] = no_color,
+        [config.styles.transparency == "partial"] = no_color,
+        [config.styles.transparency == "full"] = no_color,
     })
 end
 
@@ -17,8 +17,8 @@ end
 ---@param colors TerraColors
 ---@return string
 function M.sidebar(config, colors)
-    local dark_sidebars = config.style_presets.dark_sidebars
-    local transparency = config.style_presets.transparency
+    local dark_sidebars = config.styles.dark_sidebars
+    local transparency = config.styles.transparency
     local bg = colors.semantics.bg
     local no_color = colors.none
 

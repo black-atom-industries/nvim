@@ -23,7 +23,7 @@ local highlight_map_extension = {
 
             DiagnosticVirtualTextError = {
                 bg = lib.hls.conditional_hl(colors.none, {
-                    [config.style_presets.diagnostics.background] = lib.color.darken(
+                    [config.styles.diagnostics.background] = lib.color.darken(
                         diagnostics_error_color,
                         0.1,
                         colors.semantics.bg.primary.main
@@ -33,7 +33,7 @@ local highlight_map_extension = {
             },
             DiagnosticVirtualTextWarn = {
                 bg = lib.hls.conditional_hl(colors.none, {
-                    [config.style_presets.diagnostics.background] = lib.color.darken(
+                    [config.styles.diagnostics.background] = lib.color.darken(
                         diagnostics_warn_color,
                         0.1,
                         colors.semantics.bg.primary.main
@@ -43,7 +43,7 @@ local highlight_map_extension = {
             },
             DiagnosticVirtualTextInfo = {
                 bg = lib.hls.conditional_hl(colors.none, {
-                    [config.style_presets.diagnostics.background] = lib.color.darken(
+                    [config.styles.diagnostics.background] = lib.color.darken(
                         diagnostics_info_color,
                         0.1,
                         colors.semantics.bg.primary.main
@@ -53,7 +53,7 @@ local highlight_map_extension = {
             },
             DiagnosticVirtualTextHint = {
                 bg = lib.hls.conditional_hl(colors.none, {
-                    [config.style_presets.diagnostics.background] = lib.color.darken(
+                    [config.styles.diagnostics.background] = lib.color.darken(
                         diagnostics_hint_color,
                         0.1,
                         colors.semantics.bg.primary.main
@@ -64,18 +64,18 @@ local highlight_map_extension = {
 
             DiagnosticUnderlineError = {
                 sp = colors.palette.red,
-                config.style_presets.diagnostics.undercurl and { undercurl = true },
+                config.styles.diagnostics.undercurl and { undercurl = true },
             },
             DiagnosticUnderlineHint = {
-                config.style_presets.diagnostics.undercurl and { undercurl = true },
+                config.styles.diagnostics.undercurl and { undercurl = true },
                 sp = colors.palette.blue,
             },
             DiagnosticUnderlineInfo = {
-                config.style_presets.diagnostics.undercurl and { undercurl = true },
+                config.styles.diagnostics.undercurl and { undercurl = true },
                 sp = colors.palette.blue,
             },
             DiagnosticUnderlineWarn = {
-                config.style_presets.diagnostics.undercurl and { undercurl = true },
+                config.styles.diagnostics.undercurl and { undercurl = true },
                 sp = colors.palette.yellow,
             },
 

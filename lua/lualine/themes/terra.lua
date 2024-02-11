@@ -15,15 +15,15 @@ M.normal = {
     b = {
         fg = fg.primary.dark,
         bg = cond_hl(bg.primary.main, {
-            [TerraConfig.style_presets.transparency == "partial"] = bg.primary.main,
-            [TerraConfig.style_presets.transparency == "full"] = colors.none,
+            [TerraConfig.styles.transparency == "partial"] = bg.primary.main,
+            [TerraConfig.styles.transparency == "full"] = colors.none,
         }),
     },
     c = {
         fg = fg.primary.dark,
         bg = cond_hl(bg.primary.main, {
-            [TerraConfig.style_presets.transparency == "partial"] = bg.primary.main,
-            [TerraConfig.style_presets.transparency == "full"] = colors.none,
+            [TerraConfig.styles.transparency == "partial"] = bg.primary.main,
+            [TerraConfig.styles.transparency == "full"] = colors.none,
         }),
     },
 }
@@ -36,15 +36,15 @@ M.inactive = {
     b = {
         fg = fg.neutral,
         bg = cond_hl(bg.primary.main, {
-            [TerraConfig.style_presets.transparency == "partial"] = bg.primary.main,
-            [TerraConfig.style_presets.transparency == "full"] = colors.none,
+            [TerraConfig.styles.transparency == "partial"] = bg.primary.main,
+            [TerraConfig.styles.transparency == "full"] = colors.none,
         }),
     },
     c = {
         fg = fg.neutral,
         bg = cond_hl(bg.primary.light, {
-            [TerraConfig.style_presets.transparency == "partial"] = bg.primary.main,
-            [TerraConfig.style_presets.transparency == "full"] = colors.none,
+            [TerraConfig.styles.transparency == "partial"] = bg.primary.main,
+            [TerraConfig.styles.transparency == "full"] = colors.none,
         }),
     },
 }

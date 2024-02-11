@@ -21,7 +21,7 @@ local highlight_map_extension = {
 
             ["@comment"] = { link = "Comment" },
 
-            ["@conditional"] = lib.hls.extend_hl({ fg = palette.magenta }, config.style_presets.syntax.keywords),
+            ["@conditional"] = lib.hls.extend_hl({ fg = palette.magenta }, config.styles.syntax.keywords),
 
             ["@constant"] = { fg = palette.dark_yellow },
             ["@constant.builtin"] = { fg = palette.dark_yellow },
@@ -37,9 +37,9 @@ local highlight_map_extension = {
 
             ["@float"] = { fg = palette.dark_yellow },
 
-            ["@function"] = lib.hls.extend_hl({ fg = palette.yellow, bold = true }, config.style_presets.syntax.functions),
-            ["@function.builtin"] = lib.hls.extend_hl({ fg = palette.yellow }, config.style_presets.syntax.functions),
-            ["@function.macro"] = lib.hls.extend_hl({ fg = palette.yellow }, config.style_presets.syntax.functions),
+            ["@function"] = lib.hls.extend_hl({ fg = palette.yellow, bold = true }, config.styles.syntax.functions),
+            ["@function.builtin"] = lib.hls.extend_hl({ fg = palette.yellow }, config.styles.syntax.functions),
+            ["@function.macro"] = lib.hls.extend_hl({ fg = palette.yellow }, config.styles.syntax.functions),
 
             ["@include"] = { fg = palette.magenta },
 
@@ -66,12 +66,12 @@ local highlight_map_extension = {
             ["@punctuation.delimiter"] = { fg = fg.primary.main },
             ["@punctuation.special"] = { fg = fg.primary.main },
 
-            ["@repeat"] = lib.hls.extend_hl({ fg = palette.magenta }, config.style_presets.syntax.keywords),
+            ["@repeat"] = lib.hls.extend_hl({ fg = palette.magenta }, config.styles.syntax.keywords),
 
-            ["@string"] = lib.hls.extend_hl({ fg = palette.green }, config.style_presets.syntax.strings),
-            ["@string.escape"] = lib.hls.extend_hl({ fg = palette.red }, config.style_presets.syntax.strings),
-            ["@string.regex"] = lib.hls.extend_hl({ fg = palette.dark_yellow }, config.style_presets.syntax.strings),
-            ["@string.special"] = lib.hls.extend_hl({ fg = palette.green }, config.style_presets.syntax.strings),
+            ["@string"] = lib.hls.extend_hl({ fg = palette.green }, config.styles.syntax.strings),
+            ["@string.escape"] = lib.hls.extend_hl({ fg = palette.red }, config.styles.syntax.strings),
+            ["@string.regex"] = lib.hls.extend_hl({ fg = palette.dark_yellow }, config.styles.syntax.strings),
+            ["@string.special"] = lib.hls.extend_hl({ fg = palette.green }, config.styles.syntax.strings),
 
             ["@symbol"] = { fg = palette.cyan },
 
@@ -100,8 +100,8 @@ local highlight_map_extension = {
             ["@type"] = { fg = palette.cyan },
             ["@type.builtin"] = { fg = palette.dark_cyan },
 
-            ["@variable"] = lib.hls.extend_hl({ fg = palette.blue }, config.style_presets.syntax.variables),
-            ["@variable.builtin"] = lib.hls.extend_hl({ fg = palette.blue }, config.style_presets.syntax.variables),
+            ["@variable"] = lib.hls.extend_hl({ fg = palette.blue }, config.styles.syntax.variables),
+            ["@variable.builtin"] = lib.hls.extend_hl({ fg = palette.blue }, config.styles.syntax.variables),
 
             -- Treesitter Semantic Tokens
             ["@lsp.type.namespace"] = { link = "@namespace" },
