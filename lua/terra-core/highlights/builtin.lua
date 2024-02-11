@@ -102,11 +102,11 @@ local highlight_map_extension = {
             Title = { fg = fg.active },
             StatusLine = {
                 fg = fg.primary.main,
-                bg = lib.hls.conditional_hl(bg.primary.dark, { [config.transparency == "full"] = colors.none }),
+                bg = lib.hls.conditional_hl(bg.primary.dark, { [config.style_presets.transparency == "full"] = colors.none }),
             },
             StatusLineNC = {
                 fg = fg.neutral,
-                bg = lib.hls.conditional_hl(bg.primary.dark, { [config.transparency == "full"] = colors.none }),
+                bg = lib.hls.conditional_hl(bg.primary.dark, { [config.style_presets.transparency == "full"] = colors.none }),
             },
             TabLine = { fg = fg.primary.main, bg = bg.primary.main },
             TabLineFill = { fg = fg.neutral, bg = bg.primary.main },

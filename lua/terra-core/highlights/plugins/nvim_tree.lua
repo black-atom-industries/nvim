@@ -8,19 +8,19 @@ local highlight_map_extension = {
             NvimTreeNormal = {
                 fg = colors.semantics.fg.primary.main,
                 bg = conditional_hl(colors.semantics.bg.primary.dark, {
-                    [config.transparency == "full"] = colors.none,
+                    [config.style_presets.transparency == "full"] = colors.none,
                 }),
             },
             NvimTreeNormalNC = {
                 fg = colors.semantics.fg.secondary.main,
                 bg = conditional_hl(colors.semantics.bg.primary.dark, {
-                    [config.transparency == "full"] = colors.none,
+                    [config.style_presets.transparency == "full"] = colors.none,
                 }),
             },
             NvimTreeVertSplit = {
                 fg = colors.palette.gray,
                 bg = conditional_hl(colors.semantics.bg.primary.main, {
-                    [config.transparency == "full"] = colors.none,
+                    [config.style_presets.transparency == "full"] = colors.none,
                 }),
             },
             NvimTreeEndOfBuffer = {
@@ -28,7 +28,7 @@ local highlight_map_extension = {
                     [config.ending_tildes] = colors.semantics.bg.primary.light,
                 }),
                 bg = conditional_hl(colors.semantics.bg.primary.dark, {
-                    [config.transparency == "full"] = colors.none,
+                    [config.style_presets.transparency == "full"] = colors.none,
                 }),
             },
             NvimTreeRootFolder = { fg = colors.palette.dark_yellow, bold = true },
@@ -42,14 +42,14 @@ local highlight_map_extension = {
             NvimTreeFolderName = {
                 fg = colors.palette.blue,
                 bg = conditional_hl(colors.semantics.bg.primary.dark, {
-                    [config.transparency == "full"] = colors.none,
+                    [config.style_presets.transparency == "full"] = colors.none,
                 }),
             },
             NvimTreeCursorLine = { bg = colors.semantics.bg.primary.main },
             NvimTreeWinSeparator = {
                 fg = colors.semantics.fg.neutral,
                 bg = conditional_hl(colors.semantics.bg.primary.main, {
-                    [config.transparency == "full"] = colors.none,
+                    [config.style_presets.transparency == "full"] = colors.none,
                 }),
             },
             NvimTreeWindowPicker = {
