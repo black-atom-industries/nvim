@@ -15,24 +15,24 @@ M.default_config = {
             undercurl = false,
             background = false,
         },
-    },
-    code_style = {
-        comments = {
-            italic = true,
-        },
-        keywords = {
-            bold = true,
-            italic = true,
-        },
-        functions = {
-            bold = true,
-        },
-        strings = {
-            italic = true,
-        },
-        variables = {},
-        messages = {
-            bold = true,
+        syntax = {
+            comments = {
+                italic = true,
+            },
+            keywords = {
+                bold = true,
+                italic = true,
+            },
+            functions = {
+                bold = true,
+            },
+            strings = {
+                italic = true,
+            },
+            variables = {},
+            messages = {
+                bold = true,
+            },
         },
     },
 }
