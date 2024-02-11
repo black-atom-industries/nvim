@@ -25,7 +25,7 @@ local highlight_map_extension = {
             },
             NvimTreeEndOfBuffer = {
                 fg = conditional_hl(colors.semantics.bg.primary.main, {
-                    [config.ending_tildes] = colors.semantics.bg.primary.light,
+                    [config.style_presets.ending_tildes] = colors.semantics.bg.primary.light,
                 }),
                 bg = conditional_hl(colors.semantics.bg.primary.dark, {
                     [config.style_presets.transparency == "full"] = colors.none,

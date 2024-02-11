@@ -12,7 +12,9 @@ local highlight_map_extension = {
             -- Basic Text
             Normal = { fg = fg.primary.main, bg = lib.bg.main(config, colors) },
             NormalNC = { fg = fg.primary.main, bg = lib.bg.main(config, colors) },
-            EndOfBuffer = { fg = lib.hls.conditional_hl(bg.primary.main, { [config.ending_tildes] = fg.neutral }) },
+            EndOfBuffer = {
+                fg = lib.hls.conditional_hl(bg.primary.main, { [config.style_presets.ending_tildes] = fg.neutral }),
+            },
             NonText = { fg = fg.neutral },
             Whitespace = { link = "NonText" },
             SpecialKey = { link = "NonText" },
@@ -102,11 +104,17 @@ local highlight_map_extension = {
             Title = { fg = fg.active },
             StatusLine = {
                 fg = fg.primary.main,
-                bg = lib.hls.conditional_hl(bg.primary.dark, { [config.style_presets.transparency == "full"] = colors.none }),
+                bg = lib.hls.conditional_hl(
+                    bg.primary.dark,
+                    { [config.style_presets.transparency == "full"] = colors.none }
+                ),
             },
             StatusLineNC = {
                 fg = fg.neutral,
-                bg = lib.hls.conditional_hl(bg.primary.dark, { [config.style_presets.transparency == "full"] = colors.none }),
+                bg = lib.hls.conditional_hl(
+                    bg.primary.dark,
+                    { [config.style_presets.transparency == "full"] = colors.none }
+                ),
             },
             TabLine = { fg = fg.primary.main, bg = bg.primary.main },
             TabLineFill = { fg = fg.neutral, bg = bg.primary.main },

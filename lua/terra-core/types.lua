@@ -133,6 +133,7 @@
 ---@field transparency?                           TerraConfig.Transparency Transparency level (Default: "none")
 ---@field diagnostics?                            TerraConfig.Diagnostics Diagnostics related settings (Default: See Documentation)
 ---@field syntax?                                 TerraConfig.SyntaxStyle Syntax styling options (Default: See Documentation)
+---@field ending_tildes?                          boolean Wether to show the end-of-buffer tildes (Default: false)
 
 ---@class TerraConfig
 ---@field debug?                                  boolean Enables the Debug Mode (Enables various debug messages) (Default: false)
@@ -140,4 +141,3 @@
 ---@field variant?                                TerraConfig.ThemeVariantKey Currently set variant (Default: "night")
 ---@field term_colors?                            boolean Wether to enable terminal colors (Default: true)
 ---@field style_presets?                          TerraConfig.StylePresets Various styles related settings (Default: See Documentation)
----@field ending_tildes?                          boolean Wether to show the end-of-buffer tildes (Default: false)
