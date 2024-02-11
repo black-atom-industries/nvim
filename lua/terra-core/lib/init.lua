@@ -1,4 +1,4 @@
-local lib = {
+return {
     config = require("terra-core.lib.config"),
     color = require("terra-core.lib.color"),
     ui = require("terra-core.lib.ui"),
@@ -9,4 +9,3 @@ local lib = {
     bg = require("terra-core.lib.bg"),
 }
 
-return lib
