@@ -22,7 +22,7 @@ local highlight_map_extension = {
             DiagnosticWarn = { fg = colors.palette.yellow },
 
             DiagnosticVirtualTextError = {
-                bg = utils.hl.conditional_hl(colors.none, {
+                bg = utils.hls.conditional_hl(colors.none, {
                     [config.diagnostics.background] = utils.color.darken(
                         diagnostics_error_color,
                         0.1,
@@ -32,7 +32,7 @@ local highlight_map_extension = {
                 fg = diagnostics_error_color,
             },
             DiagnosticVirtualTextWarn = {
-                bg = utils.hl.conditional_hl(colors.none, {
+                bg = utils.hls.conditional_hl(colors.none, {
                     [config.diagnostics.background] = utils.color.darken(
                         diagnostics_warn_color,
                         0.1,
@@ -42,7 +42,7 @@ local highlight_map_extension = {
                 fg = diagnostics_warn_color,
             },
             DiagnosticVirtualTextInfo = {
-                bg = utils.hl.conditional_hl(colors.none, {
+                bg = utils.hls.conditional_hl(colors.none, {
                     [config.diagnostics.background] = utils.color.darken(
                         diagnostics_info_color,
                         0.1,
@@ -52,7 +52,7 @@ local highlight_map_extension = {
                 fg = diagnostics_info_color,
             },
             DiagnosticVirtualTextHint = {
-                bg = utils.hl.conditional_hl(colors.none, {
+                bg = utils.hls.conditional_hl(colors.none, {
                     [config.diagnostics.background] = utils.color.darken(
                         diagnostics_hint_color,
                         0.1,

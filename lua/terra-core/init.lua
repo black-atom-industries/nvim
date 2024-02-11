@@ -8,13 +8,13 @@ local M = {}
 ---@param colorscheme_name TerraConfig.ColorSchemeName
 ---@return nil
 function M.load_colorscheme(colorscheme_name)
-    utils.hl.reset()
+    utils.hls.reset()
 
     utils.config.sync_vim_bg_with_terra_variant(TerraConfig.variant)
     vim.o.termguicolors = true
     vim.g.colors_name = colorscheme_name
 
-    utils.hl.setup()
+    utils.hls.setup()
 end
 
 ---@param opts TerraConfig
