@@ -72,6 +72,4 @@ return {
 
 With `config.styles` the user can opt in to different style presets, which change the look of the theme.
 
-Available presets:
-
--   `styles.cmp_kind_color_mode` (default: `bg`) - Change the color mode of the `cmp` kind icons. Available options: `bg`, `fg`
+https://github.com/terra-theme/terra-core.nvim/blob/1dfcd6e686ab58a64db6c9bd0132703960d480e0/lua/terra-core/types.lua#L128-L130
