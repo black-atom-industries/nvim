@@ -127,6 +127,7 @@
 
 ---@class TerraConfig.StylePresets
 ---@field cmp_kind_color_mode?                    "fg" | "bg" (Default: "fg")
+---@field dark_sidebars?                          boolean Wether to use dark sidebars (Default: true)
 
 ---@alias TerraConfig.Transparency                "full" | "partial" | "none"
 

@@ -6,11 +6,11 @@ M.default_config = {
     theme = "spring",
     variant = "night",
     transparency = "none",
-    dark_sidebars = true,
     term_colors = true,
     ending_tildes = false,
     style_presets = {
         cmp_kind_color_mode = "bg",
+        dark_sidebars = true,
     },
     code_style = {
         comments = {

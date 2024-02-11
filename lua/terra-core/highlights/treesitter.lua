@@ -1,7 +1,4 @@
--- Treesitter Syntax Highlights (See: `:h treesitter-highlight-groups`)
 local utils = require("terra-core.utils")
-
-local extend_hl = utils.highlights.extend_hl_with_code_style
 
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {
@@ -9,6 +6,7 @@ local highlight_map_extension = {
         local fg = colors.semantics.fg
         local palette = colors.palette
 
+        -- Treesitter Syntax Highlights (See: `:h treesitter-highlight-groups`)
         ---@type TerraHighlights
         local highlights_map = {
             -- If you want to add TreeSitter highlights, you can do so here.
@@ -23,7 +21,7 @@ local highlight_map_extension = {
 
             ["@comment"] = { link = "Comment" },
 
-            ["@conditional"] = extend_hl({ fg = palette.magenta }, config.code_style.keywords),
+            ["@conditional"] = utils.hl.extend_hl({ fg = palette.magenta }, config.code_style.keywords),
 
             ["@constant"] = { fg = palette.dark_yellow },
             ["@constant.builtin"] = { fg = palette.dark_yellow },
@@ -39,9 +37,9 @@ local highlight_map_extension = {
 
             ["@float"] = { fg = palette.dark_yellow },
 
-            ["@function"] = extend_hl({ fg = palette.yellow, bold = true }, config.code_style.functions),
-            ["@function.builtin"] = extend_hl({ fg = palette.yellow }, config.code_style.functions),
-            ["@function.macro"] = extend_hl({ fg = palette.yellow }, config.code_style.functions),
+            ["@function"] = utils.hl.extend_hl({ fg = palette.yellow, bold = true }, config.code_style.functions),
+            ["@function.builtin"] = utils.hl.extend_hl({ fg = palette.yellow }, config.code_style.functions),
+            ["@function.macro"] = utils.hl.extend_hl({ fg = palette.yellow }, config.code_style.functions),
 
             ["@include"] = { fg = palette.magenta },
 
@@ -68,12 +66,12 @@ local highlight_map_extension = {
             ["@punctuation.delimiter"] = { fg = fg.primary.main },
             ["@punctuation.special"] = { fg = fg.primary.main },
 
-            ["@repeat"] = extend_hl({ fg = palette.magenta }, config.code_style.keywords),
+            ["@repeat"] = utils.hl.extend_hl({ fg = palette.magenta }, config.code_style.keywords),
 
-            ["@string"] = extend_hl({ fg = palette.green }, config.code_style.strings),
-            ["@string.escape"] = extend_hl({ fg = palette.red }, config.code_style.strings),
-            ["@string.regex"] = extend_hl({ fg = palette.dark_yellow }, config.code_style.strings),
-            ["@string.special"] = extend_hl({ fg = palette.green }, config.code_style.strings),
+            ["@string"] = utils.hl.extend_hl({ fg = palette.green }, config.code_style.strings),
+            ["@string.escape"] = utils.hl.extend_hl({ fg = palette.red }, config.code_style.strings),
+            ["@string.regex"] = utils.hl.extend_hl({ fg = palette.dark_yellow }, config.code_style.strings),
+            ["@string.special"] = utils.hl.extend_hl({ fg = palette.green }, config.code_style.strings),
 
             ["@symbol"] = { fg = palette.cyan },
 
@@ -102,8 +100,8 @@ local highlight_map_extension = {
             ["@type"] = { fg = palette.cyan },
             ["@type.builtin"] = { fg = palette.dark_cyan },
 
-            ["@variable"] = extend_hl({ fg = palette.blue }, config.code_style.variables),
-            ["@variable.builtin"] = extend_hl({ fg = palette.blue }, config.code_style.variables),
+            ["@variable"] = utils.hl.extend_hl({ fg = palette.blue }, config.code_style.variables),
+            ["@variable.builtin"] = utils.hl.extend_hl({ fg = palette.blue }, config.code_style.variables),
 
             -- Treesitter Semantic Tokens
             ["@lsp.type.namespace"] = { link = "@namespace" },

@@ -12,10 +12,11 @@ function M.reset()
     end
 end
 
+---Extends a highlight definition with a code style definition
 ---@param highlight TerraHighlightDefinition
 ---@param code_style TerraHighlightDefinition
 ---@return TerraHighlightDefinition
-function M.extend_hl_with_code_style(highlight, code_style)
+function M.extend_hl(highlight, code_style)
     return vim.tbl_extend("force", highlight, code_style)
 end
 
@@ -35,10 +36,8 @@ end
 ---@return TerraHighlights
 function M.build_highlights_map(colors, config)
     local default_ignore_pattern = ".*_template.lua$"
-    local highlight_modules = require("terra-core.utils.files").get_highlight_modules(
-        "lua/terra-core/highlights",
-        default_ignore_pattern
-    )
+    local highlight_modules =
+        require("terra-core.utils.files").get_highlight_modules("lua/terra-core/highlights", default_ignore_pattern)
 
     local highlights_map = M.aggregate_highlight_maps(highlight_modules, colors, config)
 
@@ -148,6 +147,7 @@ function M.conditional_hl(default_highlight, conditional_highlight_map)
     return final_highlight
 end
 
+---Sets up the highlights for the Terra theme based on the current configuration
 ---@return nil
 function M.setup()
     local colors = require("terra-core.colors").get()

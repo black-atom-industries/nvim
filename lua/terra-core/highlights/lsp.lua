@@ -1,8 +1,5 @@
 local utils = require("terra-core.utils")
 
-local darken = utils.color.darken
-local conditional_hl = utils.highlights.conditional_hl
-
 ---@type TerraHighlightsSpec
 local highlight_map_extension = {
     map = function(colors, config)
@@ -25,8 +22,8 @@ local highlight_map_extension = {
             DiagnosticWarn = { fg = colors.palette.yellow },
 
             DiagnosticVirtualTextError = {
-                bg = conditional_hl(colors.none, {
-                    [config.diagnostics.background] = darken(
+                bg = utils.hl.conditional_hl(colors.none, {
+                    [config.diagnostics.background] = utils.color.darken(
                         diagnostics_error_color,
                         0.1,
                         colors.semantics.bg.primary.main
@@ -35,8 +32,8 @@ local highlight_map_extension = {
                 fg = diagnostics_error_color,
             },
             DiagnosticVirtualTextWarn = {
-                bg = conditional_hl(colors.none, {
-                    [config.diagnostics.background] = darken(
+                bg = utils.hl.conditional_hl(colors.none, {
+                    [config.diagnostics.background] = utils.color.darken(
                         diagnostics_warn_color,
                         0.1,
                         colors.semantics.bg.primary.main
@@ -45,8 +42,8 @@ local highlight_map_extension = {
                 fg = diagnostics_warn_color,
             },
             DiagnosticVirtualTextInfo = {
-                bg = conditional_hl(colors.none, {
-                    [config.diagnostics.background] = darken(
+                bg = utils.hl.conditional_hl(colors.none, {
+                    [config.diagnostics.background] = utils.color.darken(
                         diagnostics_info_color,
                         0.1,
                         colors.semantics.bg.primary.main
@@ -55,8 +52,8 @@ local highlight_map_extension = {
                 fg = diagnostics_info_color,
             },
             DiagnosticVirtualTextHint = {
-                bg = conditional_hl(colors.none, {
-                    [config.diagnostics.background] = darken(
+                bg = utils.hl.conditional_hl(colors.none, {
+                    [config.diagnostics.background] = utils.color.darken(
                         diagnostics_hint_color,
                         0.1,
                         colors.semantics.bg.primary.main

@@ -2,11 +2,14 @@
 local highlight_map_spec = {
     enabled = true,
 
-    map = function(colors)
+    map = function(colors, config)
+        -- local bg = colors.semantics.bg
         local fg = colors.semantics.fg
+        local bg_float = require("terra-core.utils.background").float(config, colors)
 
         ---@type TerraHighlights
         local highlights_map = {
+            FzfLuaNormal = { fg = fg.primary.main, bg = bg_float },
             FzfLuaTitle = { fg = fg.active },
             FzfLuaBorder = { link = "FloatBorder" },
             FzfLuaPreviewBorder = { link = "FloatBorder" },
