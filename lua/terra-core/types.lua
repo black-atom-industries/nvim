@@ -131,6 +131,7 @@
 ---@field cmp_kind_color_mode?                    "fg" | "bg" (Default: "fg")
 ---@field dark_sidebars?                          boolean Wether to use dark sidebars (Default: true)
 ---@field transparency?                           TerraConfig.Transparency Transparency level (Default: "none")
+---@field diagnostics?                            TerraConfig.Diagnostics Diagnostics related settings (Default: See Documentation)
 
 ---@class TerraConfig
 ---@field debug?                                  boolean Enables the Debug Mode (Enables various debug messages) (Default: false)
@@ -140,4 +141,3 @@
 ---@field style_presets?                          TerraConfig.StylePresets Various styles related settings (Default: See Documentation)
 ---@field ending_tildes?                          boolean Wether to show the end-of-buffer tildes (Default: false)
 ---@field code_style?                             TerraConfig.CodeStyle Code styling options (Default: See Documentation)
----@field diagnostics?                            TerraConfig.Diagnostics Diagnostics related settings (Default: See Documentation)

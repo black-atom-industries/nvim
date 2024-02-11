@@ -11,6 +11,10 @@ M.default_config = {
         cmp_kind_color_mode = "bg",
         dark_sidebars = true,
         transparency = "none",
+        diagnostics = {
+            undercurl = false,
+            background = false,
+        },
     },
     code_style = {
         comments = {
@@ -30,10 +34,6 @@ M.default_config = {
         messages = {
             bold = true,
         },
-    },
-    diagnostics = {
-        undercurl = false,
-        background = false,
     },
 }
 
