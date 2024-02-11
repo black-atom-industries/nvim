@@ -6,7 +6,7 @@ local lib = {
     files = require("terra-core.lib.files"),
     themes = require("terra-core.lib.themes"),
     debug = require("terra-core.lib.debug"),
-    bg = require("terra-core.lib.background"),
+    bg = require("terra-core.lib.bg"),
 }
 
 return lib

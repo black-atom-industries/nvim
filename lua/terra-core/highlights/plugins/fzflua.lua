@@ -3,9 +3,11 @@ local highlight_map_spec = {
     enabled = true,
 
     map = function(colors, config)
-        -- local bg = colors.semantics.bg
+        local lib = require("terra-core.lib")
+
         local fg = colors.semantics.fg
-        local bg_float = require("terra-core.lib.background").float(config, colors)
+
+        local bg_float = lib.bg.float(config, colors)
 
         ---@type TerraHighlights
         local highlights_map = {
