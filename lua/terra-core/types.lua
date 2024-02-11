@@ -122,8 +122,8 @@
 ---@field messages?                               TerraHighlightDefinition Affects: `WarningMsg`, `ErrorMsg`, `MoreMsg`, `ModeMsg`
 
 ---@class TerraConfig.Diagnostics
----@field undercurl                               boolean Wether to use undercurls for diagnostics (Default: false)
----@field background                              boolean Wether to use background color for virtual text (Default: false)
+---@field undercurl?                              boolean Wether to use undercurls for diagnostics (Default: false)
+---@field background?                             boolean Wether to use background color for virtual text (Default: false)
 
 ---@class TerraConfig.StylePresets
 ---@field cmp_kind_color_mode?                    "fg" | "bg" (Default: "fg")
