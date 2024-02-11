@@ -145,14 +145,10 @@ function M.select_theme()
 
                 require("terra-core").load_colorscheme(colorscheme_name)
 
-                require("terra-core.lib.ui").notify(
-                    "You selected '" .. themeConfig.label .. "'!",
-                    vim.log.levels.INFO,
-                    {
-                        title = themeConfig.label,
-                        icon = themeConfig.icon,
-                    }
-                )
+                require("terra-core.lib.ui").notify("You selected '" .. themeConfig.label .. "'!", vim.log.levels.INFO, {
+                    title = themeConfig.label,
+                    icon = themeConfig.icon,
+                })
             end)
         end
     )
