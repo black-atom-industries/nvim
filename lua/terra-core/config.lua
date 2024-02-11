@@ -1,7 +1,5 @@
-local M = {}
-
 ---@type TerraConfig
-M.default_config = {
+return {
     debug = false,
     theme = "spring",
     variant = "night",
@@ -36,5 +34,3 @@ M.default_config = {
         },
     },
 }
-
-return M

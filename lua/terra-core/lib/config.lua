@@ -1,10 +1,9 @@
 local themes = require("terra-core.themes")
-local lib_ui = require("terra-core.lib.ui")
 
 local M = {}
 
 function M.set_terra_config_defaults()
-    TerraConfig = vim.tbl_deep_extend("force", {}, require("terra-core.config").default_config)
+    TerraConfig = vim.tbl_deep_extend("force", {}, require("terra-core.config"))
 end
 
 ---Sets options for the TerraConfig during runtime
