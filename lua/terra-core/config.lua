@@ -1,5 +1,9 @@
+local M = {}
+
+M.plugin_name = "black%-atom%-core%.nvim"
+
 ---@type TerraConfig
-return {
+M.default_config = {
     debug = false,
     theme = "spring",
     variant = "night",
@@ -34,3 +38,5 @@ return {
         },
     },
 }
+
+return M

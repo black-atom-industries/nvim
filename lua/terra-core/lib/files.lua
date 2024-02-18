@@ -1,16 +1,20 @@
 local M = {}
 
----Get the path of the terra-core plugin
+---Get the install path of the plugin
 ---@return string
 function M.get_plugin_path()
-    local runtimepaths = vim.api.nvim_get_option("runtimepath")
+    local runtimepaths = vim.api.nvim_list_runtime_paths()
     local plugin_path = ""
 
-    for _, path in ipairs(vim.split(runtimepaths, ",")) do
-        if path:find("terra%-core") then
+    for _, path in ipairs(runtimepaths) do
+        if path:find(require("terra-core.config").plugin_name) then
             plugin_path = path
             break
         end
+    end
+
+    if plugin_path == "" then
+        error("Could not find the plugin path")
     end
 
     return plugin_path

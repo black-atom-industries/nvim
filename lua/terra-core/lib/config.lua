@@ -3,7 +3,7 @@ local themes = require("terra-core.themes")
 local M = {}
 
 function M.set_terra_config_defaults()
-    TerraConfig = vim.tbl_deep_extend("force", {}, require("terra-core.config"))
+    TerraConfig = vim.tbl_deep_extend("force", {}, require("terra-core.config").default_config)
 end
 
 ---Sets options for the TerraConfig during runtime
@@ -144,10 +144,14 @@ function M.select_theme()
 
                 require("terra-core").load_colorscheme(colorscheme_name)
 
-                require("terra-core.lib.ui").notify("You selected '" .. themeConfig.label .. "'!", vim.log.levels.INFO, {
-                    title = themeConfig.label,
-                    icon = themeConfig.icon,
-                })
+                require("terra-core.lib.ui").notify(
+                    "You selected '" .. themeConfig.label .. "'!",
+                    vim.log.levels.INFO,
+                    {
+                        title = themeConfig.label,
+                        icon = themeConfig.icon,
+                    }
+                )
             end)
         end
     )
