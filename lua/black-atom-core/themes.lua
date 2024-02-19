@@ -104,6 +104,24 @@ local themes = {
             },
         },
     },
+    black_atom = {
+        order = 5,
+        label = "Black Atom",
+        key = "black_atom",
+        icon = "󰹻 ",
+        path = "black-atom-core.themes.dark",
+        group = "black_atom",
+        variants = {
+            dark = {
+                key = "dark",
+                label = "Dark",
+                icon = "󰖔 ",
+                status = "beta",
+                colorscheme_name = "black_atom_dark",
+                path = "black-atom-core.themes.black_atom_dark",
+            },
+        },
+    },
 }
 
 return themes

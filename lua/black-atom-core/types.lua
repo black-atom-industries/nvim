@@ -89,9 +89,9 @@
 ---@field palette                                               BlackAtomCore.Colors.Palette
 ---@field semantics                                             BlackAtomCore.Colors.Semantics
 
----@alias BlackAtomCore.Config.ThemeVariantKey                  "day" | "night"
----@alias BlackAtomCore.Config.ThemeKey                         "spring" | "summer" | "fall" | "winter"
----@alias BlackAtomCore.Config.ColorSchemeName                  "terra_spring_night" | "terra_spring_day" | "terra_summer_night" | "terra_summer_day" | "terra_fall_night" | "terra_fall_day" | "terra_winter_night" | "terra_winter_day"
+---@alias BlackAtomCore.Config.ThemeVariantKey                  "day" | "night" | "dark"
+---@alias BlackAtomCore.Config.ThemeKey                         "spring" | "summer" | "fall" | "winter" | "black_atom"
+---@alias BlackAtomCore.Config.ColorSchemeName                  "terra_spring_night" | "terra_spring_day" | "terra_summer_night" | "terra_summer_day" | "terra_fall_night" | "terra_fall_day" | "terra_winter_night" | "terra_winter_day" | "black_atom_dark"
 
 ---@class BlackAtomCore.Config.VariantDefinition
 ---@field label                                                 string Display name
@@ -107,7 +107,7 @@
 ---@field icon                                                  string Icon to display in the UI
 ---@field path                                                  string Path to the theme module
 ---@field order                                                 integer Order in which the theme will appear in custom picker
----@field group                                                 "seasons" Theme group to which the theme belongs
+---@field group                                                 "black_atom" | "seasons" Theme group to which the theme belongs
 ---@field variants                                              table<BlackAtomCore.Config.ThemeVariantKey, BlackAtomCore.Config.VariantDefinition>
 
 ---@alias BlackAtomCore.Config.ThemeDefinitionMap               table<BlackAtomCore.Config.ThemeKey, BlackAtomCore.Config.ThemeDefinition>
