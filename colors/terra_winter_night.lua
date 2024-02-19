@@ -1,5 +1,5 @@
-require("terra-core").setup({
+require("black-atom-core").setup({
     theme = "winter",
     variant = "night",
 })
-require("terra-core").load_colorscheme("terra_winter_night")
+require("black-atom-core").load_colorscheme("terra_winter_night")
