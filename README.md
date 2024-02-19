@@ -1,7 +1,7 @@
-# Terra Theme `core` for Neovim
+# Black Atom Core for Neovim
 
-This is the core of the Terra Theme for Neovim.
-It serves as a base for all other Terra Theme colorscheme plugins.
+This is logic core for Neovim themes by Black Atom Industries.
+It will receive theme definitions from outside and apply them to the editor.
 
 ## 🚧 &nbsp;Status: Early development &nbsp;🚧</p>
 
@@ -14,16 +14,6 @@ This is all a work in progress.
 **Current usage is not recommended.**
 
 ## Development
-
-### Linting
-
-Lint whole project with `lua-language-server` while respecting the `.luarc.json`.
-
-```bash
-lua-language-server --check ./lua --checklevel=Warning --logpath . --configpath /Users/nikolausbrunner/Documents/dev/repos/terra-theme/terra-core.nvim/.luarc.json
-```
-
-> Note: This currently works only with absolute paths. This seems to be a bug in `lua-language-server`, and I commented on a similar issue [here](https://github.com/LuaLS/lua-language-server/issues/2038#issuecomment-1500215468).
 
 ### Formatting
 
@@ -40,9 +30,9 @@ Here is an example with `lazy.nvim`:
 
 ```lua
 return {
-    "terra-theme/terra-core.nvim",
+    "black-atom-industries/black-atom-core.nvim",
     priority = 1000,
-    ---@type TerraConfig
+    ---@type BlackAtomCore.Config
     opts = {
       -- Set up your default theme and variant here
       theme = "fall",
@@ -54,16 +44,16 @@ return {
       {
         "<leader>Tt",
         function()
-          require("terra-core.lib.config").select_theme()
+          require("black-atom-core.lib.config").select_theme()
         end,
-        desc = "Select a Terra theme",
+        desc = "Select a Black Atom Industries theme",
       },
     },
 
     -- If you want to setup a theme via vim.cmd.colorscheme you can do it like this
     -- NOTE: This will override the options set above
     config = function()
-      vim.cmd.colorscheme("terra_control_night")
+      vim.cmd.colorscheme("terra_winter_night")
     end,
   }
 ```
@@ -72,5 +62,4 @@ return {
 
 With `config.styles` the user can opt in to different style presets, which change the look of the theme.
 
-https://github.com/terra-theme/terra-core.nvim/blob/533dbbda58ab1a8bd5bb3a24edb78b5a2e40a654/lua/terra-core/types.lua#L130-L136
-
+https://github.com/black-atom-industries/black-atom-core.nvim/blob/533dbbda58ab1a8bd5bb3a24edb78b5a2e40a654/lua/black-atom-core/types.lua#L130-L136
