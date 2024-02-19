@@ -33,10 +33,6 @@ local highlight_map_extension = {
 
             ["@exception"] = { fg = palette.magenta },
 
-            ["@field"] = { fg = palette.blue },
-
-            ["@float"] = { fg = palette.dark_yellow },
-
             ["@function"] = lib.hls.extend_hl({ fg = palette.yellow, bold = true }, config.styles.syntax.functions),
             ["@function.builtin"] = lib.hls.extend_hl({ fg = palette.yellow }, config.styles.syntax.functions),
             ["@function.macro"] = lib.hls.extend_hl({ fg = palette.yellow }, config.styles.syntax.functions),
@@ -51,57 +47,58 @@ local highlight_map_extension = {
 
             ["@method"] = { fg = palette.yellow, bold = true },
 
-            ["@namespace"] = { fg = palette.dark_blue },
+            ["@module"] = { fg = palette.dark_blue },
 
             ["@none"] = { fg = fg.primary.main },
 
             ["@number"] = { fg = palette.dark_yellow },
+            ["@number.float"] = { fg = palette.dark_yellow },
 
             ["@operator"] = { link = "Operator" },
 
-            ["@parameter"] = { fg = palette.dark_yellow, italic = true },
-            ["@parameter.reference"] = { fg = fg.primary.main },
             ["@property"] = { fg = palette.dark_blue },
             ["@punctuation.bracket"] = { fg = fg.primary.main },
             ["@punctuation.delimiter"] = { fg = fg.primary.main },
-            ["@punctuation.special"] = { fg = fg.primary.main },
 
             ["@repeat"] = lib.hls.extend_hl({ fg = palette.magenta }, config.styles.syntax.keywords),
 
             ["@string"] = lib.hls.extend_hl({ fg = palette.green }, config.styles.syntax.strings),
             ["@string.escape"] = lib.hls.extend_hl({ fg = palette.red }, config.styles.syntax.strings),
-            ["@string.regex"] = lib.hls.extend_hl({ fg = palette.dark_yellow }, config.styles.syntax.strings),
-            ["@string.special"] = lib.hls.extend_hl({ fg = palette.green }, config.styles.syntax.strings),
-
-            ["@symbol"] = { fg = palette.cyan },
+            ["@string.regexp"] = lib.hls.extend_hl({ fg = palette.dark_yellow }, config.styles.syntax.strings),
+            ["@string.special.symbol"] = { fg = palette.cyan },
 
             ["@tag"] = { fg = palette.yellow },
             ["@tag.attribute"] = { fg = palette.dark_yellow },
             ["@tag.delimiter"] = { fg = palette.dark_yellow },
 
-            ["@text"] = { fg = fg.primary.main },
-            ["@text.danger"] = { fg = fg.primary.main },
-            ["@text.emphasis"] = { fg = fg.primary.main, italic = true },
-            ["@text.environment"] = { fg = fg.primary.main },
-            ["@text.environment.name"] = { fg = fg.primary.main },
-            ["@text.literal"] = { fg = palette.green },
-            ["@text.math"] = { fg = fg.primary.main },
-            ["@text.note"] = { fg = fg.primary.main },
-            ["@text.reference"] = { fg = palette.blue },
-            ["@text.strike"] = { fg = fg.primary.main, strikethrough = true },
-            ["@text.strong"] = { fg = fg.primary.main, bold = true },
-            ["@text.title"] = { fg = palette.dark_yellow, bold = true },
-            ["@text.todo.checked"] = { fg = fg.active },
-            ["@text.todo.unchecked"] = { fg = fg.neutral },
-            ["@text.underline"] = { fg = fg.primary.main, underline = true },
-            ["@text.uri"] = { fg = palette.blue, underline = true },
-            ["@text.warning"] = { fg = fg.primary.main },
+            ["@markup"] = { fg = fg.primary.main },
+            ["@markup.danger"] = { fg = fg.primary.main },
+            ["@markup.emphasis"] = { fg = fg.primary.main, italic = true },
+            ["@markup.environment"] = { fg = fg.primary.main },
+            ["@markup.environment.name"] = { fg = fg.primary.main },
+            ["@markup.raw"] = { fg = palette.green },
+            ["@markup.math"] = { fg = fg.primary.main },
+            ["@markup.note"] = { fg = fg.primary.main },
+            ["@markup.link"] = { fg = palette.blue },
+            ["@markup.link.label"] = lib.hls.extend_hl({ fg = palette.green }, config.styles.syntax.strings),
+            ["markup.list"] = { fg = fg.primary.main },
+            ["@markup.strike"] = { fg = fg.primary.main, strikethrough = true },
+            ["@markup.strong"] = { fg = fg.primary.main, bold = true },
+            ["@markup.heading"] = { fg = palette.dark_yellow, bold = true },
+            ["@markup.todo.checked"] = { fg = fg.active },
+            ["@markup.todo.unchecked"] = { fg = fg.neutral },
+            ["@markup.underline"] = { fg = fg.primary.main, underline = true },
+            ["@markup.link.url"] = { fg = palette.blue, underline = true },
+            ["@markup.warning"] = { fg = fg.primary.main },
 
             ["@type"] = { fg = palette.cyan },
             ["@type.builtin"] = { fg = palette.dark_cyan },
 
             ["@variable"] = lib.hls.extend_hl({ fg = palette.blue }, config.styles.syntax.variables),
             ["@variable.builtin"] = lib.hls.extend_hl({ fg = palette.blue }, config.styles.syntax.variables),
+            ["@variable.parameter"] = { fg = palette.dark_yellow, italic = true },
+            ["@variable.parameter.reference"] = { fg = fg.primary.main },
+            ["@variable.member"] = { fg = palette.blue },
 
             -- Treesitter Semantic Tokens
             ["@lsp.type.namespace"] = { link = "@namespace" },
