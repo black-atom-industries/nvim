@@ -4,7 +4,8 @@ local highlight_map_spec = {
     enabled = true,
 
     map = function(colors)
-        local match_style = { bg = colors.semantics.bg.match.passive }
+        ---@type TerraHighlightDefinition
+        local match_style = { bg = colors.semantics.bg.match.passive, underline = true }
 
         ---@type TerraHighlights
         local highlights_map = {
