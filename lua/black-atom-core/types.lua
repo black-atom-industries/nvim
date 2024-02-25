@@ -89,26 +89,17 @@
 ---@field palette                                               BlackAtomCore.Colors.Palette
 ---@field semantics                                             BlackAtomCore.Colors.Semantics
 
----@alias BlackAtomCore.Config.ThemeVariantKey                  "day" | "night"
----@alias BlackAtomCore.Config.ThemeKey                         "spring" | "summer" | "fall" | "winter"
----@alias BlackAtomCore.Config.ColorSchemeName                  "terra_spring_night" | "terra_spring_day" | "terra_summer_night" | "terra_summer_day" | "terra_fall_night" | "terra_fall_day" | "terra_winter_night" | "terra_winter_day"
-
----@class BlackAtomCore.Config.VariantDefinition
----@field label                                                 string Display name
----@field key                                                   BlackAtomCore.Config.ThemeVariantKey Unique Variant Key
----@field icon                                                  string Icon to display in the UI
----@field colorscheme_name                                      BlackAtomCore.Config.ColorSchemeName Name of the colorscheme which will appear in :colorscheme <name>
----@field path                                                  string Path to the variant module
----@field status                                                "development" | "beta" | "release" Status of the variant
+---@alias BlackAtomCore.Config.ThemeKey                         "terra_spring_night" | "terra_spring_day" | "terra_summer_night" | "terra_summer_day" | "terra_fall_night" | "terra_fall_day" | "terra_winter_night" | "terra_winter_day"
 
 ---@class BlackAtomCore.Config.ThemeDefinition
 ---@field label                                                 string Display name
----@field key                                                   BlackAtomCore.Config.ThemeKey Unique Theme Key
+---@field key                                                   BlackAtomCore.Config.ThemeKey (Unique) Theme Key
 ---@field icon                                                  string Icon to display in the UI
 ---@field path                                                  string Path to the theme module
 ---@field order                                                 integer Order in which the theme will appear in custom picker
+---@field appearance                                            "light" | "dark"
 ---@field group                                                 "seasons" Theme group to which the theme belongs
----@field variants                                              table<BlackAtomCore.Config.ThemeVariantKey, BlackAtomCore.Config.VariantDefinition>
+---@field status                                                "development" | "beta" | "release" Status of the theme
 
 ---@alias BlackAtomCore.Config.ThemeDefinitionMap               table<BlackAtomCore.Config.ThemeKey, BlackAtomCore.Config.ThemeDefinition>
 
@@ -118,7 +109,7 @@
 ---@field functions?                                            BlackAtomCore.HighlightDefinition
 ---@field strings?                                              BlackAtomCore.HighlightDefinition
 ---@field variables?                                            BlackAtomCore.HighlightDefinition
----@field messages?                                             BlackAtomCore.HighlightDefinition Affects: `WarningMsg`, `ErrorMsg`, `MoreMsg`, `ModeMsg`
+---@field messages?                                             BlackAtomCore.HighlightDefinition
 
 ---@class BlackAtomCore.Config.Diagnostics
 ---@field undercurl?                                            boolean Wether to use undercurls for diagnostics (Default: false)
@@ -136,7 +127,6 @@
 
 ---@class BlackAtomCore.Config
 ---@field debug?                                                boolean Enables the Debug Mode (Enables various debug messages) (Default: false)
----@field theme?                                                BlackAtomCore.Config.ThemeKey Currently set theme (Default: "spring")
----@field variant?                                              BlackAtomCore.Config.ThemeVariantKey Currently set variant (Default: "night")
+---@field theme?                                                BlackAtomCore.Config.ThemeKey Currently set theme (Default: "terra_spring_night")
 ---@field term_colors?                                          boolean Wether to enable terminal colors (Default: true)
 ---@field styles?                                               BlackAtomCore.Config.Styles Various styles related settings (Default: See Documentation)

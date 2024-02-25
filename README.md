@@ -34,9 +34,8 @@ return {
     priority = 1000,
     ---@type BlackAtomCore.Config
     opts = {
-      -- Set up your default theme and variant here
-      theme = "fall",
-      variant = "night",
+      -- Set up your default theme
+      theme = "terra_summer_night",
     },
     keys = {
     -- You can also select a theme via a keymap
