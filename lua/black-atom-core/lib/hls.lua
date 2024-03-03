@@ -135,7 +135,7 @@ end
 ---Returns the appropriate highlight value based on the provided conditions.
 ---If no conditions evaluate to true, the default highlight value is returned.
 ---@param default_highlight string The default highlight value to return if no conditions are true.
----@param conditional_highlight_map table<boolean, string> A table mapping conditions (booleans) to their respective highlight values.
+---@param conditional_highlight_map table<boolean, string>
 ---@return string
 function M.conditional_hl(default_highlight, conditional_highlight_map)
     local final_highlight = default_highlight
