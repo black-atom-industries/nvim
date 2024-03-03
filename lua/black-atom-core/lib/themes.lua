@@ -13,31 +13,35 @@ function M.get_ordered_theme_keys(themes)
     return ordered_theme_keys
 end
 
---- Get all unique variant keys from all themes
+--- Get all unique theme keys from all theme definitions
 ---@param themes BlackAtomCore.Config.ThemeDefinitionMap
----@return BlackAtomCore.Config.ThemeVariantKey[]
-function M.get_sorted_variant_keys(themes)
-    local sorted_variant_keys = {}
+---@return BlackAtomCore.Config.ThemeKey[]
+function M.get_sorted_theme_keys(themes)
+    local sorted_theme_keys = {}
 
-    for _, theme in pairs(themes) do
-        for _, variant in pairs(theme.variants) do
-            -- if the variant is not already in the array, add it
-            if not vim.tbl_contains(sorted_variant_keys, variant.key) then
-                table.insert(sorted_variant_keys, variant.key)
-            end
+    for theme_key in pairs(themes) do
+        if not vim.tbl_contains(sorted_theme_keys, theme_key) then
+            table.insert(sorted_theme_keys, theme_key)
         end
     end
 
-    return sorted_variant_keys
+    return sorted_theme_keys
 end
 
----Get a property value from a theme variant
+---Get a property value from a theme definition
 ---@param themes BlackAtomCore.Config.ThemeDefinitionMap
 ---@param theme_key BlackAtomCore.Config.ThemeKey
----@param variant_key BlackAtomCore.Config.ThemeVariantKey
 ---@param property string
-function M.get_variant_value(themes, theme_key, variant_key, property)
-    return themes[theme_key].variants[variant_key][property]
+function M.get_variant_value(themes, theme_key, property)
+    return themes[theme_key][property]
+end
+
+---Get the theme definition for a given theme key
+---@param themes BlackAtomCore.Config.ThemeDefinitionMap
+---@param theme_key BlackAtomCore.Config.ThemeKey
+---@return BlackAtomCore.Config.ThemeDefinition
+function M.get_theme_definition(themes, theme_key)
+    return themes[theme_key]
 end
 
 return M

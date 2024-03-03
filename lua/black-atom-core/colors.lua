@@ -4,9 +4,8 @@ local M = {}
 ---@return BlackAtomCore.Colors
 function M.get()
     local theme = BlackAtomCoreConfig.theme
-    local variant = BlackAtomCoreConfig.variant
 
-    return require(require("black-atom-core.themes")[theme].variants[variant].path)
+    return require(require("black-atom-core.themes")[theme].path)
 end
 
 return M

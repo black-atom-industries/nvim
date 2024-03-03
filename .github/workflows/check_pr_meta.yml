@@ -11,7 +11,7 @@ jobs:
     check-pr-meta:
         runs-on: ubuntu-20.04
         env:
-            REGEX_VALIDATION_PATTERN: '^(feat|themes|highlights|utils|plugins|config|fix|refactor|chore|tests|docs|style|perf|build|ci|revert|deps)(\(.*\))?:\ .*\ \(DEV-[0-9]+\)$'
+            REGEX_VALIDATION_PATTERN: '^(feat|themes|highlights|utils|plugins|config|fix|refactor|chore|tests|docs|style|perf|build|ci|revert|deps)(\(.*\))?(!)?:\ .*\ \(DEV-[0-9]+\)$'
 
         steps:
             - name: Check PR Title
@@ -43,7 +43,8 @@ jobs:
                   fi
 
                   for commit_sha in $(git rev-list --no-merges "${commit_range}"); do
-                    commit_message=$(git log --format=%B -n 1 "${commit_sha}")
+                    commit_message=$(git log --format=%B -n 1 "${commit_sha}" | head -n 1)
+                    echo "Checking commit message: \"${commit_message}\""
                     if [[ ! "${commit_message}" =~ ${{ env.REGEX_VALIDATION_PATTERN }} ]]; then
                       echo "Error: Commit message in wrong format: \"${commit_message}\""
                   echo "Please suffix the commit message with the issue number followed by a space, a conventional commit prefix, and a colon (e.g. feat: <commit message> (DEV-XXXX))"

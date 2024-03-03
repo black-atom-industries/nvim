@@ -1,12 +1,12 @@
 local M = {}
 
+-- Escaped plugin name. Used to find its own installation path.
 M.plugin_name = "black%-atom%-core%.nvim"
 
 ---@type BlackAtomCore.Config
 M.default_config = {
     debug = false,
-    theme = "spring",
-    variant = "night",
+    theme = "terra_spring_night",
     term_colors = true,
     styles = {
         ending_tildes = false,
