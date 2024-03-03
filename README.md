@@ -15,6 +15,12 @@ This is all a work in progress.
 
 ## Development
 
+### Linting
+
+```bash
+luacheck .
+```
+
 ### Formatting
 
 Format whole project with `stylua`.

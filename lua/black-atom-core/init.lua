@@ -5,7 +5,6 @@ local lib = require("black-atom-core.lib")
 
 local M = {}
 
----TODO: Handle `vim.background`: https://linear.app/black-atom-industries/issue/DEV-119/proper-handling-of-vimoptbackground-=-darklight
 ---@param colorscheme_name BlackAtomCore.Config.ThemeKey
 ---@return nil
 function M.load_colorscheme(colorscheme_name)

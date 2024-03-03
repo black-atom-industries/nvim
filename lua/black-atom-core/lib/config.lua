@@ -1,4 +1,4 @@
-local themes = require("black-atom-core.themes")
+local all_themes = require("black-atom-core.themes")
 
 local M = {}
 
@@ -15,20 +15,17 @@ end
 
 ---Notify the user about the status of the current theme
 ---@param themes BlackAtomCore.Config.ThemeDefinitionMap
----@param theme_key? BlackAtomCore.Config.ThemeKey
+---@param theme_key BlackAtomCore.Config.ThemeKey
 ---@param on_allow? fun(): nil Callback which is called when the theme is allowed to use
 ---@return nil
 ---@diagnostic disable-next-line: redefined-local
 function M.dev_status_warning(themes, theme_key, on_allow)
-    theme_key = theme_key or BlackAtomCoreConfig.theme
-
     local theme = require("black-atom-core.lib.themes").get_theme_definition(themes, theme_key)
     local status = theme.status
 
     if status == "development" then
         local error_message = string.format(
             "Theme '%s %s' is currently in %s status.\nThis is not ready to be used. Theme switch aborted.",
-            theme.label,
             theme.label,
             theme.status
         )
@@ -42,8 +39,7 @@ function M.dev_status_warning(themes, theme_key, on_allow)
         local error_message = string.format(
             "Theme '%s %s' is currently in %s status.\nBugs and Errors are to be expected. Use at your own risk.",
             theme.label,
-            theme.key.label,
-            theme.key.status
+            theme.status
         )
 
         require("black-atom-core.lib.ui").notify(error_message, vim.log.levels.WARN, {
@@ -65,7 +61,7 @@ end
 ---Select a theme during runtime
 ---@return nil
 function M.select_theme()
-    local sorted_theme_keys = require("black-atom-core.lib.themes").get_ordered_theme_keys(themes)
+    local sorted_theme_keys = require("black-atom-core.lib.themes").get_ordered_theme_keys(all_themes)
 
     -- filter the current theme_key from the list of themes
     local theme_select_items = vim.tbl_filter(function(theme_key)
@@ -78,7 +74,7 @@ function M.select_theme()
             prompt = "Black Atom Core - Please select a Theme: ",
             format_item = function(theme_key)
                 ---@type BlackAtomCore.Config.ThemeDefinition
-                local theme = require("black-atom-core.lib.themes").get_theme_definition(themes, theme_key)
+                local theme = require("black-atom-core.lib.themes").get_theme_definition(all_themes, theme_key)
 
                 return string.format("%s %s %s %s", theme.icon, theme.label)
             end,
@@ -94,15 +90,15 @@ function M.select_theme()
             end
 
             ---@type BlackAtomCore.Config.ThemeDefinition
-            local theme = require("black-atom-core.lib.themes").get_theme_definition(themes, selected_theme_key)
+            local theme = require("black-atom-core.lib.themes").get_theme_definition(all_themes, selected_theme_key)
 
-            M.dev_status_warning(themes, selected_theme_key, function()
+            M.dev_status_warning(all_themes, selected_theme_key, function()
                 M.set_config({
                     theme = selected_theme_key,
                 })
 
                 local colorscheme_name = require("black-atom-core.lib.themes").get_variant_value(
-                    themes,
+                    all_themes,
                     selected_theme_key,
                     "colorscheme_name"
                 )
