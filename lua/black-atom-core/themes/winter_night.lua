@@ -12,10 +12,10 @@ M.debug = {
 ---@type BlackAtomCore.Colors.Primaries
 M.primaries = {
     -- Lows
+    "#0e0f10",
+    "#17181a",
     "#1d1e20",
-    "#232427",
-    "#27282b",
-    "#2b2c30",
+    "#212225",
 
     -- Mids
     "#3a3d47",
