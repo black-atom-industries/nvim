@@ -13,6 +13,9 @@ function M.load_colorscheme(colorscheme_name)
     vim.o.termguicolors = true
     vim.g.colors_name = colorscheme_name
 
+    -- https://linear.app/black-atom-industries/issue/DEV-119/proper-handling-of-vimoptbackground-=-darklight
+    vim.opt.background = "dark"
+
     lib.hls.setup()
 end
 
