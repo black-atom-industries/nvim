@@ -31,7 +31,7 @@ local highlight_map_extension = {
             Conditional = lib.hls.extend_hl({ fg = palette.magenta }, config.styles.syntax.keywords),
             Constant = { fg = palette.dark_yellow },
             Define = { fg = palette.magenta },
-            Delimiter = { fg = palette.light_gray },
+            Delimiter = { fg = fg.primary.main },
             Error = { fg = palette.magenta },
             Exception = { fg = palette.magenta },
             Float = { fg = palette.dark_yellow },
@@ -40,6 +40,7 @@ local highlight_map_extension = {
             Include = { fg = palette.magenta },
             Keyword = lib.hls.extend_hl({ fg = palette.red }, config.styles.syntax.keywords),
             Label = { fg = palette.magenta },
+            MatchParen = { reverse = true },
             Macro = { fg = palette.red },
             Number = { fg = palette.dark_yellow },
             Operator = { fg = palette.magenta },
@@ -86,7 +87,7 @@ local highlight_map_extension = {
 
             -- Popup Menu
             Pmenu = { fg = fg.primary.main, bg = bg.primary.dark },
-            PmenuSel = { bg = bg.active },
+            PmenuSel = { bg = bg.primary.light },
             PmenuSbar = { fg = colors.none, bg = bg.primary.dark },
             PmenuThumb = { fg = colors.none, bg = bg.active },
 

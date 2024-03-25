@@ -10,7 +10,7 @@ local highlight_map_extension = {
             },
             CmpItemAbbrMatch = { fg = colors.palette.cyan },
             CmpItemAbbrMatchFuzzy = { fg = colors.palette.cyan, underline = true },
-            CmpItemMenu = { fg = colors.palette.light_gray },
+            CmpItemMenu = { fg = colors.semantics.fg.secondary.main },
             CmpItemKind = { fg = colors.palette.magenta },
         }
 

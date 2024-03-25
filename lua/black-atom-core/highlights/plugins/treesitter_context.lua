@@ -1,24 +1,16 @@
 ---@type BlackAtomCore.HighlightsSpec
 local highlight_map_extension = {
     map = function(colors, config)
-        local conditional_hl = require("black-atom-core.lib").hls.conditional_hl
-
-        local bg = colors.semantics.bg
-        local fg = colors.semantics.fg
+        local lib = require("black-atom-core.lib")
 
         ---@type BlackAtomCore.Highlights
         local highlights_map = {
             TreesitterContext = {
-                fg = fg.neutral,
-                bg = conditional_hl(bg.primary.light, {
-                    [config.styles.transparency == "full"] = colors.none,
-                }),
+                bg = lib.bg.sidebar(config, colors),
             },
             TreesitterContextLineNumber = {
-                fg = fg.neutral,
-                bg = conditional_hl(bg.primary.light, {
-                    [config.styles.transparency == "full"] = colors.none,
-                }),
+                fg = colors.semantics.fg.neutral,
+                bg = lib.bg.sidebar(config, colors),
             },
         }
 

@@ -17,7 +17,7 @@ local highlight_map_extension = {
             NeoTreeFloatNormal = { fg = fg.primary.main, bg = bg_float },
             NeoTreeFloatBorder = { fg = bg.primary.dark, bg = bg.primary.dark },
             NeoTreeTitleBar = { fg = fg.neutral, bg = bg.primary.dark },
-            NeoTreeCursorLine = { bg = bg.active },
+            NeoTreeCursorLine = { bg = bg.primary.main },
             NeoTreeGitConflict = { fg = fg.diff.change },
             NeoTreeGitUntracked = { fg = fg.diff.add },
         }

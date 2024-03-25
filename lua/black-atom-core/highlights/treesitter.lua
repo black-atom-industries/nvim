@@ -57,8 +57,8 @@ local highlight_map_extension = {
             ["@operator"] = { link = "Operator" },
 
             ["@property"] = { fg = palette.dark_blue },
-            ["@punctuation.bracket"] = { fg = fg.primary.main },
-            ["@punctuation.delimiter"] = { fg = fg.primary.main },
+            ["@punctuation.bracket"] = { link = "Delimiter" },
+            ["@punctuation.delimiter"] = { link = "Delimiter" },
 
             ["@repeat"] = lib.hls.extend_hl({ fg = palette.magenta }, config.styles.syntax.keywords),
 
