@@ -1,7 +1,7 @@
 local M = {}
 
 ---@param config BlackAtomCore.Config
----@param colors BlackAtomCore.Colors
+---@param colors BlackAtomCore.ThemeColors
 ---@return string
 function M.main(config, colors)
     local no_color = colors.none
@@ -14,7 +14,7 @@ function M.main(config, colors)
 end
 
 ---@param config BlackAtomCore.Config
----@param colors BlackAtomCore.Colors
+---@param colors BlackAtomCore.ThemeColors
 ---@return string
 function M.sidebar(config, colors)
     local dark_sidebars = config.styles.dark_sidebars
@@ -30,7 +30,7 @@ function M.sidebar(config, colors)
 end
 
 ---@param config BlackAtomCore.Config
----@param colors BlackAtomCore.Colors
+---@param colors BlackAtomCore.ThemeColors
 ---@return string
 ---@diagnostic disable-next-line: unused-local
 function M.float(config, colors)

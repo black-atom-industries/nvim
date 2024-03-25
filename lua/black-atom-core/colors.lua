@@ -1,7 +1,7 @@
 local M = {}
 
 ---Returns the colors for the currently set theme and variant.
----@return BlackAtomCore.Colors
+---@return BlackAtomCore.ThemeColors
 function M.get()
     local theme = BlackAtomCoreConfig.theme
 

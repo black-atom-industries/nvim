@@ -2,32 +2,25 @@ local lib = require("black-atom-core.lib")
 
 local M = {}
 
----@type BlackAtomCore.Colors.Debug
-M.debug = {
-    neon_pink = "#FF69B4",
-    electric_lime = "#CCFF00",
-    vivid_cyan = "#00FFFF",
-}
-
 ---@type BlackAtomCore.Colors.Primaries
 M.primaries = {
     -- Lows
-    "#192125",
-    "#1d272c",
-    "#212c31",
-    "#24333a",
+    "#304a3f",
+    "#385547",
+    "#416353",
+    "#517b67",
 
     -- Mids
-    "#475e6a",
-    "#516c7a",
-    "#5b7988",
-    "#7393a3",
+    "#55816a",
+    "#62937a",
+    "#78a48e",
+    "#8bb19e",
 
     -- Highs
     "#d3cec5",
-    "#dfdbd3",
-    "#e9e6e1",
-    "#f4f3f1",
+    "#dad6cd",
+    "#e4e1db",
+    "#eae7e2",
 }
 
 ---@type BlackAtomCore.Colors.Palette
@@ -38,20 +31,20 @@ M.palette = {
     dark_red = "#d6582e",
     red = "#da714d",
 
-    dark_green = "#5b9257",
-    green = "#83c67f",
+    dark_green = "#0d8a4e",
+    green = "#0f9d58",
 
-    dark_yellow = "#faa04c",
-    yellow = "#F2C14E",
+    dark_yellow = "#ea7b14",
+    yellow = "#e5a919",
 
-    dark_blue = "#6199d1",
-    blue = "#7CA6CF",
+    dark_blue = "#3473b2",
+    blue = "#588dc1",
 
     dark_magenta = "#B07BAC",
-    magenta = "#BFA9D6",
+    magenta = "#a586c6",
 
-    dark_cyan = "#5aaf7d",
-    cyan = "#75bd93",
+    dark_cyan = "#0d8a76",
+    cyan = "#0f9d6d",
 
     light_gray = M.primaries[9],
     white = M.primaries[11],
@@ -95,7 +88,7 @@ M.semantics = {
         },
         active = M.palette.yellow,
         invert = M.primaries[11],
-        neutral = M.primaries[5],
+        neutral = M.primaries[8],
         diff = {
             add = M.palette.green,
             delete = M.palette.red,
@@ -105,13 +98,24 @@ M.semantics = {
     },
 }
 
----@return BlackAtomCore.Colors
+---@type BlackAtomCore.ThemeColors
 M.colors = {
     none = "NONE",
-    debug = M.debug,
     primaries = M.primaries,
     palette = M.palette,
     semantics = M.semantics,
 }
 
-return M.colors
+---@type BlackAtomCore.ThemeMeta
+M.meta = {
+    key = "terra_spring_day",
+    label = "Terra Spring Day",
+    collection_key = "terra",
+    collection_label = "Terra",
+    appearance = "light",
+    icon = "󰧲  ",
+    status = "beta",
+}
+
+require("black-atom-core").setup({ theme = M.meta.key })
+require("black-atom-core").load_colorscheme(M.meta, M.colors)
