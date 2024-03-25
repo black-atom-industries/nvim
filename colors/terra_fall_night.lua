@@ -1,2 +1,121 @@
-require("black-atom-core").setup({ theme = "terra_fall_night" })
-require("black-atom-core").load_colorscheme("terra_fall_night")
+local lib = require("black-atom-core.lib")
+
+local M = {}
+
+---@type BlackAtomCore.Colors.Primaries
+M.primaries = {
+    -- Lows
+    "#1f1d1d",
+    "#242222",
+    "#2c2928",
+    "#322e2b",
+
+    -- Mids
+    "#665c54",
+    "#7c6f64",
+    "#928374",
+    "#a89984",
+
+    -- Highs
+    "#ae8f85",
+    "#b99e95",
+    "#ccb9b3",
+    "#d6c7c2",
+}
+
+---@type BlackAtomCore.Colors.Palette
+M.palette = {
+    black = M.primaries[4],
+    gray = M.primaries[5],
+
+    dark_red = "#c0603f",
+    red = "#c57054",
+
+    dark_green = "#7a895c",
+    green = "#a6bc90",
+
+    dark_yellow = "#ef9e74",
+    yellow = "#e0a66d",
+
+    dark_blue = "#b6b3e5",
+    blue = "#a6bbd9",
+
+    dark_magenta = "#d2acc3",
+    magenta = "#c4b2d1",
+
+    dark_cyan = "#6a9b86",
+    cyan = "#7fb395",
+
+    light_gray = M.primaries[9],
+    white = M.primaries[11],
+}
+
+---@type BlackAtomCore.Colors.Semantics
+M.semantics = {
+    bg = {
+        primary = {
+            dark = M.primaries[1],
+            main = M.primaries[2],
+            light = M.primaries[3],
+        },
+        secondary = {
+            dark = M.primaries[4],
+            main = M.primaries[5],
+            light = M.primaries[6],
+        },
+        active = M.primaries[4],
+        match = {
+            active = lib.color.darken(M.palette.magenta, 0.25, M.primaries[1]),
+            passive = lib.color.darken(M.palette.magenta, 0.15, M.primaries[1]),
+        },
+        diff = {
+            add = M.palette.green,
+            delete = M.palette.red,
+            change = M.palette.blue,
+            text = M.palette.dark_blue,
+        },
+    },
+    fg = {
+        primary = {
+            dark = M.primaries[10],
+            main = M.primaries[11],
+            light = M.primaries[12],
+        },
+        secondary = {
+            dark = M.primaries[7],
+            main = M.primaries[8],
+            light = M.primaries[9],
+        },
+        active = M.palette.dark_yellow,
+        invert = M.primaries[2],
+        neutral = M.primaries[6],
+        diff = {
+            add = M.palette.green,
+            delete = M.palette.red,
+            change = M.palette.blue,
+            text = M.palette.dark_blue,
+        },
+    },
+}
+
+---@type BlackAtomCore.ThemeColors
+M.colors = {
+    none = "NONE",
+    primaries = M.primaries,
+    palette = M.palette,
+    semantics = M.semantics,
+}
+
+---@type BlackAtomCore.ThemeMeta
+M.meta = {
+    key = "terra_fall_night",
+    label = "Terra Fall Night",
+    collection_key = "terra",
+    collection_label = "Terra",
+    appearance = "dark",
+    icon = " 󰖔 ",
+    status = "release",
+}
+
+require("black-atom-core").setup({ theme = M.meta.key })
+require("black-atom-core").load_colorscheme(M.meta, M.colors)

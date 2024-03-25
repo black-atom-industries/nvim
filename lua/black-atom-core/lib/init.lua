@@ -4,7 +4,6 @@ return {
     ui = require("black-atom-core.lib.ui"),
     hls = require("black-atom-core.lib.hls"),
     files = require("black-atom-core.lib.files"),
-    themes = require("black-atom-core.lib.themes"),
     debug = require("black-atom-core.lib.debug"),
     bg = require("black-atom-core.lib.bg"),
 }

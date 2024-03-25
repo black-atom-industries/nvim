@@ -2,26 +2,19 @@ local lib = require("black-atom-core.lib")
 
 local M = {}
 
----@type BlackAtomCore.Colors.Debug
-M.debug = {
-    neon_pink = "#FF69B4",
-    electric_lime = "#CCFF00",
-    vivid_cyan = "#00FFFF",
-}
-
 ---@type BlackAtomCore.Colors.Primaries
 M.primaries = {
     -- Lows
-    "#18251f",
-    "#1c2a23",
-    "#21322a",
-    "#293e34",
+    "#191e25",
+    "#1d232b",
+    "#212831",
+    "#252d38",
 
     -- Mids
-    "#334d3f",
-    "#486c59",
-    "#5c8972",
-    "#75a48c",
+    "#3E5574",
+    "#506D95",
+    "#6A87AF",
+    "#8BA1C1",
 
     -- Highs
     "#d3cec5",
@@ -105,13 +98,24 @@ M.semantics = {
     },
 }
 
----@return BlackAtomCore.Colors
+---@return BlackAtomCore.ThemeColors
 M.colors = {
     none = "NONE",
-    debug = M.debug,
     primaries = M.primaries,
     palette = M.palette,
     semantics = M.semantics,
 }
 
-return M.colors
+---@type BlackAtomCore.ThemeMeta
+M.meta = {
+    key = "terra_summer_day",
+    label = "Terra Summer Day",
+    collection_key = "terra",
+    collection_label = "Terra",
+    appearance = "light",
+    icon = "󰂒  ",
+    status = "development",
+}
+
+require("black-atom-core").setup({ theme = M.meta.key })
+require("black-atom-core").load_colorscheme(M.meta, M.colors)

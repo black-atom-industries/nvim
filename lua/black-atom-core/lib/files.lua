@@ -4,6 +4,7 @@ local M = {}
 ---@return string
 function M.get_plugin_path()
     local runtimepaths = vim.api.nvim_list_runtime_paths()
+
     local plugin_path = ""
 
     for _, path in ipairs(runtimepaths) do

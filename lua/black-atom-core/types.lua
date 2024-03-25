@@ -17,16 +17,11 @@
 
 ---@alias BlackAtomCore.Highlights                              table<string, BlackAtomCore.HighlightDefinition>>
 
----@alias BlackAtomCore.HighlightMapExtension.map               fun(colors: BlackAtomCore.Colors, config: BlackAtomCore.Config): BlackAtomCore.Highlights
+---@alias BlackAtomCore.HighlightMapExtension.map               fun(colors: BlackAtomCore.ThemeColors, config: BlackAtomCore.Config): BlackAtomCore.Highlights
 
 ---@class BlackAtomCore.HighlightsSpec
 ---@field enabled?                                              boolean Default: true
 ---@field map                                                   BlackAtomCore.HighlightMapExtension.map
-
----@class BlackAtomCore.Colors.Debug
----@field neon_pink                                             string
----@field electric_lime                                         string
----@field vivid_cyan                                            string
 
 ---@class BlackAtomCore.Colors.Primaries                        string[]
 
@@ -82,26 +77,26 @@
 ---@field bg                                                    BlackAtomCore.Colors.Semantics.Background
 ---@field fg                                                    BlackAtomCore.Colors.Semantics.Foreground
 
----@class BlackAtomCore.Colors
+---@class BlackAtomCore.ThemeColors
 ---@field none                                                  "NONE"
----@field debug                                                 BlackAtomCore.Colors.Debug
 ---@field primaries                                             BlackAtomCore.Colors.Primaries
 ---@field palette                                               BlackAtomCore.Colors.Palette
 ---@field semantics                                             BlackAtomCore.Colors.Semantics
 
 ---@alias BlackAtomCore.Config.ThemeKey                         "terra_spring_night" | "terra_spring_day" | "terra_summer_night" | "terra_summer_day" | "terra_fall_night" | "terra_fall_day" | "terra_winter_night" | "terra_winter_day"
 
----@class BlackAtomCore.Config.ThemeDefinition
----@field label                                                 string Display name
+---@class BlackAtomCore.ThemeMeta
 ---@field key                                                   BlackAtomCore.Config.ThemeKey (Unique) Theme Key
----@field icon                                                  string Icon to display in the UI
----@field path                                                  string Path to the theme module
----@field order                                                 integer Order in which the theme will appear in custom picker
+---@field label                                                 string Display name
+---@field collection_key                                        "terra" Theme group to which the theme belongs
+---@field collection_label                                      string Display name of the theme group
 ---@field appearance                                            "light" | "dark"
----@field group                                                 "seasons" Theme group to which the theme belongs
+---@field icon                                                  string Icon to display in the UI
 ---@field status                                                "development" | "beta" | "release" Status of the theme
 
----@alias BlackAtomCore.Config.ThemeDefinitionMap               table<BlackAtomCore.Config.ThemeKey, BlackAtomCore.Config.ThemeDefinition>
+---@class BlackAtomCore.ThemeDefinition
+---@field colors                                                BlackAtomCore.ThemeColors
+---@field meta                                                  BlackAtomCore.ThemeMeta
 
 ---@class BlackAtomCore.Config.SyntaxStyle
 ---@field comments?                                             BlackAtomCore.HighlightDefinition

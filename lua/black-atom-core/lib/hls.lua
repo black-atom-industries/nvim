@@ -31,7 +31,7 @@ function M.building_error_notification(message)
     require("black-atom-core.lib.ui").notify(message, vim.log.levels.ERROR, notification_opts)
 end
 
----@param colors BlackAtomCore.Colors
+---@param colors BlackAtomCore.ThemeColors
 ---@param config BlackAtomCore.Config
 ---@return BlackAtomCore.Highlights
 function M.build_highlights_map(colors, config)
@@ -52,7 +52,7 @@ end
 
 ---Aggregate the highlight maps from the highlight files
 ---@param files string[]
----@param colors BlackAtomCore.Colors
+---@param colors BlackAtomCore.ThemeColors
 ---@param config BlackAtomCore.Config
 ---@return BlackAtomCore.Highlights
 function M.aggregate_highlight_maps(files, colors, config)
@@ -112,7 +112,7 @@ function M.set_highlights(highlight_groups)
     end
 end
 
----@param colors BlackAtomCore.Colors
+---@param colors BlackAtomCore.ThemeColors
 function M.set_term_highlights(colors)
     vim.g.terminal_color_0 = colors.palette.gray
     vim.g.terminal_color_1 = colors.palette.red
@@ -150,10 +150,9 @@ function M.conditional_hl(default_highlight, conditional_highlight_map)
 end
 
 ---Sets up the highlights for the theme based on the current configuration
+---@param colors BlackAtomCore.ThemeColors
 ---@return nil
-function M.setup()
-    local colors = require("black-atom-core.colors").get()
-
+function M.setup(colors)
     if BlackAtomCoreConfig.term_colors then
         M.set_term_highlights(colors)
     end
