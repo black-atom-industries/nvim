@@ -5,20 +5,20 @@ local lib = require("black-atom-core.lib")
 
 local M = {}
 
----@param meta BlackAtomCore.ThemeMeta
----@param colors BlackAtomCore.ThemeColors
+---Loads a theme definition into the editor
+---@param theme BlackAtomCore.ThemeDefinition
 ---@return nil
-function M.load_colorscheme(meta, colors)
-    require("black-atom-core.lib.config").dev_status_warning(meta)
+function M.load(theme)
+    lib.config.dev_status_warning(theme.meta)
+    lib.config.set_config({ theme = theme.meta.key })
 
     lib.hls.reset()
 
     vim.termguicolors = true
-    vim.g.colors_name = meta.key
+    vim.g.colors_name = theme.meta.key
+    vim.opt.background = theme.meta.appearance
 
-    vim.opt.background = meta.appearance
-
-    lib.hls.setup(colors)
+    lib.hls.setup(theme.colors)
 end
 
 ---@param opts BlackAtomCore.Config

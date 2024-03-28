@@ -83,10 +83,8 @@
 ---@field palette                                               BlackAtomCore.Colors.Palette
 ---@field semantics                                             BlackAtomCore.Colors.Semantics
 
----@alias BlackAtomCore.Config.ThemeKey                         "terra_spring_night" | "terra_spring_day" | "terra_summer_night" | "terra_summer_day" | "terra_fall_night" | "terra_fall_day" | "terra_winter_night" | "terra_winter_day"
-
 ---@class BlackAtomCore.ThemeMeta
----@field key                                                   BlackAtomCore.Config.ThemeKey (Unique) Theme Key
+---@field key                                                   string (Unique) Theme Key
 ---@field label                                                 string Display name
 ---@field collection_key                                        "terra" Theme group to which the theme belongs
 ---@field collection_label                                      string Display name of the theme group
@@ -110,18 +108,16 @@
 ---@field undercurl?                                            boolean Wether to use undercurls for diagnostics (Default: false)
 ---@field background?                                           boolean Wether to use background color for virtual text (Default: false)
 
----@alias BlackAtomCore.Config.Transparency                     "full" | "partial" | "none"
-
 ---@class BlackAtomCore.Config.Styles
 ---@field cmp_kind_color_mode?                                  "fg" | "bg" (Default: "fg")
 ---@field dark_sidebars?                                        boolean Wether to use dark sidebars (Default: true)
----@field transparency?                                         BlackAtomCore.Config.Transparency Transparency level (Default: "none")
+---@field transparency?                                         "full" | "partial" | "none" Transparency level (Default: "none")
 ---@field diagnostics?                                          BlackAtomCore.Config.Diagnostics Diagnostics related settings (Default: See Documentation)
 ---@field syntax?                                               BlackAtomCore.Config.SyntaxStyle Syntax styling options (Default: See Documentation)
 ---@field ending_tildes?                                        boolean Wether to show the end-of-buffer tildes (Default: false)
 
 ---@class BlackAtomCore.Config
 ---@field debug?                                                boolean Enables the Debug Mode (Enables various debug messages) (Default: false)
----@field theme?                                                BlackAtomCore.Config.ThemeKey Currently set theme (Default: "terra_spring_night")
+---@field theme?                                                string Currently set theme (Default: "terra_spring_night")
 ---@field term_colors?                                          boolean Wether to enable terminal colors (Default: true)
 ---@field styles?                                               BlackAtomCore.Config.Styles Various styles related settings (Default: See Documentation)
