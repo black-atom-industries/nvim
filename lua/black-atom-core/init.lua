@@ -1,3 +1,5 @@
+local config = require("black-atom-core.config")
+local commands = require("black-atom-core.commands")
 local lib = require("black-atom-core.lib")
 
 local M = {}
@@ -6,8 +8,8 @@ local M = {}
 ---@param theme BlackAtomCore.ThemeDefinition
 ---@return nil
 function M.load(theme)
+    config.set({ theme = theme.meta.key })
     lib.themes.dev_status_warning(theme.meta)
-    lib.config.set({ theme = theme.meta.key })
 
     lib.hls.reset()
 
@@ -15,22 +17,19 @@ function M.load(theme)
     vim.g.colors_name = theme.meta.key
     vim.opt.background = theme.meta.appearance
 
-    local config = lib.config.get()
-
-    lib.hls.setup(theme.colors, config)
+    lib.hls.setup(theme.colors, config.get())
 end
 
 ---@param opts BlackAtomCore.Config
 ---@return nil
 function M.setup(opts)
-    if not opts then
-        local default_config = require("black-atom-core.config").default_config
-        lib.config.set(default_config)
-    else
-        lib.config.set(opts)
-    end
+    commands.register()
 
-    require("black-atom-core.commands").register()
+    if not opts then
+        config.set(config.default)
+    else
+        config.set(opts)
+    end
 end
 
 -- TODO: [DEV-47 : Runtime Validation for Config](https://linear.app/black-atom-industries/issue/DEV-47/runtime-validation-for-config)
@@ -38,7 +37,7 @@ end
 ---@param themes BlackAtomCore.ThemeDefinition[]
 ---@return nil
 function M.register_themes(themes)
-    lib.config.set({ registered_themes = themes })
+    config.set({ registered_themes = themes })
 end
 
 return M

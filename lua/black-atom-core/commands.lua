@@ -2,7 +2,7 @@ local M = {}
 
 function M.print_config()
     vim.api.nvim_create_user_command("BlackAtomPrintConfig", function()
-        local config = require("black-atom-core.lib.config").get()
+        local config = require("black-atom-core.config").get()
         print(vim.inspect(config))
     end, {})
 end

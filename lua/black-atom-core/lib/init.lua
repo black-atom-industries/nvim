@@ -1,5 +1,7 @@
-return {
-    config = require("black-atom-core.lib.config"),
+local M = {}
+
+---@class BlackAtomCore.Lib
+M = {
     color = require("black-atom-core.lib.color"),
     ui = require("black-atom-core.lib.ui"),
     hls = require("black-atom-core.lib.hls"),
@@ -8,3 +10,5 @@ return {
     bg = require("black-atom-core.lib.bg"),
     themes = require("black-atom-core.lib.themes"),
 }
+
+return M
