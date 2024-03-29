@@ -91,6 +91,7 @@
 ---@field appearance                                            "light" | "dark"
 ---@field icon                                                  string Icon to display in the UI
 ---@field status                                                "development" | "beta" | "release" Status of the theme
+---@field module_path                                           string Path to the theme module
 
 ---@class BlackAtomCore.ThemeDefinition
 ---@field colors                                                BlackAtomCore.ThemeColors
@@ -119,6 +120,6 @@
 ---@class BlackAtomCore.Config
 ---@field debug?                                                boolean Enables the Debug Mode (Enables various debug messages) (Default: false)
 ---@field theme?                                                string Currently set theme (Default: "terra_spring_night")
----@field registered_themes?                                    BlackAtomCore.ThemeDefinition[] List of registered themes
+---@field registered_themes?                                    BlackAtomCore.ThemeMeta[] List of registered themes
 ---@field term_colors?                                          boolean Wether to enable terminal colors (Default: true)
 ---@field styles?                                               BlackAtomCore.Config.Styles Various styles related settings (Default: See Documentation)

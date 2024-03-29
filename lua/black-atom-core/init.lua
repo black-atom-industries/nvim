@@ -23,13 +23,13 @@ end
 ---@param opts BlackAtomCore.Config
 ---@return nil
 function M.setup(opts)
-    commands.register()
-
     if not opts then
         config.set(config.default)
     else
         config.set(opts)
     end
+
+    commands.register()
 end
 
 -- TODO: [DEV-47 : Runtime Validation for Config](https://linear.app/black-atom-industries/issue/DEV-47/runtime-validation-for-config)
