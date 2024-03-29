@@ -6,7 +6,7 @@ M.plugin_name = "black%-atom%-core%.nvim"
 ---@type BlackAtomCore.Config
 M.default = {
     debug = false,
-    theme = "terra_spring_night",
+    theme = "terra-spring-night",
     registered_themes = {},
     term_colors = true,
     styles = {
