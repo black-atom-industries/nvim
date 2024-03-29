@@ -151,13 +151,14 @@ end
 
 ---Sets up the highlights for the theme based on the current configuration
 ---@param colors BlackAtomCore.ThemeColors
+---@param config BlackAtomCore.Config
 ---@return nil
-function M.setup(colors)
-    if BlackAtomCoreConfig.term_colors then
+function M.setup(colors, config)
+    if config.term_colors then
         M.set_term_highlights(colors)
     end
 
-    M.set_highlights(M.build_highlights_map(colors, BlackAtomCoreConfig))
+    M.set_highlights(M.build_highlights_map(colors, config))
 end
 
 return M
