@@ -30,18 +30,13 @@ function M.setup(opts)
         lib.config.set(opts)
     end
 
-    M.setup_usercommands()
-end
-
-function M.setup_usercommands()
-    vim.api.nvim_create_user_command("BlackAtomPrintConfig", function()
-        print(vim.inspect(vim.g.black_atom_core_config))
-    end, {})
+    require("black-atom-core.commands").register()
 end
 
 -- TODO: [DEV-47 : Runtime Validation for Config](https://linear.app/black-atom-industries/issue/DEV-47/runtime-validation-for-config)
 ---Plugins can register their themes with this function
 ---@param themes BlackAtomCore.ThemeDefinition[]
+---@return nil
 function M.register_themes(themes)
     lib.config.set({ registered_themes = themes })
 end
