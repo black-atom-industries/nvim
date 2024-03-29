@@ -1,16 +1,5 @@
 local M = {}
 
-function M.set_config_defaults()
-    BlackAtomCoreConfig = vim.tbl_deep_extend("force", {}, require("black-atom-core.config").default_config)
-end
-
----Sets options for the BlackAtomCore.Config during runtime
----@param options BlackAtomCore.Config
----@return nil
-function M.set_config(options)
-    BlackAtomCoreConfig = vim.tbl_deep_extend("force", BlackAtomCoreConfig, options)
-end
-
 ---Notify the user about the status of the current theme
 ---@param theme_meta BlackAtomCore.ThemeMeta
 ---@return nil

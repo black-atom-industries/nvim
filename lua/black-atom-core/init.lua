@@ -1,36 +1,42 @@
----@type BlackAtomCore.Config
-BlackAtomCoreConfig = vim.g.black_atom_core_config
-
+local config = require("black-atom-core.config")
+local commands = require("black-atom-core.commands")
 local lib = require("black-atom-core.lib")
 
 local M = {}
 
----@param meta BlackAtomCore.ThemeMeta
----@param colors BlackAtomCore.ThemeColors
+---Loads a theme definition into the editor
+---@param theme BlackAtomCore.ThemeDefinition
 ---@return nil
-function M.load_colorscheme(meta, colors)
-    require("black-atom-core.lib.config").dev_status_warning(meta)
+function M.load(theme)
+    config.set({ theme = theme.meta.key })
+    lib.themes.dev_status_warning(theme.meta)
 
     lib.hls.reset()
 
     vim.termguicolors = true
-    vim.g.colors_name = meta.key
+    vim.g.colors_name = theme.meta.key
+    vim.opt.background = theme.meta.appearance
 
-    vim.opt.background = meta.appearance
-
-    lib.hls.setup(colors)
+    lib.hls.setup(theme.colors, config.get())
 end
 
 ---@param opts BlackAtomCore.Config
 ---@return nil
 function M.setup(opts)
-    if not BlackAtomCoreConfig then
-        lib.config.set_config_defaults()
+    if not opts then
+        config.set(config.default)
+    else
+        config.set(opts)
     end
 
-    if opts then
-        lib.config.set_config(opts)
-    end
+    commands.register()
+end
+
+---Plugins can register their themes with this function
+---@param themes BlackAtomCore.ThemeDefinition[]
+---@return nil
+function M.register_themes(themes)
+    config.set({ registered_themes = themes })
 end
 
 return M

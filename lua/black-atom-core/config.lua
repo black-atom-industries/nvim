@@ -4,9 +4,10 @@ local M = {}
 M.plugin_name = "black%-atom%-core%.nvim"
 
 ---@type BlackAtomCore.Config
-M.default_config = {
+M.default = {
     debug = false,
     theme = "terra_spring_night",
+    registered_themes = {},
     term_colors = true,
     styles = {
         ending_tildes = false,
@@ -39,4 +40,20 @@ M.default_config = {
     },
 }
 
+---Sets options for the BlackAtomCore.Config during runtime
+---@param options BlackAtomCore.Config
+---@return nil
+function M.set(options)
+    local default_config = M.default
+    local current_config = vim.g.black_atom_core_config or {}
+    local merged_config = vim.tbl_deep_extend("force", default_config, current_config, options)
+
+    vim.g.black_atom_core_config = merged_config
+end
+
+---Returns the current BlackAtomCore.Config
+---@return BlackAtomCore.Config | any
+function M.get()
+    return vim.g.black_atom_core_config
+end
 return M
