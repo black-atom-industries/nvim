@@ -1,7 +1,5 @@
-local M = {}
-
 ---@class BlackAtomCore.Lib
-M = {
+local M = {
     color = require("black-atom-core.lib.color"),
     ui = require("black-atom-core.lib.ui"),
     hls = require("black-atom-core.lib.hls"),

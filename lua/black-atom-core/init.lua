@@ -32,7 +32,6 @@ function M.setup(opts)
     commands.register()
 end
 
--- TODO: [DEV-47 : Runtime Validation for Config](https://linear.app/black-atom-industries/issue/DEV-47/runtime-validation-for-config)
 ---Plugins can register their themes with this function
 ---@param themes BlackAtomCore.ThemeDefinition[]
 ---@return nil

@@ -40,7 +40,6 @@ M.default = {
     },
 }
 
--- TODO: [DEV-47 : Runtime Validation for Config](https://linear.app/black-atom-industries/issue/DEV-47/runtime-validation-for-config)
 ---Sets options for the BlackAtomCore.Config during runtime
 ---@param options BlackAtomCore.Config
 ---@return nil
