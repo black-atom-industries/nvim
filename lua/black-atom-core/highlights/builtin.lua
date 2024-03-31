@@ -40,7 +40,7 @@ local highlight_map_extension = {
             Include = { fg = palette.magenta },
             Keyword = lib.hls.extend_hl({ fg = palette.red }, config.styles.syntax.keywords),
             Label = { fg = palette.magenta },
-            MatchParen = { reverse = true },
+            MatchParen = { bold = true, bg = bg.match.active },
             Macro = { fg = palette.red },
             Number = { fg = palette.dark_yellow },
             Operator = { fg = palette.magenta },
