@@ -33,7 +33,7 @@ function M.setup(opts)
 end
 
 ---Plugins can register their themes with this function
----@param themes BlackAtomCore.ThemeDefinition[]
+---@param themes table<string, BlackAtomCore.ThemeMeta>
 ---@return nil
 function M.register_themes(themes)
     config.set({ registered_themes = themes })
