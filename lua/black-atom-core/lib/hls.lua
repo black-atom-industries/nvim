@@ -1,17 +1,5 @@
 local M = {}
 
----Reset Vim Highlights and Syntax
----@return nil
-function M.reset()
-    -- Clear all highlights
-    vim.cmd("hi clear")
-
-    -- Reset syntax highlighting
-    if vim.fn.exists("syntax_on") then
-        vim.cmd("syntax reset")
-    end
-end
-
 ---Extends a highlight definition with a code style definition
 ---@param highlight BlackAtomCore.HighlightDefinition
 ---@param code_style BlackAtomCore.HighlightDefinition
@@ -89,7 +77,7 @@ function M.aggregate_highlight_maps(files, colors, config)
     return vim.tbl_deep_extend("force", {}, highlights_map)
 end
 
----Apply the highlights to the editor via the API (nvim_set_hl)
+---Apply the highlights to the editor
 ---@param highlight_groups BlackAtomCore.Highlights
 function M.set_highlights(highlight_groups)
     for group_name, group_definition in pairs(highlight_groups) do
@@ -147,18 +135,6 @@ function M.conditional_hl(default_highlight, conditional_highlight_map)
     end
 
     return final_highlight
-end
-
----Sets up the highlights for the theme based on the current configuration
----@param colors BlackAtomCore.ThemeColors
----@param config BlackAtomCore.Config
----@return nil
-function M.setup(colors, config)
-    if config.term_colors then
-        M.set_term_highlights(colors)
-    end
-
-    M.set_highlights(M.build_highlights_map(colors, config))
 end
 
 return M

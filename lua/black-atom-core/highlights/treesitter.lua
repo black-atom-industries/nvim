@@ -90,6 +90,7 @@ local highlight_map_extension = {
             ["@markup.underline"] = { fg = fg.primary.main, underline = true },
             ["@markup.link.url"] = { fg = palette.blue, underline = true },
             ["@markup.warning"] = { fg = fg.primary.main },
+            ["@markup.quote"] = { italic = true },
 
             ["@type"] = { fg = palette.cyan },
             ["@type.builtin"] = { fg = palette.dark_cyan },

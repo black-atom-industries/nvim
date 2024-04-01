@@ -1,5 +1,6 @@
 local config = require("black-atom-core.config")
 local commands = require("black-atom-core.commands")
+local highlights = require("black-atom-core.highlights")
 local lib = require("black-atom-core.lib")
 
 local M = {}
@@ -11,13 +12,13 @@ function M.load(theme)
     config.set({ theme = theme.meta.key })
     lib.themes.dev_status_warning(theme.meta)
 
-    lib.hls.reset()
+    highlights.reset()
 
     vim.termguicolors = true
     vim.g.colors_name = theme.meta.key
     vim.opt.background = theme.meta.appearance
 
-    lib.hls.setup(theme.colors, config.get())
+    highlights.setup(theme.colors, config.get())
 end
 
 ---@param opts BlackAtomCore.Config
