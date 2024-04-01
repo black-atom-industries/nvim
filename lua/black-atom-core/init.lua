@@ -18,7 +18,7 @@ function M.load(theme)
     vim.g.colors_name = theme.meta.key
     vim.opt.background = theme.meta.appearance
 
-    highlights.setup(theme.colors, config.get())
+    highlights.apply(theme.colors, config.get())
 end
 
 ---@param opts BlackAtomCore.Config

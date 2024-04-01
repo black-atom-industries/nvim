@@ -1,6 +1,6 @@
 local M = {}
 
----Reset Vim Highlights and Syntax
+---Reset all highlights.
 ---@return nil
 function M.reset()
     -- Clear all highlights
@@ -12,18 +12,18 @@ function M.reset()
     end
 end
 
----Sets up the highlights for the theme based on the current configuration
+---Applies the highlights for the theme based on the current configuration.
 ---@param colors BlackAtomCore.ThemeColors
 ---@param config BlackAtomCore.Config
 ---@return nil
-function M.setup(colors, config)
+function M.apply(colors, config)
     local highlights = require("black-atom-core.lib.highlights")
 
     if config.term_colors then
-        highlights.set_term_highlights(colors)
+        highlights.set_term(colors)
     end
 
-    highlights.set_highlights(highlights.build_highlights_map(colors, config))
+    highlights.set(highlights.build_highlights_map(colors, config))
 end
 
 return M

@@ -79,7 +79,7 @@ end
 
 ---Apply the highlights to the editor
 ---@param highlight_groups BlackAtomCore.Highlights
-function M.set_highlights(highlight_groups)
+function M.set(highlight_groups)
     for group_name, group_definition in pairs(highlight_groups) do
         vim.api.nvim_set_hl(0, group_name, {
             fg = group_definition.fg or "none",
@@ -101,7 +101,7 @@ function M.set_highlights(highlight_groups)
 end
 
 ---@param colors BlackAtomCore.ThemeColors
-function M.set_term_highlights(colors)
+function M.set_term(colors)
     vim.g.terminal_color_0 = colors.palette.gray
     vim.g.terminal_color_1 = colors.palette.red
     vim.g.terminal_color_2 = colors.palette.green
