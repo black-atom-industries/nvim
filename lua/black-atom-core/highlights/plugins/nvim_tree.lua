@@ -1,7 +1,7 @@
 ---@type BlackAtomCore.HighlightsSpec
 local highlight_map_extension = {
     map = function(colors, config)
-        local conditional_hl = require("black-atom-core.lib").hls.conditional_hl
+        local conditional_hl = require("black-atom-core.lib").highlights.conditional_hl
 
         ---@type BlackAtomCore.Highlights
         local highlights_map = {

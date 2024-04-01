@@ -17,13 +17,13 @@ end
 ---@param config BlackAtomCore.Config
 ---@return nil
 function M.setup(colors, config)
-    local hls = require("black-atom-core.lib.hls")
+    local highlights = require("black-atom-core.lib.highlights")
 
     if config.term_colors then
-        hls.set_term_highlights(colors)
+        highlights.set_term_highlights(colors)
     end
 
-    hls.set_highlights(hls.build_highlights_map(colors, config))
+    highlights.set_highlights(highlights.build_highlights_map(colors, config))
 end
 
 return M

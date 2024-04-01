@@ -21,7 +21,7 @@ local highlight_map_extension = {
 
             ["@comment"] = { link = "Comment" },
 
-            ["@conditional"] = lib.hls.extend_hl({ fg = palette.magenta }, config.styles.syntax.keywords),
+            ["@conditional"] = lib.highlights.extend_hl({ fg = palette.magenta }, config.styles.syntax.keywords),
 
             ["@constant"] = { fg = palette.dark_yellow },
             ["@constant.builtin"] = { fg = palette.dark_yellow },
@@ -33,9 +33,9 @@ local highlight_map_extension = {
 
             ["@exception"] = { fg = palette.magenta },
 
-            ["@function"] = lib.hls.extend_hl({ fg = palette.yellow, bold = true }, config.styles.syntax.functions),
-            ["@function.builtin"] = lib.hls.extend_hl({ fg = palette.yellow }, config.styles.syntax.functions),
-            ["@function.macro"] = lib.hls.extend_hl({ fg = palette.yellow }, config.styles.syntax.functions),
+            ["@function"] = lib.highlights.extend_hl({ fg = palette.yellow, bold = true }, config.styles.syntax.functions),
+            ["@function.builtin"] = lib.highlights.extend_hl({ fg = palette.yellow }, config.styles.syntax.functions),
+            ["@function.macro"] = lib.highlights.extend_hl({ fg = palette.yellow }, config.styles.syntax.functions),
 
             ["@include"] = { fg = palette.magenta },
 
@@ -60,11 +60,11 @@ local highlight_map_extension = {
             ["@punctuation.bracket"] = { link = "Delimiter" },
             ["@punctuation.delimiter"] = { link = "Delimiter" },
 
-            ["@repeat"] = lib.hls.extend_hl({ fg = palette.magenta }, config.styles.syntax.keywords),
+            ["@repeat"] = lib.highlights.extend_hl({ fg = palette.magenta }, config.styles.syntax.keywords),
 
-            ["@string"] = lib.hls.extend_hl({ fg = palette.green }, config.styles.syntax.strings),
-            ["@string.escape"] = lib.hls.extend_hl({ fg = palette.red }, config.styles.syntax.strings),
-            ["@string.regexp"] = lib.hls.extend_hl({ fg = palette.dark_yellow }, config.styles.syntax.strings),
+            ["@string"] = lib.highlights.extend_hl({ fg = palette.green }, config.styles.syntax.strings),
+            ["@string.escape"] = lib.highlights.extend_hl({ fg = palette.red }, config.styles.syntax.strings),
+            ["@string.regexp"] = lib.highlights.extend_hl({ fg = palette.dark_yellow }, config.styles.syntax.strings),
             ["@string.special.symbol"] = { fg = palette.cyan },
 
             ["@tag"] = { fg = palette.yellow },
@@ -80,7 +80,7 @@ local highlight_map_extension = {
             ["@markup.math"] = { fg = fg.primary.main },
             ["@markup.note"] = { fg = fg.primary.main },
             ["@markup.link"] = { fg = palette.blue },
-            ["@markup.link.label"] = lib.hls.extend_hl({ fg = palette.green }, config.styles.syntax.strings),
+            ["@markup.link.label"] = lib.highlights.extend_hl({ fg = palette.green }, config.styles.syntax.strings),
             ["markup.list"] = { fg = fg.primary.main },
             ["@markup.strike"] = { fg = fg.primary.main, strikethrough = true },
             ["@markup.strong"] = { fg = fg.primary.main, bold = true },
@@ -95,8 +95,8 @@ local highlight_map_extension = {
             ["@type"] = { fg = palette.cyan },
             ["@type.builtin"] = { fg = palette.dark_cyan },
 
-            ["@variable"] = lib.hls.extend_hl({ fg = palette.blue }, config.styles.syntax.variables),
-            ["@variable.builtin"] = lib.hls.extend_hl({ fg = palette.blue }, config.styles.syntax.variables),
+            ["@variable"] = lib.highlights.extend_hl({ fg = palette.blue }, config.styles.syntax.variables),
+            ["@variable.builtin"] = lib.highlights.extend_hl({ fg = palette.blue }, config.styles.syntax.variables),
             ["@variable.parameter"] = { fg = palette.dark_yellow, italic = true },
             ["@variable.parameter.reference"] = { fg = fg.primary.main },
             ["@variable.member"] = { fg = palette.blue },

@@ -13,8 +13,8 @@ local highlight_map_extension = {
             LspCxxHlGroupEnumConstant = { fg = colors.palette.dark_yellow },
             LspCxxHlGroupMemberVariable = { fg = colors.palette.dark_yellow },
             LspCxxHlGroupNamespace = { fg = colors.palette.blue },
-            LspCxxHlSkippedRegion = { fg = colors.palette.gray },
-            LspCxxHlSkippedRegionBeginEnd = { fg = colors.palette.red },
+            LspCxxhighlightskippedRegion = { fg = colors.palette.gray },
+            LspCxxhighlightskippedRegionBeginEnd = { fg = colors.palette.red },
 
             DiagnosticError = { fg = colors.palette.red },
             DiagnosticHint = { fg = colors.palette.blue },
@@ -22,7 +22,7 @@ local highlight_map_extension = {
             DiagnosticWarn = { fg = colors.palette.yellow },
 
             DiagnosticVirtualTextError = {
-                bg = lib.hls.conditional_hl(colors.none, {
+                bg = lib.highlights.conditional_hl(colors.none, {
                     [config.styles.diagnostics.background] = lib.color.darken(
                         diagnostics_error_color,
                         0.1,
@@ -32,7 +32,7 @@ local highlight_map_extension = {
                 fg = diagnostics_error_color,
             },
             DiagnosticVirtualTextWarn = {
-                bg = lib.hls.conditional_hl(colors.none, {
+                bg = lib.highlights.conditional_hl(colors.none, {
                     [config.styles.diagnostics.background] = lib.color.darken(
                         diagnostics_warn_color,
                         0.1,
@@ -42,7 +42,7 @@ local highlight_map_extension = {
                 fg = diagnostics_warn_color,
             },
             DiagnosticVirtualTextInfo = {
-                bg = lib.hls.conditional_hl(colors.none, {
+                bg = lib.highlights.conditional_hl(colors.none, {
                     [config.styles.diagnostics.background] = lib.color.darken(
                         diagnostics_info_color,
                         0.1,
@@ -52,7 +52,7 @@ local highlight_map_extension = {
                 fg = diagnostics_info_color,
             },
             DiagnosticVirtualTextHint = {
-                bg = lib.hls.conditional_hl(colors.none, {
+                bg = lib.highlights.conditional_hl(colors.none, {
                     [config.styles.diagnostics.background] = lib.color.darken(
                         diagnostics_hint_color,
                         0.1,

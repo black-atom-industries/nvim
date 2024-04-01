@@ -13,7 +13,7 @@ local highlight_map_extension = {
             Normal = { fg = fg.primary.main, bg = lib.bg.main(config, colors) },
             NormalNC = { fg = fg.primary.main, bg = lib.bg.main(config, colors) },
             EndOfBuffer = {
-                fg = lib.hls.conditional_hl(bg.primary.main, { [config.styles.ending_tildes] = fg.neutral }),
+                fg = lib.highlights.conditional_hl(bg.primary.main, { [config.styles.ending_tildes] = fg.neutral }),
             },
             NonText = { fg = fg.neutral },
             Whitespace = { link = "NonText" },
@@ -27,18 +27,18 @@ local highlight_map_extension = {
             -- Native Regex Highlights (See: `:h syntax`)
             Boolean = { fg = palette.dark_yellow },
             Character = { fg = palette.yellow },
-            Comment = lib.hls.extend_hl({ fg = fg.neutral }, config.styles.syntax.comments),
-            Conditional = lib.hls.extend_hl({ fg = palette.magenta }, config.styles.syntax.keywords),
+            Comment = lib.highlights.extend_hl({ fg = fg.neutral }, config.styles.syntax.comments),
+            Conditional = lib.highlights.extend_hl({ fg = palette.magenta }, config.styles.syntax.keywords),
             Constant = { fg = palette.dark_yellow },
             Define = { fg = palette.magenta },
             Delimiter = { fg = fg.primary.main },
             Error = { fg = palette.magenta },
             Exception = { fg = palette.magenta },
             Float = { fg = palette.dark_yellow },
-            Function = lib.hls.extend_hl({ fg = palette.yellow }, config.styles.syntax.functions),
-            Identifier = lib.hls.extend_hl({ fg = fg.active }, config.styles.syntax.variables),
+            Function = lib.highlights.extend_hl({ fg = palette.yellow }, config.styles.syntax.functions),
+            Identifier = lib.highlights.extend_hl({ fg = fg.active }, config.styles.syntax.variables),
             Include = { fg = palette.magenta },
-            Keyword = lib.hls.extend_hl({ fg = palette.red }, config.styles.syntax.keywords),
+            Keyword = lib.highlights.extend_hl({ fg = palette.red }, config.styles.syntax.keywords),
             Label = { fg = palette.magenta },
             MatchParen = { bold = true, bg = bg.match.active },
             Macro = { fg = palette.red },
@@ -46,13 +46,13 @@ local highlight_map_extension = {
             Operator = { fg = palette.magenta },
             PreCondit = { fg = palette.magenta },
             PreProc = { fg = palette.magenta },
-            Repeat = lib.hls.extend_hl({ fg = palette.magenta }, config.styles.syntax.keywords),
+            Repeat = lib.highlights.extend_hl({ fg = palette.magenta }, config.styles.syntax.keywords),
             Special = { fg = palette.red },
             SpecialChar = { fg = palette.red },
-            SpecialComment = lib.hls.extend_hl({ fg = fg.secondary.dark }, config.styles.syntax.comments),
+            SpecialComment = lib.highlights.extend_hl({ fg = fg.secondary.dark }, config.styles.syntax.comments),
             Statement = { fg = palette.magenta },
             StorageClass = { fg = palette.blue },
-            String = lib.hls.extend_hl({ fg = palette.cyan }, config.styles.syntax.strings),
+            String = lib.highlights.extend_hl({ fg = palette.cyan }, config.styles.syntax.strings),
             Structure = { fg = palette.yellow },
             Tag = { fg = palette.green },
             Todo = { fg = fg.neutral },
@@ -92,24 +92,24 @@ local highlight_map_extension = {
             PmenuThumb = { fg = colors.none, bg = bg.active },
 
             -- Messages & Mode
-            ErrorMsg = lib.hls.extend_hl({
+            ErrorMsg = lib.highlights.extend_hl({
                 fg = palette.red,
             }, config.styles.syntax.messages),
-            MoreMsg = lib.hls.extend_hl({
+            MoreMsg = lib.highlights.extend_hl({
                 fg = palette.blue,
             }, config.styles.syntax.messages),
-            ModeMsg = lib.hls.extend_hl({ fg = fg.primary.main }, config.styles.syntax.messages),
-            WarningMsg = lib.hls.extend_hl({ fg = palette.yellow }, config.styles.syntax.messages),
+            ModeMsg = lib.highlights.extend_hl({ fg = fg.primary.main }, config.styles.syntax.messages),
+            WarningMsg = lib.highlights.extend_hl({ fg = palette.yellow }, config.styles.syntax.messages),
 
             -- Window & Tab Management
             Title = { fg = fg.active },
             StatusLine = {
                 fg = fg.primary.main,
-                bg = lib.hls.conditional_hl(bg.primary.dark, { [config.styles.transparency == "full"] = colors.none }),
+                bg = lib.highlights.conditional_hl(bg.primary.dark, { [config.styles.transparency == "full"] = colors.none }),
             },
             StatusLineNC = {
                 fg = fg.neutral,
-                bg = lib.hls.conditional_hl(bg.primary.dark, { [config.styles.transparency == "full"] = colors.none }),
+                bg = lib.highlights.conditional_hl(bg.primary.dark, { [config.styles.transparency == "full"] = colors.none }),
             },
             TabLine = { fg = fg.primary.main, bg = bg.primary.main },
             TabLineFill = { fg = fg.neutral, bg = bg.primary.main },
