@@ -33,7 +33,10 @@ local highlight_map_extension = {
 
             ["@exception"] = { fg = palette.magenta },
 
-            ["@function"] = lib.highlights.extend_hl({ fg = palette.yellow, bold = true }, config.styles.syntax.functions),
+            ["@function"] = lib.highlights.extend_hl(
+                { fg = palette.yellow, bold = true },
+                config.styles.syntax.functions
+            ),
             ["@function.builtin"] = lib.highlights.extend_hl({ fg = palette.yellow }, config.styles.syntax.functions),
             ["@function.macro"] = lib.highlights.extend_hl({ fg = palette.yellow }, config.styles.syntax.functions),
 
