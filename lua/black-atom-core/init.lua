@@ -5,6 +5,18 @@ local lib = require("black-atom-core.lib")
 
 local M = {}
 
+---@param opts BlackAtomCore.Config
+---@return nil
+function M.setup(opts)
+    if not opts then
+        config.set(config.default)
+    else
+        config.set(opts)
+    end
+
+    commands.register()
+end
+
 ---Loads a theme definition into the editor
 ---@param theme BlackAtomCore.ThemeDefinition
 ---@return nil
@@ -19,18 +31,6 @@ function M.load(theme)
     vim.opt.background = theme.meta.appearance
 
     highlights.apply(theme.colors, config.get())
-end
-
----@param opts BlackAtomCore.Config
----@return nil
-function M.setup(opts)
-    if not opts then
-        config.set(config.default)
-    else
-        config.set(opts)
-    end
-
-    commands.register()
 end
 
 ---Plugins can register their themes with this function
