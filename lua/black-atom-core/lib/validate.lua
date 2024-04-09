@@ -55,7 +55,6 @@ function M.config(options)
     vim.validate({
         debug = { options.debug, "boolean", true },
         theme = { options.theme, validate_theme, "Invalid theme specified" },
-        registered_themes = { options.registered_themes, "table", true },
         term_colors = { options.term_colors, "boolean", true },
         styles = { options.styles, "table", true },
     })

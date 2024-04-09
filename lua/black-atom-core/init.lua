@@ -33,11 +33,4 @@ function M.load(theme)
     highlights.apply(theme.colors, config.get())
 end
 
----Plugins can register their themes with this function
----@param themes table<string, BlackAtomCore.ThemeMeta>
----@return nil
-function M.register_themes(themes)
-    config.set({ registered_themes = themes })
-end
-
 return M

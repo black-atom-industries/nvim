@@ -7,7 +7,6 @@ M.plugin_name = "black%-atom%-core%.nvim"
 M.default = {
     debug = false,
     theme = "terra-spring-night",
-    registered_themes = {},
     term_colors = true,
     styles = {
         ending_tildes = false,
