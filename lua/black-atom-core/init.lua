@@ -26,8 +26,8 @@ function M.load(theme)
 
     highlights.reset()
 
-    vim.termguicolors = true
     vim.g.colors_name = theme.meta.key
+    vim.opt.termguicolors = true
     vim.opt.background = theme.meta.appearance
 
     highlights.apply(theme.colors, config.get())
