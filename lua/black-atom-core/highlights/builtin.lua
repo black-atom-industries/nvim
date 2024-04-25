@@ -117,9 +117,10 @@ local highlight_map_extension = {
                     { [config.styles.transparency == "full"] = colors.none }
                 ),
             },
-            TabLine = { fg = fg.primary.main, bg = bg.primary.main },
-            TabLineFill = { fg = fg.neutral, bg = bg.primary.main },
+            TabLine = { fg = fg.neutral, bg = bg.primary.main },
+            TabLineFill = { bg = bg.primary.main },
             TabLineSel = { fg = fg.primary.main, bg = bg.primary.light },
+
             WinBar = { link = "StatusLine" },
             WinBarNC = { link = "StatusLineNC" },
             WinSeparator = { fg = bg.primary.dark, bg = lib.bg.main(config, colors) },
