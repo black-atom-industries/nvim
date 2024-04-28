@@ -20,6 +20,8 @@ local highlight_map_extension = {
             NeoTreeCursorLine = { bg = bg.primary.main },
             NeoTreeGitConflict = { fg = fg.diff.change },
             NeoTreeGitUntracked = { fg = fg.diff.add },
+            NeoTreeEndOfBuffer = { fg = bg_sidebar },
+            NeoTreeDotfile = { fg = fg.neutral },
         }
 
         return highlights_map

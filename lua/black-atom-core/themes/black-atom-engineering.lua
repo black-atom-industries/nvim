@@ -5,48 +5,48 @@ local M = {}
 ---@type BlackAtomCore.Colors.Primaries
 M.primaries = {
     -- Lows
-    "#101010",
-    "#121212",
-    "#191919",
-    "#1c1f1e",
+    "#040505",
+    "#0e110f",
+    "#181b19",
+    "#1d201e",
 
     -- Mids
     "#3e4441",
-    "#565f5a",
+    "#565f59",
     "#606a65",
     "#79857f",
 
     -- Highs
-    "#a3aba7",
-    "#afb7b3",
-    "#c9cfcc",
-    "#d6dad8",
+    "#9fafa7",
+    "#abbbb3",
+    "#c4d4cc",
+    "#d0e0d8",
 }
 
 ---@type BlackAtomCore.Colors.Palette
 M.palette = {
-    black = M.primaries[4],
+    black = M.primaries[2],
     gray = M.primaries[5],
 
-    dark_red = "#a991d5",
-    red = "#b8a7d9",
+    dark_red = "#9891d6",
+    red = "#a6a1df",
 
-    dark_green = "#4a9a6c",
-    green = "#64b485",
+    dark_green = "#4a9a64",
+    green = "#64b47e",
 
-    dark_yellow = "#a7bfb3",
-    yellow = "#cee2d8",
+    dark_yellow = M.primaries[9],
+    yellow = M.primaries[11],
 
-    dark_blue = "#86918c",
-    blue = "#b0b7b4",
+    dark_blue = M.primaries[8],
+    blue = M.primaries[10],
 
     dark_magenta = "#a498e9",
-    magenta = "#beb5ef",
+    magenta = "#b7aded",
 
-    dark_cyan = "#5eba92",
-    cyan = "#79d2ab",
+    dark_cyan = "#61d098",
+    cyan = "#88DCB2",
 
-    light_gray = M.primaries[9],
+    light_gray = M.primaries[8],
     white = M.primaries[11],
 }
 
@@ -108,14 +108,14 @@ M.colors = {
 
 ---@type BlackAtomCore.ThemeMeta
 M.meta = {
-    key = "black-atom-dark",
-    label = "Black Atom Dark",
-    collection_key = "default",
-    collection_label = "Default",
+    key = "black-atom-engineering",
+    label = "Black Atom - Engineering",
+    collection_key = "black_atom",
+    collection_label = "Black Atom",
     appearance = "dark",
     icon = " 󰖔 ",
-    status = "beta",
-    module_path = "black-atom-core.themes.black-atom-dark",
+    status = "release",
+    module_path = "black-atom-core.themes.black-atom-engineering",
 }
 
 return M
