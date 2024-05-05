@@ -88,7 +88,7 @@
 ---@class BlackAtomCore.ThemeMeta
 ---@field key                                                   string (Unique) Theme Key
 ---@field label                                                 string Display name
----@field collection_key                                        "terra" Theme group to which the theme belongs
+---@field collection_key                                        "black_atom" | "terra" Theme group to which the theme belongs
 ---@field collection_label                                      string Display name of the theme group
 ---@field appearance                                            "light" | "dark"
 ---@field icon                                                  string Icon to display in the UI

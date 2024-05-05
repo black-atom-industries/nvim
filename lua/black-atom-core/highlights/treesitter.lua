@@ -95,7 +95,7 @@ local highlight_map_extension = {
             ["@markup.warning"] = { fg = fg.primary.main },
             ["@markup.quote"] = { italic = true },
 
-            ["@type"] = { fg = palette.cyan },
+            ["@type"] = { fg = palette.cyan, bold = true },
             ["@type.builtin"] = { fg = palette.dark_cyan },
 
             ["@variable"] = lib.highlights.extend_hl({ fg = palette.blue }, config.styles.syntax.variables),
@@ -105,20 +105,20 @@ local highlight_map_extension = {
             ["@variable.member"] = { fg = palette.blue },
 
             -- Treesitter Semantic Tokens
-            ["@lsp.type.namespace"] = { link = "@namespace" },
-            ["@lsp.type.type"] = { link = "@type" },
-            ["@lsp.type.class"] = { link = "@type" },
-            ["@lsp.type.enum"] = { link = "@type" },
-            ["@lsp.type.interface"] = { link = "@type" },
-            ["@lsp.type.struct"] = { link = "@structure" },
-            ["@lsp.type.parameter"] = { link = "@variable.parameter" },
-            ["@lsp.type.variable"] = { link = "@variable" },
-            ["@lsp.type.property"] = { link = "@property" },
-            ["@lsp.type.enumMember"] = { link = "@constant" },
-            ["@lsp.type.function"] = { link = "@function" },
-            ["@lsp.type.method"] = { link = "@method" },
-            ["@lsp.type.macro"] = { link = "@macro" },
-            ["@lsp.type.decorator"] = { link = "@function" },
+            ["@lsp.type.namespace"] = { link = "@namespace", italic = true },
+            ["@lsp.type.type"] = { link = "@type", italic = true },
+            ["@lsp.type.class"] = { link = "@type", italic = true },
+            ["@lsp.type.enum"] = { link = "@type", italic = true },
+            ["@lsp.type.interface"] = { link = "@type", italic = true },
+            ["@lsp.type.struct"] = { link = "@structure", italic = true },
+            ["@lsp.type.parameter"] = { link = "@variable.parameter", italic = true },
+            ["@lsp.type.variable"] = { link = "@variable", italic = true },
+            ["@lsp.type.property"] = { link = "@property", italic = true },
+            ["@lsp.type.enumMember"] = { link = "@constant", italic = true },
+            ["@lsp.type.function"] = { link = "@function", italic = true },
+            ["@lsp.type.method"] = { link = "@method", italic = true },
+            ["@lsp.type.macro"] = { link = "@macro", italic = true },
+            ["@lsp.type.decorator"] = { link = "@function", italic = true },
         }
 
         return highlights_map

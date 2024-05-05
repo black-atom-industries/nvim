@@ -15,6 +15,7 @@ local highlight_map_spec = {
             FzfLuaTitle = { fg = fg.active },
             FzfLuaBorder = { link = "FloatBorder" },
             FzfLuaPreviewBorder = { link = "FloatBorder" },
+            FzfLuaDirPart = { fg = fg.neutral },
         }
 
         return highlights_map

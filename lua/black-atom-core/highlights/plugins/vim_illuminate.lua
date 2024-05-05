@@ -5,7 +5,7 @@ local highlight_map_spec = {
 
     map = function(colors)
         ---@type BlackAtomCore.HighlightDefinition
-        local match_style = { bg = colors.semantics.bg.match.passive }
+        local match_style = { bg = colors.semantics.bg.match.active }
 
         ---@type BlackAtomCore.Highlights
         local highlights_map = {
