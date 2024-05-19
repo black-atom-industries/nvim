@@ -22,6 +22,9 @@ local highlight_map_extension = {
             NeoTreeGitUntracked = { fg = fg.diff.add },
             NeoTreeEndOfBuffer = { fg = bg_sidebar },
             NeoTreeDotfile = { fg = fg.neutral },
+            NeoTreeGitIgnored = { fg = fg.neutral, italic = true },
+            NeoTreeDirectoryName = { fg = fg.primary.main, bold = true },
+            NeoTreeFileName = { fg = fg.primary.main },
         }
 
         return highlights_map
