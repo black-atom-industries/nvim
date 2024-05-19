@@ -25,8 +25,8 @@ M.primaries = {
 
 ---@type BlackAtomCore.Colors.Palette
 M.palette = {
-    black = M.primaries[4],
-    gray = M.primaries[5],
+    black = M.primaries[2],
+    gray = M.primaries[4],
 
     dark_red = "#a65959",
     red = "#b86a6a",

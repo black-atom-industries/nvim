@@ -17,16 +17,16 @@ M.primaries = {
     "#a89984",
 
     -- Highs
-    "#ae8f85",
-    "#b99e95",
-    "#ccb9b3",
-    "#d6c7c2",
+    "#ae9685",
+    "#b9a495",
+    "#ccbeb3",
+    "#d6cac2",
 }
 
 ---@type BlackAtomCore.Colors.Palette
 M.palette = {
-    black = M.primaries[4],
-    gray = M.primaries[5],
+    black = M.primaries[2],
+    gray = M.primaries[4],
 
     dark_red = "#c0603f",
     red = "#c57054",
