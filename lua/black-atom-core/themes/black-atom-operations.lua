@@ -88,6 +88,7 @@ M.semantics = {
         },
         active = M.palette.cyan,
         invert = M.primaries[2],
+        -- this is a comment
         neutral = M.primaries[6],
         diff = {
             add = M.palette.green,
