@@ -1,3 +1,3 @@
-local theme = require("black-atom-core.themes.black-atom-medical")
+local theme = require("black-atom.themes.black-atom-medical")
 
-require("black-atom-core").load(theme)
+require("black-atom").load(theme)
