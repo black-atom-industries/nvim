@@ -1,3 +1,3 @@
-local theme = require("black-atom-core.themes.terra-summer-night")
+local theme = require("black-atom.themes.terra-summer-night")
 
-require("black-atom-core").load(theme)
+require("black-atom").load(theme)

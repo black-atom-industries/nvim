@@ -1,4 +1,4 @@
-# Black Atom Core for Neovim
+# Black Atom for Neovim
 
 This is logic core for Neovim themes by Black Atom Industries.
 It will receive theme definitions from outside and apply them to the editor.
