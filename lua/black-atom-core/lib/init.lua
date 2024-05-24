@@ -8,6 +8,7 @@ local M = {
     bg = require("black-atom-core.lib.bg"),
     themes = require("black-atom-core.lib.themes"),
     validate = require("black-atom-core.lib.validate"),
+    windows = require("black-atom-core.lib.windows"),
 }
 
 return M
