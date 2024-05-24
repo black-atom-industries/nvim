@@ -62,7 +62,6 @@ local highlight_map_extension = {
             -- Cursor
             Cursor = { reverse = true },
             CursorIM = { reverse = true },
-            CursorColumn = { bg = bg.primary.dark },
             CursorLine = { bg = bg.primary.dark },
 
             -- Search
@@ -125,10 +124,12 @@ local highlight_map_extension = {
             WinBarNC = { link = "StatusLineNC" },
             WinSeparator = { fg = bg.primary.dark, bg = lib.bg.main(config, colors) },
 
-            -- Folds & Signs
+            -- Folds & Columns
             Folded = { fg = fg.neutral, bg = lib.bg.main(config, colors) },
             FoldColumn = { fg = fg.neutral },
             SignColumn = { fg = fg.neutral },
+            CursorColumn = { bg = bg.primary.dark },
+            ColorColumn = { bg = bg.primary.dark },
 
             -- Others
             Substitute = { fg = bg.primary.dark, bg = palette.green },
