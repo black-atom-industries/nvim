@@ -7,6 +7,7 @@ local highlight_map_spec = {
 
         local fg = colors.semantics.fg
 
+        local bg = colors.semantics.bg
         local bg_float = lib.bg.float(config, colors)
 
         ---@type BlackAtom.Highlights
@@ -15,6 +16,7 @@ local highlight_map_spec = {
             FzfLuaTitle = { fg = fg.active },
             FzfLuaBorder = { link = "FloatBorder" },
             FzfLuaPreviewBorder = { link = "FloatBorder" },
+            FzfLuaCursorLine = { bg = bg.primary.main },
             FzfLuaDirPart = { fg = fg.neutral },
         }
 
