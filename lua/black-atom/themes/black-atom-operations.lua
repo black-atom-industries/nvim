@@ -11,10 +11,10 @@ M.primaries = {
     "#222726",
 
     -- Mids
-    "#3e4441",
-    "#565f59",
-    "#606a65",
-    "#79857f",
+    "#3b4743",
+    "#52635d",
+    "#5b6f68",
+    "#738b83",
 
     -- Highs
     "#9fafa7",
@@ -31,20 +31,20 @@ M.palette = {
     dark_red = "#9891d6",
     red = "#a6a1df",
 
-    dark_green = "#4a9a64",
-    green = "#64b47e",
+    dark_green = "#93c270",
+    green = "#a0ce7d",
 
     dark_yellow = M.primaries[9],
-    yellow = M.primaries[11],
+    yellow = "#9BE197",
 
-    dark_blue = M.primaries[8],
-    blue = M.primaries[10],
+    dark_blue = M.primaries[10],
+    blue = M.primaries[11],
 
     dark_magenta = "#a498e9",
     magenta = "#b7aded",
 
-    dark_cyan = "#61d098",
-    cyan = "#88DCB2",
+    dark_cyan = "#6ac779",
+    cyan = "#88dc96",
 
     light_gray = M.primaries[8],
     white = M.primaries[11],
@@ -65,8 +65,8 @@ M.semantics = {
         },
         active = M.primaries[4],
         match = {
-            active = darken(M.palette.magenta, 0.25, M.primaries[1]),
-            passive = darken(M.palette.magenta, 0.15, M.primaries[1]),
+            active = darken(M.palette.magenta, 0.15, M.primaries[1]),
+            passive = darken(M.palette.magenta, 0.05, M.primaries[1]),
         },
         diff = {
             add = M.palette.green,
