@@ -5,8 +5,9 @@ M.plugin_name = "black%-atom%.nvim"
 
 ---@type BlackAtom.Config
 M.default = {
-    debug = false,
+    debug = true,
     theme = "black-atom-engineering",
+    vault = "black-atom-vault",
     term_colors = true,
     styles = {
         ending_tildes = false,

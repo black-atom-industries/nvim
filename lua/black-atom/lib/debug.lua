@@ -1,7 +1,14 @@
+-- TODO: DEV-153 rename import
 local lib_files = require("black-atom.lib.files")
 local lib_ui = require("black-atom.lib.ui")
 
 local M = {}
+
+function M.print(...)
+    if require("black-atom.config").get().debug then
+        print(string.format(...))
+    end
+end
 
 M.pathes = {
     debug_dir = lib_files.build_path(lib_files.get_plugin_path(), "debug"),
