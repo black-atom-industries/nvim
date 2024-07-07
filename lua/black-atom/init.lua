@@ -21,7 +21,7 @@ function M.get_theme(theme_name)
         return nil, string.format("Vault not found at expected location: %s", vault_path)
     end
 
-    local theme_path = vault_path .. "/dist/lua"
+    local theme_path = vault_path .. "/ft/lua"
     lib.debug.print("Searching for theme in: %s", theme_path)
 
     package.path = package.path .. ";" .. theme_path .. "/?.lua"
