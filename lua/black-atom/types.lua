@@ -79,11 +79,116 @@
 ---@field bg                                                    BlackAtom.Colors.Semantics.Background
 ---@field fg                                                    BlackAtom.Colors.Semantics.Foreground
 
+---@class BlackAtom.Colors.Syntax.Variable
+---@field default string
+---@field builtin string
+---@field parameter string
+---@field member string
+
+---@class BlackAtom.Colors.Syntax.Constant
+---@field default string
+---@field builtin string
+
+---@class BlackAtom.Colors.Syntax.String
+---@field default string
+---@field documentation string
+---@field regexp string
+---@field escape string
+
+---@class BlackAtom.Colors.Syntax.Type
+---@field default string
+---@field builtin string
+
+---@class BlackAtom.Colors.Syntax.Function
+---@field default string
+---@field builtin string
+---@field method string
+
+---@class BlackAtom.Colors.Syntax.Punctuation
+---@field default string
+---@field delimiter string
+---@field bracket string
+---@field special string
+
+---@class BlackAtom.Colors.Syntax.Comment
+---@field default string
+---@field documentation string
+
+---@class BlackAtom.Colors.Syntax.Markup.Heading
+---@field default string
+---@field h1 string
+---@field h2 string
+---@field h3 string
+---@field h4 string
+---@field h5 string
+---@field h6 string
+
+---@class BlackAtom.Colors.Syntax.Markup.Link
+---@field default string
+---@field label string
+---@field url string
+
+---@class BlackAtom.Colors.Syntax.Markup.Code
+---@field default string
+---@field inline string
+---@field block string
+
+---@class BlackAtom.Colors.Syntax.Markup.List
+---@field default string
+---@field checked string
+---@field unchecked string
+
+---@class BlackAtom.Colors.Syntax.Markup
+---@field default string
+---@field heading BlackAtom.Colors.Syntax.Markup.Heading
+---@field strong string
+---@field italic string
+---@field strikethrough string
+---@field underline string
+---@field quote string
+---@field math string
+---@field link BlackAtom.Colors.Syntax.Markup.Link
+---@field code BlackAtom.Colors.Syntax.Markup.Code
+---@field list BlackAtom.Colors.Syntax.Markup.List
+
+---@class BlackAtom.Colors.Syntax.Diff
+---@field neutral string
+---@field plus string
+---@field minus string
+---@field delta string
+
+---@class BlackAtom.Colors.Syntax.Tag
+---@field default string
+---@field builtin string
+---@field custom string
+---@field attribute string
+---@field delimiter string
+
+---@class BlackAtom.Colors.Syntax
+---@field variable BlackAtom.Colors.Syntax.Variable
+---@field constant BlackAtom.Colors.Syntax.Constant
+---@field module { default: string }
+---@field string BlackAtom.Colors.Syntax.String
+---@field boolean { default: string }
+---@field number { default: string }
+---@field type BlackAtom.Colors.Syntax.Type
+---@field attribute { default: string, builtin: string }
+---@field func BlackAtom.Colors.Syntax.Function
+---@field constructor { default: string }
+---@field operator { default: string }
+---@field keyword { default: string }
+---@field punctuation BlackAtom.Colors.Syntax.Punctuation
+---@field comment BlackAtom.Colors.Syntax.Comment
+---@field markup BlackAtom.Colors.Syntax.Markup
+---@field diff BlackAtom.Colors.Syntax.Diff
+---@field tag BlackAtom.Colors.Syntax.Tag
+
 ---@class BlackAtom.ThemeColors
 ---@field none                                                  "NONE"
 ---@field primaries                                             BlackAtom.Colors.Primaries
 ---@field palette                                               BlackAtom.Colors.Palette
 ---@field semantics                                             BlackAtom.Colors.Semantics
+---@field syntax                                                BlackAtom.Colors.Syntax
 
 ---@class BlackAtom.ThemeMeta
 ---@field key                                                   string (Unique) Theme Key
