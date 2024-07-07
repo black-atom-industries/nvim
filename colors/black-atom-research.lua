@@ -1,3 +1,1 @@
-local theme = require("black-atom.themes.black-atom-research")
-
-require("black-atom").load(theme)
+require("black-atom").load("black-atom-research")
