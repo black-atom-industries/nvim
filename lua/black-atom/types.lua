@@ -1,5 +1,21 @@
 -- vim: set colorcolumn=64:
 
+---@alias BlackAtom.Theme.Key
+---| "black-atom-engineering"
+---| "black-atom-operations"
+---| "black-atom-medical"
+---| "black-atom-research"
+---| "terra-spring-day"
+---| "terra-spring-night"
+---| "terra-summer-day"
+---| "terra-summer-night"
+---| "terra-winter-day"
+---| "terra-winter-night"
+
+---@alias BlackAtom.Theme.CollectionKey
+---| "default"
+---| "terra"
+
 ---@class BlackAtom.HighlightDefinition
 ---@field fg?                                                   string
 ---@field bg?                                                   string
@@ -17,17 +33,17 @@
 ---@field reverse?                                              boolean
 ---@field link?                                                 string
 
----@alias BlackAtom.Highlights                              table<string, BlackAtom.HighlightDefinition>>
+---@alias BlackAtom.Highlights                                  table<string, BlackAtom.HighlightDefinition>>
 
----@alias BlackAtom.HighlightMapExtension.map               fun(colors: BlackAtom.ThemeColors, config: BlackAtom.Config): BlackAtom.Highlights
+---@alias BlackAtom.HighlightMapExtension.map                   fun(colors: BlackAtom.Theme.Colors, config: BlackAtom.Config): BlackAtom.Highlights
 
 ---@class BlackAtom.HighlightsSpec
 ---@field enabled?                                              boolean Default: true
 ---@field map                                                   BlackAtom.HighlightMapExtension.map
 
----@class BlackAtom.Colors.Primaries                        string[]
+---@class BlackAtom.Theme.Primaries                             string[]
 
----@class BlackAtom.Colors.Palette
+---@class BlackAtom.Theme.Palette
 ---@field black                                                 string
 ---@field gray                                                  string
 ---@field dark_red                                              string
@@ -45,59 +61,91 @@
 ---@field light_gray                                            string
 ---@field white                                                 string
 
----@class BlackAtom.Colors.Semantics.Git
+---@class BlackAtom.Theme.Semantics.Git
 ---@field add                                                   string
 ---@field delete                                                string
 ---@field change                                                string
 ---@field text                                                  string
 
----@class BlackAtom.Colors.Semantics.Shades
+---@class BlackAtom.Theme.Semantics.Shades
 ---@field dark                                                  string
 ---@field main                                                  string
 ---@field light                                                 string
 --
----@class BlackAtom.Colors.Semantics.Background.Match
+---@class BlackAtom.Theme.Semantics.Background.Match
 ---@field active                                                string Used for highlighting matches in the foreground for like visual selections
 ---@field passive                                               string Used for highlighting matches in the background like for illuminate
 
----@class BlackAtom.Colors.Semantics.Background
----@field primary                                               BlackAtom.Colors.Semantics.Shades
----@field secondary                                             BlackAtom.Colors.Semantics.Shades
+---@class BlackAtom.Theme.Semantics.Background
+---@field primary                                               BlackAtom.Theme.Semantics.Shades
+---@field secondary                                             BlackAtom.Theme.Semantics.Shades
 ---@field active                                                string
----@field match                                                 BlackAtom.Colors.Semantics.Background.Match
----@field diff                                                  BlackAtom.Colors.Semantics.Git
+---@field match                                                 BlackAtom.Theme.Semantics.Background.Match
+---@field diff                                                  BlackAtom.Theme.Semantics.Git
 
----@class BlackAtom.Colors.Semantics.Foreground
----@field primary                                               BlackAtom.Colors.Semantics.Shades
----@field secondary                                             BlackAtom.Colors.Semantics.Shades
+---@class BlackAtom.Theme.Semantics.Foreground
+---@field primary                                               BlackAtom.Theme.Semantics.Shades
+---@field secondary                                             BlackAtom.Theme.Semantics.Shades
 ---@field active                                                string
 ---@field neutral                                               string
 ---@field invert                                                string
----@field diff                                                  BlackAtom.Colors.Semantics.Git
+---@field diff                                                  BlackAtom.Theme.Semantics.Git
 
----@class BlackAtom.Colors.Semantics
----@field bg                                                    BlackAtom.Colors.Semantics.Background
----@field fg                                                    BlackAtom.Colors.Semantics.Foreground
+---@class BlackAtom.Theme.Semantics
+---@field bg                                                    BlackAtom.Theme.Semantics.Background
+---@field fg                                                    BlackAtom.Theme.Semantics.Foreground
 
----@class BlackAtom.ThemeColors
+---@class BlackAtom.Theme.Syntax.Markup
+---@field default                                               string
+---@field heading                                               { default: string, h1: string, h2: string, h3: string, h4: string, h5: string, h6: string }
+---@field strong                                                string
+---@field italic                                                string
+---@field strikethrough                                         string
+---@field underline                                             string
+---@field quote                                                 string
+---@field math                                                  string
+---@field link                                                  { default: string, label: string, url: string }
+---@field code                                                  { default: string, inline: string, block: string }
+---@field list                                                  { default: string, checked: string, unchecked: string }
+
+
+---@class BlackAtom.Theme.Syntax
+---@field default                                               string
+---@field variable                                              { default: string, builtin: string, parameter: string, member: string }
+---@field constant                                              { default: string, builtin: string }
+---@field module                                                { default: string }
+---@field string                                                { default: string, documentation: string, regexp: string, escape: string }
+---@field boolean                                               { default: string }
+---@field number                                                { default: string }
+---@field type                                                  { default: string, builtin: string }
+---@field attribute                                             { default: string, builtin: string }
+---@field func                                                  { default: string, builtin: string, method: string }
+---@field constructor                                           { default: string }
+---@field operator                                              { default: string }
+---@field keyword                                               { default: string }
+---@field punctuation                                           { default: string, delimiter: string, bracket: string, special: string }
+---@field comment                                               { default: string, documentation: string }
+---@field tag                                                   { default: string, builtin: string, delimiter: string }
+---@field markup                                                BlackAtom.Theme.Syntax.Markup
+
+---@class BlackAtom.Theme.Colors
 ---@field none                                                  "NONE"
----@field primaries                                             BlackAtom.Colors.Primaries
----@field palette                                               BlackAtom.Colors.Palette
----@field semantics                                             BlackAtom.Colors.Semantics
+---@field primaries                                             BlackAtom.Theme.Primaries
+---@field palette                                               BlackAtom.Theme.Palette
+---@field semantics                                             BlackAtom.Theme.Semantics
+---@field syntax                                                BlackAtom.Theme.Syntax
 
----@class BlackAtom.ThemeMeta
----@field key                                                   string (Unique) Theme Key
+---@class BlackAtom.Theme.Meta
+---@field key                                                   BlackAtom.Theme.Key
 ---@field label                                                 string Display name
----@field collection_key                                        "black_atom" | "terra" Theme group to which the theme belongs
----@field collection_label                                      string Display name of the theme group
+---@field collection                                            { key: BlackAtom.Theme.CollectionKey, label: string }
 ---@field appearance                                            "light" | "dark"
----@field icon                                                  string Icon to display in the UI
 ---@field status                                                "development" | "beta" | "release" Status of the theme
----@field module_path                                           string Path to the theme module
+---@field icon                                                  string Icon to display in the UI
 
----@class BlackAtom.ThemeDefinition
----@field colors                                                BlackAtom.ThemeColors
----@field meta                                                  BlackAtom.ThemeMeta
+---@class BlackAtom.Theme.Definition
+---@field colors                                                BlackAtom.Theme.Colors
+---@field meta                                                  BlackAtom.Theme.Meta
 
 ---@class BlackAtom.Config.SyntaxStyle
 ---@field comments?                                             BlackAtom.HighlightDefinition
@@ -124,3 +172,4 @@
 ---@field theme?                                                string Currently set theme (Default: "terra_spring_night")
 ---@field term_colors?                                          boolean Wether to enable terminal colors (Default: true)
 ---@field styles?                                               BlackAtom.Config.Styles Various styles related settings (Default: See Documentation)
+

@@ -1,7 +1,7 @@
 local M = {}
 
 ---Notify the user about the status of the current theme
----@param theme_meta BlackAtom.ThemeMeta
+---@param theme_meta BlackAtom.Theme.Meta
 ---@return nil
 function M.dev_status_warning(theme_meta)
     if theme_meta.status == "development" then

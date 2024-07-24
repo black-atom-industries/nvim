@@ -22,7 +22,7 @@ M.count_keys = function(tbl)
 end
 
 ---Write debug file for highlights
----@param colors BlackAtom.ThemeColors
+---@param colors BlackAtom.Theme.Colors
 ---@param modules string[]
 ---@param highlights_map table<string, BlackAtom.HighlightDefinition>
 ---@return nil
