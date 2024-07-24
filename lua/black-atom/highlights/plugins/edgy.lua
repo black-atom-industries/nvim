@@ -4,7 +4,7 @@ local highlight_map_spec = {
     map = function(colors, config)
         local lib = require("black-atom.lib")
 
-        local fg = colors.semantics.fg
+        local fg = colors.ui.fg
 
         local bg_sidebar = lib.bg.sidebar(config, colors)
 

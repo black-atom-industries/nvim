@@ -26,7 +26,7 @@ local highlight_map_extension = {
                     [config.styles.diagnostics.background] = lib.color.darken(
                         diagnostics_error_color,
                         0.1,
-                        colors.semantics.bg.primary.main
+                        colors.ui.bg.primary.main
                     ),
                 }),
                 fg = diagnostics_error_color,
@@ -36,7 +36,7 @@ local highlight_map_extension = {
                     [config.styles.diagnostics.background] = lib.color.darken(
                         diagnostics_warn_color,
                         0.1,
-                        colors.semantics.bg.primary.main
+                        colors.ui.bg.primary.main
                     ),
                 }),
                 fg = diagnostics_warn_color,
@@ -46,7 +46,7 @@ local highlight_map_extension = {
                     [config.styles.diagnostics.background] = lib.color.darken(
                         diagnostics_info_color,
                         0.1,
-                        colors.semantics.bg.primary.main
+                        colors.ui.bg.primary.main
                     ),
                 }),
                 fg = diagnostics_info_color,
@@ -56,7 +56,7 @@ local highlight_map_extension = {
                     [config.styles.diagnostics.background] = lib.color.darken(
                         diagnostics_hint_color,
                         0.1,
-                        colors.semantics.bg.primary.main
+                        colors.ui.bg.primary.main
                     ),
                 }),
                 fg = diagnostics_hint_color,
@@ -79,9 +79,9 @@ local highlight_map_extension = {
                 sp = colors.palette.yellow,
             },
 
-            LspReferenceText = { bg = colors.semantics.bg.primary.light },
-            LspReferenceWrite = { bg = colors.semantics.bg.primary.light },
-            LspReferenceRead = { bg = colors.semantics.bg.primary.light },
+            LspReferenceText = { bg = colors.ui.bg.primary.light },
+            LspReferenceWrite = { bg = colors.ui.bg.primary.light },
+            LspReferenceRead = { bg = colors.ui.bg.primary.light },
 
             LspCodeLens = { fg = colors.palette.gray },
             LspCodeLensSeparator = { fg = colors.palette.gray },

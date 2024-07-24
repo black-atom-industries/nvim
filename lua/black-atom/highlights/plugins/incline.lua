@@ -4,13 +4,13 @@ local highlight_map_extension = {
         ---@type BlackAtom.Highlights
         local highlights_map = {
             InclineNormal = {
-                fg = colors.semantics.fg.active,
-                bg = colors.semantics.bg.primary.dark,
+                fg = colors.ui.fg.active,
+                bg = colors.ui.bg.primary.dark,
                 bold = true,
             },
             InclineNormalNC = {
-                fg = colors.semantics.fg.neutral,
-                bg = colors.semantics.bg.primary.dark,
+                fg = colors.ui.fg.neutral,
+                bg = colors.ui.bg.primary.dark,
             },
         }
 

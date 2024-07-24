@@ -50,8 +50,8 @@ M.palette = {
     white = M.primaries[11],
 }
 
----@type BlackAtom.Theme.Semantics
-M.semantics = {
+---@type BlackAtom.Theme.UI
+M.ui = {
     bg = {
         primary = {
             dark = M.primaries[10],
@@ -206,7 +206,7 @@ M.colors = {
     none = "NONE",
     primaries = M.primaries,
     palette = M.palette,
-    semantics = M.semantics,
+    ui = M.ui,
     syntax = M.syntax,
 }
 

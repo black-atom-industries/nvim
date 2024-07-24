@@ -61,39 +61,39 @@
 ---@field light_gray                                            string
 ---@field white                                                 string
 
----@class BlackAtom.Theme.Semantics.Git
+---@class BlackAtom.Theme.UI.Git
 ---@field add                                                   string
 ---@field delete                                                string
 ---@field change                                                string
 ---@field text                                                  string
 
----@class BlackAtom.Theme.Semantics.Shades
+---@class BlackAtom.Theme.UI.Shades
 ---@field dark                                                  string
 ---@field main                                                  string
 ---@field light                                                 string
 --
----@class BlackAtom.Theme.Semantics.Background.Match
+---@class BlackAtom.Theme.UI.Background.Match
 ---@field active                                                string Used for highlighting matches in the foreground for like visual selections
 ---@field passive                                               string Used for highlighting matches in the background like for illuminate
 
----@class BlackAtom.Theme.Semantics.Background
----@field primary                                               BlackAtom.Theme.Semantics.Shades
----@field secondary                                             BlackAtom.Theme.Semantics.Shades
+---@class BlackAtom.Theme.UI.Background
+---@field primary                                               BlackAtom.Theme.UI.Shades
+---@field secondary                                             BlackAtom.Theme.UI.Shades
 ---@field active                                                string
----@field match                                                 BlackAtom.Theme.Semantics.Background.Match
----@field diff                                                  BlackAtom.Theme.Semantics.Git
+---@field match                                                 BlackAtom.Theme.UI.Background.Match
+---@field diff                                                  BlackAtom.Theme.UI.Git
 
----@class BlackAtom.Theme.Semantics.Foreground
----@field primary                                               BlackAtom.Theme.Semantics.Shades
----@field secondary                                             BlackAtom.Theme.Semantics.Shades
+---@class BlackAtom.Theme.UI.Foreground
+---@field primary                                               BlackAtom.Theme.UI.Shades
+---@field secondary                                             BlackAtom.Theme.UI.Shades
 ---@field active                                                string
 ---@field neutral                                               string
 ---@field invert                                                string
----@field diff                                                  BlackAtom.Theme.Semantics.Git
+---@field diff                                                  BlackAtom.Theme.UI.Git
 
----@class BlackAtom.Theme.Semantics
----@field bg                                                    BlackAtom.Theme.Semantics.Background
----@field fg                                                    BlackAtom.Theme.Semantics.Foreground
+---@class BlackAtom.Theme.UI
+---@field bg                                                    BlackAtom.Theme.UI.Background
+---@field fg                                                    BlackAtom.Theme.UI.Foreground
 
 ---@class BlackAtom.Theme.Syntax.Markup
 ---@field default                                               string
@@ -132,7 +132,7 @@
 ---@field none                                                  "NONE"
 ---@field primaries                                             BlackAtom.Theme.Primaries
 ---@field palette                                               BlackAtom.Theme.Palette
----@field semantics                                             BlackAtom.Theme.Semantics
+---@field ui                                                    BlackAtom.Theme.UI
 ---@field syntax                                                BlackAtom.Theme.Syntax
 
 ---@class BlackAtom.Theme.Meta

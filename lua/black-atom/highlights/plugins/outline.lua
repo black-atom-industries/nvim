@@ -5,12 +5,12 @@ local highlight_map_extension = {
         local highlights_map = {
             FocusedSymbol = {
                 fg = colors.palette.magenta,
-                bg = colors.semantics.bg.primary.light,
+                bg = colors.ui.bg.primary.light,
                 bold = true,
             },
             AerialLine = {
                 fg = colors.palette.magenta,
-                bg = colors.semantics.bg.primary.light,
+                bg = colors.ui.bg.primary.light,
                 bold = true,
             },
         }

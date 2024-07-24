@@ -9,7 +9,7 @@ local highlight_map_extension = {
                 bg = lib.bg.sidebar(config, colors),
             },
             TreesitterContextLineNumber = {
-                fg = colors.semantics.fg.neutral,
+                fg = colors.ui.fg.neutral,
                 bg = lib.bg.sidebar(config, colors),
             },
         }

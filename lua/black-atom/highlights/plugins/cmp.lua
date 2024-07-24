@@ -3,14 +3,14 @@ local highlight_map_extension = {
     map = function(colors, config)
         ---@type BlackAtom.Highlights
         local highlights_map = {
-            CmpItemAbbr = { fg = colors.semantics.fg.primary.main },
+            CmpItemAbbr = { fg = colors.ui.fg.primary.main },
             CmpItemAbbrDeprecated = {
                 fg = colors.palette.light_gray,
                 strikethrough = true,
             },
             CmpItemAbbrMatch = { fg = colors.palette.cyan },
             CmpItemAbbrMatchFuzzy = { fg = colors.palette.cyan, underline = true },
-            CmpItemMenu = { fg = colors.semantics.fg.secondary.main },
+            CmpItemMenu = { fg = colors.ui.fg.secondary.main },
             CmpItemKind = { fg = colors.palette.magenta },
         }
 
@@ -47,7 +47,7 @@ local highlight_map_extension = {
             if config.styles.cmp_kind_color_mode == "fg" then
                 highlights_map["CmpItemKind" .. kind] = { fg = color }
             else
-                highlights_map["CmpItemKind" .. kind] = { fg = colors.semantics.fg.invert, bg = color }
+                highlights_map["CmpItemKind" .. kind] = { fg = colors.ui.fg.invert, bg = color }
             end
         end
 

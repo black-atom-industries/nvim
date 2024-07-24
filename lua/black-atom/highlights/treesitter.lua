@@ -3,7 +3,7 @@ local lib = require("black-atom.lib")
 ---@type BlackAtom.HighlightsSpec
 local highlight_map_extension = {
     map = function(colors, config)
-        local fg = colors.semantics.fg
+        local fg = colors.ui.fg
         local palette = colors.palette
 
         -- Treesitter Syntax Highlights (See: `:h treesitter-highlight-groups`)

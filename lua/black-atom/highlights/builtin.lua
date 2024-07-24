@@ -3,8 +3,8 @@ local lib = require("black-atom.lib")
 ---@type BlackAtom.HighlightsSpec
 local highlight_map_extension = {
     map = function(colors, config)
-        local bg = colors.semantics.bg
-        local fg = colors.semantics.fg
+        local bg = colors.ui.bg
+        local fg = colors.ui.fg
         local palette = colors.palette
 
         ---@type BlackAtom.Highlights

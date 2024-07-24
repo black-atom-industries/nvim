@@ -4,8 +4,8 @@ local config = require("black-atom.config").get()
 
 local M = {}
 
-local fg = colors.semantics.fg
-local bg = colors.semantics.bg
+local fg = colors.ui.fg
+local bg = colors.ui.bg
 local palette = colors.palette
 
 M.normal = {
