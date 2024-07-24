@@ -59,16 +59,8 @@ M.write_debug_highlights_file = function(colors, modules, highlights_map)
 
         -- Theme colors definition
         file:write("\n")
-        file:write("Theme colors definition:" .. "\n")
-        file:write("\n")
-        file:write("Primary colors:" .. "\n")
-        file:write("\n")
-        file:write(vim.inspect(colors.palette) .. "\n")
-        file:write("\n")
-        file:write("UI colors:" .. "\n")
-        file:write("\n")
-        file:write(vim.inspect(colors.ui) .. "\n")
-        file:write("\n")
+        file:write("Theme definition:" .. "\n")
+        file:write(vim.inspect(colors))
         file:write(separator .. "\n")
 
         -- Highlight map
