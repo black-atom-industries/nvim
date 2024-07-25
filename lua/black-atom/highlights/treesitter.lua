@@ -4,6 +4,7 @@ local lib = require("black-atom.lib")
 local highlight_map_extension = {
     map = function(colors, config)
         local fg = colors.ui.fg
+        local syntax = colors.syntax
         local palette = colors.palette
 
         -- Treesitter Syntax Highlights (See: `:h treesitter-highlight-groups`)
@@ -14,7 +15,7 @@ local highlight_map_extension = {
 
             ["@attribute"] = { fg = palette.cyan },
 
-            ["@boolean"] = { fg = palette.dark_yellow },
+            ["@boolean"] = { fg = syntax.boolean.default },
 
             ["@character"] = { fg = palette.dark_yellow },
             ["@character.special"] = { fg = palette.dark_yellow },
@@ -23,9 +24,8 @@ local highlight_map_extension = {
 
             ["@conditional"] = lib.highlights.extend_hl({ fg = palette.magenta }, config.styles.syntax.keywords),
 
-            ["@constant"] = { fg = palette.dark_yellow },
-            ["@constant.builtin"] = { fg = palette.dark_yellow },
-            ["@constant.macro"] = { fg = palette.dark_yellow },
+            ["@constant"] = { fg = syntax.constant.default },
+            ["@constant.builtin"] = { fg = syntax.constant.builtin },
 
             ["@constructor"] = { fg = palette.yellow, bold = true },
 
@@ -34,11 +34,13 @@ local highlight_map_extension = {
             ["@exception"] = { fg = palette.magenta },
 
             ["@function"] = lib.highlights.extend_hl(
-                { fg = palette.yellow, bold = true },
+                { fg = syntax.func.default, bold = true },
                 config.styles.syntax.functions
             ),
-            ["@function.builtin"] = lib.highlights.extend_hl({ fg = palette.yellow }, config.styles.syntax.functions),
-            ["@function.macro"] = lib.highlights.extend_hl({ fg = palette.yellow }, config.styles.syntax.functions),
+            -- ["@function.builtin"] = lib.highlights.extend_hl({ fg = palette.yellow }, config.styles.syntax.functions),
+            -- ["@function.macro"] = lib.highlights.extend_hl({ fg = palette.yellow }, config.styles.syntax.functions),
+
+            ["@method"] = { fg = syntax.func.method, bold = true },
 
             ["@include"] = { fg = palette.magenta },
 
@@ -48,31 +50,29 @@ local highlight_map_extension = {
 
             ["@label"] = { fg = palette.dark_yellow },
 
-            ["@method"] = { fg = palette.yellow, bold = true },
-
             ["@module"] = { fg = palette.dark_blue },
 
             ["@none"] = { fg = fg.primary.main },
 
-            ["@number"] = { fg = palette.dark_yellow },
-            ["@number.float"] = { fg = palette.dark_yellow },
+            ["@number"] = { fg = syntax.number.default },
 
             ["@operator"] = { link = "Operator" },
 
-            ["@property"] = { fg = palette.dark_blue },
-            ["@punctuation.bracket"] = { link = "Delimiter" },
-            ["@punctuation.delimiter"] = { link = "Delimiter" },
+            ["@property"] = { fg = syntax.property.default },
+
+            ["@punctuation.bracket"] = { fg = syntax.punctuation.bracket },
+            ["@punctuation.delimiter"] = { fg = syntax.punctuation.delimiter },
 
             ["@repeat"] = lib.highlights.extend_hl({ fg = palette.magenta }, config.styles.syntax.keywords),
 
-            ["@string"] = lib.highlights.extend_hl({ fg = palette.green }, config.styles.syntax.strings),
-            ["@string.escape"] = lib.highlights.extend_hl({ fg = palette.red }, config.styles.syntax.strings),
-            ["@string.regexp"] = lib.highlights.extend_hl({ fg = palette.dark_yellow }, config.styles.syntax.strings),
-            ["@string.special.symbol"] = { fg = palette.cyan },
+            ["@string"] = lib.highlights.extend_hl({ fg = syntax.string.default }, config.styles.syntax.strings),
+            ["@string.escape"] = lib.highlights.extend_hl({ fg = syntax.string.escape }, config.styles.syntax.strings),
+            ["@string.regexp"] = lib.highlights.extend_hl({ fg = syntax.string.regexp }, config.styles.syntax.strings),
 
-            ["@tag"] = { fg = palette.yellow },
-            ["@tag.attribute"] = { fg = palette.dark_yellow },
-            ["@tag.delimiter"] = { fg = palette.dark_yellow },
+            ["@tag"] = { fg = syntax.tag.default },
+            ["@tag.attribute"] = { fg = syntax.tag.attribute },
+            ["@tag.builtin"] = { fg = syntax.tag.builtin },
+            ["@tag.delimiter"] = { fg = syntax.tag.delimiter },
 
             ["@markup"] = { fg = fg.primary.main },
             ["@markup.danger"] = { fg = fg.primary.main },
@@ -95,14 +95,16 @@ local highlight_map_extension = {
             ["@markup.warning"] = { fg = fg.primary.main },
             ["@markup.quote"] = { italic = true },
 
-            ["@type"] = { fg = palette.cyan, bold = true },
-            ["@type.builtin"] = { fg = palette.dark_cyan },
+            ["@type"] = { fg = syntax.type.default, bold = true },
+            ["@type.builtin"] = { fg = syntax.type.builtin },
 
-            ["@variable"] = lib.highlights.extend_hl({ fg = palette.blue }, config.styles.syntax.variables),
-            ["@variable.builtin"] = lib.highlights.extend_hl({ fg = palette.blue }, config.styles.syntax.variables),
-            ["@variable.parameter"] = { fg = palette.dark_yellow, italic = true },
-            ["@variable.parameter.reference"] = { fg = fg.primary.main },
-            ["@variable.member"] = { fg = palette.blue },
+            ["@variable"] = lib.highlights.extend_hl({ fg = syntax.variable.default }, config.styles.syntax.variables),
+            ["@variable.builtin"] = lib.highlights.extend_hl(
+                { fg = syntax.variable.builtin },
+                config.styles.syntax.variables
+            ),
+            ["@variable.parameter"] = { fg = syntax.variable.parameter, italic = true },
+            ["@variable.member"] = { fg = syntax.variable.member },
 
             -- Treesitter Semantic Tokens
             ["@lsp.type.namespace"] = { link = "@namespace", italic = true },
@@ -114,7 +116,7 @@ local highlight_map_extension = {
             ["@lsp.type.parameter"] = { link = "@variable.parameter", italic = true },
             ["@lsp.type.variable"] = { link = "@variable", italic = true },
             ["@lsp.type.property"] = { link = "@property", italic = true },
-            ["@lsp.type.enumMember"] = { link = "@constant", italic = true },
+            ["@lsp.type.enumMember"] = { link = "@variable.member", italic = true },
             ["@lsp.type.function"] = { link = "@function", italic = true },
             ["@lsp.type.method"] = { link = "@method", italic = true },
             ["@lsp.type.macro"] = { link = "@macro", italic = true },

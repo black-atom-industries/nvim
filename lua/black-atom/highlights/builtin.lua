@@ -6,6 +6,7 @@ local highlight_map_extension = {
         local bg = colors.ui.bg
         local fg = colors.ui.fg
         local palette = colors.palette
+        local syntax = colors.syntax
 
         ---@type BlackAtom.Highlights
         local highlights_map = {
@@ -31,7 +32,7 @@ local highlight_map_extension = {
             Conditional = lib.highlights.extend_hl({ fg = palette.magenta }, config.styles.syntax.keywords),
             Constant = { fg = palette.dark_yellow },
             Define = { fg = palette.magenta },
-            Delimiter = { fg = fg.primary.main },
+            Delimiter = { fg = syntax.punctuation.delimiter },
             Error = { fg = palette.magenta },
             Exception = { fg = palette.magenta },
             Float = { fg = palette.dark_yellow },
@@ -43,11 +44,11 @@ local highlight_map_extension = {
             MatchParen = { bold = true, bg = bg.match.active },
             Macro = { fg = palette.red },
             Number = { fg = palette.dark_yellow },
-            Operator = { fg = palette.magenta },
+            Operator = { fg = syntax.operator.default },
             PreCondit = { fg = palette.magenta },
             PreProc = { fg = palette.magenta },
             Repeat = lib.highlights.extend_hl({ fg = palette.magenta }, config.styles.syntax.keywords),
-            Special = { fg = palette.red },
+            Special = { fg = syntax.punctuation.special },
             SpecialChar = { fg = palette.red },
             SpecialComment = lib.highlights.extend_hl({ fg = fg.secondary.dark }, config.styles.syntax.comments),
             Statement = { fg = palette.magenta },
