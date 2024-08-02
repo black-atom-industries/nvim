@@ -127,7 +127,7 @@
 ---@field keyword                                               { default: string }
 ---@field punctuation                                           { default: string, delimiter: string, bracket: string, special: string }
 ---@field comment                                               { default: string, documentation: string }
----@field tag                                                   { default: string, builtin: string, delimiter: string }
+---@field tag                                                   { default: string, builtin: string, delimiter: string, attribute: string }
 ---@field markup                                                BlackAtom.Theme.Syntax.Markup
 
 ---@class BlackAtom.Theme.Colors

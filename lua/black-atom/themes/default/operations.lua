@@ -5,22 +5,22 @@ local M = {}
 ---@type BlackAtom.Theme.Primaries
 M.primaries = {
     -- Lows
-    "#141515",
-    "#181b1a",
-    "#1c1f1e",
-    "#222726",
+    "#0d1111",
+    "#171c1b",
+    "#222623",
+    "#2c302d",
 
     -- Mids
-    "#3b4743",
-    "#52635d",
-    "#5b6f68",
-    "#738b83",
+    "#3e4441",
+    "#565f59",
+    "#606a65",
+    "#79857f",
 
     -- Highs
-    "#9fafa7",
-    "#abbbb3",
-    "#c4d4cc",
-    "#d0e0d8",
+    "#adbab4",
+    "#b9c6c1",
+    "#d3dfd9",
+    "#dfeae5",
 }
 
 ---@type BlackAtom.Theme.Palette
@@ -28,23 +28,23 @@ M.palette = {
     black = M.primaries[2],
     gray = M.primaries[5],
 
-    dark_red = "#9891d6",
-    red = "#a6a1df",
+    dark_red = "#a89ee3",
+    red = "#bbb3e3",
 
-    dark_green = "#93c270",
-    green = "#a0ce7d",
+    dark_green = "#7fb464",
+    green = "#99c982",
 
-    dark_yellow = M.primaries[9],
-    yellow = "#9BE197",
+    dark_yellow = "#63b463",
+    yellow = "#85c485",
 
     dark_blue = M.primaries[10],
     blue = M.primaries[11],
 
-    dark_magenta = "#a498e9",
-    magenta = "#b7aded",
+    dark_magenta = "#a89ee3",
+    magenta = "#bbb3e3",
 
-    dark_cyan = "#6ac779",
-    cyan = "#88dc96",
+    dark_cyan = "#66b463",
+    cyan = "#87c485",
 
     light_gray = M.primaries[8],
     white = M.primaries[11],
@@ -98,38 +98,40 @@ M.ui = {
     },
 }
 
----TODO: Connect to Highlights
 ---@type BlackAtom.Theme.Syntax
 M.syntax = {
     default = M.palette.gray,
     variable = {
-        default = M.palette.blue,
-        builtin = M.palette.blue,
-        parameter = M.palette.dark_yellow,
-        member = M.palette.blue,
+        default = M.primaries[9],
+        builtin = M.primaries[8],
+        parameter = M.primaries[10],
+        member = M.primaries[8],
+    },
+    property = {
+        default = M.primaries[8],
     },
     constant = {
-        default = M.palette.dark_yellow,
-        builtin = M.palette.dark_yellow,
+        default = M.palette.white,
+        builtin = M.palette.white,
     },
     module = {
         default = M.palette.dark_blue,
     },
     string = {
-        default = M.palette.cyan,
+        default = M.palette.green,
         documentation = M.palette.green,
-        regexp = M.palette.dark_yellow,
-        escape = M.palette.red,
+        regexp = M.palette.dark_green,
+        escape = M.palette.magenta,
     },
     boolean = {
-        default = M.palette.dark_yellow,
+        default = M.palette.dark_green,
     },
     number = {
-        default = M.palette.dark_yellow,
+        default = M.palette.dark_green,
     },
     type = {
-        default = M.palette.yellow,
-        builtin = M.palette.yellow,
+        default = M.palette.cyan,
+        builtin = M.palette.dark_cyan,
     },
     attribute = {
         default = M.palette.dark_yellow,
@@ -144,16 +146,16 @@ M.syntax = {
         default = M.palette.blue,
     },
     operator = {
-        default = M.palette.magenta,
+        default = M.palette.white,
     },
     keyword = {
         default = M.palette.red,
     },
     punctuation = {
-        default = M.palette.gray,
-        delimiter = M.palette.gray,
-        bracket = M.palette.gray,
-        special = M.palette.gray,
+        default = M.palette.light_gray,
+        delimiter = M.palette.light_gray,
+        bracket = M.primaries[7],
+        special = M.palette.white,
     },
     comment = {
         default = M.palette.gray,
@@ -194,10 +196,10 @@ M.syntax = {
     },
     tag = {
         default = M.palette.yellow,
-        builtin = M.palette.yellow,
+        builtin = M.palette.dark_yellow,
         custom = M.palette.yellow,
-        attribute = M.palette.dark_yellow,
-        delimiter = M.palette.dark_yellow,
+        attribute = M.primaries[8],
+        delimiter = M.primaries[9],
     },
 }
 
