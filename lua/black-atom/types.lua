@@ -114,6 +114,7 @@
 ---@class BlackAtom.Theme.Syntax
 ---@field default                                               string
 ---@field variable                                              { default: string, builtin: string, parameter: string, member: string }
+---@field property                                              { default: string }
 ---@field constant                                              { default: string, builtin: string }
 ---@field module                                                { default: string }
 ---@field string                                                { default: string, documentation: string, regexp: string, escape: string }
