@@ -7,6 +7,8 @@
 ---| "black-atom-research"
 ---| "terra-spring-day"
 ---| "terra-spring-night"
+---| "terra-fall-day"
+---| "terra-fall-night"
 ---| "terra-summer-day"
 ---| "terra-summer-night"
 ---| "terra-winter-day"
