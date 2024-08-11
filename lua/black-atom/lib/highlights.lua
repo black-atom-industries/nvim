@@ -2,10 +2,10 @@ local M = {}
 
 ---Extends a highlight definition with a code style definition
 ---@param highlight BlackAtom.HighlightDefinition
----@param code_style BlackAtom.HighlightDefinition
+---@param code_style? BlackAtom.HighlightDefinition
 ---@return BlackAtom.HighlightDefinition
 function M.extend_hl(highlight, code_style)
-    return vim.tbl_extend("force", highlight, code_style)
+    return vim.tbl_deep_extend("force", highlight, code_style)
 end
 
 function M.building_error_notification(message)

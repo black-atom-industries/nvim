@@ -12,6 +12,12 @@ You can use headers in Markdown by prefixing a line with one or more hash symbol
 
 ### Header 3
 
+#### Header 4
+
+##### Header 5
+
+###### Header 6
+
 ## Emphasis
 
 You can add emphasis to text using asterisks (`*`) or underscores (`_`). Single asterisks or underscores create italicized text, while double asterisks or underscores create bold text:
@@ -35,6 +41,12 @@ You can create ordered lists by prefixing lines with numbers:
 1. First item
 2. Second item
 3. Third item
+
+## Quotes
+
+You can create blockquotes in Markdown using the `>` character:
+
+> This is a blockquote.
 
 ## Links
 
@@ -61,6 +73,10 @@ Code Block:
 print("Hello, world!")
 ```
 
+```
+This is a code block without any language
+```
+
 ## Horizontal Rule
 
 You can create a horizontal rule in Markdown using three or more hyphens (`---`), asterisks (`***`), or underscores (`___`):
@@ -81,3 +97,15 @@ You can create tables in Markdown using pipes (`|`) and hyphens (`-`). The first
 | -------- | -------- |
 | Data 1   | Data 2   |
 | Data 3   | Data 4   |
+
+## Lists
+
+- One
+- Two
+- three
+
+A todo list
+
+- [ ] One
+- [x] Two
+- [ ] Three

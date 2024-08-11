@@ -93,41 +93,44 @@
 ---@field invert                                                string
 ---@field diff                                                  BlackAtom.Theme.UI.Git
 
+---@class BlackAtom.Theme.UI.Feedback
+---@field error                                                 string
+---@field warn                                                  string
+---@field info                                                  string
+---@field hint                                                  string
+---@field todo                                                  string
+---@field success                                               string
+
 ---@class BlackAtom.Theme.UI
 ---@field bg                                                    BlackAtom.Theme.UI.Background
 ---@field fg                                                    BlackAtom.Theme.UI.Foreground
+---@field feedback                                              BlackAtom.Theme.UI.Feedback
 
 ---@class BlackAtom.Theme.Syntax.Markup
----@field default                                               string
----@field heading                                               { default: string, h1: string, h2: string, h3: string, h4: string, h5: string, h6: string }
----@field strong                                                string
----@field italic                                                string
----@field strikethrough                                         string
----@field underline                                             string
+---@field heading                                               { h1: string, h2: string, h3: string, h4: string, h5: string, h6: string }
 ---@field quote                                                 string
 ---@field math                                                  string
----@field link                                                  { default: string, label: string, url: string }
----@field code                                                  { default: string, inline: string, block: string }
+---@field link                                                  string
+---@field code                                                  string
 ---@field list                                                  { default: string, checked: string, unchecked: string }
 
 
 ---@class BlackAtom.Theme.Syntax
----@field default                                               string
 ---@field variable                                              { default: string, builtin: string, parameter: string, member: string }
----@field property                                              { default: string }
----@field constant                                              { default: string, builtin: string }
----@field module                                                { default: string }
 ---@field string                                                { default: string, documentation: string, regexp: string, escape: string }
 ---@field boolean                                               { default: string }
 ---@field number                                                { default: string }
+---@field property                                              { default: string }
+---@field constant                                              { default: string, builtin: string }
+---@field module                                                { default: string }
 ---@field type                                                  { default: string, builtin: string }
 ---@field attribute                                             { default: string, builtin: string }
 ---@field func                                                  { default: string, builtin: string, method: string }
 ---@field constructor                                           { default: string }
 ---@field operator                                              { default: string }
----@field keyword                                               { default: string }
+---@field keyword                                               { default: string, import: string, export: string }
 ---@field punctuation                                           { default: string, delimiter: string, bracket: string, special: string }
----@field comment                                               { default: string, documentation: string }
+---@field comment                                               { default: string, doc: string, todo: string, error: string, warn: string, info: string, hint: string }
 ---@field tag                                                   { default: string, builtin: string, delimiter: string, attribute: string }
 ---@field markup                                                BlackAtom.Theme.Syntax.Markup
 

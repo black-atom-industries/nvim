@@ -13,7 +13,6 @@ local highlight_map_spec = {
         ---@type BlackAtom.Highlights
         local highlights_map = {
             FzfLuaNormal = { fg = fg.primary.main, bg = bg_float },
-            FzfLuaCursorLine = { bg = bg.primary.light },
             FzfLuaTitle = { fg = fg.active },
             FzfLuaBorder = { link = "FloatBorder" },
             FzfLuaPreviewBorder = { link = "FloatBorder" },

@@ -1,83 +1,48 @@
-local lib = require("black-atom.lib")
-
 ---@type BlackAtom.HighlightsSpec
 local highlight_map_extension = {
     map = function(colors, config)
-        local bg = colors.ui.bg
-        local fg = colors.ui.fg
+        local ui = colors.ui
         local palette = colors.palette
-        local syntax = colors.syntax
+        local bg = require("black-atom.lib.bg")
+        local configurable = require("black-atom.lib.highlights").extend_hl
 
         ---@type BlackAtom.Highlights
         local highlights_map = {
             -- Basic Text
-            Normal = { fg = fg.primary.main, bg = lib.bg.main(config, colors) },
-            NormalNC = { fg = fg.primary.main, bg = lib.bg.main(config, colors) },
-            EndOfBuffer = {
-                fg = lib.highlights.conditional_hl(bg.primary.main, { [config.styles.ending_tildes] = fg.neutral }),
-            },
-            NonText = { fg = fg.neutral },
+            Normal = { fg = ui.fg.primary.main, bg = bg.main(config, colors) },
+            NormalNC = { fg = ui.fg.primary.main, bg = bg.main(config, colors) },
+            EndOfBuffer = configurable(
+                { fg = bg.main(config, colors) },
+                { [config.styles.ending_tildes] = ui.fg.neutral }
+            ),
+            NonText = { fg = ui.fg.neutral },
             Whitespace = { link = "NonText" },
             SpecialKey = { link = "NonText" },
 
             -- Floating Windows
-            NormalFloat = { fg = fg.primary.main, bg = bg.primary.dark },
-            FloatBorder = { fg = fg.active, bg = bg.primary.dark },
-            FloatTitle = { fg = fg.active, bg = bg.primary.dark },
+            NormalFloat = { fg = ui.fg.primary.main, bg = ui.bg.primary.dark },
+            FloatBorder = { fg = ui.fg.active, bg = ui.bg.primary.dark },
+            FloatTitle = { fg = ui.fg.active, bg = ui.bg.primary.dark },
 
-            -- Native Regex Highlights (See: `:h syntax`)
-            Boolean = { fg = palette.dark_yellow },
-            Character = { fg = palette.yellow },
-            Comment = lib.highlights.extend_hl({ fg = fg.neutral }, config.styles.syntax.comments),
-            Conditional = lib.highlights.extend_hl({ fg = palette.magenta }, config.styles.syntax.keywords),
-            Constant = { fg = palette.dark_yellow },
-            Define = { fg = palette.magenta },
-            Delimiter = { fg = syntax.punctuation.delimiter },
-            Error = { fg = palette.magenta },
-            Exception = { fg = palette.magenta },
-            Float = { fg = palette.dark_yellow },
-            Function = lib.highlights.extend_hl({ fg = palette.yellow }, config.styles.syntax.functions),
-            Identifier = lib.highlights.extend_hl({ fg = fg.active }, config.styles.syntax.variables),
-            Include = { fg = palette.magenta },
-            Keyword = lib.highlights.extend_hl({ fg = palette.red }, config.styles.syntax.keywords),
-            Label = { fg = palette.magenta },
-            MatchParen = { bold = true, bg = bg.match.active },
-            Macro = { fg = palette.red },
-            Number = { fg = palette.dark_yellow },
-            Operator = { fg = syntax.operator.default },
-            PreCondit = { fg = palette.magenta },
-            PreProc = { fg = palette.magenta },
-            Repeat = lib.highlights.extend_hl({ fg = palette.magenta }, config.styles.syntax.keywords),
-            Special = { fg = syntax.punctuation.special },
-            SpecialChar = { fg = palette.red },
-            SpecialComment = lib.highlights.extend_hl({ fg = fg.secondary.dark }, config.styles.syntax.comments),
-            Statement = { fg = palette.magenta },
-            StorageClass = { fg = palette.blue },
-            String = lib.highlights.extend_hl({ fg = palette.cyan }, config.styles.syntax.strings),
-            Structure = { fg = palette.yellow },
-            Tag = { fg = palette.green },
-            Todo = { fg = fg.neutral },
-            Type = { fg = palette.yellow },
-            Typedef = { fg = palette.magenta },
-
-            -- Cursor
+            -- Cursor & Matching
             Cursor = { reverse = true },
             CursorIM = { reverse = true },
-            CursorLine = { bg = bg.primary.dark },
+            CursorLine = { bg = ui.bg.primary.dark },
+            MatchParen = { bold = true, bg = ui.bg.match.active },
 
             -- Search
-            Search = { bg = bg.match.active },
+            Search = { bg = ui.bg.match.active },
             IncSearch = { link = "Search" },
 
             -- Line Numbering
-            LineNr = { fg = fg.neutral },
-            CursorLineNr = { fg = fg.active },
+            LineNr = { fg = ui.fg.neutral },
+            CursorLineNr = { fg = ui.fg.active },
 
             -- Diff
-            DiffAdd = { fg = fg.invert, bg = bg.diff.add },
-            DiffChange = { fg = fg.diff.change },
-            DiffDelete = { fg = fg.diff.delete },
-            DiffText = { fg = fg.diff.text },
+            DiffAdd = { fg = ui.fg.invert, bg = ui.bg.diff.add },
+            DiffChange = { fg = ui.fg.diff.change },
+            DiffDelete = { fg = ui.fg.diff.delete },
+            DiffText = { fg = ui.fg.diff.text },
 
             -- Spell Checking
             SpellBad = { fg = ui.feedback.error, sp = palette.red, undercurl = true },
@@ -86,59 +51,50 @@ local highlight_map_extension = {
             SpellRare = { fg = ui.feedback.error, sp = palette.magenta, undercurl = true },
 
             -- Popup Menu
-            Pmenu = { fg = fg.primary.main, bg = bg.primary.dark },
-            PmenuSel = { bg = bg.primary.light },
-            PmenuSbar = { fg = colors.none, bg = bg.primary.dark },
-            PmenuThumb = { fg = colors.none, bg = bg.active },
+            Pmenu = { fg = ui.fg.primary.main, bg = ui.bg.primary.dark },
+            PmenuSel = { bg = ui.bg.primary.light },
+            PmenuSbar = { fg = colors.none, bg = ui.bg.primary.dark },
+            PmenuThumb = { fg = colors.none, bg = ui.bg.active },
 
             -- Messages & Mode
-            ErrorMsg = lib.highlights.extend_hl({
-                fg = palette.red,
-            }, config.styles.syntax.messages),
-            MoreMsg = lib.highlights.extend_hl({
-                fg = palette.blue,
-            }, config.styles.syntax.messages),
-            ModeMsg = lib.highlights.extend_hl({ fg = fg.primary.main }, config.styles.syntax.messages),
-            WarningMsg = lib.highlights.extend_hl({ fg = palette.yellow }, config.styles.syntax.messages),
+            Error = { fg = palette.red },
+            ErrorMsg = configurable({ fg = palette.red }, config.styles.syntax.messages),
+            MoreMsg = configurable({ fg = palette.blue }, config.styles.syntax.messages),
+            ModeMsg = configurable({ fg = ui.fg.primary.main }, config.styles.syntax.messages),
+            WarningMsg = configurable({ fg = palette.yellow }, config.styles.syntax.messages),
 
             -- Window & Tab Management
-            Title = { fg = fg.active },
-            StatusLine = {
-                fg = fg.primary.main,
-                bg = lib.highlights.conditional_hl(
-                    bg.primary.dark,
-                    { [config.styles.transparency == "full"] = colors.none }
-                ),
-            },
-            StatusLineNC = {
-                fg = fg.neutral,
-                bg = lib.highlights.conditional_hl(
-                    bg.primary.dark,
-                    { [config.styles.transparency == "full"] = colors.none }
-                ),
-            },
-            TabLine = { fg = fg.neutral, bg = bg.primary.main },
-            TabLineFill = { bg = bg.primary.main },
-            TabLineSel = { fg = fg.primary.main, bg = bg.primary.light },
+            Title = { fg = ui.fg.active },
+            StatusLine = configurable(
+                { fg = ui.fg.primary.main, bg = ui.bg.primary.dark },
+                { [config.styles.transparency == "full"] = { bg = colors.none } }
+            ),
+            StatusLineNC = configurable(
+                { fg = ui.fg.neutral, bg = ui.bg.primary.dark },
+                { [config.styles.transparency == "full"] = { bg = colors.none } }
+            ),
+            TabLine = { fg = ui.fg.neutral, bg = ui.bg.primary.main },
+            TabLineFill = { bg = ui.bg.primary.main },
+            TabLineSel = { fg = ui.fg.primary.main, bg = ui.bg.primary.light },
 
             WinBar = { link = "StatusLine" },
             WinBarNC = { link = "StatusLineNC" },
-            WinSeparator = { fg = bg.primary.dark, bg = lib.bg.main(config, colors) },
+            WinSeparator = { fg = ui.fg.neutral, bg = bg.main(config, colors) },
 
             -- Folds & Columns
-            Folded = { fg = fg.neutral, bg = lib.bg.main(config, colors) },
-            FoldColumn = { fg = fg.neutral },
-            SignColumn = { fg = fg.neutral },
-            CursorColumn = { bg = bg.primary.dark },
-            ColorColumn = { bg = bg.primary.dark },
+            Folded = { fg = ui.fg.neutral, bg = bg.main(config, colors) },
+            FoldColumn = { fg = ui.fg.neutral },
+            SignColumn = { fg = ui.fg.neutral },
+            CursorColumn = { bg = ui.bg.primary.dark },
+            ColorColumn = { bg = ui.bg.primary.dark },
 
             -- Others
-            Substitute = { fg = bg.primary.dark, bg = palette.green },
-            Directory = { fg = palette.blue },
-            Conceal = { fg = fg.neutral },
-            Visual = { bg = bg.match.active },
+            Substitute = { fg = ui.bg.primary.dark, bg = palette.green },
+            Directory = { fg = ui.fg.active },
+            Conceal = { fg = ui.fg.neutral },
+            Visual = { bg = ui.bg.match.active },
             VisualNOS = { link = "Visual" },
-            QuickFixLine = { fg = fg.active, bg = bg.primary.light },
+            QuickFixLine = { fg = ui.fg.active, bg = ui.bg.primary.light },
         }
 
         return highlights_map

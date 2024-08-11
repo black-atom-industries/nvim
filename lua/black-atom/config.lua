@@ -25,15 +25,11 @@ M.default = {
                 bold = true,
                 italic = true,
             },
-            functions = {
-                bold = true,
-            },
+            functions = {},
             strings = {
                 italic = true,
             },
-            variables = {
-                bold = true,
-            },
+            variables = {},
             messages = {
                 bold = true,
             },
