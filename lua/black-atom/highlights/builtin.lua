@@ -80,10 +80,10 @@ local highlight_map_extension = {
             DiffText = { fg = fg.diff.text },
 
             -- Spell Checking
-            SpellBad = { fg = palette.red, sp = palette.red },
-            SpellCap = { fg = palette.yellow, sp = palette.yellow },
-            SpellLocal = { fg = palette.blue, sp = palette.blue },
-            SpellRare = { fg = palette.magenta, sp = palette.magenta },
+            SpellBad = { fg = ui.feedback.error, sp = palette.red, undercurl = true },
+            SpellCap = { fg = ui.feedback.warn, sp = palette.yellow, undercurl = true },
+            SpellLocal = { fg = ui.feedback.info, sp = palette.blue, undercurl = true },
+            SpellRare = { fg = ui.feedback.error, sp = palette.magenta, undercurl = true },
 
             -- Popup Menu
             Pmenu = { fg = fg.primary.main, bg = bg.primary.dark },
