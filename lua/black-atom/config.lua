@@ -31,7 +31,9 @@ M.default = {
             strings = {
                 italic = true,
             },
-            variables = {},
+            variables = {
+                bold = true,
+            },
             messages = {
                 bold = true,
             },
