@@ -1,5 +1,5 @@
 ---@type BlackAtom.HighlightsSpec
-local highlight_map_extension = {
+return {
     map = function(colors, config)
         local ui = colors.ui
         local palette = colors.palette
@@ -100,5 +100,3 @@ local highlight_map_extension = {
         return highlights_map
     end,
 }
-
-return highlight_map_extension
