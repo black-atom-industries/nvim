@@ -10,12 +10,12 @@ local highlight_map_spec = {
             -- these doesnt work. I commented on a closed issue about this
             -- [fix highlight not modifiable #27](https://github.com/s1n7ax/nvim-window-picker/pull/27)
             NvimWindoSwitch = {
-                fg = colors.semantics.fg.primary.main,
-                bg = colors.semantics.bg.secondary.main,
+                fg = colors.ui.fg.primary.main,
+                bg = colors.ui.bg.secondary.main,
             },
             NvimWindoSwitchNC = {
-                fg = colors.semantics.fg.invert,
-                bg = colors.semantics.bg.active,
+                fg = colors.ui.fg.invert,
+                bg = colors.ui.bg.active,
             },
         }
 

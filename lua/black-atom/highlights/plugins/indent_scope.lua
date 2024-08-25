@@ -4,7 +4,7 @@ local highlight_map_extension = {
         ---@type BlackAtom.Highlights
         local highlights_map = {
             MiniIndentscopeSymbol = {
-                fg = colors.semantics.fg.active,
+                fg = colors.ui.fg.active,
             },
         }
 

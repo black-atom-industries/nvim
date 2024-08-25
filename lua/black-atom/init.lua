@@ -18,7 +18,7 @@ function M.setup(opts)
 end
 
 ---Loads a theme definition into the editor
----@param theme BlackAtom.ThemeDefinition
+---@param theme BlackAtom.Theme.Definition
 ---@return nil
 function M.load(theme)
     config.set({ theme = theme.meta.key })

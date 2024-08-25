@@ -5,11 +5,11 @@ local highlight_map_spec = {
     enabled = true,
 
     map = function(colors)
-        local bg = colors.semantics.bg
+        local bg = colors.ui.bg
         local bg_main = bg.primary.main
         local bg_dark = bg.primary.dark
 
-        local fg = colors.semantics.fg
+        local fg = colors.ui.fg
         local fg_main = fg.primary.main
         local fg_secondary = fg.secondary.main
         local fg_neutral = fg.neutral

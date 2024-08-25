@@ -5,7 +5,7 @@ local hightligh_map_extension = {
         local highlights_map = {
             DiffviewFilePanelTitle = { fg = colors.palette.blue, bold = true },
             DiffviewFilePanelCounter = { fg = colors.palette.magenta, bold = true },
-            DiffviewFilePanelFileName = { fg = colors.semantics.fg.primary.main },
+            DiffviewFilePanelFileName = { fg = colors.ui.fg.primary.main },
             DiffviewNormal = { link = "Normal" },
             DiffviewCursorLine = { link = "CursorLine" },
             DiffviewVertSplit = { link = "VertSplit" },

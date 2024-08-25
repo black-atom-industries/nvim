@@ -5,12 +5,12 @@ local highlight_map_spec = {
     enabled = true,
 
     map = function(colors)
-        local match_style = { bg = colors.semantics.bg.match.active }
+        local match_style = { bg = colors.ui.bg.match.active }
 
-        local bg = colors.semantics.bg
+        local bg = colors.ui.bg
         local bg_dark = bg.primary.dark
 
-        local fg = colors.semantics.fg
+        local fg = colors.ui.fg
         local fg_active = fg.active
 
         local palette = colors.palette

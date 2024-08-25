@@ -13,7 +13,7 @@ function M.reset()
 end
 
 ---Applies the highlights for the theme based on the current configuration.
----@param colors BlackAtom.ThemeColors
+---@param colors BlackAtom.Theme.Colors
 ---@param config BlackAtom.Config
 ---@return nil
 function M.apply(colors, config)

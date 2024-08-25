@@ -2,10 +2,10 @@ local M = {}
 
 ---Extends a highlight definition with a code style definition
 ---@param highlight BlackAtom.HighlightDefinition
----@param code_style BlackAtom.HighlightDefinition
+---@param code_style? BlackAtom.HighlightDefinition
 ---@return BlackAtom.HighlightDefinition
 function M.extend_hl(highlight, code_style)
-    return vim.tbl_extend("force", highlight, code_style)
+    return vim.tbl_deep_extend("force", highlight, code_style)
 end
 
 function M.building_error_notification(message)
@@ -19,7 +19,7 @@ function M.building_error_notification(message)
     require("black-atom.lib.ui").notify(message, vim.log.levels.ERROR, notification_opts)
 end
 
----@param colors BlackAtom.ThemeColors
+---@param colors BlackAtom.Theme.Colors
 ---@param config BlackAtom.Config
 ---@return BlackAtom.Highlights
 function M.build_highlights_map(colors, config)
@@ -38,7 +38,7 @@ end
 
 ---Aggregate the highlight maps from the highlight files
 ---@param files string[]
----@param colors BlackAtom.ThemeColors
+---@param colors BlackAtom.Theme.Colors
 ---@param config BlackAtom.Config
 ---@return BlackAtom.Highlights
 function M.aggregate_highlight_maps(files, colors, config)
@@ -98,7 +98,7 @@ function M.set(highlight_groups)
     end
 end
 
----@param colors BlackAtom.ThemeColors
+---@param colors BlackAtom.Theme.Colors
 function M.set_term(colors)
     vim.g.terminal_color_0 = colors.palette.gray
     vim.g.terminal_color_1 = colors.palette.red

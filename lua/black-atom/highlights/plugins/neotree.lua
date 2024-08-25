@@ -4,8 +4,8 @@ local highlight_map_extension = {
     map = function(colors, config)
         local lib = require("black-atom.lib")
 
-        local fg = colors.semantics.fg
-        local bg = colors.semantics.bg
+        local fg = colors.ui.fg
+        local bg = colors.ui.bg
 
         local bg_sidebar = lib.bg.sidebar(config, colors)
         local bg_float = lib.bg.float(config, colors)

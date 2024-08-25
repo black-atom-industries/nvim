@@ -5,15 +5,14 @@ local highlight_map_spec = {
     map = function(colors, config)
         local lib = require("black-atom.lib")
 
-        local fg = colors.semantics.fg
+        local fg = colors.ui.fg
 
-        local bg = colors.semantics.bg
+        local bg = colors.ui.bg
         local bg_float = lib.bg.float(config, colors)
 
         ---@type BlackAtom.Highlights
         local highlights_map = {
             FzfLuaNormal = { fg = fg.primary.main, bg = bg_float },
-            FzfLuaCursorLine = { bg = bg.primary.light },
             FzfLuaTitle = { fg = fg.active },
             FzfLuaBorder = { link = "FloatBorder" },
             FzfLuaPreviewBorder = { link = "FloatBorder" },

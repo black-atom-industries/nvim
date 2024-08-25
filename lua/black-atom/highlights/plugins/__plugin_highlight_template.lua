@@ -37,13 +37,13 @@ local highlight_map_spec = {
     map = function(colors, config)
         ---@type BlackAtom.Highlights
         local highlights_map = {
-            MyHighlightGroup = { fg = colors.semantics.fg.primary.main },
+            MyHighlightGroup = { fg = colors.ui.fg.primary.main },
             MyOtherHighlightGroup = {
                 fg = colors.palette.cyan,
-                bg = colors.semantics.bg.primary.main,
+                bg = colors.ui.bg.primary.main,
             },
             MyHighlightGroupWithUnderline = {
-                fg = colors.semantics.fg.primary.main,
+                fg = colors.ui.fg.primary.main,
                 underline = true,
             },
         }

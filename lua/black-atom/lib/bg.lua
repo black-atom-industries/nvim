@@ -1,11 +1,11 @@
 local M = {}
 
 ---@param config BlackAtom.Config
----@param colors BlackAtom.ThemeColors
+---@param colors BlackAtom.Theme.Colors
 ---@return string
 function M.main(config, colors)
     local no_color = colors.none
-    local bg = colors.semantics.bg
+    local bg = colors.ui.bg
 
     return require("black-atom.lib.highlights").conditional_hl(bg.primary.main, {
         [config.styles.transparency == "partial"] = no_color,
@@ -14,12 +14,12 @@ function M.main(config, colors)
 end
 
 ---@param config BlackAtom.Config
----@param colors BlackAtom.ThemeColors
+---@param colors BlackAtom.Theme.Colors
 ---@return string
 function M.sidebar(config, colors)
     local dark_sidebars = config.styles.dark_sidebars
     local transparency = config.styles.transparency
-    local bg = colors.semantics.bg
+    local bg = colors.ui.bg
     local no_color = colors.none
 
     return require("black-atom.lib.highlights").conditional_hl(bg.primary.dark, {
@@ -30,11 +30,11 @@ function M.sidebar(config, colors)
 end
 
 ---@param config BlackAtom.Config
----@param colors BlackAtom.ThemeColors
+---@param colors BlackAtom.Theme.Colors
 ---@return string
 ---@diagnostic disable-next-line: unused-local
 function M.float(config, colors)
-    local bg = colors.semantics.bg
+    local bg = colors.ui.bg
 
     return require("black-atom.lib.highlights").conditional_hl(bg.primary.dark, {
         -- I decided to always use the dark background for floating windows

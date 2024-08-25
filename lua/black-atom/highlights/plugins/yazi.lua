@@ -5,7 +5,6 @@ local highlight_map_spec = {
     map = function(colors, config)
         local lib = require("black-atom.lib")
 
-        local fg = colors.semantics.fg
         local bg_float = lib.bg.float(config, colors)
 
         ---@type BlackAtom.Highlights
