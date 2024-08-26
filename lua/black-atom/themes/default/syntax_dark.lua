@@ -10,7 +10,7 @@ return function(primaries, palette)
             parameter = primaries[8],
         },
         property = {
-            default = primaries[8],
+            default = primaries[6],
         },
         string = {
             default = palette.green,
@@ -57,9 +57,9 @@ return function(primaries, palette)
         },
         punctuation = {
             default = palette.light_gray,
-            delimiter = palette.light_gray,
-            bracket = primaries[7],
-            special = palette.white,
+            delimiter = primaries[8],
+            bracket = palette.light_gray,
+            special = palette.light_gray,
         },
         comment = {
             default = palette.gray,

@@ -58,9 +58,9 @@ return function(primaries, palette)
         },
         punctuation = {
             default = palette.light_gray,
-            delimiter = palette.light_gray,
-            bracket = primaries[9],
-            special = palette.white,
+            delimiter = primaries[8],
+            bracket = palette.light_gray,
+            special = palette.light_gray,
         },
         comment = {
             default = palette.gray,
