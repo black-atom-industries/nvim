@@ -1,7 +1,7 @@
 local M = {}
 
 -- Escaped plugin name. Used to find its own installation path.
-M.plugin_name = "black%-atom%.nvim"
+M.plugin_name = "black%-atom"
 
 ---@type BlackAtom.Config
 M.default = {
