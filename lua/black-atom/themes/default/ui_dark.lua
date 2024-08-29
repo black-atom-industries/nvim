@@ -18,7 +18,7 @@ return function(primaries, palette)
             },
             active = primaries[4],
             match = {
-                active = darken(palette.magenta, 0.25, primaries[1]),
+                active = darken(palette.green, 0.15, primaries[1]),
                 passive = darken(palette.magenta, 0.15, primaries[1]),
             },
             diff = {
