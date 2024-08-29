@@ -1,6 +1,10 @@
+local API = require("black-atom.api")
+local Config = require("black-atom.config")
+
+local colors = API:get_colors()
+local config = Config:get()
+
 local cond_hl = require("black-atom.lib.highlights").conditional_hl
-local colors = require("black-atom.api").get_colors()
-local Config = require("black-atom.config"):get()
 
 local M = {}
 
@@ -16,15 +20,15 @@ M.normal = {
     b = {
         fg = fg.primary.dark,
         bg = cond_hl(bg.primary.main, {
-            [Config.transparency == "partial"] = bg.primary.main,
-            [Config.transparency == "full"] = colors.none,
+            [config.transparency == "partial"] = bg.primary.main,
+            [config.transparency == "full"] = colors.none,
         }),
     },
     c = {
         fg = fg.primary.dark,
         bg = cond_hl(bg.primary.main, {
-            [Config.transparency == "partial"] = bg.primary.main,
-            [Config.transparency == "full"] = colors.none,
+            [config.transparency == "partial"] = bg.primary.main,
+            [config.transparency == "full"] = colors.none,
         }),
     },
 }
@@ -37,15 +41,15 @@ M.inactive = {
     b = {
         fg = fg.neutral,
         bg = cond_hl(bg.primary.main, {
-            [Config.transparency == "partial"] = bg.primary.main,
-            [Config.transparency == "full"] = colors.none,
+            [config.transparency == "partial"] = bg.primary.main,
+            [config.transparency == "full"] = colors.none,
         }),
     },
     c = {
         fg = fg.neutral,
         bg = cond_hl(bg.primary.light, {
-            [Config.transparency == "partial"] = bg.primary.main,
-            [Config.transparency == "full"] = colors.none,
+            [config.transparency == "partial"] = bg.primary.main,
+            [config.transparency == "full"] = colors.none,
         }),
     },
 }

@@ -1,5 +1,5 @@
 ---@class BlackAtom.API
-local M = {}
+local API = {}
 
 ---@param collection_key? BlackAtom.Theme.Collection.Key
 ---@param theme_key? BlackAtom.Theme.Key
@@ -23,7 +23,7 @@ end
 ---@param collection_key? BlackAtom.Theme.Collection.Key
 ---@param theme_key? BlackAtom.Theme.Key
 ---@return BlackAtom.Theme.Meta
-function M.get_meta(collection_key, theme_key)
+function API:get_meta(collection_key, theme_key)
     return load_theme_definition(collection_key, theme_key).meta
 end
 
@@ -32,7 +32,7 @@ end
 ---@param collection_key? BlackAtom.Theme.Collection.Key
 ---@param theme_key? BlackAtom.Theme.Key
 ---@return BlackAtom.Theme.Colors
-function M.get_colors(collection_key, theme_key)
+function API:get_colors(collection_key, theme_key)
     return load_theme_definition(collection_key, theme_key).colors
 end
 
@@ -41,8 +41,8 @@ end
 ---@param collection_key? BlackAtom.Theme.Collection.Key
 ---@param theme_key? BlackAtom.Theme.Key
 ---@return BlackAtom.Theme.Definition
-function M.get_theme(collection_key, theme_key)
+function API:get_theme(collection_key, theme_key)
     return load_theme_definition(collection_key, theme_key)
 end
 
-return M
+return API
