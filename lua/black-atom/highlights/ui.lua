@@ -27,6 +27,7 @@ return {
             -- Cursor & Matching
             Cursor = { reverse = true },
             CursorIM = { reverse = true },
+            CurSearch = { bg = ui.bg.match.active },
             CursorLine = { bg = ui.bg.primary.dark },
             MatchParen = { bold = true, bg = ui.bg.match.active },
 
