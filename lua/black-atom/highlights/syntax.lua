@@ -114,7 +114,7 @@ return {
             ["@markup.quote"] = { fg = s.markup.quote, italic = true },
             ["@markup.link"] = { fg = s.markup.link, underline = true },
 
-            ["@markup.raw"] = { fg = s.markup.code },
+            ["@markup.raw"] = { fg = s.markup.code.fg, bg = s.markup.code.bg },
 
             ["@markup.list"] = { fg = s.markup.list.default },
             ["@markup.list.checked"] = { fg = s.markup.list.checked },

@@ -111,7 +111,7 @@
 ---@field quote                                                 string
 ---@field math                                                  string
 ---@field link                                                  string
----@field code                                                  string
+---@field code                                                  { fg: string, bg: string }
 ---@field list                                                  { default: string, checked: string, unchecked: string }
 
 

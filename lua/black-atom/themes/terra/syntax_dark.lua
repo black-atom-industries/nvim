@@ -88,7 +88,10 @@ return function(primaries, palette)
             quote = palette.green,
             math = palette.dark_green,
             link = palette.green,
-            code = palette.light_gray,
+            code = {
+                fg = primaries[10],
+                bg = primaries[6],
+            },
         },
         tag = {
             default = palette.yellow,
