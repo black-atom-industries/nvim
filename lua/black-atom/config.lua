@@ -7,6 +7,7 @@ M.plugin_name = "black%-atom"
 M.default = {
     debug = false,
     theme = "black-atom-engineering",
+    collection = "default",
     term_colors = true,
     styles = {
         ending_tildes = false,
