@@ -14,7 +14,7 @@
 ---| "terra-winter-day"
 ---| "terra-winter-night"
 
----@alias BlackAtom.Theme.CollectionKey
+---@alias BlackAtom.Theme.Collection.Key
 ---| "default"
 ---| "terra"
 
@@ -144,7 +144,7 @@
 ---@class BlackAtom.Theme.Meta
 ---@field key                                                   BlackAtom.Theme.Key
 ---@field label                                                 string Display name
----@field collection                                            { key: BlackAtom.Theme.CollectionKey, label: string }
+---@field collection                                            { key: BlackAtom.Theme.Collection.Key, label: string }
 ---@field appearance                                            "light" | "dark"
 ---@field status                                                "development" | "beta" | "release" Status of the theme
 ---@field icon                                                  string Icon to display in the UI
@@ -175,7 +175,8 @@
 
 ---@class BlackAtom.Config
 ---@field debug?                                                boolean Enables the Debug Mode (Enables various debug messages) (Default: false)
----@field theme?                                                string Currently set theme (Default: "terra_spring_night")
+---@field theme?                                                BlackAtom.Theme.Key
+---@field collection?                                           BlackAtom.Theme.Collection.Key
 ---@field term_colors?                                          boolean Wether to enable terminal colors (Default: true)
 ---@field styles?                                               BlackAtom.Config.Styles Various styles related settings (Default: See Documentation)
 
