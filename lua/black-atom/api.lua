@@ -5,10 +5,10 @@ local M = {}
 ---@param theme_key? BlackAtom.Theme.Key
 ---@return BlackAtom.Theme.Definition
 local function load_theme_definition(collection_key, theme_key)
-    local config = require("black-atom.config").get()
+    local Config = require("black-atom.config"):get()
 
-    theme_key = theme_key or config.theme
-    collection_key = collection_key or config.collection
+    theme_key = theme_key or Config.theme
+    collection_key = collection_key or Config.collection
 
     local found, theme = pcall(require, "black-atom.themes." .. collection_key .. "." .. theme_key)
     if not found then
