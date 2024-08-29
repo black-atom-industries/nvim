@@ -25,10 +25,10 @@ M.primaries = {
     "#425953",
 
     -- Mids
-    "#51796d",
-    "#5b8972",
-    "#75a490",
-    "#95b8ac",
+    "#476a5f",
+    "#517a65",
+    "#669a84",
+    "#77a494",
 
     -- Highs
     "#a6bdb2",
@@ -45,11 +45,11 @@ M.palette = {
     dark_red = "#cc6783",
     red = "#e186a6",
 
-    dark_green = "#44a044",
-    green = "#4bb24b",
+    dark_green = "#357c35",
+    green = "#3c8e3c",
 
-    dark_yellow = "#3f6b13",
-    yellow = "#59a012",
+    dark_yellow = "#61890f",
+    yellow = "#71a012",
 
     dark_blue = M.primaries[6],
     blue = M.primaries[5],
