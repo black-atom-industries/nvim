@@ -62,7 +62,7 @@ return function(primaries, palette)
             special = palette.gray,
         },
         comment = {
-            default = palette.gray,
+            default = primaries[7],
             doc = palette.dark_green,
             todo = palette.green,
             error = palette.red,
@@ -97,7 +97,7 @@ return function(primaries, palette)
             builtin = palette.dark_yellow,
             custom = palette.yellow,
             attribute = primaries[5],
-            delimiter = primaries[4],
+            delimiter = palette.dark_green,
         },
     }
 end
