@@ -2,9 +2,9 @@
 ---@type BlackAtom.HighlightsSpec
 return {
     enabled = true,
-    map = function()
+    map = function(colors)
         ---@type BlackAtom.HighlightDefinition
-        local match_style = { underline = true }
+        local match_style = { bg = colors.ui.bg.match.active }
 
         ---@type BlackAtom.Highlights
         return {
