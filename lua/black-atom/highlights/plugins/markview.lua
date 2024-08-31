@@ -1,14 +1,11 @@
 ---@type BlackAtom.HighlightsSpec
 return {
     enabled = true,
-
-    map = function(colors, config)
+    map = function(colors)
         ---@type BlackAtom.Highlights
-        local highlights_map = {
-            MarkviewCode = { bg = colors.syntax.markup.code_bg },
-            MarkviewInlineCode = { bg = colors.syntax.markup.code_bg },
+        return {
+            MarkviewCode = { bg = colors.syntax.markup.code.bg },
+            MarkviewInlineCode = { bg = colors.syntax.markup.code.bg },
         }
-
-        return highlights_map
     end,
 }

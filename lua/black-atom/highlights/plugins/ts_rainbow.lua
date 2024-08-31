@@ -1,8 +1,9 @@
 ---@type BlackAtom.HighlightsSpec
-local highlight_map_extension = {
+return {
+    enabled = true,
     map = function(colors)
         ---@type BlackAtom.Highlights
-        local highlights_map = {
+        return {
             rainbowcol1 = { fg = colors.palette.gray },
             rainbowcol2 = { fg = colors.palette.yellow },
             rainbowcol3 = { fg = colors.palette.blue },
@@ -11,9 +12,5 @@ local highlight_map_extension = {
             rainbowcol6 = { fg = colors.palette.green },
             rainbowcol7 = { fg = colors.palette.red },
         }
-
-        return highlights_map
     end,
 }
-
-return highlight_map_extension

@@ -1,10 +1,10 @@
 ---@type BlackAtom.HighlightsSpec
-local highlight_map_extension = {
+return {
+    enabled = true,
     map = function(colors, config)
         local conditional_hl = require("black-atom.lib").highlights.conditional_hl
-
         ---@type BlackAtom.Highlights
-        local highlights_map = {
+        return {
             NvimTreeNormal = {
                 fg = colors.ui.fg.primary.main,
                 bg = conditional_hl(colors.ui.bg.primary.dark, {
@@ -57,9 +57,5 @@ local highlight_map_extension = {
                 bg = colors.palette.gray,
             },
         }
-
-        return highlights_map
     end,
 }
-
-return highlight_map_extension

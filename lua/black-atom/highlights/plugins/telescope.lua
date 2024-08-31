@@ -1,8 +1,9 @@
 ---@type BlackAtom.HighlightsSpec
-local highlight_map_extension = {
+return {
+    enabled = true,
     map = function(colors)
         ---@type BlackAtom.Highlights
-        local highlights_map = {
+        return {
             TelescopeNormal = {
                 bg = colors.ui.bg.primary.dark,
             },
@@ -24,9 +25,5 @@ local highlight_map_extension = {
                 bg = colors.ui.bg.primary.main,
             },
         }
-
-        return highlights_map
     end,
 }
-
-return highlight_map_extension

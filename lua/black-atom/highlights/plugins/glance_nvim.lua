@@ -1,9 +1,7 @@
--- Repository: https://github.com/dnlhc/glance.nvim
-
+---Repository: https://github.com/dnlhc/glance.nvim
 ---@type BlackAtom.HighlightsSpec
-local highlight_map_spec = {
+return {
     enabled = true,
-
     map = function(colors)
         local bg = colors.ui.bg
         local bg_main = bg.primary.main
@@ -30,7 +28,7 @@ local highlight_map_spec = {
         local list_normal_style = { fg = fg_secondary, bg = list_bg }
 
         ---@type BlackAtom.Highlights
-        local highlights_map = {
+        return {
             -- Preview (The preview of the file)
             GlancePreviewNormal = preview_normal_style,
             GlancePreviewMatch = match_style,
@@ -60,9 +58,5 @@ local highlight_map_spec = {
             GlanceIndent = { fg = fg.neutral, bg = list_bg },
             GlanceBorderTop = border_style,
         }
-
-        return highlights_map
     end,
 }
-
-return highlight_map_spec

@@ -1,5 +1,5 @@
 ---@type BlackAtom.HighlightsSpec
-local highlight_map_extension = {
+return {
     enabled = true,
     map = function(colors, config)
         local lib = require("black-atom.lib")
@@ -11,7 +11,7 @@ local highlight_map_extension = {
         local bg_float = lib.bg.float(config, colors)
 
         ---@type BlackAtom.Highlights
-        local highlights_map = {
+        return {
             NeoTreeNormal = { fg = fg.primary.main, bg = bg_sidebar },
             NeoTreeNormalNC = { fg = fg.secondary.main, bg = bg_sidebar },
             NeoTreeFloatNormal = { fg = fg.primary.main, bg = bg_float },
@@ -26,9 +26,5 @@ local highlight_map_extension = {
             NeoTreeDirectoryName = { fg = fg.primary.main, bold = true },
             NeoTreeFileName = { fg = fg.primary.main },
         }
-
-        return highlights_map
     end,
 }
-
-return highlight_map_extension

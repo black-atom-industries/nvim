@@ -1,16 +1,13 @@
 ---@type BlackAtom.HighlightsSpec
-local highlight_map_extension = {
+return {
+    enabled = true,
     map = function(colors)
         ---@type BlackAtom.Highlights
-        local highlights_map = {
+        return {
             DashboardShortCut = { fg = colors.palette.blue },
             DashboardHeader = { fg = colors.palette.yellow },
             DashboardCenter = { fg = colors.palette.cyan },
             DashboardFooter = { fg = colors.palette.dark_red, italic = true },
         }
-
-        return highlights_map
     end,
 }
-
-return highlight_map_extension

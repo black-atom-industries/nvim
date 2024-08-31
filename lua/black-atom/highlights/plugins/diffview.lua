@@ -1,8 +1,9 @@
 ---@type BlackAtom.HighlightsSpec
-local hightligh_map_extension = {
+return {
+    enabled = true,
     map = function(colors)
         ---@type BlackAtom.Highlights
-        local highlights_map = {
+        return {
             DiffviewFilePanelTitle = { fg = colors.palette.blue, bold = true },
             DiffviewFilePanelCounter = { fg = colors.palette.magenta, bold = true },
             DiffviewFilePanelFileName = { fg = colors.ui.fg.primary.main },
@@ -28,9 +29,5 @@ local hightligh_map_extension = {
             DiffviewStatusDeleted = { fg = colors.palette.red },
             DiffviewStatusBroken = { fg = colors.palette.red },
         }
-
-        return highlights_map
     end,
 }
-
-return hightligh_map_extension

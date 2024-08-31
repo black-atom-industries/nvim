@@ -1,10 +1,11 @@
 ---@type BlackAtom.HighlightsSpec
-local highlight_map_extension = {
+return {
+    enabled = true,
     map = function(colors, config)
         local lib = require("black-atom.lib")
 
         ---@type BlackAtom.Highlights
-        local highlights_map = {
+        return {
             TreesitterContext = {
                 bg = lib.bg.sidebar(config, colors),
             },
@@ -13,9 +14,5 @@ local highlight_map_extension = {
                 bg = lib.bg.sidebar(config, colors),
             },
         }
-
-        return highlights_map
     end,
 }
-
-return highlight_map_extension

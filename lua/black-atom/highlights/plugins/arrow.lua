@@ -1,20 +1,15 @@
 ---@type BlackAtom.HighlightsSpec
-local highlight_map_spec = {
+return {
     enabled = true,
-
     map = function(colors)
         local c = colors.palette
 
         ---@type BlackAtom.Highlights
-        local highlights_map = {
+        return {
             ArrowCurrentFile = { fg = c.yellow, bold = true },
             ArrowFileIndex = { fg = c.cyan },
             ArrowAction = { fg = c.dark_yellow },
             ArrowDeleteMode = { fg = c.red, bold = true },
         }
-
-        return highlights_map
     end,
 }
-
-return highlight_map_spec

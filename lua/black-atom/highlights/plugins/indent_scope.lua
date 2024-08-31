@@ -1,15 +1,12 @@
 ---@type BlackAtom.HighlightsSpec
-local highlight_map_extension = {
+return {
+    enabled = true,
     map = function(colors)
         ---@type BlackAtom.Highlights
-        local highlights_map = {
+        return {
             MiniIndentscopeSymbol = {
                 fg = colors.ui.fg.active,
             },
         }
-
-        return highlights_map
     end,
 }
-
-return highlight_map_extension

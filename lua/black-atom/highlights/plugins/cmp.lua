@@ -1,5 +1,6 @@
 ---@type BlackAtom.HighlightsSpec
-local highlight_map_extension = {
+return {
+    enabled = true,
     map = function(colors, config)
         ---@type BlackAtom.Highlights
         local highlights_map = {
@@ -54,5 +55,3 @@ local highlight_map_extension = {
         return highlights_map
     end,
 }
-
-return highlight_map_extension

@@ -1,8 +1,9 @@
 ---@type BlackAtom.HighlightsSpec
-local highlight_map_extension = {
+return {
+    enabled = true,
     map = function(colors)
         ---@type BlackAtom.Highlights
-        local highlights_map = {
+        return {
             GitSignsAdd = { fg = colors.palette.green },
             GitSignsAddLn = { fg = colors.palette.green },
             GitSignsAddNr = { fg = colors.palette.green },
@@ -13,9 +14,5 @@ local highlight_map_extension = {
             GitSignsDeleteLn = { fg = colors.palette.red },
             GitSignsDeleteNr = { fg = colors.palette.red },
         }
-
-        return highlights_map
     end,
 }
-
-return highlight_map_extension
