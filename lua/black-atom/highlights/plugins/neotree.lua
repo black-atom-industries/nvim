@@ -3,29 +3,27 @@
 return {
     enabled = true,
     map = function(colors, config)
-        local lib = require("black-atom.lib")
+        local bg = require("black-atom.lib").bg
+        local bg_sidebar = bg.sidebar(config, colors)
+        local bg_float = bg.float(config, colors)
+        local bg_main = bg.main(config, colors)
 
-        local fg = colors.ui.fg
-        local bg = colors.ui.bg
-
-        local bg_sidebar = lib.bg.sidebar(config, colors)
-        local bg_float = lib.bg.float(config, colors)
+        local ui = colors.ui
 
         ---@type BlackAtom.Highlights
         return {
-            NeoTreeNormal = { fg = fg.primary.main, bg = bg_sidebar },
-            NeoTreeNormalNC = { fg = fg.secondary.main, bg = bg_sidebar },
-            NeoTreeFloatNormal = { fg = fg.primary.main, bg = bg_float },
-            NeoTreeFloatBorder = { fg = bg.primary.dark, bg = bg.primary.dark },
-            NeoTreeTitleBar = { fg = fg.neutral, bg = bg.primary.dark },
-            NeoTreeCursorLine = { bg = bg.primary.main },
-            NeoTreeGitConflict = { fg = fg.diff.change },
-            NeoTreeGitUntracked = { fg = fg.diff.add },
+            NeoTreeNormal = { fg = ui.fg.primary.main, bg = bg_sidebar },
+            NeoTreeNormalNC = { fg = ui.fg.secondary.main, bg = bg_sidebar },
+            NeoTreeCursorLine = { bg = bg_main },
+            NeoTreeDotfile = { fg = ui.fg.neutral },
             NeoTreeEndOfBuffer = { fg = bg_sidebar },
-            NeoTreeDotfile = { fg = fg.neutral },
-            NeoTreeGitIgnored = { fg = fg.neutral, italic = true },
-            NeoTreeDirectoryName = { fg = fg.primary.main, bold = true },
-            NeoTreeFileName = { fg = fg.primary.main },
+            NeoTreeFileName = { fg = ui.fg.primary.main },
+            NeoTreeFloatBorder = { fg = bg_float, bg = bg_float },
+            NeoTreeFloatNormal = { fg = ui.fg.primary.main, bg = bg_float },
+            NeoTreeGitConflict = { fg = ui.fg.diff.change },
+            NeoTreeGitIgnored = { fg = ui.fg.neutral, italic = true },
+            NeoTreeGitUntracked = { fg = ui.fg.diff.add },
+            NeoTreeTitleBar = { fg = ui.fg.neutral, bg = bg_float },
         }
     end,
 }

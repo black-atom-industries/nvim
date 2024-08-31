@@ -1,10 +1,11 @@
 ---@type BlackAtom.HighlightsSpec
 return {
     map = function(colors, config)
-        local ui = colors.ui
-        local palette = colors.palette
         local bg = require("black-atom.lib.bg")
         local configurable = require("black-atom.lib.highlights").extend_hl
+
+        local ui = colors.ui
+        local palette = colors.palette
 
         ---@type BlackAtom.Highlights
         local highlights_map = {
@@ -91,7 +92,7 @@ return {
 
             -- Others
             Substitute = { fg = ui.bg.primary.dark, bg = palette.green },
-            Directory = { fg = ui.fg.active },
+            Directory = { fg = ui.fg.neutral, bold = true },
             Conceal = { fg = ui.fg.neutral },
             Visual = { bg = ui.bg.match.active },
             VisualNOS = { link = "Visual" },
