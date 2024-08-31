@@ -1,4 +1,4 @@
----@doc https://github.com/hrsh7th/nvim-cmp
+---@doc https://github.com/sindrets/diffview.nvim
 ---@type BlackAtom.HighlightsSpec
 return {
     enabled = true,

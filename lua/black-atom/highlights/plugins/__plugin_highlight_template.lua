@@ -22,6 +22,27 @@
     -- `colors` is a table containing the color palette.
     -- `config` is a table containing configuration options.
 
+    IMPORTANT: When you add a new plugin file, and run the `./update_supported_plugins.sh` script,
+    it will be automatically included in the Supported Plugins section of the README.md file.
+    This is a great way to showcase your contribution and help others discover new plugin support!
+
+
+    To ensure this automatic process works correctly, it's crucial that the highlight groups
+    are returned in a specific structure:
+
+    ---@type BlackAtom.Highlights
+    return {
+        HighlightGroup1 = { ... }, -- Eeach line in this block after `---@type BlackAtom.Highlights` will be counted.
+        HighlightGroup2 = { ... },
+        ...
+    }
+
+    This structure allows our script to accurately count the number of highlight groups
+    for each plugin and update the README.md file accordingly.
+
+    NAMING CONVENTION: Please name your plugin highlight file name like your plugin name. Replace dots with underscores.
+    For example: `telescope.nvim` => `telescope_nvim.lua`
+
     After you have finished your highlight map, you can test it by running Neovim in a separate window
     and see if your highlights are applied correctly, or turn on `debug` mode
     in the config file to see a generated file with all highlights.
@@ -41,6 +62,7 @@ return {
         local ui = colors.ui -- These are semantic color tokens for the UI
         local s = colors.syntax -- These are semantic color tokens for the syntax
 
+        -- IMPORTANT: Ensure the highlight groups are returned in the correct structure so that the script to automatically generate the README.md file can work correctly
         ---@type BlackAtom.Highlights
         return {
             MyHighlightGroup = { fg = ui.fg.primary.main },
