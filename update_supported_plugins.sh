@@ -50,7 +50,7 @@ for file in $plugin_files; do
     git_info=$(git log -1 --format="%ad - %s" --date=short -- "$file")
 
     # Add the plugin name, highlight count, and git info to the list
-    new_section+="- \`$plugin_name\` - $highlight_count Highlights - (Last updated: $git_info)\n"
+    new_section+="- \`$plugin_name\` - $highlight_count Highlights - ($git_info)\n"
 done
 
 new_section+="\n$END_MARKER"
