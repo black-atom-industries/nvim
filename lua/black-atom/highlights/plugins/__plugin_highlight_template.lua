@@ -24,32 +24,30 @@
 
     After you have finished your highlight map, you can test it by running Neovim in a separate window
     and see if your highlights are applied correctly, or turn on `debug` mode
-    inside "lua/black-atom/config.lua" to see a generated file with all highlights.
-    This will be placed in the `debug` folder inside the `black-atom.nvim` plugin folder.
+    in the config file to see a generated file with all highlights.
+    This will be placed in the `debug` folder placed at the root of the plugin.
 
     For further assistance or questions, consider reaching out through the project's GitHub repository.
 ]]
 
 ---@type BlackAtom.HighlightsSpec
-local highlight_map_spec = {
+return {
     enabled = true,
-
     map = function(colors, config)
-        ---@type BlackAtom.Highlights
-        local highlights_map = {
-            MyHighlightGroup = { fg = colors.ui.fg.primary.main },
-            MyOtherHighlightGroup = {
-                fg = colors.palette.cyan,
-                bg = colors.ui.bg.primary.main,
-            },
-            MyHighlightGroupWithUnderline = {
-                fg = colors.ui.fg.primary.main,
-                underline = true,
-            },
-        }
+        -- Tere are also helper functions for common background colors, which are dependent on the config
+        local bg_float = require("black-atom.lib").bg.float(config, colors)
 
-        return highlights_map
+        local p = colors.palette -- These are semantic color tokens for the palette
+        local ui = colors.ui -- These are semantic color tokens for the UI
+        local s = colors.syntax -- These are semantic color tokens for the syntax
+
+        ---@type BlackAtom.Highlights
+        return {
+            MyHighlightGroup = { fg = ui.fg.primary.main },
+            MyFloatBorder = { fg = p.green, bg = bg_float },
+            MyDimmedHighlightGroup = { fg = ui.fg.neutral },
+            MyHighlightGroupWithUnderline = { fg = ui.fg.primary.main, underline = true },
+            MyVariableKindSymbol = { fg = s.variable.default },
+        }
     end,
 }
-
-return highlight_map_spec
