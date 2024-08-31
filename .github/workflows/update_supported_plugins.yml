@@ -1,0 +1,54 @@
+name: Update Supported Plugins
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled]
+
+jobs:
+  update-plugins:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && !github.event.pull_request.draft
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0  # Fetch all history for all branches and tags
+
+    - name: Check for changes in plugins directory
+      id: check_changes
+      run: |
+        if git diff --name-only ${{ github.event.before }} ${{ github.event.after }} | grep "^lua/black-atom/highlights/plugins/"; then
+          echo "::set-output name=changes_detected::true"
+        else
+          echo "::set-output name=changes_detected::false"
+        fi
+
+    - name: Update Supported Plugins
+      if: steps.check_changes.outputs.changes_detected == 'true'
+      run: |
+        chmod +x ./update_supported_plugins.sh
+        ./update_supported_plugins.sh
+
+    - name: Check for README changes
+      id: readme_changes
+      run: |
+        if git diff --exit-code README.md; then
+          echo "::set-output name=changes::false"
+        else
+          echo "::set-output name=changes::true"
+        fi
+
+    - name: Commit README changes
+      if: steps.readme_changes.outputs.changes == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add README.md
+        git commit -m "docs: update supported plugins list [skip ci]"
+
+    - name: Push changes
+      if: steps.readme_changes.outputs.changes == 'true'
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.head_ref }}
