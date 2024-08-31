@@ -1,0 +1,76 @@
+
+name: Update Supported Plugins
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled]
+
+jobs:
+  update-plugins:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && !github.event.pull_request.draft
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0  # Fetch all history for all branches and tags
+
+    - name: Check for changes in plugins directory
+      id: check_changes
+      run: |
+        echo "Checking for changes in plugins directory..."
+        if git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.event.pull_request.head.sha }} | grep "^lua/black-atom/highlights/plugins/"; then
+          echo "Changes detected in plugins directory."
+          echo "changes_detected=true" >> $GITHUB_OUTPUT
+        else
+          echo "No changes detected in plugins directory."
+          echo "changes_detected=false" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Update Supported Plugins
+      if: steps.check_changes.outputs.changes_detected == 'true'
+      run: |
+        echo "Updating supported plugins list..."
+        chmod +x ./update_supported_plugins.sh
+        ./update_supported_plugins.sh
+
+    - name: Check for README changes
+      id: readme_changes
+      run: |
+        echo "Checking for README changes..."
+        if git diff --exit-code README.md; then
+          echo "No changes in README.md"
+          echo "changes=false" >> $GITHUB_OUTPUT
+        else
+          echo "Changes detected in README.md"
+          echo "changes=true" >> $GITHUB_OUTPUT
+        fi
+
+    - name: Commit README changes
+      if: steps.readme_changes.outputs.changes == 'true'
+      run: |
+        echo "Committing README changes..."
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add README.md
+        git commit -m "docs: update supported plugins list [skip ci]"
+
+    - name: Push changes
+      if: steps.readme_changes.outputs.changes == 'true'
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.head_ref }}
+
+    - name: Log workflow result
+      run: |
+        if [ "${{ steps.check_changes.outputs.changes_detected }}" == "true" ]; then
+          if [ "${{ steps.readme_changes.outputs.changes }}" == "true" ]; then
+            echo "Workflow completed: Changes detected and README updated."
+          else
+            echo "Workflow completed: Changes detected but no README update needed."
+          fi
+        else
+          echo "Workflow completed: No changes detected in plugins directory."
+        fi

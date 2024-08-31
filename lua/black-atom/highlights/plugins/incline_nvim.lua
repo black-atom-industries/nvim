@@ -1,8 +1,10 @@
+---@doc https://github.com/b0o/incline.nvim
 ---@type BlackAtom.HighlightsSpec
-local highlight_map_extension = {
+return {
+    enabled = true,
     map = function(colors)
         ---@type BlackAtom.Highlights
-        local highlights_map = {
+        return {
             InclineNormal = {
                 fg = colors.ui.fg.active,
                 bg = colors.ui.bg.primary.dark,
@@ -13,9 +15,5 @@ local highlight_map_extension = {
                 bg = colors.ui.bg.primary.dark,
             },
         }
-
-        return highlights_map
     end,
 }
-
-return highlight_map_extension

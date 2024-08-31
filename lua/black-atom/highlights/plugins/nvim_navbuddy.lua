@@ -1,9 +1,7 @@
--- Repository: https://github.com/SmiteshP/nvim-navbuddy
-
+---@doc https://github.com/SmiteshP/nvim-navbuddy
 ---@type BlackAtom.HighlightsSpec
-local highlight_map_spec = {
+return {
     enabled = true,
-
     map = function(colors)
         local match_style = { bg = colors.ui.bg.match.active }
 
@@ -58,5 +56,3 @@ local highlight_map_spec = {
         return highlights_map
     end,
 }
-
-return highlight_map_spec
