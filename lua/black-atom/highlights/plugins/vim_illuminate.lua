@@ -1,10 +1,10 @@
----Repository: https://github.com/RRethy/vim-illuminate
+---@doc https://github.com/RRethy/vim-illuminate
 ---@type BlackAtom.HighlightsSpec
 return {
     enabled = true,
-    map = function(colors)
+    map = function()
         ---@type BlackAtom.HighlightDefinition
-        local match_style = { bg = colors.ui.bg.match.active }
+        local match_style = { underline = true }
 
         ---@type BlackAtom.Highlights
         return {

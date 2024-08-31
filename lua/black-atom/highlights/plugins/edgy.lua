@@ -1,3 +1,4 @@
+---@doc https://github.com/folke/edgy.nvim
 ---@type BlackAtom.HighlightsSpec
 return {
     enabled = true,

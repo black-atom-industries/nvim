@@ -1,3 +1,4 @@
+---@doc https://github.com/ibhagwan/fzf-lua
 ---@type BlackAtom.HighlightsSpec
 return {
     enabled = true,

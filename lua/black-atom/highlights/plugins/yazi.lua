@@ -1,9 +1,9 @@
+---@doc https://github.com/mikavilpas/yazi.nvim
 ---@type BlackAtom.HighlightsSpec
 return {
     enabled = true,
     map = function(colors, config)
-        local lib = require("black-atom.lib")
-        local bg_float = lib.bg.float(config, colors)
+        local bg_float = require("black-atom.lib").bg.float(config, colors)
 
         ---@type BlackAtom.Highlights
         return {

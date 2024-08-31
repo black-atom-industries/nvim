@@ -1,60 +1,58 @@
+---@doc https://github.com/nvim-tree/nvim-tree.lua
 ---@type BlackAtom.HighlightsSpec
 return {
     enabled = true,
     map = function(colors, config)
-        local conditional_hl = require("black-atom.lib").highlights.conditional_hl
+        local cond_hl = require("black-atom.lib").highlights.conditional_hl
+
+        local ui = colors.ui
+        local p = colors.palette
+
         ---@type BlackAtom.Highlights
         return {
             NvimTreeNormal = {
-                fg = colors.ui.fg.primary.main,
-                bg = conditional_hl(colors.ui.bg.primary.dark, {
-                    [config.styles.transparency == "full"] = colors.none,
-                }),
+                fg = ui.fg.primary.main,
+                bg = cond_hl(ui.bg.primary.dark, { [config.styles.transparency == "full"] = colors.none }),
             },
             NvimTreeNormalNC = {
-                fg = colors.ui.fg.secondary.main,
-                bg = conditional_hl(colors.ui.bg.primary.dark, {
+                fg = ui.fg.secondary.main,
+                bg = cond_hl(ui.bg.primary.dark, {
                     [config.styles.transparency == "full"] = colors.none,
                 }),
             },
             NvimTreeVertSplit = {
-                fg = colors.palette.gray,
-                bg = conditional_hl(colors.ui.bg.primary.main, {
+                fg = p.gray,
+                bg = cond_hl(ui.bg.primary.main, {
                     [config.styles.transparency == "full"] = colors.none,
                 }),
             },
             NvimTreeEndOfBuffer = {
-                fg = conditional_hl(colors.ui.bg.primary.main, {
-                    [config.styles.ending_tildes] = colors.ui.bg.primary.light,
+                fg = cond_hl(ui.bg.primary.main, {
+                    [config.styles.ending_tildes] = ui.bg.primary.light,
                 }),
-                bg = conditional_hl(colors.ui.bg.primary.dark, {
+                bg = cond_hl(ui.bg.primary.dark, {
                     [config.styles.transparency == "full"] = colors.none,
                 }),
             },
-            NvimTreeRootFolder = { fg = colors.palette.dark_yellow, bold = true },
-            NvimTreeGitDirty = { fg = colors.palette.yellow },
-            NvimTreeGitNew = { fg = colors.palette.green },
-            NvimTreeGitDeleted = { fg = colors.palette.red },
-            NvimTreeSpecialFile = { fg = colors.palette.yellow, underline = true },
-            NvimTreeIndentMarker = { fg = colors.ui.fg.primary.main },
-            NvimTreeImageFile = { fg = colors.palette.dark_magenta },
-            NvimTreeSymlink = { fg = colors.palette.magenta },
+            NvimTreeRootFolder = { fg = p.dark_yellow, bold = true },
+            NvimTreeGitDirty = { fg = p.yellow },
+            NvimTreeGitNew = { fg = p.green },
+            NvimTreeGitDeleted = { fg = p.red },
+            NvimTreeSpecialFile = { fg = p.yellow, underline = true },
+            NvimTreeIndentMarker = { fg = ui.fg.primary.main },
+            NvimTreeImageFile = { fg = p.dark_magenta },
+            NvimTreeSymlink = { fg = p.magenta },
+            NvimTreeCursorLine = { bg = ui.bg.primary.main },
+            NvimTreeWindowPicker = { fg = p.white, bg = p.gray },
             NvimTreeFolderName = {
-                fg = colors.palette.blue,
-                bg = conditional_hl(colors.ui.bg.primary.dark, {
-                    [config.styles.transparency == "full"] = colors.none,
-                }),
+                fg = p.blue,
+                bg = cond_hl(ui.bg.primary.dark, { [config.styles.transparency == "full"] = colors.none }),
             },
-            NvimTreeCursorLine = { bg = colors.ui.bg.primary.main },
             NvimTreeWinSeparator = {
-                fg = colors.ui.fg.neutral,
-                bg = conditional_hl(colors.ui.bg.primary.main, {
+                fg = ui.fg.neutral,
+                bg = cond_hl(ui.bg.primary.main, {
                     [config.styles.transparency == "full"] = colors.none,
                 }),
-            },
-            NvimTreeWindowPicker = {
-                fg = colors.palette.white,
-                bg = colors.palette.gray,
             },
         }
     end,

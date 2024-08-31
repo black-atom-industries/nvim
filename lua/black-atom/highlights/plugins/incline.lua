@@ -1,3 +1,4 @@
+---@doc https://github.com/b0o/incline.nvim
 ---@type BlackAtom.HighlightsSpec
 return {
     enabled = true,

@@ -1,47 +1,47 @@
+---@doc https://github.com/hrsh7th/nvim-cmp
 ---@type BlackAtom.HighlightsSpec
 return {
     enabled = true,
     map = function(colors, config)
+        local p = colors.palette
+
         ---@type BlackAtom.Highlights
         local highlights_map = {
             CmpItemAbbr = { fg = colors.ui.fg.primary.main },
-            CmpItemAbbrDeprecated = {
-                fg = colors.palette.light_gray,
-                strikethrough = true,
-            },
-            CmpItemAbbrMatch = { fg = colors.palette.cyan },
-            CmpItemAbbrMatchFuzzy = { fg = colors.palette.cyan, underline = true },
+            CmpItemAbbrDeprecated = { fg = p.light_gray, strikethrough = true },
+            CmpItemAbbrMatch = { fg = p.cyan },
+            CmpItemAbbrMatchFuzzy = { fg = p.cyan, underline = true },
             CmpItemMenu = { fg = colors.ui.fg.secondary.main },
-            CmpItemKind = { fg = colors.palette.magenta },
+            CmpItemKind = { fg = p.magenta },
         }
 
         local lsp_kind_icons_color = {
-            Class = colors.palette.yellow,
-            Color = colors.palette.green,
-            Constant = colors.palette.dark_yellow,
-            Constructor = colors.palette.blue,
-            Default = colors.palette.magenta,
-            Enum = colors.palette.magenta,
-            EnumMember = colors.palette.yellow,
-            Event = colors.palette.yellow,
-            Field = colors.palette.magenta,
-            File = colors.palette.blue,
-            Folder = colors.palette.dark_yellow,
-            Function = colors.palette.blue,
-            Interface = colors.palette.cyan,
-            Keyword = colors.palette.magenta,
-            Method = colors.palette.yellow,
-            Module = colors.palette.dark_yellow,
-            Operator = colors.palette.magenta,
-            Property = colors.palette.cyan,
-            Reference = colors.palette.dark_yellow,
-            Snippet = colors.palette.red,
-            Struct = colors.palette.magenta,
-            Text = colors.palette.light_gray,
-            TypeParameter = colors.palette.red,
-            Unit = colors.palette.green,
-            Value = colors.palette.dark_yellow,
-            Variable = colors.palette.magenta,
+            Class = p.yellow,
+            Color = p.green,
+            Constant = p.dark_yellow,
+            Constructor = p.blue,
+            Default = p.magenta,
+            Enum = p.magenta,
+            EnumMember = p.yellow,
+            Event = p.yellow,
+            Field = p.magenta,
+            File = p.blue,
+            Folder = p.dark_yellow,
+            Function = p.blue,
+            Interface = p.cyan,
+            Keyword = p.magenta,
+            Method = p.yellow,
+            Module = p.dark_yellow,
+            Operator = p.magenta,
+            Property = p.cyan,
+            Reference = p.dark_yellow,
+            Snippet = p.red,
+            Struct = p.magenta,
+            Text = p.light_gray,
+            TypeParameter = p.red,
+            Unit = p.green,
+            Value = p.dark_yellow,
+            Variable = p.magenta,
         }
 
         for kind, color in pairs(lsp_kind_icons_color) do

@@ -1,3 +1,4 @@
+---@doc https://github.com/lukas-reineke/indent-blankline.nvim
 ---@type BlackAtom.HighlightsSpec
 return {
     enabled = true,

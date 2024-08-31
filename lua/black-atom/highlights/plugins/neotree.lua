@@ -1,3 +1,4 @@
+---@doc https://github.com/nvim-neo-tree/neo-tree.nvim
 ---@type BlackAtom.HighlightsSpec
 return {
     enabled = true,

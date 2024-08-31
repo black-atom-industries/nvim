@@ -1,12 +1,16 @@
+---@doc https://github.com/hrsh7th/nvim-cmp
 ---@type BlackAtom.HighlightsSpec
 return {
     enabled = true,
     map = function(colors)
+        local p = colors.palette
+        local ui = colors.ui
+
         ---@type BlackAtom.Highlights
         return {
-            DiffviewFilePanelTitle = { fg = colors.palette.blue, bold = true },
-            DiffviewFilePanelCounter = { fg = colors.palette.magenta, bold = true },
-            DiffviewFilePanelFileName = { fg = colors.ui.fg.primary.main },
+            DiffviewFilePanelTitle = { fg = p.blue, bold = true },
+            DiffviewFilePanelCounter = { fg = p.magenta, bold = true },
+            DiffviewFilePanelFileName = { fg = ui.fg.primary.main },
             DiffviewNormal = { link = "Normal" },
             DiffviewCursorLine = { link = "CursorLine" },
             DiffviewVertSplit = { link = "VertSplit" },
@@ -14,20 +18,20 @@ return {
             DiffviewStatusLine = { link = "StatusLine" },
             DiffviewStatusLineNC = { link = "StatusLineNC" },
             DiffviewEndOfBuffer = { link = "EndOfBuffer" },
-            DiffviewFilePanelRootPath = { fg = colors.palette.gray },
-            DiffviewFilePanelPath = { fg = colors.palette.gray },
-            DiffviewFilePanelInsertions = { fg = colors.palette.green },
-            DiffviewFilePanelDeletions = { fg = colors.palette.red },
-            DiffviewStatusAdded = { fg = colors.palette.green },
-            DiffviewStatusUntracked = { fg = colors.palette.blue },
-            DiffviewStatusModified = { fg = colors.palette.blue },
-            DiffviewStatusRenamed = { fg = colors.palette.blue },
-            DiffviewStatusCopied = { fg = colors.palette.blue },
-            DiffviewStatusTypeChange = { fg = colors.palette.blue },
-            DiffviewStatusUnmerged = { fg = colors.palette.blue },
-            DiffviewStatusUnknown = { fg = colors.palette.red },
-            DiffviewStatusDeleted = { fg = colors.palette.red },
-            DiffviewStatusBroken = { fg = colors.palette.red },
+            DiffviewFilePanelRootPath = { fg = p.gray },
+            DiffviewFilePanelPath = { fg = p.gray },
+            DiffviewFilePanelInsertions = { fg = p.green },
+            DiffviewFilePanelDeletions = { fg = p.red },
+            DiffviewStatusAdded = { fg = p.green },
+            DiffviewStatusUntracked = { fg = p.blue },
+            DiffviewStatusModified = { fg = p.blue },
+            DiffviewStatusRenamed = { fg = p.blue },
+            DiffviewStatusCopied = { fg = p.blue },
+            DiffviewStatusTypeChange = { fg = p.blue },
+            DiffviewStatusUnmerged = { fg = p.blue },
+            DiffviewStatusUnknown = { fg = p.red },
+            DiffviewStatusDeleted = { fg = p.red },
+            DiffviewStatusBroken = { fg = p.red },
         }
     end,
 }

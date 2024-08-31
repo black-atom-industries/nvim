@@ -1,18 +1,21 @@
+---@doc https://github.com/lewis6991/gitsigns.nvim
 ---@type BlackAtom.HighlightsSpec
 return {
     enabled = true,
     map = function(colors)
+        local p = colors.palette
+
         ---@type BlackAtom.Highlights
         return {
-            GitSignsAdd = { fg = colors.palette.green },
-            GitSignsAddLn = { fg = colors.palette.green },
-            GitSignsAddNr = { fg = colors.palette.green },
-            GitSignsChange = { fg = colors.palette.blue },
-            GitSignsChangeLn = { fg = colors.palette.blue },
-            GitSignsChangeNr = { fg = colors.palette.blue },
-            GitSignsDelete = { fg = colors.palette.red },
-            GitSignsDeleteLn = { fg = colors.palette.red },
-            GitSignsDeleteNr = { fg = colors.palette.red },
+            GitSignsAdd = { fg = p.green },
+            GitSignsAddLn = { fg = p.green },
+            GitSignsAddNr = { fg = p.green },
+            GitSignsChange = { fg = p.blue },
+            GitSignsChangeLn = { fg = p.blue },
+            GitSignsChangeNr = { fg = p.blue },
+            GitSignsDelete = { fg = p.red },
+            GitSignsDeleteLn = { fg = p.red },
+            GitSignsDeleteNr = { fg = p.red },
         }
     end,
 }

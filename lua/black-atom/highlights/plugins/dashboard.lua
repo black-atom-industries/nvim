@@ -1,3 +1,4 @@
+---@doc https://github.com/nvimdev/dashboard-nvim
 ---@type BlackAtom.HighlightsSpec
 return {
     enabled = true,

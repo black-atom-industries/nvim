@@ -1,4 +1,4 @@
----Repository: https://github.com/SmiteshP/nvim-navbuddy
+---@doc https://github.com/SmiteshP/nvim-navbuddy
 ---@type BlackAtom.HighlightsSpec
 return {
     enabled = true,

@@ -1,4 +1,4 @@
----Repository: https://github.com/dnlhc/glance.nvim
+---@doc https://github.com/DNLHC/glance.nvim
 ---@type BlackAtom.HighlightsSpec
 return {
     enabled = true,

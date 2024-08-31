@@ -1,29 +1,20 @@
+---@doc https://github.com/nvim-telescope/telescope.nvim
 ---@type BlackAtom.HighlightsSpec
 return {
     enabled = true,
-    map = function(colors)
+    map = function(colors, config)
+        local bg_float = require("black-atom.lib").bg.float(config, colors)
+
+        local ui = colors.ui
+
         ---@type BlackAtom.Highlights
         return {
-            TelescopeNormal = {
-                bg = colors.ui.bg.primary.dark,
-            },
-            TelescopeBorder = {
-                fg = colors.ui.bg.primary.dark,
-                bg = colors.ui.bg.primary.dark,
-            },
-            TelescopeTitle = {
-                fg = colors.ui.fg.active,
-            },
-            TelescopePromptPrefix = {
-                fg = colors.ui.fg.active,
-            },
-            TelescopeMatching = {
-                fg = colors.ui.fg.active,
-            },
-            TelescopeSelection = {
-                fg = colors.ui.fg.active,
-                bg = colors.ui.bg.primary.main,
-            },
+            TelescopeNormal = { bg = bg_float },
+            TelescopeBorder = { fg = bg_float, bg = bg_float },
+            TelescopeTitle = { fg = ui.fg.active },
+            TelescopePromptPrefix = { fg = ui.fg.active },
+            TelescopeMatching = { fg = ui.fg.active },
+            TelescopeSelection = { fg = ui.fg.active, bg = ui.bg.primary.main },
         }
     end,
 }

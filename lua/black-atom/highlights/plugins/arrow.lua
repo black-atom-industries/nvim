@@ -1,15 +1,16 @@
+---@doc https://github.com/otavioschwanck/arrow.nvim
 ---@type BlackAtom.HighlightsSpec
 return {
     enabled = true,
     map = function(colors)
-        local c = colors.palette
+        local p = colors.palette
 
         ---@type BlackAtom.Highlights
         return {
-            ArrowCurrentFile = { fg = c.yellow, bold = true },
-            ArrowFileIndex = { fg = c.cyan },
-            ArrowAction = { fg = c.dark_yellow },
-            ArrowDeleteMode = { fg = c.red, bold = true },
+            ArrowCurrentFile = { fg = p.yellow, bold = true },
+            ArrowFileIndex = { fg = p.cyan },
+            ArrowAction = { fg = p.dark_yellow },
+            ArrowDeleteMode = { fg = p.red, bold = true },
         }
     end,
 }
