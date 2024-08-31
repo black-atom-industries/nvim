@@ -26,13 +26,16 @@
     it will be automatically included in the Supported Plugins section of the README.md file.
     This is a great way to showcase your contribution and help others discover new plugin support!
 
+    To ensure this automatic process works correctly, please follow these guidelines:
 
-    To ensure this automatic process works correctly, it's crucial that the highlight groups
-    are returned in a specific structure:
+    1. Add a @doc comment with the plugin's GitHub URL at the top of the file:
+       ---@doc https://github.com/username/plugin-name
+
+    2. Ensure that the highlight groups are returned in the specific structure:
 
     ---@type BlackAtom.Highlights
     return {
-        HighlightGroup1 = { ... }, -- Eeach line in this block after `---@type BlackAtom.Highlights` will be counted.
+        HighlightGroup1 = { ... }, -- Each line in this block after `---@type BlackAtom.Highlights` will be counted.
         HighlightGroup2 = { ... },
         ...
     }
@@ -51,11 +54,12 @@
     For further assistance or questions, consider reaching out through the project's GitHub repository.
 ]]
 
+---@doc https://github.com/username/plugin-name
 ---@type BlackAtom.HighlightsSpec
 return {
     enabled = true,
     map = function(colors, config)
-        -- Tere are also helper functions for common background colors, which are dependent on the config
+        -- There are also helper functions for common background colors, which are dependent on the config
         local bg_float = require("black-atom.lib").bg.float(config, colors)
 
         local p = colors.palette -- These are semantic color tokens for the palette

@@ -16,15 +16,22 @@ END_MARKER="## Development"
 plugin_files=$(find "$PLUGINS_FOLDER" -name "*.lua" ! -name "*_template.lua" | sort)
 
 # Prepare the new section content
-new_section="$START_MARKER\n\nThis theme supports the following plugins:\n\n"
-new_section+="To update this list, run \`./update_supported_plugins.sh\` from the root of the project.\n\n"
+new_section="$START_MARKER\n\n<details>\n<summary>Click to expand supported plugins list</summary>\n\n"
+new_section+="This theme supports the following plugins:\n\n"
 
 for file in $plugin_files; do
-    # Extract the plugin name from the filename (remove path and .lua extension)
-    plugin_name=$(basename "$file" .lua)
+    # Extract the @doc URL if it exists
+    doc_url=$(grep -m 1 "@doc" "$file" | sed 's/.*@doc \(.*\)/\1/')
 
-    # Replace underscores with a dot
-    plugin_name=${plugin_name//_/.}
+    # Extract the plugin name from the URL
+    if [ -n "$doc_url" ]; then
+        plugin_name=$(basename "$doc_url")
+    else
+        # If no URL, use the filename (remove path and .lua extension)
+        plugin_name=$(basename "$file" .lua)
+        # Replace underscores with hyphens for better readability
+        plugin_name=${plugin_name//_/-}
+    fi
 
     # Count the number of highlight groups
     highlight_count=$(awk '
@@ -47,13 +54,21 @@ for file in $plugin_files; do
     ' "$file")
 
     # Get the last commit date and message for this file
-    git_info=$(git log -1 --format="%ad - %s" --date=short -- "$file")
+    last_updated=$(git log -1 --format="%ad" --date=short -- "$file")
+    last_commit=$(git log -1 --format="%s" -- "$file")
 
-    # Add the plugin name, highlight count, and git info to the list
-    new_section+="- \`$plugin_name\` - $highlight_count Highlights - ($git_info)\n"
+    # Add the plugin name with link (if available), highlight count, and git info to the list in multiline format
+    if [ -n "$doc_url" ]; then
+        new_section+="- [$plugin_name]($doc_url)\n"
+    else
+        new_section+="- $plugin_name\n"
+    fi
+    new_section+="  - $highlight_count Highlight(s)\n"
+    new_section+="  - Last updated: $last_updated\n"
+    new_section+="  - Last commit: $last_commit\n"
 done
 
-new_section+="\n$END_MARKER"
+new_section+="</details>\n\n$END_MARKER"
 
 # Check if the README file exists
 if [ ! -f "$README_FILE" ]; then

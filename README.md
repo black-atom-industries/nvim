@@ -50,30 +50,95 @@ stylua lua/**/*.lua
 
 ## Supported Plugins
 
+<details>
+<summary>Click to expand supported plugins list</summary>
+
 This theme supports the following plugins:
 
-To update this list, run `./update_supported_plugins.sh` from the root of the project.
-
-- `arrow.nvim` - 4 Highlights - (2024-08-31 - docs(README): add section for supported plugins)
-- `dashboard.nvim` - 4 Highlights - (2024-08-31 - docs(README): add section for supported plugins)
-- `diffview.nvim` - 24 Highlights - (2024-08-31 - docs(README): add section for supported plugins)
-- `edgy.nvim` - 5 Highlights - (2024-08-31 - docs(README): add section for supported plugins)
-- `fzflua` - 6 Highlights - (2024-08-31 - chore(hls.plugins): add doc links)
-- `gitsigns.nvim` - 9 Highlights - (2024-08-31 - docs(README): add section for supported plugins)
-- `glance.nvim` - 28 Highlights - (2024-08-31 - chore(hls.plugins): add doc links)
-- `incline.nvim` - 9 Highlights - (2024-08-31 - docs(README): add section for supported plugins)
-- `indent.blankline.nvim` - 2 Highlights - (2024-08-31 - docs(README): add section for supported plugins)
-- `markview.nvim` - 2 Highlights - (2024-08-31 - docs(README): add section for supported plugins)
-- `mini.nvim` - 2 Highlights - (2024-08-31 - docs(README): add section for supported plugins)
-- `neotree.nvim` - 12 Highlights - (2024-08-31 - docs(README): add section for supported plugins)
-- `nvim.cmp` - 10 Highlights - (2024-08-31 - docs(README): add section for supported plugins)
-- `nvim.navbuddy` - 15 Highlights - (2024-08-31 - chore(hls.plugins): add doc links)
-- `nvim.tree` - 4 Highlights - (2024-08-31 - feat(hls.plugins): update Neotree & NvimTree)
-- `nvim.treesitter.context` - 2 Highlights - (2024-08-31 - docs(README): add section for supported plugins)
-- `telescope.nvim` - 6 Highlights - (2024-08-31 - docs(README): add section for supported plugins)
-- `vim.gitgutter` - 3 Highlights - (2024-08-31 - docs(README): add section for supported plugins)
-- `vim.illuminate` - 3 Highlights - (2024-08-31 - feat(hls.plugins): adjust illuminate)
-- `whichkey.nvim` - 5 Highlights - (2024-08-31 - docs(README): add section for supported plugins)
-- `yazi.nvim` - 1 Highlights - (2024-08-31 - docs(README): add section for supported plugins)
+- [arrow.nvim](https://github.com/otavioschwanck/arrow.nvim)
+  - 4 Highlight(s)
+  - Last updated: 2024-08-31
+  - Last commit: docs(README): add section for supported plugins
+- [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim)
+  - 4 Highlight(s)
+  - Last updated: 2024-08-31
+  - Last commit: docs(README): add section for supported plugins
+- [diffview.nvim](https://github.com/sindrets/diffview.nvim)
+  - 24 Highlight(s)
+  - Last updated: 2024-08-31
+  - Last commit: docs(README): add section for supported plugins
+- [edgy.nvim](https://github.com/folke/edgy.nvim)
+  - 5 Highlight(s)
+  - Last updated: 2024-08-31
+  - Last commit: docs(README): add section for supported plugins
+- [fzf-lua](https://github.com/ibhagwan/fzf-lua)
+  - 6 Highlight(s)
+  - Last updated: 2024-08-31
+  - Last commit: chore(hls.plugins): add doc links
+- [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+  - 9 Highlight(s)
+  - Last updated: 2024-08-31
+  - Last commit: docs(README): add section for supported plugins
+- [glance.nvim](https://github.com/DNLHC/glance.nvim)
+  - 28 Highlight(s)
+  - Last updated: 2024-08-31
+  - Last commit: chore(hls.plugins): add doc links
+- [incline.nvim](https://github.com/b0o/incline.nvim)
+  - 9 Highlight(s)
+  - Last updated: 2024-08-31
+  - Last commit: docs(README): add section for supported plugins
+- [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+  - 2 Highlight(s)
+  - Last updated: 2024-08-31
+  - Last commit: docs(README): add section for supported plugins
+- [markview.nvim](https://github.com/OXY2DEV/markview.nvim)
+  - 2 Highlight(s)
+  - Last updated: 2024-08-31
+  - Last commit: docs(README): add section for supported plugins
+- [mini.nvim](https://github.com/echasnovski/mini.nvim)
+  - 2 Highlight(s)
+  - Last updated: 2024-08-31
+  - Last commit: docs(README): add section for supported plugins
+- [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
+  - 12 Highlight(s)
+  - Last updated: 2024-08-31
+  - Last commit: docs(README): add section for supported plugins
+- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+  - 10 Highlight(s)
+  - Last updated: 2024-08-31
+  - Last commit: docs(README): add section for supported plugins
+- [nvim-navbuddy](https://github.com/SmiteshP/nvim-navbuddy)
+  - 15 Highlight(s)
+  - Last updated: 2024-08-31
+  - Last commit: chore(hls.plugins): add doc links
+- [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)
+  - 4 Highlight(s)
+  - Last updated: 2024-08-31
+  - Last commit: feat(hls.plugins): update Neotree & NvimTree
+- [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)
+  - 2 Highlight(s)
+  - Last updated: 2024-08-31
+  - Last commit: docs(README): add section for supported plugins
+- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+  - 6 Highlight(s)
+  - Last updated: 2024-08-31
+  - Last commit: docs(README): add section for supported plugins
+- [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
+  - 3 Highlight(s)
+  - Last updated: 2024-08-31
+  - Last commit: docs(README): add section for supported plugins
+- [vim-illuminate](https://github.com/RRethy/vim-illuminate)
+  - 3 Highlight(s)
+  - Last updated: 2024-08-31
+  - Last commit: feat(hls.plugins): adjust illuminate
+- [which-key.nvim](https://github.com/folke/which-key.nvim)
+  - 5 Highlight(s)
+  - Last updated: 2024-08-31
+  - Last commit: docs(README): add section for supported plugins
+- [yazi.nvim](https://github.com/mikavilpas/yazi.nvim)
+  - 1 Highlight(s)
+  - Last updated: 2024-08-31
+  - Last commit: docs(README): add section for supported plugins
+</details>
 
 ## Development
