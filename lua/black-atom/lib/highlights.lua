@@ -23,9 +23,10 @@ end
 ---@param config BlackAtom.Config
 ---@return BlackAtom.Highlights
 function M.build_highlights_map(colors, config)
+    local constants = require("black-atom.constants")
     local default_ignore_pattern = ".*_template.lua$"
     local highlight_modules =
-        require("black-atom.lib.files").get_highlight_modules("lua/black-atom/highlights", default_ignore_pattern)
+        require("black-atom.lib.files").get_highlight_modules(constants.highlights_path, default_ignore_pattern)
 
     local highlights_map = M.aggregate_highlight_maps(highlight_modules, colors, config)
 

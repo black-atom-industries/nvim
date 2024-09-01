@@ -1,7 +1,4 @@
-local Config = {}
-
--- Escaped plugin name. Used to find its own installation path.
-Config.plugin_name = "black%-atom"
+local M = {}
 
 ---@type BlackAtom.Config
 local default_config = {
@@ -41,7 +38,7 @@ local default_config = {
 ---Sets options for the BlackAtom.Config during runtime
 ---@param options BlackAtom.Config
 ---@return nil
-function Config:set(options)
+function M:set(options)
     local validate = require("black-atom.lib.validate")
 
     local current_config = vim.g.black_atom_core_config or {}
@@ -55,8 +52,8 @@ end
 
 ---Returns the current BlackAtom.Config
 ---@return BlackAtom.Config | any
-function Config:get()
+function M:get()
     return vim.g.black_atom_core_config
 end
 
-return Config
+return M

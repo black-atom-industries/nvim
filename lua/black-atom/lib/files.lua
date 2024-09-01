@@ -3,12 +3,13 @@ local M = {}
 ---Get the install path of the plugin
 ---@return string
 function M.get_plugin_path()
+    local constants = require("black-atom.constants")
     local runtimepaths = vim.api.nvim_list_runtime_paths()
 
     local plugin_path = ""
 
     for _, path in ipairs(runtimepaths) do
-        if path:find(require("black-atom.config").plugin_name) then
+        if path:find(constants.plugin_name) then
             plugin_path = path
             break
         end
