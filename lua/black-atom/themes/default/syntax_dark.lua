@@ -89,7 +89,7 @@ return function(primaries, palette)
             link = palette.green,
             code = {
                 fg = primaries[10],
-                bg = primaries[4],
+                bg = primaries[1],
             },
         },
         tag = {
