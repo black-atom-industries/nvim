@@ -7,7 +7,7 @@ return function(primaries, palette)
             default = primaries[8],
             builtin = primaries[9],
             member = primaries[6],
-            parameter = primaries[8],
+            parameter = palette.red,
         },
         property = {
             default = primaries[6],
