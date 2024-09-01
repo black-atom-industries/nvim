@@ -38,7 +38,7 @@ local default_config = {
 ---Sets options for the BlackAtom.Config during runtime
 ---@param options BlackAtom.Config
 ---@return nil
-function M:set(options)
+function M.set(options)
     local validate = require("black-atom.lib.validate")
 
     local current_config = vim.g.black_atom_core_config or {}
@@ -52,7 +52,7 @@ end
 
 ---Returns the current BlackAtom.Config
 ---@return BlackAtom.Config | any
-function M:get()
+function M.get()
     return vim.g.black_atom_core_config
 end
 

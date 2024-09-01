@@ -3,7 +3,7 @@ return {
     map = function(colors, config)
         local s = colors.syntax
         -- TODO:  Rename to configurable globally
-        local configurable = require("black-atom.lib.highlights").extend_hl
+        local ext_hl = require("black-atom.lib.highlights").ext_hl
 
         -- Treesitter Syntax Highlights (See: `:h treesitter-highlight-groups`)
         ---@type BlackAtom.Highlights
@@ -12,22 +12,19 @@ return {
             -- TODO: Rename this file to `syntax.lua` and bring in the builtin types as well
             -- TODO: Sort
 
-            Identifier = configurable({ fg = s.variable.default }, config.styles.syntax.variables),
+            Identifier = ext_hl({ fg = s.variable.default }, config.styles.syntax.variables),
             StorageClass = { link = "Identifier" },
             ["@variable"] = { link = "Identifier" },
             ["@variable.builtin"] = { fg = s.variable.builtin },
             ["@variable.parameter"] = { fg = s.variable.parameter, italic = true, bold = true },
             ["@variable.member"] = { fg = s.variable.member, italic = true },
 
-            String = configurable({ fg = s.string.default }, config.styles.syntax.strings),
+            String = ext_hl({ fg = s.string.default }, config.styles.syntax.strings),
             ["@string"] = { link = "String" },
-            ["@string.escape"] = configurable({ fg = s.string.escape }, config.styles.syntax.strings),
-            ["@string.regexp"] = configurable({ fg = s.string.regexp }, config.styles.syntax.strings),
-            ["@string.special"] = configurable({ fg = s.string.default }, config.styles.syntax.strings),
-            ["@string.special.url"] = configurable(
-                { fg = s.string.default, underline = true },
-                config.styles.syntax.strings
-            ),
+            ["@string.escape"] = ext_hl({ fg = s.string.escape }, config.styles.syntax.strings),
+            ["@string.regexp"] = ext_hl({ fg = s.string.regexp }, config.styles.syntax.strings),
+            ["@string.special"] = ext_hl({ fg = s.string.default }, config.styles.syntax.strings),
+            ["@string.special.url"] = ext_hl({ fg = s.string.default, underline = true }, config.styles.syntax.strings),
 
             Boolean = { fg = s.boolean.default },
             ["@boolean"] = { link = "Boolean" },
@@ -39,10 +36,10 @@ return {
             -- We assign the `Keyword` highlight to some of the other regexpt highlight groups,
             -- which are also keywords more of less.
             -- To me thats find for now, but I'm open to suggestions.
-            Keyword = configurable({ fg = s.keyword.default }, config.styles.syntax.keywords),
+            Keyword = ext_hl({ fg = s.keyword.default }, config.styles.syntax.keywords),
             ["@keyword"] = { link = "Keyword" },
-            ["@keyword.import"] = configurable({ fg = s.keyword.import }, config.styles.syntax.keywords),
-            ["@keyword.export"] = configurable({ fg = s.keyword.export }, config.styles.syntax.keywords),
+            ["@keyword.import"] = ext_hl({ fg = s.keyword.import }, config.styles.syntax.keywords),
+            ["@keyword.export"] = ext_hl({ fg = s.keyword.export }, config.styles.syntax.keywords),
             Statement = { link = "Keyword" },
             Conditional = { link = "Keyword" },
             Repeat = { link = "Keyword" },
@@ -78,18 +75,15 @@ return {
 
             ["@property"] = { fg = s.property.default },
 
-            Function = configurable({ fg = s.func.default }, config.styles.syntax.functions),
+            Function = ext_hl({ fg = s.func.default }, config.styles.syntax.functions),
             ["@function"] = { link = "Function" },
-            ["@function.call"] = configurable({ fg = s.func.default, bold = true }, config.styles.syntax.functions),
-            ["@function.method.call"] = configurable(
-                { fg = s.func.default, bold = true },
-                config.styles.syntax.functions
-            ),
-            ["@function.builtin"] = configurable({ fg = s.func.builtin }, config.styles.syntax.functions),
-            ["@function.method"] = configurable({ fg = s.func.method }, config.styles.syntax.functions),
+            ["@function.call"] = ext_hl({ fg = s.func.default, bold = true }, config.styles.syntax.functions),
+            ["@function.method.call"] = ext_hl({ fg = s.func.default, bold = true }, config.styles.syntax.functions),
+            ["@function.builtin"] = ext_hl({ fg = s.func.builtin }, config.styles.syntax.functions),
+            ["@function.method"] = ext_hl({ fg = s.func.method }, config.styles.syntax.functions),
 
-            ["@method"] = configurable({ fg = s.func.default }, config.styles.syntax.functions),
-            ["@method.call"] = configurable({ fg = s.func.default, bold = true }, config.styles.syntax.functions),
+            ["@method"] = ext_hl({ fg = s.func.default }, config.styles.syntax.functions),
+            ["@method.call"] = ext_hl({ fg = s.func.default, bold = true }, config.styles.syntax.functions),
 
             ["@constructor"] = { fg = s.constructor.default, bold = true },
 
@@ -98,9 +92,9 @@ return {
             ["@punctuation.bracket"] = { fg = s.punctuation.bracket },
             ["@punctuation.delimiter"] = { fg = s.punctuation.delimiter },
 
-            Comment = configurable({ fg = s.comment.default }, config.styles.syntax.comments),
+            Comment = ext_hl({ fg = s.comment.default }, config.styles.syntax.comments),
             Todo = { fg = s.comment.todo },
-            SpecialComment = configurable({ fg = s.comment.doc }, config.styles.syntax.comments),
+            SpecialComment = ext_hl({ fg = s.comment.doc }, config.styles.syntax.comments),
             ["@comment"] = { link = "Comment" },
             ["@comment.todo"] = { link = "Todo" },
             ["@comment.documentation"] = { link = "SpecialComment" },
