@@ -1,10 +1,9 @@
 local API = require("black-atom.api")
-local Config = require("black-atom.config")
+local config = require("black-atom.config").get()
 
 local colors = API:get_colors()
-local config = Config:get()
 
-local cond_hl = require("black-atom.lib.highlights").conditional_hl
+local cond_hl = require("black-atom.lib.highlights").cond_hl
 
 local M = {}
 

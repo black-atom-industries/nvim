@@ -4,8 +4,25 @@ local M = {}
 ---@param highlight BlackAtom.HighlightDefinition
 ---@param code_style? BlackAtom.HighlightDefinition
 ---@return BlackAtom.HighlightDefinition
-function M.extend_hl(highlight, code_style)
+function M.ext_hl(highlight, code_style)
     return vim.tbl_deep_extend("force", highlight, code_style)
+end
+
+---Returns the appropriate highlight value based on the provided conditions.
+---If no conditions evaluate to true, the default highlight value is returned.
+---@param default_highlight string The default highlight value to return if no conditions are true.
+---@param conditional_highlight_map table<boolean, string>
+---@return string
+function M.cond_hl(default_highlight, conditional_highlight_map)
+    local final_highlight = default_highlight
+
+    for condition, highlight in pairs(conditional_highlight_map) do
+        if condition then
+            final_highlight = highlight
+        end
+    end
+
+    return final_highlight
 end
 
 function M.building_error_notification(message)
@@ -23,9 +40,10 @@ end
 ---@param config BlackAtom.Config
 ---@return BlackAtom.Highlights
 function M.build_highlights_map(colors, config)
+    local constants = require("black-atom.constants")
     local default_ignore_pattern = ".*_template.lua$"
     local highlight_modules =
-        require("black-atom.lib.files").get_highlight_modules("lua/black-atom/highlights", default_ignore_pattern)
+        require("black-atom.lib.files").get_highlight_modules(constants.highlights_path, default_ignore_pattern)
 
     local highlights_map = M.aggregate_highlight_maps(highlight_modules, colors, config)
 
@@ -116,23 +134,6 @@ function M.set_term(colors)
     vim.g.terminal_color_13 = colors.palette.magenta
     vim.g.terminal_color_14 = colors.palette.cyan
     vim.g.terminal_color_15 = colors.palette.white
-end
-
----Returns the appropriate highlight value based on the provided conditions.
----If no conditions evaluate to true, the default highlight value is returned.
----@param default_highlight string The default highlight value to return if no conditions are true.
----@param conditional_highlight_map table<boolean, string>
----@return string
-function M.conditional_hl(default_highlight, conditional_highlight_map)
-    local final_highlight = default_highlight
-
-    for condition, highlight in pairs(conditional_highlight_map) do
-        if condition then
-            final_highlight = highlight
-        end
-    end
-
-    return final_highlight
 end
 
 return M

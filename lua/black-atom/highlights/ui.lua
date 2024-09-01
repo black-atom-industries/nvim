@@ -2,7 +2,7 @@
 return {
     map = function(colors, config)
         local bg = require("black-atom.lib.bg")
-        local configurable = require("black-atom.lib.highlights").extend_hl
+        local ext_hl = require("black-atom.lib.highlights").ext_hl
 
         local ui = colors.ui
         local palette = colors.palette
@@ -12,10 +12,7 @@ return {
             -- Basic Text
             Normal = { fg = ui.fg.primary.main, bg = bg.main(config, colors) },
             NormalNC = { fg = ui.fg.primary.main, bg = bg.main(config, colors) },
-            EndOfBuffer = configurable(
-                { fg = bg.main(config, colors) },
-                { [config.styles.ending_tildes] = ui.fg.neutral }
-            ),
+            EndOfBuffer = ext_hl({ fg = bg.main(config, colors) }, { [config.styles.ending_tildes] = ui.fg.neutral }),
             NonText = { fg = ui.fg.neutral },
             Whitespace = { link = "NonText" },
             SpecialKey = { link = "NonText" },
@@ -60,18 +57,18 @@ return {
 
             -- Messages & Mode
             Error = { fg = palette.red },
-            ErrorMsg = configurable({ fg = palette.red }, config.styles.syntax.messages),
-            MoreMsg = configurable({ fg = palette.blue }, config.styles.syntax.messages),
-            ModeMsg = configurable({ fg = ui.fg.primary.main }, config.styles.syntax.messages),
-            WarningMsg = configurable({ fg = palette.yellow }, config.styles.syntax.messages),
+            ErrorMsg = ext_hl({ fg = palette.red }, config.styles.syntax.messages),
+            MoreMsg = ext_hl({ fg = palette.blue }, config.styles.syntax.messages),
+            ModeMsg = ext_hl({ fg = ui.fg.primary.main }, config.styles.syntax.messages),
+            WarningMsg = ext_hl({ fg = palette.yellow }, config.styles.syntax.messages),
 
             -- Window & Tab Management
             Title = { fg = ui.fg.active },
-            StatusLine = configurable(
+            StatusLine = ext_hl(
                 { fg = ui.fg.primary.main, bg = ui.bg.primary.dark },
                 { [config.styles.transparency == "full"] = { bg = colors.none } }
             ),
-            StatusLineNC = configurable(
+            StatusLineNC = ext_hl(
                 { fg = ui.fg.neutral, bg = ui.bg.primary.dark },
                 { [config.styles.transparency == "full"] = { bg = colors.none } }
             ),

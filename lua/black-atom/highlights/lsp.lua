@@ -1,8 +1,10 @@
-local lib = require("black-atom.lib")
-
 ---@type BlackAtom.HighlightsSpec
 local highlight_map_extension = {
     map = function(colors, config)
+        local cond_hl = require("black-atom.lib.highlights").cond_hl
+        local darken = require("black-atom.lib.color").darken
+        local styles = config.styles or {}
+
         local diagnostics_error_color = colors.palette.red
         local diagnostics_warn_color = colors.palette.yellow
         local diagnostics_hint_color = colors.palette.blue
@@ -22,42 +24,26 @@ local highlight_map_extension = {
             DiagnosticWarn = { fg = colors.palette.yellow },
 
             DiagnosticVirtualTextError = {
-                bg = lib.highlights.conditional_hl(colors.none, {
-                    [config.styles.diagnostics.background] = lib.color.darken(
-                        diagnostics_error_color,
-                        0.1,
-                        colors.ui.bg.primary.main
-                    ),
+                bg = cond_hl(colors.none, {
+                    [styles.diagnostics.background] = darken(diagnostics_error_color, 0.1, colors.ui.bg.primary.main),
                 }),
                 fg = diagnostics_error_color,
             },
             DiagnosticVirtualTextWarn = {
-                bg = lib.highlights.conditional_hl(colors.none, {
-                    [config.styles.diagnostics.background] = lib.color.darken(
-                        diagnostics_warn_color,
-                        0.1,
-                        colors.ui.bg.primary.main
-                    ),
+                bg = cond_hl(colors.none, {
+                    [styles.diagnostics.background] = darken(diagnostics_warn_color, 0.1, colors.ui.bg.primary.main),
                 }),
                 fg = diagnostics_warn_color,
             },
             DiagnosticVirtualTextInfo = {
-                bg = lib.highlights.conditional_hl(colors.none, {
-                    [config.styles.diagnostics.background] = lib.color.darken(
-                        diagnostics_info_color,
-                        0.1,
-                        colors.ui.bg.primary.main
-                    ),
+                bg = cond_hl(colors.none, {
+                    [styles.diagnostics.background] = darken(diagnostics_info_color, 0.1, colors.ui.bg.primary.main),
                 }),
                 fg = diagnostics_info_color,
             },
             DiagnosticVirtualTextHint = {
-                bg = lib.highlights.conditional_hl(colors.none, {
-                    [config.styles.diagnostics.background] = lib.color.darken(
-                        diagnostics_hint_color,
-                        0.1,
-                        colors.ui.bg.primary.main
-                    ),
+                bg = cond_hl(colors.none, {
+                    [styles.diagnostics.background] = darken(diagnostics_hint_color, 0.1, colors.ui.bg.primary.main),
                 }),
                 fg = diagnostics_hint_color,
             },

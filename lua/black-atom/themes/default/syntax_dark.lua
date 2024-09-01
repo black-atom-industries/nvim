@@ -7,7 +7,7 @@ return function(primaries, palette)
             default = primaries[8],
             builtin = primaries[9],
             member = primaries[6],
-            parameter = primaries[8],
+            parameter = palette.red,
         },
         property = {
             default = primaries[6],
@@ -89,7 +89,7 @@ return function(primaries, palette)
             link = palette.green,
             code = {
                 fg = primaries[10],
-                bg = primaries[4],
+                bg = primaries[1],
             },
         },
         tag = {

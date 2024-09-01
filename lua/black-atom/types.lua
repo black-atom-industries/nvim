@@ -37,7 +37,7 @@
 
 ---@alias BlackAtom.Highlights                                  table<string, BlackAtom.HighlightDefinition>>
 
----@alias BlackAtom.HighlightMapExtension.map                   fun(colors: BlackAtom.Theme.Colors, config: BlackAtom.Config): BlackAtom.Highlights
+---@alias BlackAtom.HighlightMapExtension.map                   fun(colors: BlackAtom.Theme.Colors, config. BlackAtom.Config): BlackAtom.Highlights
 
 ---@class BlackAtom.HighlightsSpec
 ---@field enabled?                                              boolean Default: true

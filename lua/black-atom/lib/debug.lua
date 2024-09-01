@@ -3,6 +3,7 @@ local lib_ui = require("black-atom.lib.ui")
 
 local M = {}
 
+-- TODO: DEV-164 Put these into constants.
 M.pathes = {
     debug_dir = lib_files.build_path(lib_files.get_plugin_path(), "debug"),
     highlights_map_debug_filename = "highlights_debug_map.txt",

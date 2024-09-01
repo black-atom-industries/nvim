@@ -1,4 +1,4 @@
-local Config = require("black-atom.config")
+local config = require("black-atom.config")
 local commands = require("black-atom.commands")
 local highlights = require("black-atom.highlights")
 local lib = require("black-atom.lib")
@@ -9,9 +9,9 @@ local M = {}
 ---@return nil
 function M.setup(opts)
     if not opts then
-        Config:set(Config.default)
+        config.set(config.default)
     else
-        Config:set(opts)
+        config.set(opts)
     end
 
     commands.register()
@@ -21,7 +21,7 @@ end
 ---@param theme BlackAtom.Theme.Definition
 ---@return nil
 function M.load(theme)
-    Config:set({ theme = theme.meta.key, collection = theme.meta.collection.key })
+    config.set({ theme = theme.meta.key, collection = theme.meta.collection.key })
     lib.themes.dev_status_warning(theme.meta)
 
     highlights.reset()
@@ -30,7 +30,7 @@ function M.load(theme)
     vim.opt.termguicolors = true
     vim.opt.background = theme.meta.appearance
 
-    highlights.apply(theme.colors, Config:get())
+    highlights.apply(theme.colors, config.get())
 end
 
 return M
