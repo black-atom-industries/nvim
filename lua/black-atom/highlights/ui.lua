@@ -1,4 +1,4 @@
----@type BlackAtom.HighlightsSpec
+---@return BlackAtom.HighlightsSpec
 return {
     map = function(colors, config)
         local bg = require("black-atom.lib.bg")
@@ -35,7 +35,7 @@ return {
 
             -- Line Numbering
             LineNr = { fg = ui.fg.neutral },
-            CursorLineNr = { fg = ui.fg.active },
+            CursorLineNr = { fg = ui.fg.active, bg = ui.bg.primary.dark },
 
             -- Diff
             DiffAdd = { fg = ui.fg.invert, bg = ui.bg.diff.add },
@@ -89,7 +89,7 @@ return {
 
             -- Others
             Substitute = { fg = ui.bg.primary.dark, bg = palette.green },
-            Directory = { fg = ui.fg.neutral, bold = true },
+            Directory = { fg = ui.fg.primary.main, bold = true },
             Conceal = { fg = ui.fg.neutral },
             Visual = { bg = ui.bg.match.active },
             VisualNOS = { link = "Visual" },
