@@ -4,13 +4,13 @@
 return function(primaries, palette)
     return {
         variable = {
-            default = primaries[8],
-            builtin = primaries[9],
-            member = primaries[6],
+            default = primaries[9],
+            builtin = primaries[8],
+            member = primaries[7],
             parameter = palette.red,
         },
         property = {
-            default = primaries[6],
+            default = primaries[9],
         },
         string = {
             default = palette.green,
@@ -88,8 +88,8 @@ return function(primaries, palette)
             math = palette.dark_green,
             link = palette.green,
             code = {
-                fg = primaries[10],
-                bg = primaries[1],
+                fg = palette.gray,
+                bg = palette.black,
             },
         },
         tag = {
