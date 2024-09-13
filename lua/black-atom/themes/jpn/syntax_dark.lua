@@ -4,13 +4,13 @@
 return function(primaries, palette)
     return {
         variable = {
-            default = palette.blue,
-            builtin = palette.dark_blue,
-            member = palette.dark_blue,
-            parameter = palette.dark_yellow,
+            default = primaries[10],
+            builtin = primaries[8],
+            member = palette.blue,
+            parameter = palette.dark_magenta,
         },
         property = {
-            default = palette.dark_blue,
+            default = palette.blue,
         },
         string = {
             default = palette.green,
@@ -53,7 +53,7 @@ return function(primaries, palette)
             export = palette.red,
         },
         operator = {
-            default = palette.magenta,
+            default = palette.dark_blue,
         },
         punctuation = {
             default = palette.light_gray,
