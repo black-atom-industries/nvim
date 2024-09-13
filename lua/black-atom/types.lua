@@ -5,6 +5,7 @@
 ---| "black-atom-operations"
 ---| "black-atom-medical"
 ---| "black-atom-research"
+---| "black-atom-jpn-koyo"
 ---| "terra-spring-day"
 ---| "terra-spring-night"
 ---| "terra-fall-day"
@@ -17,6 +18,7 @@
 ---@alias BlackAtom.Theme.Collection.Key
 ---| "default"
 ---| "terra"
+---| "jpn"
 
 ---@class BlackAtom.HighlightDefinition
 ---@field fg?                                                   string
