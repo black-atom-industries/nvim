@@ -4,8 +4,8 @@
 return function(primaries, palette)
     return {
         variable = {
-            default = primaries[10],
-            builtin = primaries[8],
+            default = primaries[4],
+            builtin = primaries[6],
             member = palette.blue,
             parameter = palette.dark_magenta,
         },
@@ -19,8 +19,8 @@ return function(primaries, palette)
             escape = palette.red,
         },
         constant = {
-            default = palette.white,
-            builtin = palette.dark_red,
+            default = palette.dark_yellow,
+            builtin = palette.dark_yellow,
         },
         module = {
             default = palette.dark_blue,
@@ -56,10 +56,10 @@ return function(primaries, palette)
             default = palette.dark_blue,
         },
         punctuation = {
-            default = palette.light_gray,
+            default = palette.gray,
             delimiter = palette.dark_blue,
-            bracket = palette.light_gray,
-            special = palette.light_gray,
+            bracket = palette.gray,
+            special = palette.gray,
         },
         comment = {
             default = palette.gray,
@@ -75,29 +75,29 @@ return function(primaries, palette)
                 h1 = palette.yellow,
                 h2 = palette.yellow,
                 h3 = palette.yellow,
-                h4 = palette.light_gray,
-                h5 = palette.light_gray,
-                h6 = palette.light_gray,
+                h4 = palette.gray,
+                h5 = palette.gray,
+                h6 = palette.gray,
             },
             list = {
-                default = palette.light_gray,
+                default = palette.gray,
                 checked = palette.green,
-                unchecked = palette.light_gray,
+                unchecked = palette.gray,
             },
             quote = palette.green,
             math = palette.dark_green,
             link = palette.green,
             code = {
-                fg = palette.gray,
-                bg = palette.black,
+                fg = primaries[6],
+                bg = primaries[10],
             },
         },
         tag = {
             default = palette.yellow,
             builtin = palette.dark_yellow,
             custom = palette.yellow,
-            attribute = primaries[8],
-            delimiter = primaries[9],
+            attribute = primaries[5],
+            delimiter = primaries[4],
         },
     }
 end
