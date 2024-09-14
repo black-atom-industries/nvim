@@ -42,13 +42,13 @@ M.palette = {
     black = M.primaries[3],
     gray = M.primaries[6],
 
-    dark_red = "#be5b6e",
-    red = "#cb7b8a",
+    dark_red = "#c2564b",
+    red = "#d6675c",
 
     dark_green = "#4db382",
     green = "#70c29b",
 
-    dark_yellow = "#c99a44",
+    dark_yellow = "#cca766",
     yellow = "#ecc579",
 
     dark_blue = "#a88a94",
@@ -57,8 +57,8 @@ M.palette = {
     dark_magenta = "#efa376",
     magenta = "#FEBE98",
 
-    dark_cyan = "#79baa5",
-    cyan = "#9dcabb",
+    dark_cyan = "#68b19a",
+    cyan = "#8cc1b0",
 
     light_gray = M.primaries[8],
     white = M.primaries[11],
