@@ -130,6 +130,7 @@ return {
             ["@lsp.type.struct"] = { link = "@structure" },
             ["@lsp.type.parameter"] = { link = "@variable.parameter" },
             ["@lsp.type.variable"] = { link = "@variable" },
+            ["@lsp.typemod.variable"] = { link = "@variable" },
             ["@lsp.type.property"] = { link = "@property" },
             ["@lsp.type.enumMember"] = { link = "@variable.member" },
             ["@lsp.type.function"] = { link = "@function" },
