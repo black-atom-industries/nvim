@@ -131,6 +131,7 @@ return {
             ["@lsp.type.parameter"] = { link = "@variable.parameter" },
             ["@lsp.type.variable"] = { link = "@variable" },
             ["@lsp.typemod.variable"] = { link = "@variable" },
+            ["@lsp.typemod.variable.readonly"] = { link = "@constant" },
             ["@lsp.type.property"] = { link = "@property" },
             ["@lsp.type.enumMember"] = { link = "@variable.member" },
             ["@lsp.type.function"] = { link = "@function" },
