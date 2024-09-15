@@ -39,17 +39,17 @@ M.primaries = {
 
 ---@type BlackAtom.Theme.Palette
 M.palette = {
-    black = M.primaries[3],
-    gray = M.primaries[6],
+    black = M.primaries[2],
+    gray = M.primaries[5],
 
     dark_red = "#cc4233",
     red = "#e05252",
 
-    dark_green = "#2e6b4e",
-    green = "#44a175",
+    dark_green = "#2a6f4e",
+    green = "#389468",
 
-    dark_yellow = "#d77342",
-    yellow = "#e58c4d",
+    dark_yellow = "#d2632d",
+    yellow = "#e27e37",
 
     dark_blue = "#a65973",
     blue = "#8859a6",

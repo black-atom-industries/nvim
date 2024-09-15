@@ -19,7 +19,7 @@ return function(primaries, palette)
             escape = palette.red,
         },
         constant = {
-            default = palette.white,
+            default = palette.dark_blue,
             builtin = palette.dark_red,
         },
         module = {
