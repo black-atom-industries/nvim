@@ -88,8 +88,7 @@ return function(primaries, palette)
             math = palette.dark_green,
             link = palette.green,
             code = {
-                fg = palette.gray,
-                bg = palette.black,
+                fg = palette.magenta,
             },
         },
         tag = {
