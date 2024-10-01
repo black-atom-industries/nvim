@@ -30,8 +30,9 @@ return {
             MatchParen = { bold = true, bg = ui.bg.match.active },
 
             -- Search
-            Search = { bg = ui.bg.match.active },
-            IncSearch = { link = "Search" },
+            Search = { fg = ui.fg.active, bg = ui.bg.match.active },
+            IncSearch = { fg = ui.fg.active, bg = ui.bg.match.active },
+            Substitute = { fg = ui.bg.match.active, bg = ui.fg.active },
 
             -- Line Numbering
             LineNr = { fg = ui.fg.neutral },
@@ -88,7 +89,6 @@ return {
             ColorColumn = { bg = ui.bg.primary.dark },
 
             -- Others
-            Substitute = { fg = ui.bg.primary.dark, bg = palette.green },
             Directory = { fg = ui.fg.primary.main, bold = true },
             Conceal = { fg = ui.fg.neutral },
             Visual = { bg = ui.bg.match.active },
