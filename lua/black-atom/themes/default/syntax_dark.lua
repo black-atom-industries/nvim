@@ -4,13 +4,13 @@
 return function(primaries, palette)
     return {
         variable = {
-            default = primaries[9],
-            builtin = primaries[8],
-            member = primaries[7],
-            parameter = palette.red,
+            default = palette.blue,
+            builtin = palette.blue,
+            parameter = palette.dark_yellow,
+            member = palette.dark_blue,
         },
         property = {
-            default = primaries[9],
+            default = palette.blue,
         },
         string = {
             default = palette.green,

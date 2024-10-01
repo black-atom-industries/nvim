@@ -25,16 +25,16 @@ M.primaries = {
     "#141e17",
 
     -- Mids
-    "#5f9f8b",
-    "#6ea88c",
-    "#80b29c",
-    "#90bdad",
+    "#809890",
+    "#8da397",
+    "#9daea8",
+    "#acbab4",
 
     -- Highs
-    "#9ac9b1",
-    "#add3c0",
-    "#bcdccc",
-    "#cce3d9",
+    "#b4cdc1",
+    "#c2d7ce",
+    "#d1e0da",
+    "#e2eae8",
 }
 
 ---@type BlackAtom.Theme.Palette
@@ -48,8 +48,8 @@ M.palette = {
     dark_green = "#5dba5d",
     green = "#80c980",
 
-    dark_yellow = "#8cbf59",
-    yellow = "#a6d675",
+    dark_yellow = "#b6ca4e",
+    yellow = "#c6d675",
 
     dark_blue = M.primaries[8],
     blue = M.primaries[10],
