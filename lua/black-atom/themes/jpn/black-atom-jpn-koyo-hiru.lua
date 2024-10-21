@@ -19,16 +19,16 @@ M.meta = {
 ---@type BlackAtom.Theme.Primaries
 M.primaries = {
     -- Lows
-    "#2c2424",
-    "#382e2e",
-    "#4e4040",
-    "#645352",
+    "#373240",
+    "#4a4457",
+    "#544a66",
+    "#605673",
 
     -- Mids
-    "#848097",
-    "#928fa3",
-    "#a09dae",
-    "#afacbb",
+    "#9a907d",
+    "#a89e8a",
+    "#b8ab93",
+    "#c3b9a5",
 
     -- Highs
     "#c2ada3",
@@ -57,8 +57,8 @@ M.palette = {
     dark_magenta = "#de553b",
     magenta = "#f57056",
 
-    dark_cyan = "#458772",
-    cyan = "#59a68d",
+    dark_cyan = "#4f7c6e",
+    cyan = "#659988",
 
     light_gray = M.primaries[8],
     white = M.primaries[11],
