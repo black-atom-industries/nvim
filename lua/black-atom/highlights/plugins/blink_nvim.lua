@@ -9,7 +9,7 @@ return {
 
         ---@type BlackAtom.Highlights
         local highlights_map = {
-            BlinkCmpMenu = { bg = bg.float(config, colors) },
+            BlinkCmpMenu = { bg = bg.dark(config, colors) },
             BlinkCmpLabel = { fg = fg.primary.main, bg.main(config, colors) },
         }
 

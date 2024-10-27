@@ -6,11 +6,11 @@ return {
         local lib = require("black-atom.lib")
         local fg = colors.ui.fg
         local bg = colors.ui.bg
-        local bg_float = lib.bg.float(config, colors)
+        local bg_dark = lib.bg.dark(config, colors)
 
         ---@type BlackAtom.Highlights
         return {
-            FzfLuaNormal = { fg = fg.primary.main, bg = bg_float },
+            FzfLuaNormal = { fg = fg.primary.main, bg = bg_dark },
             FzfLuaTitle = { fg = fg.active },
             FzfLuaBorder = { link = "FloatBorder" },
             FzfLuaPreviewBorder = { link = "FloatBorder" },

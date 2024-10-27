@@ -3,7 +3,7 @@
 return {
     enabled = true,
     map = function(colors, config)
-        local bg_sidebar = require("black-atom.lib").bg.sidebar(config, colors)
+        local bg_sidebar = require("black-atom.lib").bg.dark(config, colors)
 
         local ui = colors.ui
 

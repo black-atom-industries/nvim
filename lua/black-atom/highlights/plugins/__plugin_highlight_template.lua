@@ -60,7 +60,7 @@ return {
     enabled = true,
     map = function(colors, config)
         -- There are also helper functions for common background colors, which are dependent on the config
-        local bg_float = require("black-atom.lib").bg.float(config, colors)
+        local bg_dark = require("black-atom.lib").bg.dark(config, colors)
 
         local p = colors.palette -- These are semantic color tokens for the palette
         local ui = colors.ui -- These are semantic color tokens for the UI
@@ -70,7 +70,7 @@ return {
         ---@type BlackAtom.Highlights
         return {
             MyHighlightGroup = { fg = ui.fg.primary.main },
-            MyFloatBorder = { fg = p.green, bg = bg_float },
+            MyFloatBorder = { fg = p.green, bg = bg_dark },
             MyDimmedHighlightGroup = { fg = ui.fg.neutral },
             MyHighlightGroupWithUnderline = { fg = ui.fg.primary.main, underline = true },
             MyVariableKindSymbol = { fg = s.variable.default },

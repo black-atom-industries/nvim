@@ -5,7 +5,7 @@ return {
     map = function(colors, config)
         local lib = require("black-atom.lib")
         local fg = colors.ui.fg
-        local bg_sidebar = lib.bg.sidebar(config, colors)
+        local bg_sidebar = lib.bg.dark(config, colors)
 
         ---@type BlackAtom.Highlights
         return {

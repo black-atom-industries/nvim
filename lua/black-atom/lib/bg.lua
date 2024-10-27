@@ -18,7 +18,7 @@ end
 ---@param config BlackAtom.Config
 ---@param colors BlackAtom.Theme.Colors
 ---@return string
-function M.sidebar(config, colors)
+function M.dark(config, colors)
     local dark_sidebars = config.styles.dark_sidebars
     local transparency = config.styles.transparency
     local bg = colors.ui.bg
@@ -28,19 +28,6 @@ function M.sidebar(config, colors)
         [not dark_sidebars] = bg.primary.main,
         [dark_sidebars and transparency == "partial"] = bg.primary.dark,
         [transparency == "full"] = no_color,
-    })
-end
-
----@param config BlackAtom.Config
----@param colors BlackAtom.Theme.Colors
----@return string
----@diagnostic disable-next-line: unused-local
-function M.float(config, colors)
-    local bg = colors.ui.bg
-
-    return cond_hl(bg.primary.dark, {
-        -- I decided to always use the dark background for floating windows
-        -- But just in case I change my mind, I'll leave this here
     })
 end
 

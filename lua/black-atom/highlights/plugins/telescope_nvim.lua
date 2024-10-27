@@ -3,14 +3,14 @@
 return {
     enabled = true,
     map = function(colors, config)
-        local bg_float = require("black-atom.lib").bg.float(config, colors)
+        local bg_dark = require("black-atom.lib").bg.dark(config, colors)
 
         local ui = colors.ui
 
         ---@type BlackAtom.Highlights
         return {
-            TelescopeNormal = { bg = bg_float },
-            TelescopeBorder = { fg = bg_float, bg = bg_float },
+            TelescopeNormal = { bg = bg_dark },
+            TelescopeBorder = { fg = bg_dark, bg = bg_dark },
             TelescopeTitle = { fg = ui.fg.active },
             TelescopePromptPrefix = { fg = ui.fg.active },
             TelescopeMatching = { fg = ui.fg.active },
