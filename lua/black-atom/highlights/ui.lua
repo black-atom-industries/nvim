@@ -32,7 +32,7 @@ return {
             IncSearch = { bg = ui.bg.match.passive },
             CurSearch = { fg = ui.fg.invert, bg = ui.bg.match.active, bold = true },
             Substitute = { link = "CurSearch" },
-            MatchParen = { reverse = true },
+            MatchParen = { bg = ui.bg.match.passive },
 
             -- Line Numbering
             LineNr = { fg = ui.fg.neutral },
