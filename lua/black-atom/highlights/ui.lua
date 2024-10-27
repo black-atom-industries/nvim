@@ -82,7 +82,7 @@ return {
             WinSeparator = { fg = bg.sidebar(config, colors), bg = bg.main(config, colors) },
 
             -- Folds & Columns
-            Folded = { fg = ui.fg.neutral, bg = bg.main(config, colors) },
+            Folded = { fg = ui.fg.neutral, bg = ui.bg.primary.dark },
             FoldColumn = { fg = ui.fg.neutral },
             SignColumn = { fg = ui.fg.neutral },
             CursorColumn = { bg = ui.bg.primary.dark },
