@@ -25,14 +25,14 @@ return {
             -- Cursor & Matching
             Cursor = { reverse = true },
             CursorIM = { reverse = true },
-            CurSearch = { bg = ui.bg.match.active },
             CursorLine = { bg = ui.bg.primary.dark },
-            MatchParen = { bold = true, bg = ui.bg.match.active },
 
             -- Search
-            Search = { fg = ui.fg.active, bg = ui.bg.match.active },
-            IncSearch = { fg = ui.fg.active, bg = ui.bg.match.active },
-            Substitute = { fg = ui.bg.match.active, bg = ui.fg.active },
+            Search = { bg = ui.bg.match.passive },
+            IncSearch = { bg = ui.bg.match.passive },
+            CurSearch = { fg = ui.fg.invert, bg = ui.bg.match.active, bold = true },
+            Substitute = { link = "CurSearch" },
+            MatchParen = { reverse = true },
 
             -- Line Numbering
             LineNr = { fg = ui.fg.neutral },
@@ -91,7 +91,7 @@ return {
             -- Others
             Directory = { fg = ui.fg.primary.main, bold = true },
             Conceal = { fg = ui.fg.neutral },
-            Visual = { bg = ui.bg.match.active },
+            Visual = { bg = ui.bg.match.passive },
             VisualNOS = { link = "Visual" },
             QuickFixLine = { fg = ui.fg.active, bg = ui.bg.primary.light },
         }
