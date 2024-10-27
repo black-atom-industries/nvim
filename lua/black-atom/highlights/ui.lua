@@ -12,7 +12,7 @@ return {
             -- Basic Text
             Normal = { fg = ui.fg.primary.main, bg = bg.main(config, colors) },
             NormalNC = { fg = ui.fg.primary.main, bg = bg.main(config, colors) },
-            EndOfBuffer = ext_hl({ fg = bg.main(config, colors) }, { [config.styles.ending_tildes] = ui.fg.neutral }),
+            EndOfBuffer = ext_hl({ fg = ui.bg.primary.main }, { [config.styles.ending_tildes] = ui.fg.neutral }),
             NonText = { fg = ui.fg.neutral },
             Whitespace = { link = "NonText" },
             SpecialKey = { link = "NonText" },
