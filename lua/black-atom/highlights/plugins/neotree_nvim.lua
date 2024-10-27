@@ -14,6 +14,7 @@ return {
         return {
             NeoTreeNormal = { fg = ui.fg.primary.main, bg = bg_sidebar },
             NeoTreeNormalNC = { fg = ui.fg.secondary.main, bg = bg_sidebar },
+            NeoTreeWinSeparator = { fg = bg_main },
             NeoTreeCursorLine = { bg = bg_main },
             NeoTreeDotfile = { fg = ui.fg.neutral },
             NeoTreeEndOfBuffer = { fg = bg_sidebar },
