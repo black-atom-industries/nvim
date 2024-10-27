@@ -45,10 +45,10 @@ M.palette = {
     dark_red = "#c2564b",
     red = "#d6675c",
 
-    dark_green = "#4db382",
-    green = "#70c29b",
+    dark_green = "#53ad82",
+    green = "#7ab89b",
 
-    dark_yellow = "#e8aa7d",
+    dark_yellow = "#C98F61",
     yellow = "#ecc579",
 
     dark_blue = "#a88a94",
