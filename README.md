@@ -100,9 +100,9 @@ This theme supports the following plugins:
   - Last updated: 2024-08-31
   - Last commit: docs(README): add section for supported plugins
 - [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
-  - 12 Highlight(s)
-  - Last updated: 2024-08-31
-  - Last commit: docs(README): add section for supported plugins
+  - 13 Highlight(s)
+  - Last updated: 2024-10-27
+  - Last commit: style(neotree_nvim): add highlighting rule for neotree window separator
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
   - 10 Highlight(s)
   - Last updated: 2024-08-31
@@ -127,10 +127,6 @@ This theme supports the following plugins:
   - 3 Highlight(s)
   - Last updated: 2024-08-31
   - Last commit: docs(README): add section for supported plugins
-- [vim-illuminate](https://github.com/RRethy/vim-illuminate)
-  - 3 Highlight(s)
-  - Last updated: 2024-08-31
-  - Last commit: feat(hls.plugins): adjust illuminate
 - [which-key.nvim](https://github.com/folke/which-key.nvim)
   - 5 Highlight(s)
   - Last updated: 2024-08-31
