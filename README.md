@@ -59,6 +59,10 @@ This theme supports the following plugins:
   - 4 Highlight(s)
   - Last updated: 2024-08-31
   - Last commit: docs(README): add section for supported plugins
+- [blink.cmp](https://github.com/saghen/blink.cmp)
+  - 8 Highlight(s)
+  - Last updated: 2024-10-27
+  - Last commit: feat(blink_nvim): support blink.nvim plugin
 - [dashboard-nvim](https://github.com/nvimdev/dashboard-nvim)
   - 4 Highlight(s)
   - Last updated: 2024-08-31
