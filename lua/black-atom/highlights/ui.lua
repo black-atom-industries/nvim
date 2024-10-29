@@ -30,7 +30,7 @@ return {
             -- Search
             Search = { bg = ui.bg.match.passive },
             IncSearch = { bg = ui.bg.match.passive },
-            CurSearch = { fg = ui.fg.invert, bg = ui.bg.match.active, bold = true },
+            CurSearch = { fg = ui.fg.active, bg = ui.bg.match.passive, bold = true },
             Substitute = { link = "CurSearch" },
             MatchParen = { bg = ui.bg.match.passive },
 
