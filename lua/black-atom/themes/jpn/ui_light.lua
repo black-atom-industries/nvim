@@ -11,15 +11,15 @@ return function(primaries, palette)
                 main = primaries[11],
                 light = primaries[12],
             },
-            -- secondary = {
-            --     dark = primaries[7],
-            --     main = primaries[8],
-            --     light = primaries[9],
-            -- },
+            secondary = {
+                dark = primaries[7],
+                main = primaries[8],
+                light = primaries[9],
+            },
             active = primaries[5],
             match = {
-                active = darken(palette.magenta, 0.25, primaries[12]),
-                passive = darken(palette.green, 0.15, primaries[12]),
+                active = palette.magenta,
+                passive = primaries[8],
             },
             diff = {
                 add = palette.green,
