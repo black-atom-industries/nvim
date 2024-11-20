@@ -40,7 +40,7 @@ M.primaries = {
 ---@type BlackAtom.Theme.Palette
 M.palette = {
     black = M.primaries[2],
-    gray = M.primaries[5],
+    gray = M.primaries[6],
 
     dark_red = "#cc4233",
     red = "#e05252",
