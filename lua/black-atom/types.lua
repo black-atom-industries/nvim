@@ -7,7 +7,7 @@
 ---| "black-atom-research"
 ---| "black-atom-jpn-koyo-yoru"
 ---| "black-atom-jpn-koyo-hiru"
----| "black-atom-jpn-nara-yoru"
+---| "black-atom-jpn-tsuki-yoru"
 ---| "terra-spring-day"
 ---| "terra-spring-night"
 ---| "terra-fall-day"
