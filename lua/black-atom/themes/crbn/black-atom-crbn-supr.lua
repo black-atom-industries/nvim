@@ -10,7 +10,7 @@ M.meta = {
     },
     appearance = "light",
     icon = " 󰛸 ",
-    status = "beta",
+    status = "release",
 }
 
 ---@type BlackAtom.Theme.Primaries
@@ -39,8 +39,8 @@ M.palette = {
     dark_red = "#f2280d",
     red = "#ff4b33",
 
-    dark_green = "#59cc33",
-    green = "#7ad65c",
+    dark_green = "#50b82e",
+    green = "#69d148",
 
     dark_yellow = "#ff4302",
     yellow = "#FF6833",
