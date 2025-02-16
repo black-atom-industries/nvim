@@ -3,12 +3,12 @@
 return {
     enabled = true,
     map = function(colors)
-        local syn = colors.syntax
+        local syntax = colors.syntax
 
         ---@type BlackAtom.Highlights
         return {
-            MarkviewCode = { bg = syn.markup.code.bg },
-            MarkviewInlineCode = { bg = syn.markup.code.bg },
+            MarkviewCode = { bg = syntax.markup.code.bg },
+            MarkviewInlineCode = { bg = syntax.markup.code.bg },
         }
     end,
 }

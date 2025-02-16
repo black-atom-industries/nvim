@@ -10,7 +10,7 @@ return function(primaries, palette)
             parameter = palette.dark_yellow,
         },
         property = {
-            default = palette.blue,
+            default = palette.dark_blue,
         },
         string = {
             default = palette.green,
