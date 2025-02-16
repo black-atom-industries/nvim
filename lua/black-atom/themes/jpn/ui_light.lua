@@ -1,60 +1,43 @@
----@param primaries BlackAtom.Theme.Primaries
----@param palette BlackAtom.Theme.Palette
----@return BlackAtom.Theme.UI
-return function(primaries, palette)
+---@param prim BlackAtom.Theme.Primaries
+---@param pal BlackAtom.Theme.Palette
+return function(prim, pal)
+    local lighten = require("black-atom.lib.color").lighten
+
     ---@type BlackAtom.Theme.UI
     return {
         bg = {
-            primary = {
-                dark = primaries[10],
-                main = primaries[11],
-                light = primaries[12],
-            },
-            secondary = {
-                dark = primaries[7],
-                main = primaries[8],
-                light = primaries[9],
-            },
-            active = primaries[9],
-            match = {
-                active = palette.magenta,
-                passive = primaries[8],
-            },
-            diff = {
-                add = palette.green,
-                delete = palette.red,
-                change = palette.blue,
-                text = palette.dark_blue,
-            },
+            default = prim[11],
+            panel = prim[10],
+            float = prim[10],
+            active = prim[12],
+            disabled = prim[8],
+            hover = prim[10],
+            selection = prim[12],
+            search = prim[12],
+            contrast = prim[2],
+            error = pal.red,
+            warn = pal.yellow,
+            info = pal.blue,
+            hint = pal.dark_yellow,
+            success = pal.green,
+            add = pal.green,
+            delete = pal.red,
+            modify = pal.blue,
         },
         fg = {
-            primary = {
-                dark = primaries[1],
-                main = primaries[2],
-                light = primaries[3],
-            },
-            secondary = {
-                dark = primaries[4],
-                main = primaries[5],
-                light = primaries[6],
-            },
-            active = palette.yellow,
-            invert = primaries[11],
-            neutral = primaries[7],
-            diff = {
-                add = palette.green,
-                delete = palette.red,
-                change = palette.blue,
-                text = palette.dark_blue,
-            },
-        },
-        feedback = {
-            error = palette.red,
-            warn = palette.yellow,
-            info = palette.blue,
-            hint = palette.dark_yellow,
-            todo = palette.yellow,
-            success = palette.green,
+            default = prim[2],
+            subtle = prim[5],
+            accent = pal.yellow,
+            disabled = prim[7],
+            contrast = prim[11],
+            error = pal.red,
+            warn = pal.yellow,
+            info = pal.blue,
+            hint = pal.dark_yellow,
+            success = pal.green,
+            add = pal.green,
+            delete = pal.red,
+            modify = pal.blue, -- Was diff.change
         },
     }
 end

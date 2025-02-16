@@ -1,104 +1,97 @@
----@return BlackAtom.HighlightsSpec
+---@type BlackAtom.HighlightsSpec
 return {
     map = function(colors, config)
         local bg = require("black-atom.lib.bg")
         local ext_hl = require("black-atom.lib.highlights").ext_hl
 
         local ui = colors.ui
-        local palette = colors.palette
 
         ---@type BlackAtom.Highlights
         local highlights_map = {
             -- Basic Text
-            Normal = { fg = ui.fg.primary.main, bg = bg.main(config, colors) },
-            NormalNC = { fg = ui.fg.primary.main, bg = bg.main(config, colors) },
-            EndOfBuffer = ext_hl({ fg = ui.bg.primary.main }, { [config.styles.ending_tildes] = ui.fg.neutral }),
-            NonText = { fg = ui.fg.neutral },
+            Normal = { fg = ui.fg.default, bg = bg.default(config, colors) },
+            NormalNC = { fg = ui.fg.default, bg = bg.default(config, colors) },
+            EndOfBuffer = ext_hl({ fg = ui.bg.default }, { [config.styles.ending_tildes] = ui.fg.subtle }),
+            NonText = { fg = ui.fg.subtle },
             Whitespace = { link = "NonText" },
-            SpecialKey = { link = "NonText" },
+            Title = { fg = ui.fg.accent },
+            Directory = { fg = ui.fg.default, bold = true },
+            Conceal = { fg = ui.fg.subtle },
 
             -- Floating Windows
-            NormalFloat = { fg = ui.fg.primary.main, bg = ui.bg.primary.dark },
-            FloatBorder = { fg = ui.fg.active, bg = ui.bg.primary.dark },
-            FloatTitle = { fg = ui.fg.active, bg = ui.bg.primary.dark },
+            NormalFloat = { fg = ui.fg.default, bg = ui.bg.float },
+            FloatBorder = { fg = ui.fg.subtle, bg = ui.bg.float },
+            FloatTitle = { fg = ui.fg.accent, bg = ui.bg.float },
 
             -- Cursor & Matching
-            Cursor = { fg = ui.fg.invert, bg = ui.fg.active },
+            Cursor = { fg = ui.fg.contrast, bg = ui.fg.accent },
             CursorIM = { link = "Cursor" },
             lCursor = { link = "Cursor" },
             TermCursor = { link = "Cursor" },
             TermCursorNC = { link = "Cursor" },
 
+            -- CursorLine
             CursorLine = { bg = ui.bg.active },
             CursorColumn = { bg = ui.bg.active },
+            LineNr = { fg = ui.fg.subtle },
+            CursorLineNr = { fg = ui.fg.accent, bg = ui.bg.active },
 
-            -- Search
-            Search = { bg = ui.bg.match.passive },
-            IncSearch = { bg = ui.bg.match.passive },
-            CurSearch = { fg = ui.fg.invert, bg = ui.fg.active, bold = true },
-            Substitute = { fg = ui.fg.invert, bg = ui.fg.active, bold = true },
-            MatchParen = { bg = ui.bg.match.passive },
-
-            Visual = { bg = ui.bg.match.passive },
+            -- Search & Visual
+            Search = { bg = ui.bg.selection },
+            IncSearch = { bg = ui.bg.selection },
+            CurSearch = { fg = ui.fg.contrast, bg = ui.fg.accent, bold = true },
+            Substitute = { fg = ui.fg.contrast, bg = ui.fg.accent, bold = true },
+            MatchParen = { bg = ui.bg.selection },
+            Visual = { bg = ui.bg.selection },
             VisualNOS = { link = "Visual" },
 
-            -- Line Numbering
-            LineNr = { fg = ui.fg.neutral },
-            CursorLineNr = { fg = ui.fg.active, bg = ui.bg.active },
-
             -- Diff
-            DiffAdd = { fg = ui.fg.invert, bg = ui.bg.diff.add },
-            DiffChange = { fg = ui.fg.diff.change },
-            DiffDelete = { fg = ui.fg.diff.delete },
-            DiffText = { fg = ui.fg.diff.text },
+            DiffAdd = { fg = ui.fg.add },
+            DiffChange = { fg = ui.fg.modify },
+            DiffDelete = { fg = ui.fg.delete },
+            DiffText = { fg = ui.fg.info },
 
             -- Spell Checking
-            SpellBad = { fg = ui.feedback.error, sp = palette.red, undercurl = true },
-            SpellCap = { fg = ui.feedback.warn, sp = palette.yellow, undercurl = true },
-            SpellLocal = { fg = ui.feedback.info, sp = palette.blue, undercurl = true },
-            SpellRare = { fg = ui.feedback.error, sp = palette.magenta, undercurl = true },
+            SpellBad = { fg = ui.fg.error, undercurl = true },
+            SpellCap = { fg = ui.fg.warn, undercurl = true },
+            SpellLocal = { fg = ui.fg.info, undercurl = true },
+            SpellRare = { fg = ui.fg.error, undercurl = true },
 
             -- Popup Menu
-            Pmenu = { fg = ui.fg.primary.main, bg = ui.bg.primary.dark },
-            PmenuSel = { bg = ui.bg.primary.light },
-            PmenuSbar = { fg = colors.none, bg = ui.bg.primary.dark },
-            PmenuThumb = { fg = colors.none, bg = ui.bg.active },
+            Pmenu = { fg = ui.fg.default, bg = ui.bg.float },
+            PmenuSel = { fg = ui.fg.accent, bg = ui.bg.active, bold = true },
+            PmenuThumb = { bg = ui.bg.active },
+            PmenuSBar = { bg = ui.bg.float },
 
             -- Messages & Mode
-            Error = { fg = palette.red },
-            ErrorMsg = ext_hl({ fg = palette.red }, config.styles.syntax.messages),
-            MoreMsg = ext_hl({ fg = palette.blue }, config.styles.syntax.messages),
-            ModeMsg = ext_hl({ fg = ui.fg.primary.main }, config.styles.syntax.messages),
-            WarningMsg = ext_hl({ fg = palette.yellow }, config.styles.syntax.messages),
+            Error = ext_hl({ fg = ui.fg.error }, config.styles.syntax.messages),
+            ErrorMsg = ext_hl({ fg = ui.fg.error }, config.styles.syntax.messages),
+            MoreMsg = ext_hl({ fg = ui.fg.info }, config.styles.syntax.messages),
+            ModeMsg = ext_hl({ fg = ui.fg.info }, config.styles.syntax.messages),
+            WarningMsg = ext_hl({ fg = ui.fg.warn }, config.styles.syntax.messages),
 
             -- Window & Tab Management
-            Title = { fg = ui.fg.active },
+            TabLine = { fg = ui.fg.subtle, bg = bg.panel(config, colors) },
+            TabLineFill = { link = "TabLine" },
+            TabLineSel = { fg = ui.fg.contrast, bg = ui.bg.active },
+
             StatusLine = ext_hl(
-                { fg = ui.fg.primary.main, bg = ui.bg.primary.dark },
+                { fg = ui.fg.default, bg = bg.panel(config, colors) },
                 { [config.styles.transparency == "full"] = { bg = colors.none } }
             ),
             StatusLineNC = ext_hl(
-                { fg = ui.fg.neutral, bg = ui.bg.primary.dark },
+                { fg = ui.fg.disabled, bg = bg.panel(config, colors) },
                 { [config.styles.transparency == "full"] = { bg = colors.none } }
             ),
-            TabLine = { fg = ui.fg.neutral, bg = ui.bg.primary.main },
-            TabLineFill = { bg = ui.bg.primary.main },
-            TabLineSel = { fg = ui.fg.primary.main, bg = ui.bg.primary.light },
 
             WinBar = { link = "StatusLine" },
             WinBarNC = { link = "StatusLineNC" },
-            WinSeparator = { fg = bg.dark(config, colors), bg = bg.main(config, colors) },
+            WinSeparator = { fg = bg.panel(config, colors), bg = bg.default(config, colors) },
 
             -- Folds & Columns
-            Folded = { fg = ui.fg.neutral, bg = ui.bg.primary.dark },
-            FoldColumn = { fg = ui.fg.neutral },
-            SignColumn = { fg = ui.fg.neutral },
-            ColorColumn = { bg = ui.bg.primary.dark },
-
-            -- Others
-            Directory = { fg = ui.fg.primary.main, bold = true },
-            Conceal = { fg = ui.fg.neutral },
-            QuickFixLine = { fg = ui.fg.active, bg = ui.bg.primary.light },
+            Folded = { fg = ui.fg.subtle, bg = ui.bg.panel },
+            FoldColumn = { fg = ui.fg.subtle },
+            SignColumn = { fg = ui.fg.subtle },
         }
 
         return highlights_map

@@ -60,20 +60,20 @@ return {
     enabled = true,
     map = function(colors, config)
         -- There are also helper functions for common background colors, which are dependent on the config
-        local bg_dark = require("black-atom.lib").bg.dark(config, colors)
+        local bg_dark = require("black-atom.lib").bg.panel(config, colors)
 
-        local p = colors.palette -- These are semantic color tokens for the palette
-        local ui = colors.ui -- These are semantic color tokens for the UI
-        local s = colors.syntax -- These are semantic color tokens for the syntax
+        local pal = colors.palette -- These are semantic color tokens for the palette
+        local ui = colors.ui       -- These are semantic color tokens for the UI
+        local syn = colors.syntax  -- These are semantic color tokens for the syntax
 
         -- IMPORTANT: Ensure the highlight groups are returned in the correct structure so that the script to automatically generate the README.md file can work correctly
         ---@type BlackAtom.Highlights
         return {
-            MyHighlightGroup = { fg = ui.fg.primary.main },
-            MyFloatBorder = { fg = p.green, bg = bg_dark },
-            MyDimmedHighlightGroup = { fg = ui.fg.neutral },
-            MyHighlightGroupWithUnderline = { fg = ui.fg.primary.main, underline = true },
-            MyVariableKindSymbol = { fg = s.variable.default },
+            MyHighlightGroup = { fg = ui.fg.default },
+            MyFloatBorder = { fg = pal.green, bg = bg_dark },
+            MyDimmedHighlightGroup = { fg = ui.fg.subtle },
+            MyHighlightGroupWithUnderline = { fg = ui.fg.default, underline = true },
+            MyVariableKindSymbol = { fg = syn.variable.default },
         }
     end,
 }

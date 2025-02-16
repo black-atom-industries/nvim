@@ -3,50 +3,54 @@
 return {
     enabled = true,
     map = function(colors)
-        local match_style = { bg = colors.ui.bg.match.active }
-
-        local bg = colors.ui.bg
-        local bg_dark = bg.primary.dark
-
-        local fg = colors.ui.fg
-        local fg_active = fg.active
-
-        local palette = colors.palette
+        local ui = colors.ui
+        local syn = colors.syntax
 
         ---@type BlackAtom.Highlights
         local highlights_map = {
-            NavbuddyName = { fg = fg_active, bg = bg_dark }, -- highlight for name in source buffer
-            NavbuddyScope = match_style, -- highlight for scope of context in source buffer
-            NavbuddyFloatBorder = { fg = palette.cyan }, -- Floatborder highlight
+            NavbuddyName = { fg = ui.fg.accent, bg = ui.bg.float },
+            NavbuddyScope = { bg = ui.bg.selection },
+            NavbuddyFloatBorder = { fg = ui.fg.accent },
         }
 
         local lsp_kind_icons = {
-            Array = palette.red,
-            Boolean = palette.blue,
-            Class = palette.yellow,
-            Constant = palette.dark_yellow,
-            Constructor = palette.blue,
-            Enum = palette.magenta,
-            EnumMember = palette.yellow,
-            Event = palette.yellow,
-            Field = palette.magenta,
-            File = palette.gray,
-            Function = palette.yellow,
-            Interface = palette.cyan,
-            Key = palette.magenta,
-            Method = palette.yellow,
-            Module = palette.dark_yellow,
-            Namespace = palette.dark_blue,
-            Null = palette.gray,
-            Number = palette.light_gray,
-            Object = palette.blue,
-            Operator = palette.magenta,
-            Package = palette.red,
-            Property = palette.blue,
-            String = palette.green,
-            Struct = palette.cyan,
-            TypeParameter = palette.dark_cyan,
-            Variable = palette.magenta,
+            -- Types
+            Class = syn.type.default,
+            Interface = syn.type.default,
+            Struct = syn.type.default,
+            TypeParameter = syn.type.builtin,
+            Enum = syn.type.default,
+
+            -- Values
+            Array = syn.type.default,
+            Boolean = syn.boolean.default,
+            Constant = syn.constant.default,
+            Number = syn.number.default,
+            String = syn.string.default,
+            Null = syn.constant.builtin,
+            Object = syn.type.default,
+
+            -- Variables & Properties
+            Field = syn.variable.member,
+            Property = syn.property.default,
+            Variable = syn.variable.default,
+            Key = syn.property.default,
+
+            -- Functions
+            Constructor = syn.constructor.default,
+            Function = syn.func.default,
+            Method = syn.func.method,
+
+            -- Keywords & Operators
+            Operator = syn.operator.default,
+
+            -- Modules
+            Module = syn.module.default,
+            Namespace = syn.module.default,
+            Package = syn.module.default,
+
+            -- Events
+            Event = syn.attribute.builtin,
         }
 
         for kind, color in pairs(lsp_kind_icons) do

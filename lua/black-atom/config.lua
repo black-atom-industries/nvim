@@ -10,6 +10,7 @@ local default_config = {
         ending_tildes = false,
         cmp_kind_color_mode = "bg",
         dark_sidebars = true,
+        dark_floats = true,
         transparency = "none",
         diagnostics = {
             undercurl = false,

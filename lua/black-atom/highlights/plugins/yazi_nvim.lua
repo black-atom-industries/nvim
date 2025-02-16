@@ -3,11 +3,11 @@
 return {
     enabled = true,
     map = function(colors, config)
-        local bg_dark = require("black-atom.lib").bg.dark(config, colors)
+        local bg_float = require("black-atom.lib").bg.float(config, colors)
 
         ---@type BlackAtom.Highlights
         return {
-            YaziFloat = { bg = bg_dark },
+            YaziFloat = { bg = bg_float },
         }
     end,
 }

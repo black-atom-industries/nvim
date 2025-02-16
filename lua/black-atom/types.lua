@@ -107,8 +107,8 @@
 ---@field modify                                                string  # Git modified
 
 ---@class BlackAtom.Theme.UI
----@field bg           BlackAtom.Theme.UI.Background
----@field fg           BlackAtom.Theme.UI.Foreground
+---@field bg                                                    BlackAtom.Theme.UI.Background
+---@field fg                                                    BlackAtom.Theme.UI.Foreground
 
 ---@class BlackAtom.Theme.Syntax.Markup
 ---@field heading                                               { h1: string, h2: string, h3: string, h4: string, h5: string, h6: string }
@@ -117,7 +117,6 @@
 ---@field link                                                  string
 ---@field code                                                  { fg: string, bg: string }
 ---@field list                                                  { default: string, checked: string, unchecked: string }
-
 
 ---@class BlackAtom.Theme.Syntax
 ---@field variable                                              { default: string, builtin: string, parameter: string, member: string }
@@ -172,6 +171,7 @@
 ---@class BlackAtom.Config.Styles
 ---@field cmp_kind_color_mode?                                  "fg" | "bg" (Default: "fg")
 ---@field dark_sidebars?                                        boolean Wether to use dark sidebars (Default: true)
+---@field dark_floats?                                          boolean Wether to use dark floats (Default: true)
 ---@field transparency?                                         "full" | "partial" | "none" Transparency level (Default: "none")
 ---@field diagnostics?                                          BlackAtom.Config.Diagnostics Diagnostics related settings (Default: See Documentation)
 ---@field syntax?                                               BlackAtom.Config.SyntaxStyle Syntax styling options (Default: See Documentation)

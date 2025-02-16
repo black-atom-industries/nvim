@@ -4,42 +4,52 @@ return {
     enabled = true,
     map = function(colors, config)
         local bg = require("black-atom.lib.bg")
-        local fg = colors.ui.fg
-        local p = colors.palette
+        local ui = colors.ui
+        local syn = colors.syntax
 
         ---@type BlackAtom.Highlights
         local highlights_map = {
-            BlinkCmpMenu = { bg = bg.dark(config, colors) },
-            BlinkCmpLabel = { fg = fg.primary.main, bg.main(config, colors) },
+            BlinkCmpMenu = { bg = bg.float(config, colors) },
         }
 
         local lsp_kind_icons_color = {
-            Class = p.yellow,
-            Color = p.green,
-            Constant = p.dark_yellow,
-            Constructor = p.blue,
-            Default = p.magenta,
-            Enum = p.magenta,
-            EnumMember = p.yellow,
-            Event = p.yellow,
-            Field = p.magenta,
-            File = p.blue,
-            Folder = p.dark_yellow,
-            Function = p.blue,
-            Interface = p.cyan,
-            Keyword = p.magenta,
-            Method = p.yellow,
-            Module = p.dark_yellow,
-            Operator = p.magenta,
-            Property = p.cyan,
-            Reference = p.dark_yellow,
-            Snippet = p.red,
-            Struct = p.magenta,
-            Text = p.light_gray,
-            TypeParameter = p.red,
-            Unit = p.green,
-            Value = p.dark_yellow,
-            Variable = p.magenta,
+            -- Types
+            Class = syn.type.default,
+            Interface = syn.type.default,
+            Struct = syn.type.default,
+            TypeParameter = syn.type.builtin,
+            Enum = syn.type.default,
+
+            -- Values
+            Constant = syn.constant.default,
+            EnumMember = syn.constant.builtin,
+            Field = syn.variable.member,
+            Property = syn.property.default,
+            Variable = syn.variable.default,
+            Value = syn.constant.default,
+
+            -- Functions
+            Constructor = syn.constructor.default,
+            Function = syn.func.default,
+            Method = syn.func.method,
+
+            -- Keywords & Operators
+            Keyword = syn.keyword.default,
+            Operator = syn.operator.default,
+
+            -- Modules
+            Module = syn.module.default,
+
+            -- Other
+            Color = syn.attribute.default,
+            File = syn.module.default,
+            Folder = syn.module.default,
+            Reference = syn.variable.default,
+            Event = syn.attribute.builtin,
+            Snippet = ui.fg.accent,
+            Text = ui.fg.subtle,
+            Default = ui.fg.accent,
+            Unit = syn.constant.builtin,
         }
 
         for kind, color in pairs(lsp_kind_icons_color) do

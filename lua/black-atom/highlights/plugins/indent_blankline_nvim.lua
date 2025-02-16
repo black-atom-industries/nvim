@@ -3,10 +3,12 @@
 return {
     enabled = true,
     map = function(colors)
+        local ui = colors.ui
+
         ---@type BlackAtom.Highlights
         return {
-            IndentBlanklineChar = { fg = colors.ui.fg.neutral },
-            IndentBlanklineContextChar = { fg = colors.ui.fg.active },
+            IndentBlanklineChar = { fg = ui.fg.subtle },
+            IndentBlanklineContextChar = { fg = ui.fg.subtle },
         }
     end,
 }

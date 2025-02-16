@@ -16,10 +16,6 @@ M.meta = {
 ---@type BlackAtom.Theme.Primaries
 M.primaries = {
     -- Lows
-    -- "#202933",
-    -- "#263440",
-    -- "#35495c",
-
     "#0d0d0d",
     "#131a20",
     "#253341",
@@ -58,7 +54,7 @@ M.palette = {
     dark_cyan = M.primaries[5],
     cyan = M.primaries[6],
 
-    dark_gray = M.primaries[7],
+    light_gray = M.primaries[7],
     white = M.primaries[9],
 }
 

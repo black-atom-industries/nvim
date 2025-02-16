@@ -3,12 +3,14 @@
 return {
     enabled = true,
     map = function(colors)
+        local pal = colors.palette
+
         ---@type BlackAtom.Highlights
         return {
-            DashboardShortCut = { fg = colors.palette.blue },
-            DashboardHeader = { fg = colors.palette.yellow },
-            DashboardCenter = { fg = colors.palette.cyan },
-            DashboardFooter = { fg = colors.palette.dark_red, italic = true },
+            DashboardShortCut = { fg = pal.blue },
+            DashboardHeader = { fg = pal.yellow },
+            DashboardCenter = { fg = pal.cyan },
+            DashboardFooter = { fg = pal.dark_red, italic = true },
         }
     end,
 }

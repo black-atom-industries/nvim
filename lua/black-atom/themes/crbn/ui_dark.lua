@@ -1,50 +1,43 @@
----@param primaries BlackAtom.Theme.Primaries
----@param palette BlackAtom.Theme.Palette
----@return BlackAtom.Theme.UI
-return function(primaries, palette)
+---@param prim BlackAtom.Theme.Primaries
+---@param pal BlackAtom.Theme.Palette
+return function(prim, pal)
+    local darken = require("black-atom.lib.color").darken
+
     ---@type BlackAtom.Theme.UI
     return {
         bg = {
-            primary = {
-                main = primaries[1], -- primary
-                dark = primaries[2], -- secondary
-                light = primaries[3], -- tertiary
-            },
-            active = primaries[3],
-            match = {
-                active = palette.magenta,
-                passive = primaries[3],
-            },
-            diff = {
-                add = palette.green,
-                delete = palette.red,
-                change = palette.blue,
-                text = palette.dark_blue,
-            },
+            default = prim[1],
+            panel = prim[2],
+            float = prim[2],
+            active = prim[3],
+            disabled = prim[4],
+            hover = prim[3],
+            selection = darken(pal.dark_yellow, 0.25),
+            search = darken(pal.dark_yellow, 0.25),
+            contrast = prim[9],
+            error = pal.red,
+            warn = pal.yellow,
+            info = pal.blue,
+            hint = pal.dark_yellow,
+            success = pal.green,
+            add = pal.green,
+            delete = pal.red,
+            modify = pal.blue,
         },
         fg = {
-            primary = {
-                main = primaries[9],
-                dark = primaries[8],
-                light = primaries[7],
-            },
-            active = palette.yellow,
-            invert = primaries[2],
-            neutral = primaries[6],
-            diff = {
-                add = palette.green,
-                delete = palette.red,
-                change = palette.blue,
-                text = palette.dark_blue,
-            },
-        },
-        feedback = {
-            error = palette.red,
-            warn = palette.yellow,
-            info = palette.blue,
-            hint = palette.dark_yellow,
-            todo = palette.yellow,
-            success = palette.green,
+            default = prim[9],
+            subtle = prim[7],
+            accent = pal.yellow,
+            disabled = prim[6],
+            contrast = prim[2],
+            error = pal.red,
+            warn = pal.yellow,
+            info = pal.blue,
+            hint = pal.dark_yellow,
+            success = pal.green,
+            add = pal.green,
+            delete = pal.red,
+            modify = pal.blue,
         },
     }
 end

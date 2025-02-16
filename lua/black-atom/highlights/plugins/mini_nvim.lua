@@ -8,7 +8,7 @@ return {
         ---@type BlackAtom.Highlights
         return {
             ---@doc https://github.com/echasnovski/mini.indentscope
-            MiniIndentscopeSymbol = { fg = ui.fg.active },
+            MiniIndentscopeSymbol = { fg = ui.fg.subtle },
         }
     end,
 }

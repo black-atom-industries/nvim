@@ -16,16 +16,16 @@ M.meta = {
 ---@type BlackAtom.Theme.Primaries
 M.primaries = {
     -- Lows (darker)
-    "#0e110f",
-    "#151917",
-    "#1c211f",
-    "#252c29",
+    "#171c19",
+    "#212724",
+    "#2f3734",
+    "#38423e",
 
     -- Mids
-    "#3a4540",
     "#51615a",
     "#687d74",
     "#81978e",
+    "#9daea7",
 
     -- Highs
     "#b3cccc",
@@ -40,22 +40,22 @@ M.palette = {
     gray = "#708090", -- lack
 
     dark_red = "#ab5353", -- darker red
-    red = "#b76b6b", -- red
+    red = "#bc7676", -- red
 
-    dark_green = "#648364", -- darker green
-    green = "#789978", -- green
+    dark_green = "#679967", -- darker green
+    green = "#81b381", -- green
 
-    dark_yellow = "#8f8f5f", -- darker yellow
-    yellow = "#abab77", -- yellow
+    dark_yellow = "#9e9e5f", -- darker yellow
+    yellow = "#b7b77a", -- yellow
 
-    dark_blue = "#5f6e8f", -- darker blue
-    blue = "#7788AA", -- blue
+    dark_blue = "#667699", -- darker blue
+    blue = "#8191b1", -- blue
 
-    dark_magenta = "#cc8870", -- darker orange
-    magenta = "#ffaa88", -- orange
+    dark_magenta = "#d29079", -- darker orange
+    magenta = "#f9a786", -- orange
 
-    dark_cyan = "#5f8f8f", -- mix of lack and green
-    cyan = "#789990", -- mix of lack and green
+    dark_cyan = "#669999", -- mix of lack and green
+    cyan = "#8ba79f", -- mix of lack and green
 
     light_gray = M.primaries[8],
     white = M.primaries[11],

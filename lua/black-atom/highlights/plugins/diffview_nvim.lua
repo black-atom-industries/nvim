@@ -3,14 +3,13 @@
 return {
     enabled = true,
     map = function(colors)
-        local p = colors.palette
         local ui = colors.ui
 
         ---@type BlackAtom.Highlights
         return {
-            DiffviewFilePanelTitle = { fg = p.blue, bold = true },
-            DiffviewFilePanelCounter = { fg = p.magenta, bold = true },
-            DiffviewFilePanelFileName = { fg = ui.fg.primary.main },
+            DiffviewFilePanelTitle = { fg = ui.fg.info, bold = true },
+            DiffviewFilePanelCounter = { fg = ui.fg.accent, bold = true },
+            DiffviewFilePanelFileName = { fg = ui.fg.default },
             DiffviewNormal = { link = "Normal" },
             DiffviewCursorLine = { link = "CursorLine" },
             DiffviewVertSplit = { link = "VertSplit" },
@@ -18,20 +17,20 @@ return {
             DiffviewStatusLine = { link = "StatusLine" },
             DiffviewStatusLineNC = { link = "StatusLineNC" },
             DiffviewEndOfBuffer = { link = "EndOfBuffer" },
-            DiffviewFilePanelRootPath = { fg = p.gray },
-            DiffviewFilePanelPath = { fg = p.gray },
-            DiffviewFilePanelInsertions = { fg = p.green },
-            DiffviewFilePanelDeletions = { fg = p.red },
-            DiffviewStatusAdded = { fg = p.green },
-            DiffviewStatusUntracked = { fg = p.blue },
-            DiffviewStatusModified = { fg = p.blue },
-            DiffviewStatusRenamed = { fg = p.blue },
-            DiffviewStatusCopied = { fg = p.blue },
-            DiffviewStatusTypeChange = { fg = p.blue },
-            DiffviewStatusUnmerged = { fg = p.blue },
-            DiffviewStatusUnknown = { fg = p.red },
-            DiffviewStatusDeleted = { fg = p.red },
-            DiffviewStatusBroken = { fg = p.red },
+            DiffviewFilePanelRootPath = { fg = ui.fg.subtle },
+            DiffviewFilePanelPath = { fg = ui.fg.subtle },
+            DiffviewFilePanelInsertions = { fg = ui.fg.add },
+            DiffviewFilePanelDeletions = { fg = ui.fg.delete },
+            DiffviewStatusAdded = { fg = ui.fg.add },
+            DiffviewStatusUntracked = { fg = ui.fg.info },
+            DiffviewStatusModified = { fg = ui.fg.modify },
+            DiffviewStatusRenamed = { fg = ui.fg.modify },
+            DiffviewStatusCopied = { fg = ui.fg.modify },
+            DiffviewStatusTypeChange = { fg = ui.fg.modify },
+            DiffviewStatusUnmerged = { fg = ui.fg.modify },
+            DiffviewStatusUnknown = { fg = ui.fg.error },
+            DiffviewStatusDeleted = { fg = ui.fg.delete },
+            DiffviewStatusBroken = { fg = ui.fg.error },
         }
     end,
 }
