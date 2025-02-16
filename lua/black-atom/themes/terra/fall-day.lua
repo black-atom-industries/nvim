@@ -1,6 +1,3 @@
-local ui = require("black-atom.themes.terra.ui_light")
-local syntax = require("black-atom.themes.terra.syntax_light")
-
 local M = {}
 
 ---@type BlackAtom.Theme.Meta
@@ -65,13 +62,19 @@ M.palette = {
     white = M.primaries[11],
 }
 
+---@type BlackAtom.Theme.UI
+M.ui = require("black-atom.themes.terra.ui_light")(M.primaries, M.palette)
+
+---@type BlackAtom.Theme.Syntax
+M.syntax = require("black-atom.themes.terra.syntax_light")(M.primaries, M.palette)
+
 ---@type BlackAtom.Theme.Colors
 M.colors = {
     none = "NONE",
     primaries = M.primaries,
     palette = M.palette,
-    ui = ui(M.primaries, M.palette),
-    syntax = syntax(M.primaries, M.palette),
+    ui = M.ui,
+    syntax = M.syntax,
 }
 
 return M

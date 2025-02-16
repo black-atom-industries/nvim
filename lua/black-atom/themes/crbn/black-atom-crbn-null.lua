@@ -58,11 +58,11 @@ M.palette = {
     white = M.primaries[9],
 }
 
----@type BlackAtom.Theme.Syntax
-M.syntax = require("black-atom.themes.crbn.syntax_dark")(M.primaries, M.palette)
-
 ---@typ BlackAtom.Theme.UI
 M.ui = require("black-atom.themes.crbn.ui_dark")(M.primaries, M.palette)
+
+---@type BlackAtom.Theme.Syntax
+M.syntax = require("black-atom.themes.crbn.syntax_dark")(M.primaries, M.palette)
 
 ---@type BlackAtom.Theme.Colors
 M.colors = {
