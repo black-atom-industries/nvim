@@ -81,7 +81,10 @@ return {
             Function = ext_hl({ fg = syntax.func.default }, config.styles.syntax.functions),
             ["@function"] = { link = "Function" },
             ["@function.call"] = ext_hl({ fg = syntax.func.default, bold = true }, config.styles.syntax.functions),
-            ["@function.method.call"] = ext_hl({ fg = syntax.func.default, bold = true }, config.styles.syntax.functions),
+            ["@function.method.call"] = ext_hl(
+                { fg = syntax.func.default, bold = true },
+                config.styles.syntax.functions
+            ),
             ["@function.builtin"] = ext_hl({ fg = syntax.func.builtin }, config.styles.syntax.functions),
             ["@function.method"] = ext_hl({ fg = syntax.func.method }, config.styles.syntax.functions),
 

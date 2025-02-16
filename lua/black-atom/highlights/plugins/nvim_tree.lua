@@ -9,7 +9,6 @@ return {
         local bg_default = bg.default(config, colors)
         local bg_panel = bg.panel(config, colors)
 
-
         ---@type BlackAtom.Highlights
         return {
             NvimTreeNormal = { fg = fg.default, bg = bg_panel },
