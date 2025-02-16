@@ -1,8 +1,6 @@
 ---@param prim BlackAtom.Theme.Primaries
 ---@param pal BlackAtom.Theme.Palette
 return function(prim, pal)
-    local darken = require("black-atom.lib.color").darken
-
     ---@type BlackAtom.Theme.UI
     return {
         bg = {
@@ -10,10 +8,10 @@ return function(prim, pal)
             panel = prim[1],
             float = prim[1],
             active = prim[3],
-            disabled = prim[6],
+            disabled = prim[5],
             hover = prim[3],
-            selection = darken(pal.green, 0.15, prim[1]),
-            search = darken(pal.magenta, 0.15, prim[1]),
+            selection = prim[4],
+            search = prim[4],
             contrast = prim[11],
             error = pal.red,
             warn = pal.yellow,
@@ -26,9 +24,9 @@ return function(prim, pal)
         },
         fg = {
             default = prim[11],
-            subtle = prim[8],
-            accent = pal.green,
-            disabled = prim[6],
+            subtle = prim[9],
+            disabled = prim[7],
+            accent = pal.yellow,
             contrast = prim[2],
             error = pal.red,
             warn = pal.yellow,

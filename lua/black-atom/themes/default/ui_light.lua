@@ -1,8 +1,6 @@
 ---@param prim BlackAtom.Theme.Primaries
 ---@param pal BlackAtom.Theme.Palette
 return function(prim, pal)
-    local lighten = require("black-atom.lib.color").lighten
-
     ---@type BlackAtom.Theme.UI
     return {
         bg = {
@@ -12,8 +10,8 @@ return function(prim, pal)
             active = prim[12],
             disabled = prim[9],
             hover = prim[12],
-            selection = lighten(pal.dark_yellow, 0.1),
-            search = lighten(pal.dark_yellow, 0.1),
+            selection = prim[12],
+            search = prim[12],
             contrast = prim[2],
             error = pal.red,
             warn = pal.yellow,
@@ -26,9 +24,9 @@ return function(prim, pal)
         },
         fg = {
             default = prim[2],
-            subtle = prim[5],
-            accent = pal.red,
-            disabled = prim[9],
+            subtle = prim[4],
+            disabled = prim[6],
+            accent = pal.yellow,
             contrast = prim[11],
             error = pal.red,
             warn = pal.yellow,
