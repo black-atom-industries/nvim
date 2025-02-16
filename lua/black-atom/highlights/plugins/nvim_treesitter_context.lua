@@ -3,14 +3,13 @@
 return {
     enabled = true,
     map = function(colors, config)
-        local bg_sidebar = require("black-atom.lib").bg.dark(config, colors)
-
-        local ui = colors.ui
+        local fg = colors.ui.fg
+        local bg_panel = require("black-atom.lib").bg.panel(config, colors)
 
         ---@type BlackAtom.Highlights
         return {
-            TreesitterContext = { bg = bg_sidebar },
-            TreesitterContextLineNumber = { fg = ui.fg.neutral, bg = bg_sidebar },
+            TreesitterContext = { bg = bg_panel },
+            TreesitterContextLineNumber = { fg = fg.subtle, bg = bg_panel },
         }
     end,
 }

@@ -8,23 +8,21 @@
 ---| "black-atom-jpn-koyo-yoru"
 ---| "black-atom-jpn-koyo-hiru"
 ---| "black-atom-jpn-tsuki-yoru"
----| "black-atom-mono-one-dark"
 ---| "black-atom-crbn-null"
 ---| "black-atom-crbn-supr"
----| "terra-spring-day"
----| "terra-spring-night"
----| "terra-fall-day"
----| "terra-fall-night"
----| "terra-summer-day"
----| "terra-summer-night"
----| "terra-winter-day"
----| "terra-winter-night"
+---| "black-atom-terra-spring-day"
+---| "black-atom-terra-spring-night"
+---| "black-atom-terra-fall-day"
+---| "black-atom-terra-fall-night"
+---| "black-atom-terra-summer-day"
+---| "black-atom-terra-summer-night"
+---| "black-atom-terra-winter-day"
+---| "black-atom-terra-winter-night"
 
 ---@alias BlackAtom.Theme.Collection.Key
 ---| "default"
 ---| "terra"
 ---| "jpn"
----| "mono"
 ---| "crbn"
 
 ---@class BlackAtom.HighlightDefinition
@@ -72,48 +70,43 @@
 ---@field light_gray                                            string
 ---@field white                                                 string
 
----@class BlackAtom.Theme.UI.Git
----@field add                                                   string
----@field delete                                                string
----@field change                                                string
----@field text                                                  string
-
----@class BlackAtom.Theme.UI.Shades
----@field dark                                                  string
----@field main                                                  string
----@field light                                                 string
---
----@class BlackAtom.Theme.UI.Background.Match
----@field active                                                string Used for highlighting matches in the foreground for like visual selections
----@field passive                                               string Used for highlighting matches in the background like for illuminate
-
 ---@class BlackAtom.Theme.UI.Background
----@field primary                                               BlackAtom.Theme.UI.Shades
----@field secondary                                             BlackAtom.Theme.UI.Shades
----@field active                                                string
----@field match                                                 BlackAtom.Theme.UI.Background.Match
----@field diff                                                  BlackAtom.Theme.UI.Git
+---@field default                                               string Default background for UI elements
+---@field panel                                                 string Background for sidebars and statusline
+---@field float                                                 string Background for floating windows, popups
+---@field active                                                string Active elements like cursorline or active tab
+---@field disabled                                              string Disabled background state for interactive elements
+---@field hover                                                 string Hover state for interactive elements
+---@field selection                                             string Visual selection
+---@field search                                                string Search background
+---@field contrast                                              string Inverted background
+---@field negative                                              string Feedback - Negative
+---@field warn                                                  string Feedback - Warnings
+---@field info                                                  string Feedback - Information
+---@field hint                                                  string Feedback - Hints
+---@field positive                                              string Feedback - Positive
+---@field add                                                   string Git added
+---@field delete                                                string Git deleted
+---@field modify                                                string Git modified
 
 ---@class BlackAtom.Theme.UI.Foreground
----@field primary                                               BlackAtom.Theme.UI.Shades
----@field secondary                                             BlackAtom.Theme.UI.Shades
----@field active                                                string
----@field neutral                                               string
----@field invert                                                string
----@field diff                                                  BlackAtom.Theme.UI.Git
-
----@class BlackAtom.Theme.UI.Feedback
----@field error                                                 string
----@field warn                                                  string
----@field info                                                  string
----@field hint                                                  string
----@field todo                                                  string
----@field success                                               string
+---@field default                                               string Default text
+---@field subtle                                                string Subtle text like comments and other secondary information
+---@field accent                                                string For links and other text that needs to stand out
+---@field disabled                                              string For disabled text
+---@field contrast                                              string Inverted which is also used on colored or inverted backgrounds like feedback
+---@field negative                                              string Feedback - Negative
+---@field warn                                                  string Feedback - Warnings
+---@field info                                                  string Feedback - Information
+---@field hint                                                  string Feedback - Hints
+---@field positive                                              string Feedback - Positive
+---@field add                                                   string Git added
+---@field delete                                                string Git deleted
+---@field modify                                                string Git modified
 
 ---@class BlackAtom.Theme.UI
 ---@field bg                                                    BlackAtom.Theme.UI.Background
 ---@field fg                                                    BlackAtom.Theme.UI.Foreground
----@field feedback                                              BlackAtom.Theme.UI.Feedback
 
 ---@class BlackAtom.Theme.Syntax.Markup
 ---@field heading                                               { h1: string, h2: string, h3: string, h4: string, h5: string, h6: string }
@@ -122,7 +115,6 @@
 ---@field link                                                  string
 ---@field code                                                  { fg: string, bg: string }
 ---@field list                                                  { default: string, checked: string, unchecked: string }
-
 
 ---@class BlackAtom.Theme.Syntax
 ---@field variable                                              { default: string, builtin: string, parameter: string, member: string }
@@ -177,6 +169,7 @@
 ---@class BlackAtom.Config.Styles
 ---@field cmp_kind_color_mode?                                  "fg" | "bg" (Default: "fg")
 ---@field dark_sidebars?                                        boolean Wether to use dark sidebars (Default: true)
+---@field dark_floats?                                          boolean Wether to use dark floats (Default: true)
 ---@field transparency?                                         "full" | "partial" | "none" Transparency level (Default: "none")
 ---@field diagnostics?                                          BlackAtom.Config.Diagnostics Diagnostics related settings (Default: See Documentation)
 ---@field syntax?                                               BlackAtom.Config.SyntaxStyle Syntax styling options (Default: See Documentation)
@@ -188,4 +181,3 @@
 ---@field collection?                                           BlackAtom.Theme.Collection.Key
 ---@field term_colors?                                          boolean Wether to enable terminal colors (Default: true)
 ---@field styles?                                               BlackAtom.Config.Styles Various styles related settings (Default: See Documentation)
-

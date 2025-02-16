@@ -16,10 +16,6 @@ M.meta = {
 ---@type BlackAtom.Theme.Primaries
 M.primaries = {
     -- Lows
-    -- "#202933",
-    -- "#263440",
-    -- "#35495c",
-
     "#0d0d0d",
     "#131a20",
     "#253341",
@@ -58,15 +54,15 @@ M.palette = {
     dark_cyan = M.primaries[5],
     cyan = M.primaries[6],
 
-    dark_gray = M.primaries[7],
+    light_gray = M.primaries[7],
     white = M.primaries[9],
 }
 
----@type BlackAtom.Theme.Syntax
-M.syntax = require("black-atom.themes.crbn.syntax_dark")(M.primaries, M.palette)
-
 ---@typ BlackAtom.Theme.UI
 M.ui = require("black-atom.themes.crbn.ui_dark")(M.primaries, M.palette)
+
+---@type BlackAtom.Theme.Syntax
+M.syntax = require("black-atom.themes.crbn.syntax_dark")(M.primaries, M.palette)
 
 ---@type BlackAtom.Theme.Colors
 M.colors = {

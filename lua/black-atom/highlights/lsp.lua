@@ -1,99 +1,94 @@
 ---@type BlackAtom.HighlightsSpec
-local highlight_map_extension = {
+return {
     map = function(colors, config)
         local cond_hl = require("black-atom.lib.highlights").cond_hl
         local darken = require("black-atom.lib.color").darken
         local styles = config.styles or {}
-
-        local diagnostics_error_color = colors.palette.red
-        local diagnostics_warn_color = colors.palette.yellow
-        local diagnostics_hint_color = colors.palette.blue
-        local diagnostics_info_color = colors.palette.green
+        local ui = colors.ui
 
         ---@type BlackAtom.Highlights
         local highlights_map = {
-            LspCxxHlGroupEnumConstant = { fg = colors.palette.dark_yellow },
-            LspCxxHlGroupMemberVariable = { fg = colors.palette.dark_yellow },
-            LspCxxHlGroupNamespace = { fg = colors.palette.blue },
-            LspCxxhighlightskippedRegion = { fg = colors.palette.gray },
-            LspCxxhighlightskippedRegionBeginEnd = { fg = colors.palette.red },
+            -- LSP C++ Highlights
+            LspCxxHlGroupEnumConstant = { fg = ui.fg.accent },
+            LspCxxHlGroupMemberVariable = { fg = ui.fg.accent },
+            LspCxxHlGroupNamespace = { fg = ui.fg.info },
+            LspCxxhighlightskippedRegion = { fg = ui.fg.subtle },
+            LspCxxhighlightskippedRegionBeginEnd = { fg = ui.fg.negative },
 
-            DiagnosticError = { fg = colors.palette.red },
-            DiagnosticHint = { fg = colors.palette.blue },
-            DiagnosticInfo = { fg = colors.palette.cyan },
-            DiagnosticWarn = { fg = colors.palette.yellow },
+            -- Diagnostic Signs
+            DiagnosticError = { fg = ui.fg.negative },
+            DiagnosticHint = { fg = ui.fg.hint },
+            DiagnosticInfo = { fg = ui.fg.info },
+            DiagnosticWarn = { fg = ui.fg.warn },
 
+            -- Diagnostic Virtual Text
             DiagnosticVirtualTextError = {
                 bg = cond_hl(colors.none, {
-                    [styles.diagnostics.background] = darken(diagnostics_error_color, 0.1, colors.ui.bg.primary.main),
+                    [styles.diagnostics.background] = darken(ui.bg.negative, 0.1, ui.bg.default),
                 }),
-                fg = diagnostics_error_color,
+                fg = ui.fg.negative,
             },
             DiagnosticVirtualTextWarn = {
                 bg = cond_hl(colors.none, {
-                    [styles.diagnostics.background] = darken(diagnostics_warn_color, 0.1, colors.ui.bg.primary.main),
+                    [styles.diagnostics.background] = darken(ui.bg.warn, 0.1, ui.bg.default),
                 }),
-                fg = diagnostics_warn_color,
+                fg = ui.fg.warn,
             },
             DiagnosticVirtualTextInfo = {
                 bg = cond_hl(colors.none, {
-                    [styles.diagnostics.background] = darken(diagnostics_info_color, 0.1, colors.ui.bg.primary.main),
+                    [styles.diagnostics.background] = darken(ui.bg.info, 0.1, ui.bg.default),
                 }),
-                fg = diagnostics_info_color,
+                fg = ui.fg.info,
             },
             DiagnosticVirtualTextHint = {
                 bg = cond_hl(colors.none, {
-                    [styles.diagnostics.background] = darken(diagnostics_hint_color, 0.1, colors.ui.bg.primary.main),
+                    [styles.diagnostics.background] = darken(ui.bg.hint, 0.1, ui.bg.default),
                 }),
-                fg = diagnostics_hint_color,
+                fg = ui.fg.hint,
             },
 
+            -- Diagnostic Underlines
             DiagnosticUnderlineError = {
-                sp = colors.palette.red,
+                sp = ui.fg.negative,
                 config.styles.diagnostics.undercurl and { undercurl = true },
             },
             DiagnosticUnderlineHint = {
+                sp = ui.fg.hint,
                 config.styles.diagnostics.undercurl and { undercurl = true },
-                sp = colors.palette.blue,
             },
             DiagnosticUnderlineInfo = {
+                sp = ui.fg.info,
                 config.styles.diagnostics.undercurl and { undercurl = true },
-                sp = colors.palette.blue,
             },
             DiagnosticUnderlineWarn = {
+                sp = ui.fg.warn,
                 config.styles.diagnostics.undercurl and { undercurl = true },
-                sp = colors.palette.yellow,
             },
 
-            LspReferenceText = { underline = true },
-            LspReferenceWrite = { underline = true },
-            LspReferenceRead = { underline = true },
+            -- LSP References
+            LspReferenceText = { bg = ui.bg.active },
+            LspReferenceWrite = { link = "LspReferenceText" },
+            LspReferenceRead = { link = "LspReferenceText" },
 
-            LspCodeLens = { fg = colors.palette.gray },
-            LspCodeLensSeparator = { fg = colors.palette.gray },
+            -- LSP CodeLens
+            LspCodeLens = { fg = ui.fg.subtle },
+            LspCodeLensSeparator = { fg = ui.fg.subtle },
 
+            -- Legacy LSP Diagnostics (Links)
             LspDiagnosticsDefaultError = { link = "DiagnosticError" },
             LspDiagnosticsDefaultHint = { link = "DiagnosticHint" },
             LspDiagnosticsDefaultInformation = { link = "DiagnosticInfo" },
             LspDiagnosticsDefaultWarning = { link = "DiagnosticWarn" },
             LspDiagnosticsUnderlineError = { link = "DiagnosticUnderlineError" },
             LspDiagnosticsUnderlineHint = { link = "DiagnosticUnderlineHint" },
-            LspDiagnosticsUnderlineInformation = {
-                link = "DiagnosticUnderlineInfo",
-            },
+            LspDiagnosticsUnderlineInformation = { link = "DiagnosticUnderlineInfo" },
             LspDiagnosticsUnderlineWarning = { link = "DiagnosticUnderlineWarn" },
             LspDiagnosticsVirtualTextError = { link = "DiagnosticVirtualTextError" },
-            LspDiagnosticsVirtualTextWarning = {
-                link = "DiagnosticVirtualTextWarn",
-            },
-            LspDiagnosticsVirtualTextInformation = {
-                link = "DiagnosticVirtualTextInfo",
-            },
+            LspDiagnosticsVirtualTextWarning = { link = "DiagnosticVirtualTextWarn" },
+            LspDiagnosticsVirtualTextInformation = { link = "DiagnosticVirtualTextInfo" },
             LspDiagnosticsVirtualTextHint = { link = "DiagnosticVirtualTextHint" },
         }
 
         return highlights_map
     end,
 }
-
-return highlight_map_extension

@@ -1,5 +1,11 @@
 {
-    "diagnostics.globals": [
-        "vim"
-    ]
+    "diagnostics": {
+        "globals": ["vim"],
+        "severity": {
+            "undefined-field": "Error",
+            "undefined-global": "Error",
+            "duplicate-set-field": "Error"
+        }
+    },
+    "logPath": "./lua-language-server-check.log"
 }

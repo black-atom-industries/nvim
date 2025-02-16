@@ -1,7 +1,7 @@
 ---@param primaries BlackAtom.Theme.Primaries
 ---@param palette BlackAtom.Theme.Palette
----@return BlackAtom.Theme.Syntax
 return function(primaries, palette)
+    ---@type BlackAtom.Theme.Syntax
     return {
         variable = {
             default = palette.blue,
@@ -10,7 +10,7 @@ return function(primaries, palette)
             parameter = palette.dark_yellow,
         },
         property = {
-            default = palette.blue,
+            default = palette.dark_blue,
         },
         string = {
             default = palette.green,

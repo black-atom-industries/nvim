@@ -3,19 +3,19 @@
 return {
     enabled = true,
     map = function(colors)
-        local p = colors.palette
+        local ui = colors.ui
 
         ---@type BlackAtom.Highlights
         return {
-            GitSignsAdd = { fg = p.green },
-            GitSignsAddLn = { fg = p.green },
-            GitSignsAddNr = { fg = p.green },
-            GitSignsChange = { fg = p.blue },
-            GitSignsChangeLn = { fg = p.blue },
-            GitSignsChangeNr = { fg = p.blue },
-            GitSignsDelete = { fg = p.red },
-            GitSignsDeleteLn = { fg = p.red },
-            GitSignsDeleteNr = { fg = p.red },
+            GitSignsAdd = { fg = ui.fg.add },
+            GitSignsAddLn = { fg = ui.fg.add },
+            GitSignsAddNr = { fg = ui.fg.add },
+            GitSignsChange = { fg = ui.fg.modify },
+            GitSignsChangeLn = { fg = ui.fg.modify },
+            GitSignsChangeNr = { fg = ui.fg.modify },
+            GitSignsDelete = { fg = ui.fg.delete },
+            GitSignsDeleteLn = { fg = ui.fg.delete },
+            GitSignsDeleteNr = { fg = ui.fg.delete },
         }
     end,
 }

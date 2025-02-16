@@ -3,28 +3,15 @@
 return {
     enabled = true,
     map = function(colors)
-        local bg = colors.ui.bg
-        local bg_main = bg.primary.main
-        local bg_dark = bg.primary.dark
+        local ui = colors.ui
 
-        local fg = colors.ui.fg
-        local fg_main = fg.primary.main
-        local fg_neutral = fg.neutral
-        local fg_active = fg.active
+        local border_style = { fg = ui.fg.accent, bg = ui.bg.float }
+        local neutral_element_style = { fg = ui.fg.subtle, bg = ui.bg.float }
+        local file_name_style = { fg = ui.fg.accent, bg = ui.bg.float }
+        local match_style = { bg = ui.bg.selection }
 
-        local palette = colors.palette
-
-        local border_style = { fg = fg.active, bg = bg_dark }
-
-        local neutral_element_style = { fg = fg_neutral, bg = bg.primary.dark }
-        local file_name_style = { fg = fg_active, bg = bg.primary.dark }
-        local file_path_style = neutral_element_style
-        local match_style = { bg = bg.match.active }
-
-        local preview_bg = bg_main
-        local preview_normal_style = { fg = fg_main, bg = preview_bg }
-        local list_bg = bg_dark
-        local list_normal_style = { fg = fg_active, bg = list_bg }
+        local preview_normal_style = { fg = ui.fg.default, bg = ui.bg.default }
+        local list_normal_style = { fg = ui.fg.accent, bg = ui.bg.float }
 
         ---@type BlackAtom.Highlights
         return {
@@ -39,22 +26,22 @@ return {
 
             -- WindowBar
             GlanceWinBarFilename = file_name_style,
-            GlanceWinBarFilepath = file_path_style,
-            GlanceWinBarTitle = { fg = fg_active, bg = bg_dark },
+            GlanceWinBarFilepath = neutral_element_style,
+            GlanceWinBarTitle = { fg = ui.fg.accent, bg = ui.bg.float },
 
             -- List (The list of affected files and references)
             GlanceListNormal = list_normal_style,
             GlanceListFilename = file_name_style,
-            GlanceListFilepath = file_path_style,
-            GlanceListCount = { fg = fg_active },
+            GlanceListFilepath = neutral_element_style,
+            GlanceListCount = { fg = ui.fg.accent },
             GlanceListMatch = match_style,
             GlanceListCursorLine = { link = "CursorLine" },
-            GlanceListEndOfBuffer = { bg = list_bg },
+            GlanceListEndOfBuffer = { bg = ui.bg.float },
             GlanceListBorderBottom = border_style,
 
             -- Other
-            GlanceFoldIcon = { fg = palette.blue },
-            GlanceIndent = { fg = fg.neutral, bg = list_bg },
+            GlanceFoldIcon = { fg = ui.fg.info },
+            GlanceIndent = { fg = ui.fg.subtle, bg = ui.bg.float },
             GlanceBorderTop = border_style,
         }
     end,

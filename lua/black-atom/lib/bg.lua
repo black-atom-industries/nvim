@@ -5,29 +5,32 @@ local M = {}
 ---@param config BlackAtom.Config
 ---@param colors BlackAtom.Theme.Colors
 ---@return string
-function M.main(config, colors)
-    local no_color = colors.none
-    local bg = colors.ui.bg
-
-    return cond_hl(bg.primary.main, {
-        [config.styles.transparency == "partial"] = no_color,
-        [config.styles.transparency == "full"] = no_color,
+function M.default(config, colors)
+    return cond_hl(colors.ui.bg.default, {
+        [config.styles.transparency == "partial"] = colors.none,
+        [config.styles.transparency == "full"] = colors.none,
     })
 end
 
 ---@param config BlackAtom.Config
 ---@param colors BlackAtom.Theme.Colors
 ---@return string
-function M.dark(config, colors)
-    local dark_sidebars = config.styles.dark_sidebars
-    local transparency = config.styles.transparency
-    local bg = colors.ui.bg
-    local no_color = colors.none
+function M.panel(config, colors)
+    return cond_hl(colors.ui.bg.panel, {
+        [not config.styles.dark_sidebars] = colors.ui.bg.default,
+        [config.styles.dark_sidebars and config.styles.transparency == "partial"] = colors.ui.bg.panel,
+        [config.styles.transparency == "full"] = colors.none,
+    })
+end
 
-    return cond_hl(bg.primary.dark, {
-        [not dark_sidebars] = bg.primary.main,
-        [dark_sidebars and transparency == "partial"] = bg.primary.dark,
-        [transparency == "full"] = no_color,
+---@param config BlackAtom.Config
+---@param colors BlackAtom.Theme.Colors
+---@return string
+function M.float(config, colors)
+    return cond_hl(colors.ui.bg.panel, {
+        [not config.styles.dark_floats] = colors.ui.bg.default,
+        [config.styles.dark_floats and config.styles.transparency == "partial"] = colors.ui.bg.panel,
+        [config.styles.transparency == "full"] = colors.none,
     })
 end
 

@@ -1,60 +1,41 @@
 ---@param primaries BlackAtom.Theme.Primaries
 ---@param palette BlackAtom.Theme.Palette
----@return BlackAtom.Theme.UI
 return function(primaries, palette)
     ---@type BlackAtom.Theme.UI
     return {
         bg = {
-            primary = {
-                dark = primaries[1],
-                main = primaries[2],
-                light = primaries[3],
-            },
-            secondary = {
-                dark = primaries[4],
-                main = primaries[5],
-                light = primaries[6],
-            },
-            active = primaries[4],
-            match = {
-                active = palette.yellow,
-                passive = primaries[4],
-            },
-            diff = {
-                add = palette.green,
-                delete = palette.red,
-                change = palette.blue,
-                text = palette.dark_blue,
-            },
-        },
-        fg = {
-            primary = {
-                dark = primaries[10],
-                main = primaries[11],
-                light = primaries[12],
-            },
-            secondary = {
-                dark = primaries[7],
-                main = primaries[8],
-                light = primaries[9],
-            },
-            active = palette.yellow,
-            invert = primaries[2],
-            neutral = primaries[6],
-            diff = {
-                add = palette.green,
-                delete = palette.red,
-                change = palette.blue,
-                text = palette.dark_blue,
-            },
-        },
-        feedback = {
-            error = palette.red,
+            default = primaries[2],
+            panel = primaries[1],
+            float = primaries[1],
+            active = primaries[3],
+            disabled = primaries[5],
+            hover = primaries[3],
+            selection = primaries[4],
+            search = primaries[4],
+            contrast = primaries[11],
+            negative = palette.red,
             warn = palette.yellow,
             info = palette.blue,
             hint = palette.dark_yellow,
-            todo = palette.yellow,
-            success = palette.green,
+            positive = palette.green,
+            add = palette.green,
+            delete = palette.red,
+            modify = palette.blue,
+        },
+        fg = {
+            default = primaries[11],
+            subtle = primaries[9],
+            disabled = primaries[7],
+            accent = palette.yellow,
+            contrast = primaries[2],
+            negative = palette.red,
+            warn = palette.yellow,
+            info = palette.blue,
+            hint = palette.dark_yellow,
+            positive = palette.green,
+            add = palette.green,
+            delete = palette.red,
+            modify = palette.blue, -- Was diff.change
         },
     }
 end

@@ -3,17 +3,16 @@
 return {
     enabled = true,
     map = function(colors, config)
-        local lib = require("black-atom.lib")
+        local bg_panel = require("black-atom.lib").bg.panel(config, colors)
         local fg = colors.ui.fg
-        local bg_sidebar = lib.bg.dark(config, colors)
 
         ---@type BlackAtom.Highlights
         return {
-            EdgyNormal = { fg = fg.primary.main, bg = bg_sidebar },
+            EdgyNormal = { fg = fg.default, bg = bg_panel },
             EdgyTitle = { link = "EdgyNormal" },
             EdgyIcon = { link = "EdgyNormal" },
-            EdgyIconActive = { fg = fg.active, bg = bg_sidebar },
-            EdgyWinBar = { fg = fg.active, bg = bg_sidebar },
+            EdgyIconActive = { fg = fg.accent, bg = bg_panel },
+            EdgyWinBar = { fg = fg.accent, bg = bg_panel },
         }
     end,
 }
