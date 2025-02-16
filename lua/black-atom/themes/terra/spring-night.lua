@@ -2,16 +2,15 @@ local M = {}
 
 ---@type BlackAtom.Theme.Meta
 M.meta = {
-    key = "terra-spring-night",
-    label = "Terra Spring Night",
+    key = "black-atom-terra-spring-night",
+    label = "Black Atom - TERRA - Fall [Night]",
     collection = {
         key = "terra",
-        label = "Terra",
+        label = "TERRA",
     },
     appearance = "dark",
     icon = "󰧲 󰖔 ",
     status = "release",
-    module_path = "black-atom.themes.terra-spring-night",
 }
 
 ---@type BlackAtom.Theme.Primaries

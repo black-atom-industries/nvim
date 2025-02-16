@@ -2,11 +2,11 @@ local M = {}
 
 ---@type BlackAtom.Theme.Meta
 M.meta = {
-    key = "terra-summer-night",
-    label = "Terra Summer Night",
+    key = "black-atom-terra-summer-night",
+    label = "Black Atom - TERRA - Summer [Night]",
     collection = {
         key = "terra",
-        label = "Terra",
+        label = "TERRA",
     },
     appearance = "dark",
     icon = "󰂒 󰖔 ",
