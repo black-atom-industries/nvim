@@ -8,7 +8,6 @@
 ---| "black-atom-jpn-koyo-yoru"
 ---| "black-atom-jpn-koyo-hiru"
 ---| "black-atom-jpn-tsuki-yoru"
----| "black-atom-mono-one-dark"
 ---| "black-atom-crbn-null"
 ---| "black-atom-crbn-supr"
 ---| "terra-spring-day"
@@ -24,7 +23,6 @@
 ---| "default"
 ---| "terra"
 ---| "jpn"
----| "mono"
 ---| "crbn"
 
 ---@class BlackAtom.HighlightDefinition
