@@ -3,14 +3,14 @@
 return {
     enabled = true,
     map = function(colors)
-        local palette = colors.palette
+        local ui = colors.ui
 
         ---@type BlackAtom.Highlights
         return {
-            ArrowCurrentFile = { fg = palette.yellow, bold = true },
-            ArrowFileIndex = { fg = palette.cyan },
-            ArrowAction = { fg = palette.dark_yellow },
-            ArrowDeleteMode = { fg = palette.red, bold = true },
+            ArrowCurrentFile = { fg = ui.fg.accent, bold = true },
+            ArrowFileIndex = { fg = ui.fg.info },
+            ArrowAction = { fg = ui.fg.hint },
+            ArrowDeleteMode = { fg = ui.fg.error, bold = true },
         }
     end,
 }
