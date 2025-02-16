@@ -52,10 +52,10 @@ return {
             DiffText = { fg = ui.fg.info },
 
             -- Spell Checking
-            SpellBad = { fg = ui.fg.error, undercurl = true },
+            SpellBad = { fg = ui.fg.negative, undercurl = true },
             SpellCap = { fg = ui.fg.warn, undercurl = true },
             SpellLocal = { fg = ui.fg.info, undercurl = true },
-            SpellRare = { fg = ui.fg.error, undercurl = true },
+            SpellRare = { fg = ui.fg.negative, undercurl = true },
 
             -- Popup Menu
             Pmenu = { fg = ui.fg.default, bg = ui.bg.float },
@@ -64,8 +64,8 @@ return {
             PmenuSBar = { bg = ui.bg.float },
 
             -- Messages & Mode
-            Error = ext_hl({ fg = ui.fg.error }, config.styles.syntax.messages),
-            ErrorMsg = ext_hl({ fg = ui.fg.error }, config.styles.syntax.messages),
+            Error = ext_hl({ fg = ui.fg.negative }, config.styles.syntax.messages),
+            ErrorMsg = ext_hl({ fg = ui.fg.negative }, config.styles.syntax.messages),
             MoreMsg = ext_hl({ fg = ui.fg.info }, config.styles.syntax.messages),
             ModeMsg = ext_hl({ fg = ui.fg.info }, config.styles.syntax.messages),
             WarningMsg = ext_hl({ fg = ui.fg.warn }, config.styles.syntax.messages),

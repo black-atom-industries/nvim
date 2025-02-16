@@ -10,7 +10,7 @@ return {
             ArrowCurrentFile = { fg = ui.fg.accent, bold = true },
             ArrowFileIndex = { fg = ui.fg.info },
             ArrowAction = { fg = ui.fg.hint },
-            ArrowDeleteMode = { fg = ui.fg.error, bold = true },
+            ArrowDeleteMode = { fg = ui.fg.negative, bold = true },
         }
     end,
 }

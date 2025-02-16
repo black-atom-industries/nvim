@@ -71,38 +71,38 @@
 ---@field white                                                 string
 
 ---@class BlackAtom.Theme.UI.Background
----@field default                                               string  # Default background for UI elements
----@field panel                                                 string  # Background for sidebars and statusline
----@field float                                                 string  # Background for floating windows, popups
----@field active                                                string  # Active elements like cursorline or active tab
----@field disabled                                              string  # Disabled background state for interactive elements
----@field hover                                                 string  # Hover state for interactive elements
----@field selection                                             string  # Visual selection
----@field search                                                string  # Search background
----@field contrast                                              string  # Inverted background
----@field error                                                 string  # Feedback - Errors
----@field warn                                                  string  # Feedback - Warnings
----@field info                                                  string  # Feedback - Information
----@field hint                                                  string  # Feedback - Hints
----@field success                                               string  # Feedback - Success
----@field add                                                   string  # Git added
----@field delete                                                string  # Git deleted
----@field modify                                                string  # Git modified
+---@field default                                               string Default background for UI elements
+---@field panel                                                 string Background for sidebars and statusline
+---@field float                                                 string Background for floating windows, popups
+---@field active                                                string Active elements like cursorline or active tab
+---@field disabled                                              string Disabled background state for interactive elements
+---@field hover                                                 string Hover state for interactive elements
+---@field selection                                             string Visual selection
+---@field search                                                string Search background
+---@field contrast                                              string Inverted background
+---@field negative                                              string Feedback - Negative
+---@field warn                                                  string Feedback - Warnings
+---@field info                                                  string Feedback - Information
+---@field hint                                                  string Feedback - Hints
+---@field positive                                              string Feedback - Positive
+---@field add                                                   string Git added
+---@field delete                                                string Git deleted
+---@field modify                                                string Git modified
 
 ---@class BlackAtom.Theme.UI.Foreground
----@field default                                               string  # Default text
----@field subtle                                                string  # Subtle text like comments and other secondary information
----@field accent                                                string  # For links and other text that needs to stand out
----@field disabled                                              string  # For disabled text
----@field contrast                                              string  # Inverted which is also used on colored or inverted backgrounds like feedback
----@field error                                                 string  # Feedback - Errors
----@field warn                                                  string  # Feedback - Warnings
----@field info                                                  string  # Feedback - Information
----@field hint                                                  string  # Feedback - Hints
----@field success                                               string  # Feedback - Success
----@field add                                                   string  # Git added
----@field delete                                                string  # Git deleted
----@field modify                                                string  # Git modified
+---@field default                                               string Default text
+---@field subtle                                                string Subtle text like comments and other secondary information
+---@field accent                                                string For links and other text that needs to stand out
+---@field disabled                                              string For disabled text
+---@field contrast                                              string Inverted which is also used on colored or inverted backgrounds like feedback
+---@field negative                                              string Feedback - Negative
+---@field warn                                                  string Feedback - Warnings
+---@field info                                                  string Feedback - Information
+---@field hint                                                  string Feedback - Hints
+---@field positive                                              string Feedback - Positive
+---@field add                                                   string Git added
+---@field delete                                                string Git deleted
+---@field modify                                                string Git modified
 
 ---@class BlackAtom.Theme.UI
 ---@field bg                                                    BlackAtom.Theme.UI.Background

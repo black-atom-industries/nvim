@@ -28,9 +28,9 @@ return {
             DiffviewStatusCopied = { fg = ui.fg.modify },
             DiffviewStatusTypeChange = { fg = ui.fg.modify },
             DiffviewStatusUnmerged = { fg = ui.fg.modify },
-            DiffviewStatusUnknown = { fg = ui.fg.error },
+            DiffviewStatusUnknown = { fg = ui.fg.negative },
             DiffviewStatusDeleted = { fg = ui.fg.delete },
-            DiffviewStatusBroken = { fg = ui.fg.error },
+            DiffviewStatusBroken = { fg = ui.fg.negative },
         }
     end,
 }

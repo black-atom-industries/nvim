@@ -13,10 +13,10 @@ return {
             LspCxxHlGroupMemberVariable = { fg = ui.fg.accent },
             LspCxxHlGroupNamespace = { fg = ui.fg.info },
             LspCxxhighlightskippedRegion = { fg = ui.fg.subtle },
-            LspCxxhighlightskippedRegionBeginEnd = { fg = ui.fg.error },
+            LspCxxhighlightskippedRegionBeginEnd = { fg = ui.fg.negative },
 
             -- Diagnostic Signs
-            DiagnosticError = { fg = ui.fg.error },
+            DiagnosticError = { fg = ui.fg.negative },
             DiagnosticHint = { fg = ui.fg.hint },
             DiagnosticInfo = { fg = ui.fg.info },
             DiagnosticWarn = { fg = ui.fg.warn },
@@ -24,9 +24,9 @@ return {
             -- Diagnostic Virtual Text
             DiagnosticVirtualTextError = {
                 bg = cond_hl(colors.none, {
-                    [styles.diagnostics.background] = darken(ui.bg.error, 0.1, ui.bg.default),
+                    [styles.diagnostics.background] = darken(ui.bg.negative, 0.1, ui.bg.default),
                 }),
-                fg = ui.fg.error,
+                fg = ui.fg.negative,
             },
             DiagnosticVirtualTextWarn = {
                 bg = cond_hl(colors.none, {
@@ -49,7 +49,7 @@ return {
 
             -- Diagnostic Underlines
             DiagnosticUnderlineError = {
-                sp = ui.fg.error,
+                sp = ui.fg.negative,
                 config.styles.diagnostics.undercurl and { undercurl = true },
             },
             DiagnosticUnderlineHint = {
