@@ -1,41 +1,41 @@
----@param prim BlackAtom.Theme.Primaries
----@param pal BlackAtom.Theme.Palette
-return function(prim, pal)
+---@param primaries BlackAtom.Theme.Primaries
+---@param palette BlackAtom.Theme.Palette
+return function(primaries, palette)
     ---@type BlackAtom.Theme.UI
     return {
         bg = {
-            default = prim[2],
-            panel = prim[1],
-            float = prim[1],
-            active = prim[3],
-            disabled = prim[5],
-            hover = prim[3],
-            selection = prim[4],
-            search = prim[4],
-            contrast = prim[11],
-            error = pal.red,
-            warn = pal.yellow,
-            info = pal.blue,
-            hint = pal.dark_yellow,
-            success = pal.green,
-            add = pal.green,
-            delete = pal.red,
-            modify = pal.blue,
+            default = primaries[2],
+            panel = primaries[1],
+            float = primaries[1],
+            active = primaries[3],
+            disabled = primaries[5],
+            hover = primaries[3],
+            selection = primaries[4],
+            search = primaries[4],
+            contrast = primaries[11],
+            error = palette.red,
+            warn = palette.yellow,
+            info = palette.blue,
+            hint = palette.dark_yellow,
+            success = palette.green,
+            add = palette.green,
+            delete = palette.red,
+            modify = palette.blue,
         },
         fg = {
-            default = prim[11],
-            subtle = prim[9],
-            disabled = prim[7],
-            accent = pal.yellow,
-            contrast = prim[2],
-            error = pal.red,
-            warn = pal.yellow,
-            info = pal.blue,
-            hint = pal.dark_yellow,
-            success = pal.green,
-            add = pal.green,
-            delete = pal.red,
-            modify = pal.blue, -- Was diff.change
+            default = primaries[11],
+            subtle = primaries[9],
+            disabled = primaries[7],
+            accent = palette.yellow,
+            contrast = primaries[2],
+            error = palette.red,
+            warn = palette.yellow,
+            info = palette.blue,
+            hint = palette.dark_yellow,
+            success = palette.green,
+            add = palette.green,
+            delete = palette.red,
+            modify = palette.blue, -- Was diff.change
         },
     }
 end

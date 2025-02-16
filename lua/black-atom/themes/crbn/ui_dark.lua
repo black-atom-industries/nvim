@@ -1,43 +1,43 @@
----@param prim BlackAtom.Theme.Primaries
----@param pal BlackAtom.Theme.Palette
-return function(prim, pal)
+---@param primaries BlackAtom.Theme.Primaries
+---@param palette BlackAtom.Theme.Palette
+return function(primaries, palette)
     local darken = require("black-atom.lib.color").darken
 
     ---@type BlackAtom.Theme.UI
     return {
         bg = {
-            default = prim[1],
-            panel = prim[2],
-            float = prim[2],
-            active = prim[3],
-            disabled = prim[4],
-            hover = prim[3],
-            selection = darken(pal.dark_yellow, 0.25),
-            search = darken(pal.dark_yellow, 0.25),
-            contrast = prim[9],
-            error = pal.red,
-            warn = pal.yellow,
-            info = pal.blue,
-            hint = pal.dark_yellow,
-            success = pal.green,
-            add = pal.green,
-            delete = pal.red,
-            modify = pal.blue,
+            default = primaries[1],
+            panel = primaries[2],
+            float = primaries[2],
+            active = primaries[3],
+            disabled = primaries[4],
+            hover = primaries[3],
+            selection = darken(palette.dark_yellow, 0.25),
+            search = darken(palette.dark_yellow, 0.25),
+            contrast = primaries[9],
+            error = palette.red,
+            warn = palette.yellow,
+            info = palette.blue,
+            hint = palette.dark_yellow,
+            success = palette.green,
+            add = palette.green,
+            delete = palette.red,
+            modify = palette.blue,
         },
         fg = {
-            default = prim[9],
-            subtle = prim[7],
-            accent = pal.yellow,
-            disabled = prim[6],
-            contrast = prim[2],
-            error = pal.red,
-            warn = pal.yellow,
-            info = pal.blue,
-            hint = pal.dark_yellow,
-            success = pal.green,
-            add = pal.green,
-            delete = pal.red,
-            modify = pal.blue,
+            default = primaries[9],
+            subtle = primaries[7],
+            accent = palette.yellow,
+            disabled = primaries[6],
+            contrast = primaries[2],
+            error = palette.red,
+            warn = palette.yellow,
+            info = palette.blue,
+            hint = palette.dark_yellow,
+            success = palette.green,
+            add = palette.green,
+            delete = palette.red,
+            modify = palette.blue,
         },
     }
 end

@@ -4,11 +4,11 @@ return {
     enabled = false,
     map = function(colors)
         local ui = colors.ui
-        local pal = colors.palette
+        local palette = colors.palette
 
         ---@type BlackAtom.Highlights
         local highlights_map = {
-            FlashMatch = { fg = ui.fg.contrast, bg = pal.dark_magenta },
+            FlashMatch = { fg = ui.fg.contrast, bg = palette.dark_magenta },
         }
 
         return highlights_map

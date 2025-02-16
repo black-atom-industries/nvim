@@ -3,16 +3,16 @@
 return {
     enabled = true,
     map = function(colors)
-        local pal = colors.palette
+        local palette = colors.palette
         local syn = colors.syntax
 
         ---@type BlackAtom.Highlights
         return {
-            WhichKey = { fg = pal.cyan },
+            WhichKey = { fg = palette.cyan },
             WhichKeyIcon = { fg = syn.markup.link },
-            WhichKeyDesc = { fg = pal.blue },
-            WhichKeyGroup = { fg = pal.dark_yellow },
-            WhichKeySeperator = { fg = pal.green },
+            WhichKeyDesc = { fg = palette.blue },
+            WhichKeyGroup = { fg = palette.dark_yellow },
+            WhichKeySeperator = { fg = palette.green },
         }
     end,
 }
