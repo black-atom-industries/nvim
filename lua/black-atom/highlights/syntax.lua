@@ -93,6 +93,8 @@ return {
 
             ["@constructor"] = { fg = syntax.constructor.default, bold = true },
 
+            ["@namespace"] = { bold = true },
+
             Delimiter = { fg = syntax.punctuation.delimiter },
             Special = { fg = syntax.punctuation.special },
             ["@punctuation.bracket"] = { fg = syntax.punctuation.bracket },
