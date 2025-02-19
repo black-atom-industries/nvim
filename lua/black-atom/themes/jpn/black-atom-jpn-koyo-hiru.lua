@@ -39,8 +39,8 @@ M.palette = {
     black = M.primaries[2],
     gray = M.primaries[6],
 
-    dark_red = "#b46372",
-    red = "#eb6f84",
+    dark_red = "#c65e53",
+    red = "#db7070",
 
     dark_green = "#428a68",
     green = "#52ad82",
