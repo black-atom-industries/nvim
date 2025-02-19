@@ -23,9 +23,9 @@ M.primaries = {
 
     -- Mids
     "#605872",
-    "#7a7190",
-    "#958da6",
-    "#b0aabc",
+    "#6e6a86",
+    "#908caa",
+    "#aaa7be",
 
     -- Highs
     "#dab18c",
@@ -39,20 +39,20 @@ M.palette = {
     black = M.primaries[3],
     gray = M.primaries[6],
 
-    dark_red = "#c2564b",
-    red = "#d6675c",
+    dark_red = "#b46371",
+    red = "#eb6f84",
 
     dark_green = "#53ad82",
     green = "#7ab89b",
 
-    dark_yellow = "#e79253",
-    yellow = "#e7aa55",
+    dark_yellow = "#ee9c6b",
+    yellow = "#e9b162",
 
-    dark_blue = "#a88a94",
+    dark_blue = "#ad8593",
     blue = "#a095a8",
 
-    dark_magenta = "#efa376",
-    magenta = "#FEBE98",
+    dark_magenta = "#ef9d6c",
+    magenta = "#ffb488",
 
     dark_cyan = "#68b19a",
     cyan = "#8cc1b0",
