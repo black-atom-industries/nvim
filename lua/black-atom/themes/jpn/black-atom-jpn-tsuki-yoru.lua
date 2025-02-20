@@ -176,8 +176,8 @@ M.syntax = {
             unchecked = "#9d9daf",
         },
         code = {
-            fg = "#ACA1CF",
-            bg = "#373737",
+            fg = "#9d9daf",
+            bg = "#0f0f0f",
         },
     },
     tag = {
