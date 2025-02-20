@@ -1,0 +1,18 @@
+{
+  "$schema": "https://raw.githubusercontent.com/black-atom-industries/core/refs/heads/feature/dev-153-setup-black-atom-core/adapter.schema.json",
+  "black-atom-jpn-koyo-yoru": {
+    "templates": [
+      "lua/black-atom/themes/jpn/black-atom-jpn-koyo-yoru.template.lua"
+    ]
+  },
+  "black-atom-jpn-koyo-hiru": {
+    "templates": [
+      "lua/black-atom/themes/jpn/black-atom-jpn-koyo-hiru.template.lua"
+    ]
+  },
+  "black-atom-jpn-tsuki-yoru": {
+    "templates": [
+      "lua/black-atom/themes/jpn/black-atom-jpn-tsuki-yoru.template.lua"
+    ]
+  }
+}
