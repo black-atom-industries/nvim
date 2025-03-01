@@ -17,7 +17,7 @@ return {
             ["@variable"] = { link = "Identifier" },
             ["@variable.builtin"] = { fg = syntax.variable.builtin },
             ["@variable.parameter"] = { fg = syntax.variable.parameter, italic = true, bold = true },
-            ["@variable.member"] = { fg = syntax.variable.member, italic = true },
+            ["@variable.member"] = { fg = syntax.variable.member },
 
             String = ext_hl({ fg = syntax.string.default }, config.styles.syntax.strings),
             ["@string"] = { link = "String" },

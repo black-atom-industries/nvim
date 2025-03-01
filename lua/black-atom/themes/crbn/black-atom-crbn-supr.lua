@@ -3,7 +3,7 @@ local M = {}
 ---@type BlackAtom.Theme.Meta
 M.meta = {
     key = "black-atom-crbn-supr",
-    label = "Black Atom - CRBN [SUPR]",
+    label = "Black Atom - Carbon SUPR",
     collection = {
         key = "crbn",
         label = "CRBN",
@@ -15,54 +15,179 @@ M.meta = {
 
 ---@type BlackAtom.Theme.Primaries
 M.primaries = {
-    -- Lows
     "#1d2730",
     "#344859",
     "#415a70",
-
-    -- Mids
+    "#566e84",
     "#6c7f92",
     "#8999a8",
     "#a2b5c5",
-
-    -- Highs
+    "#bfcbd5",
     "#e2e6ea",
     "#f0f3f6",
     "#feffff",
+    "#ffffff",
 }
 
 ---@type BlackAtom.Theme.Palette
 M.palette = {
-    black = M.primaries[2],
-    gray = M.primaries[4],
-
+    black = "#344859",
+    gray = "#566e84",
     dark_red = "#f2280d",
     red = "#ff4b33",
-
     dark_green = "#50b82e",
     green = "#69d148",
-
     dark_yellow = "#ff4302",
     yellow = "#FF6833",
-
     dark_blue = "#1661EB",
     blue = "#337AFF",
-
-    dark_magenta = M.primaries[5],
-    magenta = M.primaries[6],
-
-    dark_cyan = M.primaries[3],
-    cyan = M.primaries[2],
-
-    light_gray = M.primaries[7],
-    white = M.primaries[9],
+    dark_magenta = "#6c7f92",
+    magenta = "#8999a8",
+    dark_cyan = "#415a70",
+    cyan = "#344859",
+    light_gray = "#a2b5c5",
+    white = "#e2e6ea",
 }
 
----@typ BlackAtom.Theme.UI
-M.ui = require("black-atom.themes.crbn.ui_light")(M.primaries, M.palette)
+---@type BlackAtom.Theme.UI
+M.ui = {
+    bg = {
+        default = "#e2e6ea",
+        panel = "#bfcbd5",
+        float = "#bfcbd5",
+        active = "#a2b5c5",
+        disabled = "#566e84",
+        hover = "#a2b5c5",
+        selection = "#FFB066",
+        search = "#FFB066",
+        contrast = "#1d2730",
+        negative = "#ff4b33",
+        warn = "#FF6833",
+        info = "#337AFF",
+        hint = "#ff4302",
+        positive = "#69d148",
+        add = "#69d148",
+        delete = "#ff4b33",
+        modify = "#337AFF",
+    },
+    fg = {
+        default = "#344859",
+        subtle = "#1d2730",
+        accent = "#FF6833",
+        disabled = "#566e84",
+        contrast = "#bfcbd5",
+        negative = "#ff4b33",
+        warn = "#FF6833",
+        info = "#337AFF",
+        hint = "#ff4302",
+        positive = "#69d148",
+        add = "#69d148",
+        delete = "#ff4b33",
+        modify = "#337AFF",
+    },
+}
 
 ---@type BlackAtom.Theme.Syntax
-M.syntax = require("black-atom.themes.crbn.syntax_light")(M.primaries, M.palette)
+M.syntax = {
+    variable = {
+        default = "#344859",
+        builtin = "#344859",
+        member = "#415a70",
+        parameter = "#ff4302",
+    },
+    property = {
+        default = "#415a70",
+    },
+    string = {
+        default = "#566e84",
+        doc = "#8999a8",
+        regexp = "#1d2730",
+        escape = "#1d2730",
+    },
+    constant = {
+        default = "#1d2730",
+        builtin = "#1d2730",
+    },
+    module = {
+        default = "#337AFF",
+    },
+    boolean = {
+        default = "#566e84",
+    },
+    number = {
+        default = "#566e84",
+    },
+    type = {
+        default = "#1d2730",
+        builtin = "#415a70",
+    },
+    attribute = {
+        default = "#ff4302",
+        builtin = "#ff4302",
+    },
+    func = {
+        default = "#FF6833",
+        builtin = "#ff4302",
+        method = "#FF6833",
+    },
+    constructor = {
+        default = "#FF6833",
+    },
+    keyword = {
+        default = "#415a70",
+        import = "#6c7f92",
+        export = "#6c7f92",
+    },
+    operator = {
+        default = "#344859",
+    },
+    punctuation = {
+        default = "#344859",
+        delimiter = "#344859",
+        bracket = "#344859",
+        special = "#344859",
+    },
+    comment = {
+        default = "#566e84",
+        doc = "#6c7f92",
+        todo = "#69d148",
+        error = "#ff4b33",
+        warn = "#FF6833",
+        info = "#337AFF",
+        hint = "#ff4302",
+    },
+    markup = {
+        heading = {
+            h1 = "#FF6833",
+            h2 = "#FF6833",
+            h3 = "#FF6833",
+            h4 = "#566e84",
+            h5 = "#566e84",
+            h6 = "#566e84",
+        },
+        strong = "#FF6833",
+        italic = "#FF6833",
+        strikethrough = "#FF6833",
+        quote = "#69d148",
+        math = "#50b82e",
+        link = "#69d148",
+        list = {
+            default = "#566e84",
+            checked = "#69d148",
+            unchecked = "#566e84",
+        },
+        code = {
+            fg = "#8999a8",
+            bg = "#f0f3f6",
+        },
+    },
+    tag = {
+        default = "#FF6833",
+        builtin = "#ff4302",
+        attribute = "#6c7f92",
+        delimiter = "#566e84",
+    },
+}
 
 ---@type BlackAtom.Theme.Colors
 M.colors = {

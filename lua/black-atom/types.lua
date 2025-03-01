@@ -1,10 +1,10 @@
 -- vim: set colorcolumn=64:
 
 ---@alias BlackAtom.Theme.Key
----| "black-atom-engineering"
----| "black-atom-operations"
----| "black-atom-medical"
----| "black-atom-research"
+---| "black-atom-stations-engineering"
+---| "black-atom-stations-operations"
+---| "black-atom-stations-medical"
+---| "black-atom-stations-research"
 ---| "black-atom-jpn-koyo-yoru"
 ---| "black-atom-jpn-koyo-hiru"
 ---| "black-atom-jpn-tsuki-yoru"
@@ -20,7 +20,7 @@
 ---| "black-atom-terra-winter-night"
 
 ---@alias BlackAtom.Theme.Collection.Key
----| "default"
+---| "stations"
 ---| "terra"
 ---| "jpn"
 ---| "crbn"
