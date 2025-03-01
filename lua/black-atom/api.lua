@@ -3,7 +3,7 @@ local API = {}
 
 ---@param collection_key? BlackAtom.Theme.Collection.Key
 ---@param theme_key? BlackAtom.Theme.Key
----@return BlackAtom.Theme.Definition
+---@return BlackAtom.Theme.Definition | nil
 local function load_theme_definition(collection_key, theme_key)
     local Config = require("black-atom.config"):get()
 
@@ -12,7 +12,7 @@ local function load_theme_definition(collection_key, theme_key)
 
     local found, theme = pcall(require, "black-atom.themes." .. collection_key .. "." .. theme_key)
     if not found then
-        error("Could not find theme: " .. collection_key .. "." .. theme_key .. ". Please check your arguments.")
+        return nil
     else
         return theme
     end
@@ -22,25 +22,37 @@ end
 ---If no arguments are provided, the currently set theme will be used.
 ---@param collection_key? BlackAtom.Theme.Collection.Key
 ---@param theme_key? BlackAtom.Theme.Key
----@return BlackAtom.Theme.Meta
+---@return BlackAtom.Theme.Meta | nil
 function API:get_meta(collection_key, theme_key)
-    return load_theme_definition(collection_key, theme_key).meta
+    local theme = load_theme_definition(collection_key, theme_key)
+
+    if theme then
+        return theme.meta
+    else
+        return nil
+    end
 end
 
 ---Returns the colors for the currently set theme and variant.
 ---If no arguments are provided, the currently set theme will be used.
 ---@param collection_key? BlackAtom.Theme.Collection.Key
 ---@param theme_key? BlackAtom.Theme.Key
----@return BlackAtom.Theme.Colors
+---@return BlackAtom.Theme.Colors | nil
 function API:get_colors(collection_key, theme_key)
-    return load_theme_definition(collection_key, theme_key).colors
+    local theme = load_theme_definition(collection_key, theme_key)
+
+    if theme then
+        return theme.colors
+    else
+        return nil
+    end
 end
 
 ---Returns the currently set theme.
 ---If no arguments are provided, the currently set theme will be used.
 ---@param collection_key? BlackAtom.Theme.Collection.Key
 ---@param theme_key? BlackAtom.Theme.Key
----@return BlackAtom.Theme.Definition
+---@return BlackAtom.Theme.Definition | nil
 function API:get_theme(collection_key, theme_key)
     return load_theme_definition(collection_key, theme_key)
 end
