@@ -155,13 +155,13 @@ sh ./scripts/check.sh
 
 ### Working with Templates
 
-The theme files are generated from templates using the Black Atom Core CLI. To modify themes:
+The theme files are adapted from templates using the Black Atom Core CLI. To modify themes:
 
 1. Edit the template files in `lua/black-atom/themes/{collection}/`
-2. Run the Core CLI to generate the theme files:
+2. Run the Core CLI to adapt the theme files:
     ```bash
     cd /path/to/black-atom-core
-    black-atom-core generate
+    black-atom-core adapt
     ```
 
 ## License
