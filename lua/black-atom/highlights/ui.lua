@@ -86,7 +86,7 @@ return {
 
             WinBar = { link = "StatusLine" },
             WinBarNC = { link = "StatusLineNC" },
-            WinSeparator = { fg = bg.panel(config, colors), bg = bg.default(config, colors) },
+            WinSeparator = { fg = ui.fg.subtle, bg = bg.default(config, colors) },
 
             -- Folds & Columns
             Folded = { fg = ui.fg.subtle, bg = ui.bg.panel },
