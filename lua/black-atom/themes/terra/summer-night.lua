@@ -3,7 +3,7 @@ local M = {}
 ---@type BlackAtom.Theme.Meta
 M.meta = {
     key = "black-atom-terra-summer-night",
-    label = "Black Atom - TERRA - Summer [Night]",
+    label = "Black Atom - Terra Summer Night",
     collection = {
         key = "terra",
         label = "TERRA",
@@ -15,19 +15,14 @@ M.meta = {
 
 ---@type BlackAtom.Theme.Primaries
 M.primaries = {
-    -- Lows
     "#1a1c24",
     "#1f2129",
     "#23262f",
     "#282b35",
-
-    -- Mids
     "#47506b",
     "#5b678a",
     "#7581a4",
     "#858fae",
-
-    -- Highs
     "#91a0bc",
     "#9facc6",
     "#bcc9db",
@@ -36,29 +31,22 @@ M.primaries = {
 
 ---@type BlackAtom.Theme.Palette
 M.palette = {
-    black = M.primaries[3],
-    gray = M.primaries[5],
-
+    black = "#23262f",
+    gray = "#47506b",
     dark_red = "#bf5441",
     red = "#c06a59",
-
     dark_green = "#729e60",
     green = "#85b97e",
-
     dark_yellow = "#f2a557",
     yellow = "#dca958",
-
     dark_blue = "#9f99e5",
     blue = "#96b9e9",
-
     dark_magenta = "#d5a9c3",
     magenta = "#c4acd7",
-
     dark_cyan = "#619f80",
     cyan = "#7bb7a4",
-
-    light_gray = M.primaries[9],
-    white = M.primaries[11],
+    light_gray = "#91a0bc",
+    white = "#bcc9db",
 }
 
 ---@type BlackAtom.Theme.UI
