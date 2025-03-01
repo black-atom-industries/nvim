@@ -2,11 +2,11 @@ local M = {}
 
 ---@type BlackAtom.Theme.Meta
 M.meta = {
-    key = "black-atom-medical",
-    label = "Black Atom - Medical",
+    key = "black-atom-stations-research",
+    label = "Black Atom - Research Stations",
     collection = {
-        key = "default",
-        label = "Default",
+        key = "stations",
+        label = "Stations",
     },
     appearance = "light",
     icon = " 󰖔 ",
@@ -22,16 +22,16 @@ M.primaries = {
     "#425953",
 
     -- Mids
-    "#476a5f",
-    "#517a65",
-    "#669a84",
-    "#77a494",
+    "#51796d",
+    "#5b8972",
+    "#75a490",
+    "#95b8ac",
 
     -- Highs
-    "#a6bdb2",
-    "#b7cac1",
-    "#c2d3cb",
-    "#d0e0d8",
+    "#c4d3cc",
+    "#d2ded8",
+    "#e3ebe7",
+    "#eef4f2",
 }
 
 ---@type BlackAtom.Theme.Palette
@@ -42,30 +42,30 @@ M.palette = {
     dark_red = "#db577c",
     red = "#ec7aa2",
 
-    dark_green = "#357c35",
-    green = "#3c8e3c",
+    dark_green = "#4a9a4a",
+    green = "#53aa53",
 
-    dark_yellow = "#d9950f",
-    yellow = "#60a918",
+    dark_yellow = "#e69d0c",
+    yellow = "#66ad1f",
 
     dark_blue = M.primaries[6],
     blue = M.primaries[5],
 
-    dark_magenta = "#7768cd",
+    dark_magenta = "#887bd3",
     magenta = "#998ed9",
 
-    dark_cyan = "#389248",
-    cyan = "#4aaa5b",
+    dark_cyan = "#459f55",
+    cyan = "#4db15e",
 
     light_gray = M.primaries[8],
     white = M.primaries[11],
 }
 
 ---@type BlackAtom.Theme.UI
-M.ui = require("black-atom.themes.default.ui_light")(M.primaries, M.palette)
+M.ui = require("black-atom.themes.stations.ui_light")(M.primaries, M.palette)
 
 ---@type BlackAtom.Theme.Syntax
-M.syntax = require("black-atom.themes.default.syntax_light")(M.primaries, M.palette)
+M.syntax = require("black-atom.themes.stations.syntax_light")(M.primaries, M.palette)
 
 ---@type BlackAtom.Theme.Colors
 M.colors = {

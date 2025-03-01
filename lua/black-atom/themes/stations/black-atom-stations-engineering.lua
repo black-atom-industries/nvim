@@ -2,24 +2,24 @@ local M = {}
 
 ---@type BlackAtom.Theme.Meta
 M.meta = {
-    key = "black-atom-operations",
-    label = "Black Atom - Operations",
+    key = "black-atom-stations-engineering",
+    label = "Black Atom - Engineering Station",
     collection = {
-        key = "default",
-        label = "Default",
+        key = "stations",
+        label = "Stations",
     },
     appearance = "dark",
-    icon = " 󰖔 ",
+    icon = "󱁤 󰖔 ",
     status = "release",
 }
 
 ---@type BlackAtom.Theme.Primaries
 M.primaries = {
     -- Lows
-    "#252e2c",
-    "#2e3f3b",
-    "#384e48",
-    "#425d55",
+    "#202b2b",
+    "#23332f",
+    "#2d423c",
+    "#375149",
 
     -- Mids
     "#51796d",
@@ -62,10 +62,10 @@ M.palette = {
 }
 
 ---@type BlackAtom.Theme.UI
-M.ui = require("black-atom.themes.default.ui_dark")(M.primaries, M.palette)
+M.ui = require("black-atom.themes.stations.ui_dark")(M.primaries, M.palette)
 
 ---@type BlackAtom.Theme.Syntax
-M.syntax = require("black-atom.themes.default.syntax_dark")(M.primaries, M.palette)
+M.syntax = require("black-atom.themes.stations.syntax_dark")(M.primaries, M.palette)
 
 ---@type BlackAtom.Theme.Colors
 M.colors = {
