@@ -3,7 +3,7 @@ local M = {}
 ---@type BlackAtom.Theme.Meta
 M.meta = {
     key = "black-atom-jpn-koyo-hiru",
-    label = "Black Atom • JPN ∷ Koyo Hiru",
+    label = "Black At•m — JPN ∷ Koyo Hiru",
     appearance = "light",
     status = "release",
     collection = {
