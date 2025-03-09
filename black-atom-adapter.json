@@ -1,88 +1,54 @@
 {
-  "$schema": "https://raw.githubusercontent.com/black-atom-industries/core/refs/heads/feature/dev-153-setup-black-atom-core/adapter.schema.json",
-  "black-atom-jpn-koyo-yoru": {
-    "templates": [
-      "lua/black-atom/themes/jpn/black-atom-jpn-koyo-yoru.template.lua"
-    ]
-  },
-  "black-atom-jpn-koyo-hiru": {
-    "templates": [
-      "lua/black-atom/themes/jpn/black-atom-jpn-koyo-hiru.template.lua"
-    ]
-  },
-  "black-atom-jpn-tsuki-yoru": {
-    "templates": [
-      "lua/black-atom/themes/jpn/black-atom-jpn-tsuki-yoru.template.lua"
-    ]
-  },
-  "black-atom-stations-engineering": {
-    "templates": [
-      "lua/black-atom/themes/stations/black-atom-stations-engineering.template.lua"
-    ]
-  },
-  "black-atom-stations-operations": {
-    "templates": [
-      "lua/black-atom/themes/stations/black-atom-stations-operations.template.lua"
-    ]
-  },
-  "black-atom-stations-medical": {
-    "templates": [
-      "lua/black-atom/themes/stations/black-atom-stations-medical.template.lua"
-    ]
-  },
-  "black-atom-stations-research": {
-    "templates": [
-      "lua/black-atom/themes/stations/black-atom-stations-research.template.lua"
-    ]
-  },
-  "black-atom-terra-spring-day": {
-    "templates": [
-      "lua/black-atom/themes/terra/spring-day.template.lua"
-    ]
-  },
-  "black-atom-terra-spring-night": {
-    "templates": [
-      "lua/black-atom/themes/terra/spring-night.template.lua"
-    ]
-  },
-  "black-atom-terra-summer-day": {
-    "templates": [
-      "lua/black-atom/themes/terra/summer-day.template.lua"
-    ]
-  },
-  "black-atom-terra-summer-night": {
-    "templates": [
-      "lua/black-atom/themes/terra/summer-night.template.lua"
-    ]
-  },
-  "black-atom-terra-fall-day": {
-    "templates": [
-      "lua/black-atom/themes/terra/fall-day.template.lua"
-    ]
-  },
-  "black-atom-terra-fall-night": {
-    "templates": [
-      "lua/black-atom/themes/terra/fall-night.template.lua"
-    ]
-  },
-  "black-atom-terra-winter-day": {
-    "templates": [
-      "lua/black-atom/themes/terra/winter-day.template.lua"
-    ]
-  },
-  "black-atom-terra-winter-night": {
-    "templates": [
-      "lua/black-atom/themes/terra/winter-night.template.lua"
-    ]
-  },
-  "black-atom-crbn-null": {
-    "templates": [
-      "lua/black-atom/themes/crbn/black-atom-crbn-null.template.lua"
-    ]
-  },
-  "black-atom-crbn-supr": {
-    "templates": [
-      "lua/black-atom/themes/crbn/black-atom-crbn-supr.template.lua"
-    ]
-  }
+    "$schema": "https://raw.githubusercontent.com/black-atom-industries/core/refs/heads/main/adapter.schema.json",
+    "black-atom-jpn-koyo-yoru": {
+        "templates": ["lua/black-atom/themes/jpn/black-atom-jpn-koyo-yoru.template.lua"]
+    },
+    "black-atom-jpn-koyo-hiru": {
+        "templates": ["lua/black-atom/themes/jpn/black-atom-jpn-koyo-hiru.template.lua"]
+    },
+    "black-atom-jpn-tsuki-yoru": {
+        "templates": ["lua/black-atom/themes/jpn/black-atom-jpn-tsuki-yoru.template.lua"]
+    },
+    "black-atom-stations-engineering": {
+        "templates": ["lua/black-atom/themes/stations/black-atom-stations-engineering.template.lua"]
+    },
+    "black-atom-stations-operations": {
+        "templates": ["lua/black-atom/themes/stations/black-atom-stations-operations.template.lua"]
+    },
+    "black-atom-stations-medical": {
+        "templates": ["lua/black-atom/themes/stations/black-atom-stations-medical.template.lua"]
+    },
+    "black-atom-stations-research": {
+        "templates": ["lua/black-atom/themes/stations/black-atom-stations-research.template.lua"]
+    },
+    "black-atom-terra-spring-day": {
+        "templates": ["lua/black-atom/themes/terra/black-atom-spring-day.template.lua"]
+    },
+    "black-atom-terra-spring-night": {
+        "templates": ["lua/black-atom/themes/terra/black-atom-spring-night.template.lua"]
+    },
+    "black-atom-terra-summer-day": {
+        "templates": ["lua/black-atom/themes/terra/black-atom-summer-day.template.lua"]
+    },
+    "black-atom-terra-summer-night": {
+        "templates": ["lua/black-atom/themes/terra/black-atom-summer-night.template.lua"]
+    },
+    "black-atom-terra-fall-day": {
+        "templates": ["lua/black-atom/themes/terra/black-atom-fall-day.template.lua"]
+    },
+    "black-atom-terra-fall-night": {
+        "templates": ["lua/black-atom/themes/terra/black-atom-fall-night.template.lua"]
+    },
+    "black-atom-terra-winter-day": {
+        "templates": ["lua/black-atom/themes/terra/black-atom-winter-day.template.lua"]
+    },
+    "black-atom-terra-winter-night": {
+        "templates": ["lua/black-atom/themes/terra/black-atom-winter-night.template.lua"]
+    },
+    "black-atom-crbn-null": {
+        "templates": ["lua/black-atom/themes/crbn/black-atom-crbn-null.template.lua"]
+    },
+    "black-atom-crbn-supr": {
+        "templates": ["lua/black-atom/themes/crbn/black-atom-crbn-supr.template.lua"]
+    }
 }
