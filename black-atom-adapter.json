@@ -22,28 +22,28 @@
         "templates": ["lua/black-atom/themes/stations/black-atom-stations-research.template.lua"]
     },
     "black-atom-terra-spring-day": {
-        "templates": ["lua/black-atom/themes/terra/black-atom-spring-day.template.lua"]
+        "templates": ["lua/black-atom/themes/terra/black-atom-terra-spring-day.template.lua"]
     },
     "black-atom-terra-spring-night": {
-        "templates": ["lua/black-atom/themes/terra/black-atom-spring-night.template.lua"]
+        "templates": ["lua/black-atom/themes/terra/black-atom-terra-spring-night.template.lua"]
     },
     "black-atom-terra-summer-day": {
-        "templates": ["lua/black-atom/themes/terra/black-atom-summer-day.template.lua"]
+        "templates": ["lua/black-atom/themes/terra/black-atom-terra-summer-day.template.lua"]
     },
     "black-atom-terra-summer-night": {
-        "templates": ["lua/black-atom/themes/terra/black-atom-summer-night.template.lua"]
+        "templates": ["lua/black-atom/themes/terra/black-atom-terra-summer-night.template.lua"]
     },
     "black-atom-terra-fall-day": {
-        "templates": ["lua/black-atom/themes/terra/black-atom-fall-day.template.lua"]
+        "templates": ["lua/black-atom/themes/terra/black-atom-terra-fall-day.template.lua"]
     },
     "black-atom-terra-fall-night": {
-        "templates": ["lua/black-atom/themes/terra/black-atom-fall-night.template.lua"]
+        "templates": ["lua/black-atom/themes/terra/black-atom-terra-fall-night.template.lua"]
     },
     "black-atom-terra-winter-day": {
-        "templates": ["lua/black-atom/themes/terra/black-atom-winter-day.template.lua"]
+        "templates": ["lua/black-atom/themes/terra/black-atom-terra-winter-day.template.lua"]
     },
     "black-atom-terra-winter-night": {
-        "templates": ["lua/black-atom/themes/terra/black-atom-winter-night.template.lua"]
+        "templates": ["lua/black-atom/themes/terra/black-atom-terra-winter-night.template.lua"]
     },
     "black-atom-crbn-null": {
         "templates": ["lua/black-atom/themes/crbn/black-atom-crbn-null.template.lua"]

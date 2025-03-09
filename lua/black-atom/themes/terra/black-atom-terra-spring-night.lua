@@ -1,0 +1,201 @@
+local M = {}
+
+---@type BlackAtom.Theme.Meta
+M.meta = {
+    key = "black-atom-terra-spring-night",
+    label = "Black At•m — TER ∷ Spring Night",
+    collection = {
+        key = "terra",
+        label = "TERRA",
+    },
+    appearance = "dark",
+    icon = "󰧲 󰖔 ",
+    status = "release",
+}
+
+---@type BlackAtom.Theme.Primaries
+M.primaries = {
+    "#1d201f",
+    "#212523",
+    "#272c2a",
+    "#313634",
+    "#394740",
+    "#51635a",
+    "#677e72",
+    "#82978c",
+    "#b8aa94",
+    "#c3b8a4",
+    "#d6d0c2",
+    "#e0ddd1",
+}
+
+---@type BlackAtom.Theme.Palette
+M.palette = {
+    black = "#272c2a",
+    gray = "#394740",
+    dark_red = "#b95847",
+    red = "#ba6e5f",
+    dark_green = "#6a9f60",
+    green = "#8ac090",
+    dark_yellow = "#e89a61",
+    yellow = "#d1a762",
+    dark_blue = "#899ddc",
+    blue = "#99b9e6",
+    dark_magenta = "#d5a9c3",
+    magenta = "#c6b3da",
+    dark_cyan = "#679980",
+    cyan = "#85ad9f",
+    light_gray = "#b8aa94",
+    white = "#d6d0c2",
+}
+
+---@type BlackAtom.Theme.UI
+M.ui = {
+    bg = {
+        default = "#212523",
+        panel = "#1d201f",
+        float = "#1d201f",
+        active = "#272c2a",
+        disabled = "#394740",
+        hover = "#272c2a",
+        selection = "#313634",
+        search = "#313634",
+        contrast = "#d6d0c2",
+        negative = "#ba6e5f",
+        warn = "#d1a762",
+        info = "#99b9e6",
+        hint = "#e89a61",
+        positive = "#8ac090",
+        add = "#8ac090",
+        delete = "#ba6e5f",
+        modify = "#99b9e6",
+    },
+    fg = {
+        default = "#d6d0c2",
+        subtle = "#b8aa94",
+        accent = "#d1a762",
+        disabled = "#677e72",
+        contrast = "#212523",
+        negative = "#ba6e5f",
+        warn = "#d1a762",
+        info = "#99b9e6",
+        hint = "#e89a61",
+        positive = "#8ac090",
+        add = "#8ac090",
+        delete = "#ba6e5f",
+        modify = "#99b9e6",
+    },
+}
+
+---@type BlackAtom.Theme.Syntax
+M.syntax = {
+    variable = {
+        default = "#99b9e6",
+        builtin = "#99b9e6",
+        member = "#899ddc",
+        parameter = "#e89a61",
+    },
+    property = {
+        default = "#99b9e6",
+    },
+    string = {
+        default = "#8ac090",
+        doc = "#8ac090",
+        regexp = "#e89a61",
+        escape = "#ba6e5f",
+    },
+    constant = {
+        default = "#e89a61",
+        builtin = "#e89a61",
+    },
+    module = {
+        default = "#899ddc",
+    },
+    boolean = {
+        default = "#e89a61",
+    },
+    number = {
+        default = "#e89a61",
+    },
+    type = {
+        default = "#85ad9f",
+        builtin = "#679980",
+    },
+    attribute = {
+        default = "#85ad9f",
+        builtin = "#85ad9f",
+    },
+    func = {
+        default = "#d1a762",
+        builtin = "#d1a762",
+        method = "#d1a762",
+    },
+    constructor = {
+        default = "#d1a762",
+    },
+    keyword = {
+        default = "#ba6e5f",
+        import = "#c6b3da",
+        export = "#c6b3da",
+    },
+    operator = {
+        default = "#c6b3da",
+    },
+    punctuation = {
+        default = "#b8aa94",
+        delimiter = "#82978c",
+        bracket = "#b8aa94",
+        special = "#b8aa94",
+    },
+    comment = {
+        default = "#394740",
+        doc = "#6a9f60",
+        todo = "#8ac090",
+        error = "#ba6e5f",
+        warn = "#d1a762",
+        info = "#99b9e6",
+        hint = "#e89a61",
+    },
+    markup = {
+        heading = {
+            h1 = "#d1a762",
+            h2 = "#d1a762",
+            h3 = "#d1a762",
+            h4 = "#b8aa94",
+            h5 = "#b8aa94",
+            h6 = "#b8aa94",
+        },
+        strong = "#d1a762",
+        italic = "#d1a762",
+        strikethrough = "#d1a762",
+        quote = "#8ac090",
+        math = "#6a9f60",
+        link = "#8ac090",
+        list = {
+            default = "#b8aa94",
+            checked = "#8ac090",
+            unchecked = "#b8aa94",
+        },
+        code = {
+            fg = "#c3b8a4",
+            bg = "#51635a",
+        },
+    },
+    tag = {
+        default = "#d1a762",
+        builtin = "#d1a762",
+        attribute = "#e89a61",
+        delimiter = "#e89a61",
+    },
+}
+
+---@type BlackAtom.Theme.Colors
+M.colors = {
+    none = "NONE",
+    primaries = M.primaries,
+    palette = M.palette,
+    ui = M.ui,
+    syntax = M.syntax,
+}
+
+return M
