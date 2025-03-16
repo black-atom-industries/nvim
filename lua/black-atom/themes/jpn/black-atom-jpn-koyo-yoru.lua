@@ -14,18 +14,18 @@ M.meta = {
 
 ---@type BlackAtom.Theme.Primaries
 M.primaries = {
-    "#271f27",
-    "#332733",
-    "#3f2f3f",
-    "#4a384a",
-    "#605872",
-    "#6e6a86",
-    "#908caa",
-    "#aaa7be",
-    "#dab18c",
-    "#e0be9f",
-    "#e6cbb2",
-    "#ecd8c5",
+    d10 = "#271f27",
+    d20 = "#332733",
+    d30 = "#3f2f3f",
+    d40 = "#4a384a",
+    m10 = "#605872",
+    m20 = "#6e6a86",
+    m30 = "#908caa",
+    m40 = "#aaa7be",
+    l10 = "#dab18c",
+    l20 = "#e0be9f",
+    l30 = "#e6cbb2",
+    l40 = "#ecd8c5",
 }
 
 ---@type BlackAtom.Theme.Palette

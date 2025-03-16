@@ -15,18 +15,18 @@ M.meta = {
 
 ---@type BlackAtom.Theme.Primaries
 M.primaries = {
-    "<%= theme.primaries[0] %>",
-    "<%= theme.primaries[1] %>",
-    "<%= theme.primaries[2] %>",
-    "<%= theme.primaries[3] %>",
-    "<%= theme.primaries[4] %>",
-    "<%= theme.primaries[5] %>",
-    "<%= theme.primaries[6] %>",
-    "<%= theme.primaries[7] %>",
-    "<%= theme.primaries[8] %>",
-    "<%= theme.primaries[9] %>",
-    "<%= theme.primaries[10] %>",
-    "<%= theme.primaries[11] %>",
+    d10 = "<%= theme.primaries.d10 %>",
+    d20 = "<%= theme.primaries.d20 %>",
+    d30 = "<%= theme.primaries.d30 %>",
+    d40 = "<%= theme.primaries.d40 %>",
+    m10 = "<%= theme.primaries.m10 %>",
+    m20 = "<%= theme.primaries.m20 %>",
+    m30 = "<%= theme.primaries.m30 %>",
+    m40 = "<%= theme.primaries.m40 %>",
+    l10 = "<%= theme.primaries.l10 %>",
+    l20 = "<%= theme.primaries.l20 %>",
+    l30 = "<%= theme.primaries.l30 %>",
+    l40 = "<%= theme.primaries.l40 %>",
 }
 
 ---@type BlackAtom.Theme.Palette
