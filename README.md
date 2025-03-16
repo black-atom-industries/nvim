@@ -115,7 +115,7 @@ This theme supports the following plugins:
 - [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
 - [which-key.nvim](https://github.com/folke/which-key.nvim)
 - [yazi.nvim](https://github.com/mikavilpas/yazi.nvim)
-  </details>
+      </details>
 
 ## Contributing
 
@@ -149,8 +149,7 @@ cd nvim
 ### Building and Testing
 
 ```bash
-# Run checks
-sh ./scripts/check.sh
+sh check.sh
 ```
 
 ### Working with Templates
