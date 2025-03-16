@@ -13,22 +13,6 @@ M.meta = {
     status = "<%= theme.meta.status %>",
 }
 
----@type BlackAtom.Theme.Primaries
-M.primaries = {
-    d10 = "<%= theme.primaries.d10 %>",
-    d20 = "<%= theme.primaries.d20 %>",
-    d30 = "<%= theme.primaries.d30 %>",
-    d40 = "<%= theme.primaries.d40 %>",
-    m10 = "<%= theme.primaries.m10 %>",
-    m20 = "<%= theme.primaries.m20 %>",
-    m30 = "<%= theme.primaries.m30 %>",
-    m40 = "<%= theme.primaries.m40 %>",
-    l10 = "<%= theme.primaries.l10 %>",
-    l20 = "<%= theme.primaries.l20 %>",
-    l30 = "<%= theme.primaries.l30 %>",
-    l40 = "<%= theme.primaries.l40 %>",
-}
-
 ---@type BlackAtom.Theme.Palette
 M.palette = {
     black = "<%= theme.palette.black %>",
@@ -192,7 +176,6 @@ M.syntax = {
 ---@type BlackAtom.Theme.Colors
 M.colors = {
     none = "NONE",
-    primaries = M.primaries,
     palette = M.palette,
     ui = M.ui,
     syntax = M.syntax,

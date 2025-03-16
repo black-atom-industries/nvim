@@ -50,20 +50,6 @@
 ---@field enabled?                                              boolean Default: true
 ---@field map                                                   BlackAtom.HighlightMapExtension.map
 
----@class BlackAtom.Theme.Primaries
----@field d10                                                   string
----@field d20                                                   string
----@field d30                                                   string
----@field d40                                                   string
----@field m10                                                   string
----@field m20                                                   string
----@field m30                                                   string
----@field m40                                                   string
----@field l10                                                   string
----@field l20                                                   string
----@field l30                                                   string
----@field l40                                                   string
-
 ---@class BlackAtom.Theme.Palette
 ---@field black                                                 string
 ---@field gray                                                  string
@@ -149,7 +135,6 @@
 
 ---@class BlackAtom.Theme.Colors
 ---@field none                                                  "NONE"
----@field primaries                                             BlackAtom.Theme.Primaries
 ---@field palette                                               BlackAtom.Theme.Palette
 ---@field ui                                                    BlackAtom.Theme.UI
 ---@field syntax                                                BlackAtom.Theme.Syntax

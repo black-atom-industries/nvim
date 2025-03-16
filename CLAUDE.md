@@ -52,10 +52,18 @@ local color = "<%= theme.colors.palette.red %>"
 Each template includes:
 
 - Theme metadata
-- Primary colors
 - Palette colors
 - UI component colors
 - Syntax highlighting colors
+
+## Theme Structure Best Practices
+
+When working with templates, follow these best practices:
+
+1. **Never reference primaries directly** in template files - use UI, syntax or palette colors instead
+2. The primaries structure uses semantic ranges (d10-d40, m10-m40, l10-l40) instead of array indices
+3. All templates should use the same pattern for accessing colors (via UI, syntax, and palette)
+4. The colors table structure no longer includes primaries (removed from types.lua)
 
 ## Development Commands
 

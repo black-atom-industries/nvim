@@ -13,22 +13,6 @@ M.meta = {
     status = "release",
 }
 
----@type BlackAtom.Theme.Primaries
-M.primaries = {
-    d10 = "#1e2229",
-    d20 = "#2b3b33",
-    d30 = "#384b42",
-    d40 = "#425953",
-    m10 = "#51796d",
-    m20 = "#5b8972",
-    m30 = "#75a490",
-    m40 = "#95b8ac",
-    l10 = "#d5dcd9",
-    l20 = "#e2e8e5",
-    l30 = "#f0f2f1",
-    l40 = "#f7faf9",
-}
-
 ---@type BlackAtom.Theme.Palette
 M.palette = {
     black = "#384b42",
@@ -192,7 +176,6 @@ M.syntax = {
 ---@type BlackAtom.Theme.Colors
 M.colors = {
     none = "NONE",
-    primaries = M.primaries,
     palette = M.palette,
     ui = M.ui,
     syntax = M.syntax,
