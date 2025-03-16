@@ -15,18 +15,18 @@ M.meta = {
 
 ---@type BlackAtom.Theme.Primaries
 M.primaries = {
-    "#111717",
-    "#192422",
-    "#21302b",
-    "#2d423b",
-    "#51796d",
-    "#5b8972",
-    "#75a490",
-    "#91bcad",
-    "#b2e5cd",
-    "#c3eed9",
-    "#d5f4e3",
-    "#e8fbf0",
+    d10 = "#151d1d",
+    d20 = "#192422",
+    d30 = "#21302b",
+    d40 = "#2d423b",
+    m10 = "#51796d",
+    m20 = "#5b8972",
+    m30 = "#75a490",
+    m40 = "#91bcad",
+    l10 = "#b2e5cd",
+    l20 = "#c3eed9",
+    l30 = "#d5f4e3",
+    l40 = "#e8fbf0",
 }
 
 ---@type BlackAtom.Theme.Palette
@@ -53,8 +53,8 @@ M.palette = {
 M.ui = {
     bg = {
         default = "#192422",
-        panel = "#111717",
-        float = "#111717",
+        panel = "#151d1d",
+        float = "#151d1d",
         active = "#21302b",
         disabled = "#51796d",
         hover = "#21302b",
