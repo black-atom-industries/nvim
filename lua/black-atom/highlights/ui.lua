@@ -33,6 +33,7 @@ return {
             -- CursorLine
             CursorLine = { bg = ui.bg.active },
             CursorColumn = { bg = ui.bg.active },
+            ColorColumn = { bg = ui.bg.active },
             LineNr = { fg = ui.fg.subtle },
             CursorLineNr = { fg = ui.fg.accent, bg = ui.bg.active },
 
