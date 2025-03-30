@@ -3,7 +3,7 @@ local M = {}
 ---@type BlackAtom.Theme.Meta
 M.meta = {
     key = "black-atom-stations-engineering",
-    label = "Black At•m — STA ∷ Engineering",
+    label = "Black Atom — STA ∷ Engineering",
     collection = {
         key = "stations",
         label = "Stations",
