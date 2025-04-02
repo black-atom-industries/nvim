@@ -14,10 +14,10 @@ M.meta = {
 
 ---@type BlackAtom.Theme.Primaries
 M.primaries = {
-    d10 = "#271f27",
-    d20 = "#332733",
-    d30 = "#3f2f3f",
-    d40 = "#4a384a",
+    d10 = "#131116",
+    d20 = "#1D1A22",
+    d30 = "#27232e",
+    d40 = "#312c3a",
     m10 = "#605872",
     m20 = "#6e6a86",
     m30 = "#908caa",
@@ -30,7 +30,7 @@ M.primaries = {
 
 ---@type BlackAtom.Theme.Palette
 M.palette = {
-    black = "#3f2f3f",
+    black = "#27232e",
     gray = "#6e6a86",
     dark_red = "#b46371",
     red = "#eb6f84",
@@ -51,14 +51,14 @@ M.palette = {
 ---@type BlackAtom.Theme.UI
 M.ui = {
     bg = {
-        default = "#332733",
-        panel = "#271f27",
-        float = "#271f27",
-        active = "#3f2f3f",
+        default = "#1D1A22",
+        panel = "#131116",
+        float = "#131116",
+        active = "#27232e",
         disabled = "#605872",
-        hover = "#3f2f3f",
-        selection = "#4a384a",
-        search = "#4a384a",
+        hover = "#27232e",
+        selection = "#312c3a",
+        search = "#312c3a",
         contrast = "#e6cbb2",
         negative = "#eb6f84",
         warn = "#e9b162",
@@ -74,7 +74,7 @@ M.ui = {
         subtle = "#dab18c",
         accent = "#e9b162",
         disabled = "#908caa",
-        contrast = "#332733",
+        contrast = "#1D1A22",
         negative = "#eb6f84",
         warn = "#e9b162",
         info = "#a095a8",
@@ -177,7 +177,7 @@ M.syntax = {
         },
         code = {
             fg = "#aaa7be",
-            bg = "#271f27",
+            bg = "#131116",
         },
     },
     tag = {
