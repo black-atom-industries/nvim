@@ -4,13 +4,12 @@ local M = {}
 M.meta = {
     key = "black-atom-crbn-supr",
     label = "Black Atom — CRB ∷ SUPR",
+    appearance = "light",
+    status = "release",
     collection = {
         key = "crbn",
         label = "CRBN",
     },
-    appearance = "light",
-    icon = " 󰛸 ",
-    status = "release",
 }
 
 ---@type BlackAtom.Theme.Primaries
@@ -199,3 +198,4 @@ M.colors = {
 }
 
 return M
+

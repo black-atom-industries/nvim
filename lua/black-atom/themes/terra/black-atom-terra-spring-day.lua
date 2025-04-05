@@ -4,13 +4,12 @@ local M = {}
 M.meta = {
     key = "black-atom-terra-spring-day",
     label = "Black Atom — TER ∷ Spring Day",
+    appearance = "light",
+    status = "beta",
     collection = {
         key = "terra",
         label = "TERRA",
     },
-    appearance = "light",
-    icon = "󰧲  ",
-    status = "beta",
 }
 
 ---@type BlackAtom.Theme.Primaries
@@ -199,3 +198,4 @@ M.colors = {
 }
 
 return M
+

@@ -4,13 +4,12 @@ local M = {}
 M.meta = {
     key = "<%= theme.meta.key %>",
     label = "<%= theme.meta.label %>",
+    appearance = "<%= theme.meta.appearance %>",
+    status = "<%= theme.meta.status %>",
     collection = {
         key = "<%= theme.meta.collection.key %>",
         label = "<%= theme.meta.collection.label %>",
     },
-    appearance = "<%= theme.meta.appearance %>",
-    icon = "󰂒 󰖔 ",
-    status = "<%= theme.meta.status %>",
 }
 
 ---@type BlackAtom.Theme.Primaries
@@ -199,3 +198,4 @@ M.colors = {
 }
 
 return M
+

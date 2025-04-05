@@ -161,7 +161,6 @@
 ---@field collection                                            { key: BlackAtom.Theme.Collection.Key, label: string }
 ---@field appearance                                            "light" | "dark"
 ---@field status                                                "development" | "beta" | "release" Status of the theme
----@field icon                                                  string Icon to display in the UI
 
 ---@class BlackAtom.Theme.Definition
 ---@field colors                                                BlackAtom.Theme.Colors

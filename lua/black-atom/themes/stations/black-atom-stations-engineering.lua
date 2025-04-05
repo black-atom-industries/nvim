@@ -4,13 +4,12 @@ local M = {}
 M.meta = {
     key = "black-atom-stations-engineering",
     label = "Black Atom — STA ∷ Engineering",
+    appearance = "dark",
+    status = "release",
     collection = {
         key = "stations",
         label = "Stations",
     },
-    appearance = "dark",
-    icon = "󱁤 󰖔 ",
-    status = "release",
 }
 
 ---@type BlackAtom.Theme.Primaries
@@ -199,3 +198,4 @@ M.colors = {
 }
 
 return M
+

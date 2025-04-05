@@ -9,27 +9,29 @@ BOLD='\033[1m'
 
 echo "\n${BOLD}🔍 Running checks...${NC}\n"
 
-# Luacheck
+# Luacheck - exclude template files
 echo "${BLUE}▶ Running luacheck...${NC}"
-if luacheck .; then
+if luacheck . --exclude-files '**/*.template.lua'; then
     echo "${GREEN}✓ Luacheck passed${NC}\n"
 else
     echo "${RED}✗ Luacheck failed${NC}\n"
     exit 1
 fi
 
-# Type checking
+# Type checking - exclude template files
 echo "${BLUE}▶ Running type checking...${NC}"
-if lua-language-server --loglevel=warn --logpath=. --check .; then
+# Find all lua files excluding templates
+LUA_FILES=$(find . -name "*.lua" -not -name "*.template.lua")
+if lua-language-server --loglevel=warn --logpath=. --check $LUA_FILES; then
     echo "${GREEN}✓ Type checking passed${NC}\n"
 else
     echo "${RED}✗ Type checking failed${NC}\n"
     exit 1
 fi
 
-# Formatting
+# Formatting - exclude template files
 echo "${BLUE}▶ Running formatting for lua files...${NC}"
-if stylua lua/**/*.lua; then
+if find lua -name "*.lua" -not -name "*.template.lua" | xargs stylua; then
     echo "${GREEN}✓ Formatting completed${NC}\n"
 else
     echo "${RED}✗ Formatting failed${NC}\n"
@@ -37,4 +39,4 @@ else
 fi
 
 # Success message
-echo  "${GREEN}${BOLD}✨ All checks passed!${NC}\n"
+echo "${GREEN}${BOLD}✨ All checks passed!${NC}\n"
