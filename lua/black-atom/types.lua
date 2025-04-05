@@ -7,6 +7,7 @@
 ---| "black-atom-stations-research"
 ---| "black-atom-jpn-koyo-yoru"
 ---| "black-atom-jpn-koyo-hiru"
+---| "black-atom-jpn-murasaki-yoru"
 ---| "black-atom-jpn-tsuki-yoru"
 ---| "black-atom-crbn-null"
 ---| "black-atom-crbn-supr"
