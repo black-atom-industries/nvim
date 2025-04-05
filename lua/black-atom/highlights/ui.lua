@@ -17,6 +17,7 @@ return {
             Title = { fg = ui.fg.accent },
             Directory = { fg = ui.fg.default, bold = true },
             Conceal = { fg = ui.fg.subtle },
+            Question = { fg = ui.fg.accent },
 
             -- Floating Windows
             NormalFloat = { fg = ui.fg.default, bg = ui.bg.float },
@@ -36,6 +37,8 @@ return {
             ColorColumn = { bg = ui.bg.active },
             LineNr = { fg = ui.fg.subtle },
             CursorLineNr = { fg = ui.fg.accent, bg = ui.bg.active },
+
+            QuickFixLine = { fg = ui.fg.accent },
 
             -- Search & Visual
             Search = { bg = ui.bg.selection },

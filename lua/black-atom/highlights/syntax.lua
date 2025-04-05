@@ -129,6 +129,11 @@ return {
             ["@tag.attribute"] = { fg = syntax.tag.attribute },
             ["@tag.delimiter"] = { fg = syntax.tag.delimiter },
 
+            -- Diff
+            ["@diff.delta"] = { link = "DiffChange" },
+            ["@diff.plus"] = { link = "DiffAdd" },
+            ["@diff.minus"] = { link = "DiffDelete" },
+
             -- Treesitter Semantic Tokens
             ["@lsp.type.namespace"] = { link = "@namespace" },
             ["@lsp.type.type"] = { link = "@type" },
