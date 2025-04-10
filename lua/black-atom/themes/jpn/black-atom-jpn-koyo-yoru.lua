@@ -22,7 +22,7 @@ M.primaries = {
     m20 = "#76718f",
     m30 = "#8d89a8",
     m40 = "#9c98b3",
-    l10 = "#aaa7be",
+    l10 = "#e0af9f",
     l20 = "#e6bfb2",
     l30 = "#eccfc5",
     l40 = "#f2dfd8",
@@ -71,7 +71,7 @@ M.ui = {
     },
     fg = {
         default = "#eccfc5",
-        subtle = "#aaa7be",
+        subtle = "#e0af9f",
         accent = "#e4ae67",
         disabled = "#8d89a8",
         contrast = "#191724",
@@ -184,7 +184,7 @@ M.syntax = {
         default = "#e4ae67",
         builtin = "#e29f77",
         attribute = "#9c98b3",
-        delimiter = "#aaa7be",
+        delimiter = "#e0af9f",
     },
 }
 
