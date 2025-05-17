@@ -14,8 +14,8 @@ M.meta = {
 
 ---@type BlackAtom.Theme.Primaries
 M.primaries = {
-    d10 = "#100f18",
-    d20 = "#191724",
+    d10 = "#14131e",
+    d20 = "#1d1b2a",
     d30 = "#262337",
     d40 = "#332f4a",
     m10 = "#605872",
@@ -51,9 +51,9 @@ M.palette = {
 ---@type BlackAtom.Theme.UI
 M.ui = {
     bg = {
-        default = "#191724",
-        panel = "#100f18",
-        float = "#100f18",
+        default = "#1d1b2a",
+        panel = "#14131e",
+        float = "#14131e",
         active = "#262337",
         disabled = "#605872",
         hover = "#262337",
@@ -71,10 +71,10 @@ M.ui = {
     },
     fg = {
         default = "#eccfc5",
-        subtle = "#e0af9f",
+        subtle = "#9c98b3",
         accent = "#e4ae67",
         disabled = "#8d89a8",
-        contrast = "#191724",
+        contrast = "#1d1b2a",
         negative = "#e27889",
         warn = "#e4ae67",
         info = "#a095a8",
@@ -177,7 +177,7 @@ M.syntax = {
         },
         code = {
             fg = "#9c98b3",
-            bg = "#100f18",
+            bg = "#14131e",
         },
     },
     tag = {

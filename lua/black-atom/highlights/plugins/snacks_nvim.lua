@@ -7,6 +7,7 @@ return {
 
         ---@type BlackAtom.Highlights
         return {
+            SnacksNotifierHistory = { bg = ui.bg.float },
             SnacksPickerCursorLine = { bg = ui.bg.active },
             SnacksPickerListCursorLine = { link = "SnacksPickerCursorLine" },
         }

@@ -4,6 +4,7 @@ return {
         local cond_hl = require("black-atom.lib.highlights").cond_hl
         local darken = require("black-atom.lib.color").darken
         local styles = config.styles or {}
+        local syntax = colors.syntax
         local ui = colors.ui
 
         ---@type BlackAtom.Highlights
@@ -69,6 +70,8 @@ return {
             LspReferenceText = { bg = ui.bg.active },
             LspReferenceWrite = { link = "LspReferenceText" },
             LspReferenceRead = { link = "LspReferenceText" },
+
+            LspInlayHint = { fg = ui.fg.subtle },
 
             -- LSP CodeLens
             LspCodeLens = { fg = ui.fg.subtle },
