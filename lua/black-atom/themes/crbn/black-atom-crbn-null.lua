@@ -36,7 +36,7 @@ M.palette = {
     red = "#f7866f",
     dark_green = "#92a9bb",
     green = "#b3c1cd",
-    dark_yellow = "#ff7c4f",
+    dark_yellow = "#ff8f69",
     yellow = "#ff964c",
     dark_blue = "#92a9bb",
     blue = "#b3c1cd",
@@ -63,7 +63,7 @@ M.ui = {
         negative = "#f7866f",
         warn = "#ff964c",
         info = "#b3c1cd",
-        hint = "#ff7c4f",
+        hint = "#ff8f69",
         positive = "#b3c1cd",
         add = "#b3c1cd",
         delete = "#f7866f",
@@ -78,7 +78,7 @@ M.ui = {
         negative = "#f7866f",
         warn = "#ff964c",
         info = "#b3c1cd",
-        hint = "#ff7c4f",
+        hint = "#ff8f69",
         positive = "#b3c1cd",
         add = "#b3c1cd",
         delete = "#f7866f",
@@ -92,7 +92,7 @@ M.syntax = {
         default = "#becedb",
         builtin = "#becedb",
         member = "#b3c1cd",
-        parameter = "#ff7c4f",
+        parameter = "#ff8f69",
     },
     property = {
         default = "#b3c1cd",
@@ -121,12 +121,12 @@ M.syntax = {
         builtin = "#fbfcfd",
     },
     attribute = {
-        default = "#ff7c4f",
-        builtin = "#ff7c4f",
+        default = "#ff8f69",
+        builtin = "#ff8f69",
     },
     func = {
         default = "#ff964c",
-        builtin = "#ff7c4f",
+        builtin = "#ff8f69",
         method = "#ff964c",
     },
     constructor = {
@@ -153,7 +153,7 @@ M.syntax = {
         error = "#f7866f",
         warn = "#ff964c",
         info = "#b3c1cd",
-        hint = "#ff7c4f",
+        hint = "#ff8f69",
     },
     markup = {
         heading = {
@@ -182,7 +182,7 @@ M.syntax = {
     },
     tag = {
         default = "#ff964c",
-        builtin = "#ff7c4f",
+        builtin = "#ff8f69",
         attribute = "#92a9bb",
         delimiter = "#becedb",
     },
