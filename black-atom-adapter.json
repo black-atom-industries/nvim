@@ -46,6 +46,14 @@
                 "black-atom-nord-dark-night",
                 "black-atom-nord-day"
             ]
+        },
+        "north": {
+            "template": "lua/black-atom/themes/north/collection.template.lua",
+            "themes": [
+                "black-atom-north-night",
+                "black-atom-north-dark-night",
+                "black-atom-north-day"
+            ]
         }
     }
 }
