@@ -38,6 +38,14 @@
                 "black-atom-crbn-null",
                 "black-atom-crbn-supr"
             ]
+        },
+        "nord": {
+            "template": "lua/black-atom/themes/nord/collection.template.lua",
+            "themes": [
+                "black-atom-nord-night",
+                "black-atom-nord-dark-night",
+                "black-atom-nord-day"
+            ]
         }
     }
 }
