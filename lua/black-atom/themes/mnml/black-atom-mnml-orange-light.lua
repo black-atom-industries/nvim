@@ -54,7 +54,7 @@ M.ui = {
         default = "#ffffff",
         panel = "#f2f6f9",
         float = "#f2f6f9",
-        active = "#e5ebf1",
+        active = "#ebf1f4",
         disabled = "#698cae",
         hover = "#e5ebf1",
         selection = "#e5ebf1",
@@ -91,11 +91,11 @@ M.syntax = {
     variable = {
         default = "#3b4249",
         builtin = "#3b4249",
-        member = "#507294",
+        member = "#ff4019",
         parameter = "#ff7200",
     },
     property = {
-        default = "#507294",
+        default = "#ff4019",
     },
     string = {
         default = "#2d3338",
@@ -127,7 +127,7 @@ M.syntax = {
     func = {
         default = "#ff7200",
         builtin = "#ff4019",
-        method = "#ff7200",
+        method = "#ff4019",
     },
     constructor = {
         default = "#ff7200",

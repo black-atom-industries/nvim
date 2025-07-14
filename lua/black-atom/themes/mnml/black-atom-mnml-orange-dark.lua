@@ -91,11 +91,11 @@ M.syntax = {
     variable = {
         default = "#e5ebf1",
         builtin = "#e5ebf1",
-        member = "#b3c1cd",
-        parameter = "#f7866f",
+        member = "#f7866f",
+        parameter = "#ff9c4d",
     },
     property = {
-        default = "#b3c1cd",
+        default = "#f7866f",
     },
     string = {
         default = "#ebf1f4",
@@ -127,7 +127,7 @@ M.syntax = {
     func = {
         default = "#ff9c4d",
         builtin = "#f7866f",
-        method = "#ff9c4d",
+        method = "#f7866f",
     },
     constructor = {
         default = "#ff9c4d",
