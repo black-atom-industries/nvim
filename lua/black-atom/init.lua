@@ -22,7 +22,7 @@ end
 ---@return nil
 function M.load(theme)
     config.set({ theme = theme.meta.key, collection = theme.meta.collection.key })
-    lib.themes.dev_status_warning(theme.meta)
+    -- lib.themes.dev_status_warning(theme.meta)
 
     highlights.reset()
 

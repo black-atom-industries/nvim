@@ -32,13 +32,6 @@
                 "black-atom-terra-winter-night"
             ]
         },
-        "crbn": {
-            "template": "lua/black-atom/themes/crbn/collection.template.lua",
-            "themes": [
-                "black-atom-crbn-null",
-                "black-atom-crbn-supr"
-            ]
-        },
         "nord": {
             "template": "lua/black-atom/themes/nord/collection.template.lua",
             "themes": [
@@ -53,6 +46,15 @@
                 "black-atom-north-night",
                 "black-atom-north-dark-night",
                 "black-atom-north-day"
+            ]
+        },
+        "mnml": {
+            "template": "lua/black-atom/themes/mnml/collection.template.lua",
+            "themes": [
+                "black-atom-mnml-mono-dark",
+                "black-atom-mnml-mono-light",
+                "black-atom-mnml-orange-dark",
+                "black-atom-mnml-orange-light"
             ]
         }
     }
