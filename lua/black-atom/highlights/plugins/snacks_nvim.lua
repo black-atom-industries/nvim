@@ -9,7 +9,7 @@ return {
         return {
             SnacksNotifierHistory = { bg = ui.bg.float },
             SnacksPickerCursorLine = { bg = ui.bg.active },
-            SnacksPickerListCursorLine = { link = "SnacksPickerCursorLine" },
+            SnacksPickerListCursorLine = { bg = ui.bg.default },
         }
     end,
 }
