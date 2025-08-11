@@ -39,13 +39,11 @@ local default_config = {
 ---@param options BlackAtom.Config
 ---@return nil
 function M.set(options)
-    local validate = require("black-atom.lib.validate")
-
     local current_config = vim.g.black_atom_core_config or {}
 
     ---@type BlackAtom.Config
     local merged_config = vim.tbl_deep_extend("force", default_config, current_config, options)
-    validate.config(merged_config)
+    require("black-atom.lib.validate").config(merged_config)
 
     vim.g.black_atom_core_config = merged_config
 end

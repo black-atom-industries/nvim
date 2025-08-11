@@ -1,14 +1,27 @@
 ---@class BlackAtom.Lib
-local M = {
-    color = require("black-atom.lib.color"),
-    ui = require("black-atom.lib.ui"),
-    highlights = require("black-atom.lib.highlights"),
-    files = require("black-atom.lib.files"),
-    debug = require("black-atom.lib.debug"),
-    bg = require("black-atom.lib.bg"),
-    themes = require("black-atom.lib.themes"),
-    validate = require("black-atom.lib.validate"),
-    windows = require("black-atom.lib.windows"),
-}
+local M = {}
+
+-- Lazy-load modules on access
+setmetatable(M, {
+    __index = function(t, k)
+        local modules = {
+            color = "black-atom.lib.color",
+            ui = "black-atom.lib.ui",
+            highlights = "black-atom.lib.highlights",
+            files = "black-atom.lib.files",
+            debug = "black-atom.lib.debug",
+            bg = "black-atom.lib.bg",
+            themes = "black-atom.lib.themes",
+            validate = "black-atom.lib.validate",
+            windows = "black-atom.lib.windows",
+        }
+
+        if modules[k] then
+            local module = require(modules[k])
+            rawset(t, k, module)
+            return module
+        end
+    end,
+})
 
 return M
