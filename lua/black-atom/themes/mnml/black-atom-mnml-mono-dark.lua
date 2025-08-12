@@ -44,8 +44,8 @@ M.palette = {
     magenta = "#7f7f7f",
     dark_cyan = "#676767",
     cyan = "#999999",
-    light_gray = "#676767",
-    white = "#cccccc",
+    light_gray = "#d9d9d9",
+    white = "#e6e6e6",
 }
 
 ---@type BlackAtom.Theme.UI
@@ -133,9 +133,9 @@ M.syntax = {
         default = "#e6e6e6",
     },
     keyword = {
-        default = "#cccccc",
-        import = "#d9d9d9",
-        export = "#d9d9d9",
+        default = "#d9d9d9",
+        import = "#e6e6e6",
+        export = "#e6e6e6",
     },
     operator = {
         default = "#d9d9d9",
