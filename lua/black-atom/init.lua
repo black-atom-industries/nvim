@@ -6,10 +6,13 @@ function M.setup(opts)
     local config = require("black-atom.config")
 
     if not opts then
-        config.set(config.default)
+        config.set({})
     else
         config.set(opts)
     end
+
+    -- Initialize cache system
+    require("black-atom.lib.cache").init()
 
     require("black-atom.commands").register()
 end

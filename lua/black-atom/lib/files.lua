@@ -3,6 +3,12 @@ local M = {}
 ---Get the install path of the plugin
 ---@return string
 function M.get_plugin_path()
+    -- Check cache first
+    local cached_path = vim.g.black_atom_plugin_path
+    if cached_path then
+        return cached_path
+    end
+
     local constants = require("black-atom.constants")
     local runtimepaths = vim.api.nvim_list_runtime_paths()
 
@@ -19,6 +25,8 @@ function M.get_plugin_path()
         error("Could not find the plugin path")
     end
 
+    -- Cache the plugin path
+    vim.g.black_atom_plugin_path = plugin_path
     return plugin_path
 end
 
@@ -91,6 +99,15 @@ end
 ---@param ignore_pattern string
 ---@return string[]
 function M.get_highlight_modules(highlight_maps_path, ignore_pattern)
+    local cache = require("black-atom.lib.cache")
+
+    -- Check module cache first
+    local cached_modules = cache.get_modules()
+    if cached_modules and not cache.should_refresh_modules() then
+        return cached_modules
+    end
+
+    -- If not cached or needs refresh, scan and cache
     local plugin_path = M.get_plugin_path()
 
     local highlight_files = M.scan_path_for_files(M.build_path(plugin_path, highlight_maps_path), ignore_pattern)
@@ -99,6 +116,9 @@ function M.get_highlight_modules(highlight_maps_path, ignore_pattern)
         local path_to_remove = M.build_path(plugin_path, "lua")
         return M.convert_filepath_to_modulepath(file_path, path_to_remove)
     end, highlight_files)
+
+    -- Cache the module paths
+    cache.set_modules(module_pathes)
 
     return module_pathes
 end

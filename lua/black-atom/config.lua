@@ -40,6 +40,7 @@ local default_config = {
 ---@return nil
 function M.set(options)
     local current_config = vim.g.black_atom_core_config or {}
+    options = options or {}
 
     ---@type BlackAtom.Config
     local merged_config = vim.tbl_deep_extend("force", default_config, current_config, options)
@@ -52,6 +53,16 @@ end
 ---@return BlackAtom.Config | any
 function M.get()
     return vim.g.black_atom_core_config
+end
+
+---Generate a deterministic hash of the config for cache keys
+---@param config BlackAtom.Config
+---@return string
+function M.hash(config)
+    -- Create a stable string representation of the config
+    -- We use vim.inspect with sorted keys for deterministic output
+    local config_str = vim.inspect(config, { indent = "", newline = "" })
+    return vim.fn.sha256(config_str)
 end
 
 return M

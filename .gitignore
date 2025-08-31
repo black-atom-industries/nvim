@@ -3,3 +3,4 @@ check.json
 *.log
 Session.vim
 .DS_Store
+cache
