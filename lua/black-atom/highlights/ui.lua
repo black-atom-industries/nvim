@@ -75,9 +75,9 @@ return {
             WarningMsg = ext_hl({ fg = ui.fg.warn }, config.styles.syntax.messages),
 
             -- Window & Tab Management
-            TabLine = { fg = ui.fg.subtle, bg = bg.panel(config, colors) },
-            TabLineFill = { link = "TabLine" },
-            TabLineSel = { fg = ui.fg.contrast, bg = ui.bg.active },
+            TabLineFill = { fg = ui.fg.subtle, bg = bg.panel(config, colors) },
+            TabLine = { fg = ui.fg.subtle, bg = bg.default(config, colors) },
+            TabLineSel = { fg = ui.fg.accent, bg = ui.bg.active },
 
             StatusLine = ext_hl(
                 { fg = ui.fg.default, bg = bg.panel(config, colors) },

@@ -38,10 +38,10 @@ M.palette = {
     green = "#85b97e",
     dark_yellow = "#f2a557",
     yellow = "#dca958",
-    dark_blue = "#9f99e5",
-    blue = "#96b9e9",
-    dark_magenta = "#d5a9c3",
-    magenta = "#c4acd7",
+    dark_blue = "#7a8db8",
+    blue = "#8ca3c7",
+    dark_magenta = "#a68b96",
+    magenta = "#b8a5b2",
     dark_cyan = "#619f80",
     cyan = "#7bb7a4",
     light_gray = "#91a0bc",
@@ -62,12 +62,12 @@ M.ui = {
         contrast = "#bcc9db",
         negative = "#c06a59",
         warn = "#dca958",
-        info = "#96b9e9",
+        info = "#8ca3c7",
         hint = "#f2a557",
         positive = "#85b97e",
         add = "#85b97e",
         delete = "#c06a59",
-        modify = "#96b9e9",
+        modify = "#8ca3c7",
     },
     fg = {
         default = "#bcc9db",
@@ -77,25 +77,25 @@ M.ui = {
         contrast = "#1f2129",
         negative = "#c06a59",
         warn = "#dca958",
-        info = "#96b9e9",
+        info = "#8ca3c7",
         hint = "#f2a557",
         positive = "#85b97e",
         add = "#85b97e",
         delete = "#c06a59",
-        modify = "#96b9e9",
+        modify = "#8ca3c7",
     },
 }
 
 ---@type BlackAtom.Theme.Syntax
 M.syntax = {
     variable = {
-        default = "#96b9e9",
-        builtin = "#96b9e9",
-        member = "#9f99e5",
+        default = "#8ca3c7",
+        builtin = "#8ca3c7",
+        member = "#7a8db8",
         parameter = "#f2a557",
     },
     property = {
-        default = "#96b9e9",
+        default = "#8ca3c7",
     },
     string = {
         default = "#85b97e",
@@ -108,7 +108,7 @@ M.syntax = {
         builtin = "#f2a557",
     },
     module = {
-        default = "#9f99e5",
+        default = "#7a8db8",
     },
     boolean = {
         default = "#f2a557",
@@ -134,11 +134,11 @@ M.syntax = {
     },
     keyword = {
         default = "#c06a59",
-        import = "#c4acd7",
-        export = "#c4acd7",
+        import = "#b8a5b2",
+        export = "#b8a5b2",
     },
     operator = {
-        default = "#c4acd7",
+        default = "#b8a5b2",
     },
     punctuation = {
         default = "#91a0bc",
@@ -152,7 +152,7 @@ M.syntax = {
         todo = "#85b97e",
         error = "#c06a59",
         warn = "#dca958",
-        info = "#96b9e9",
+        info = "#8ca3c7",
         hint = "#f2a557",
     },
     markup = {
@@ -176,8 +176,8 @@ M.syntax = {
             unchecked = "#91a0bc",
         },
         code = {
-            fg = "#9facc6",
-            bg = "#5b678a",
+            fg = "#91a0bc",
+            bg = "#282b35",
         },
     },
     tag = {

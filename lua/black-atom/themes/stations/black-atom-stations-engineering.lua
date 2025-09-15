@@ -71,7 +71,7 @@ M.ui = {
     },
     fg = {
         default = "#d5f4e3",
-        subtle = "#b2e5cd",
+        subtle = "#91bcad",
         accent = "#b7db6e",
         disabled = "#75a490",
         contrast = "#192422",
