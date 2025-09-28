@@ -83,13 +83,13 @@ return {
                 { fg = ui.fg.default, bg = bg.panel(config, colors) },
                 { [config.styles.transparency == "full"] = { bg = colors.none } }
             ),
-            StatusLineNC = ext_hl(
-                { fg = ui.fg.disabled, bg = bg.panel(config, colors) },
+            StatusLineNC = { link = "StatusLine" },
+
+            WinBar = ext_hl(
+                { fg = ui.fg.default, bg = bg.default(config, colors) },
                 { [config.styles.transparency == "full"] = { bg = colors.none } }
             ),
-
-            WinBar = { link = "StatusLine" },
-            WinBarNC = { link = "StatusLineNC" },
+            WinBarNC = { link = "WinBar" },
             WinSeparator = { fg = ui.bg.active, bg = bg.default(config, colors) },
 
             -- Folds & Columns
