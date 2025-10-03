@@ -25,7 +25,7 @@ local default_config = {
             },
             functions = {},
             strings = {
-                italic = true,
+                italic = false,
             },
             variables = {},
             messages = {
