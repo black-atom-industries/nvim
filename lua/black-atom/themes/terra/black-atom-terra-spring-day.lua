@@ -133,9 +133,9 @@ M.syntax = {
         default = "#e49f19",
     },
     keyword = {
-        default = "#dd7e5d",
-        import = "#0e9b55",
-        export = "#ca6d4c",
+        default = "#a586c6",
+        import = "#dd7e5d",
+        export = "#dd7e5d",
     },
     operator = {
         default = "#385547",

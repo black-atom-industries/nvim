@@ -90,12 +90,12 @@ M.ui = {
 M.syntax = {
     variable = {
         default = "#8ca3c7",
-        builtin = "#8ca3c7",
+        builtin = "#7a8db8",
         member = "#7a8db8",
         parameter = "#f2a557",
     },
     property = {
-        default = "#8ca3c7",
+        default = "#7a8db8",
     },
     string = {
         default = "#85b97e",
@@ -133,9 +133,9 @@ M.syntax = {
         default = "#dca958",
     },
     keyword = {
-        default = "#c06a59",
-        import = "#b8a5b2",
-        export = "#b8a5b2",
+        default = "#b8a5b2",
+        import = "#c06a59",
+        export = "#c06a59",
     },
     operator = {
         default = "#b8a5b2",
