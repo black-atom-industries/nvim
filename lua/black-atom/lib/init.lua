@@ -5,7 +5,6 @@ local M = {}
 setmetatable(M, {
     __index = function(t, k)
         local modules = {
-            color = "black-atom.lib.color",
             ui = "black-atom.lib.ui",
             highlights = "black-atom.lib.highlights",
             files = "black-atom.lib.files",

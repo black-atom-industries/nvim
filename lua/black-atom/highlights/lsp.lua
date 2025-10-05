@@ -2,9 +2,7 @@
 return {
     map = function(colors, config)
         local cond_hl = require("black-atom.lib.highlights").cond_hl
-        local darken = require("black-atom.lib.color").darken
         local styles = config.styles or {}
-        local syntax = colors.syntax
         local ui = colors.ui
 
         ---@type BlackAtom.Highlights
@@ -25,25 +23,25 @@ return {
             -- Diagnostic Virtual Text
             DiagnosticVirtualTextError = {
                 bg = cond_hl(colors.none, {
-                    [styles.diagnostics.background] = darken(ui.bg.negative, 0.1, ui.bg.default),
+                    [styles.diagnostics.background] = ui.bg.negative,
                 }),
                 fg = ui.fg.negative,
             },
             DiagnosticVirtualTextWarn = {
                 bg = cond_hl(colors.none, {
-                    [styles.diagnostics.background] = darken(ui.bg.warn, 0.1, ui.bg.default),
+                    [styles.diagnostics.background] = ui.bg.warn,
                 }),
                 fg = ui.fg.warn,
             },
             DiagnosticVirtualTextInfo = {
                 bg = cond_hl(colors.none, {
-                    [styles.diagnostics.background] = darken(ui.bg.info, 0.1, ui.bg.default),
+                    [styles.diagnostics.background] = ui.bg.info,
                 }),
                 fg = ui.fg.info,
             },
             DiagnosticVirtualTextHint = {
                 bg = cond_hl(colors.none, {
-                    [styles.diagnostics.background] = darken(ui.bg.hint, 0.1, ui.bg.default),
+                    [styles.diagnostics.background] = ui.bg.hint,
                 }),
                 fg = ui.fg.hint,
             },
