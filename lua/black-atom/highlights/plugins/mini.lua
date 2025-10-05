@@ -16,12 +16,9 @@ return {
             MiniDiffSignDelete = { fg = ui.fg.delete },
 
             -- MiniDiff: Overlay highlights
-            MiniDiffOverAdd = { bg = ui.bg.selection },
-            MiniDiffOverChange = { fg = ui.fg.modify, bg = ui.bg.active },
-            MiniDiffOverChangeBuf = { fg = ui.fg.info, bg = ui.bg.active },
-            MiniDiffOverContext = { fg = ui.fg.subtle },
-            MiniDiffOverContextBuf = { fg = ui.fg.default },
-            MiniDiffOverDelete = { fg = ui.fg.delete, bg = ui.bg.active },
+            MiniDiffOverAdd = { bg = ui.bg.add },
+            MiniDiffOverChange = { bg = ui.bg.modify },
+            MiniDiffOverDelete = { bg = ui.bg.delete },
         }
     end,
 }
