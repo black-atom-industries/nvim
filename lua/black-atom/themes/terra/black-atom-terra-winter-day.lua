@@ -14,10 +14,10 @@ M.meta = {
 
 ---@type BlackAtom.Theme.Primaries
 M.primaries = {
-    d10 = "#2E3440",
-    d20 = "#3B4252",
-    d30 = "#434C5E",
-    d40 = "#4C566A",
+    d10 = "#2e3440",
+    d20 = "#3b4252",
+    d30 = "#434c5e",
+    d40 = "#4c566a",
     m10 = "#4e6f98",
     m20 = "#668db4",
     m30 = "#6eb2c6",
@@ -25,12 +25,12 @@ M.primaries = {
     l10 = "#ced6e3",
     l20 = "#dfe4ec",
     l30 = "#e9ecf2",
-    l40 = "#ECEFF4",
+    l40 = "#eceff4",
 }
 
 ---@type BlackAtom.Theme.Palette
 M.palette = {
-    black = "#434C5E",
+    black = "#434c5e",
     gray = "#668db4",
     dark_red = "#4a6785",
     red = "#5d7ca0",
@@ -57,20 +57,20 @@ M.ui = {
         active = "#ced6e3",
         disabled = "#6eb2c6",
         hover = "#ced6e3",
-        selection = "#ECEFF4",
-        search = "#ECEFF4",
-        contrast = "#3B4252",
-        negative = "#d4dbe6",
-        warn = "#d9dee5",
-        info = "#d2d9e4",
-        hint = "#d6dbe2",
-        positive = "#d6dde5",
-        add = "#d6dde5",
-        delete = "#d4dbe6",
-        modify = "#d2d9e4",
+        selection = "#eceff4",
+        search = "#eceff4",
+        contrast = "#3b4252",
+        negative = "#d4dae6",
+        warn = "#d9dde5",
+        info = "#d2d8e4",
+        hint = "#d5dae2",
+        positive = "#d6dce5",
+        add = "#d6dce5",
+        delete = "#d4dae6",
+        modify = "#d2d8e4",
     },
     fg = {
-        default = "#3B4252",
+        default = "#3b4252",
         subtle = "#4e6f98",
         accent = "#7e8f9c",
         disabled = "#668db4",
@@ -138,7 +138,7 @@ M.syntax = {
         export = "#5d7ca0",
     },
     operator = {
-        default = "#3B4252",
+        default = "#3b4252",
     },
     punctuation = {
         default = "#668db4",
@@ -184,7 +184,7 @@ M.syntax = {
         default = "#7e8f9c",
         builtin = "#6b7a8a",
         attribute = "#4e6f98",
-        delimiter = "#4C566A",
+        delimiter = "#4c566a",
     },
 }
 
