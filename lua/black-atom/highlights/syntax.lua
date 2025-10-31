@@ -115,6 +115,7 @@ return {
             ["@markup.heading.6"] = { fg = syntax.markup.heading.h6, bold = true },
             ["@markup.quote"] = { fg = syntax.markup.quote, italic = true },
             ["@markup.link"] = { fg = syntax.markup.link, underline = true },
+            ["@markup.strikethrough"] = { fg = syntax.comment.error, strikethrough = true },
 
             ["@markup.raw"] = { fg = syntax.markup.code.fg, bg = syntax.markup.code.bg },
 

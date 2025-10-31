@@ -80,16 +80,20 @@ return {
             TabLineSel = { fg = ui.fg.accent, bg = ui.bg.active },
 
             StatusLine = ext_hl(
-                { fg = ui.fg.default, bg = bg.panel(config, colors) },
+                { fg = ui.fg.default, bg = bg.default(config, colors) },
                 { [config.styles.transparency == "full"] = { bg = colors.none } }
             ),
             StatusLineNC = { link = "StatusLine" },
 
             WinBar = ext_hl(
-                { fg = ui.fg.default, bg = bg.default(config, colors) },
+                { fg = ui.fg.subtle, bg = bg.default(config, colors) },
                 { [config.styles.transparency == "full"] = { bg = colors.none } }
             ),
             WinBarNC = { link = "WinBar" },
+            WinBarPath = { fg = ui.fg.subtle },
+            WinBarFileName = { fg = ui.fg.accent },
+            WinBarSymbol = { fg = ui.fg.info },
+            WinBarSeparator = { link = "WinBar" },
             WinSeparator = { fg = ui.bg.active, bg = bg.default(config, colors) },
 
             -- Folds & Columns
