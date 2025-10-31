@@ -98,7 +98,7 @@ M.syntax = {
         default = "#457ea1",
     },
     string = {
-        default = "#7b919d",
+        default = "#576975",
         doc = "#457ea1",
         regexp = "#cc8f00",
         escape = "#cc8f00",
