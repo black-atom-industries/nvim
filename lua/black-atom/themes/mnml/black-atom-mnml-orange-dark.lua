@@ -32,28 +32,28 @@ M.primaries = {
 M.palette = {
     black = "#47687c",
     gray = "#47687c",
-    dark_red = "#47687c",
+    dark_red = "#7295aa",
     red = "#7295aa",
-    dark_green = "#47687c",
+    dark_green = "#63859a",
     green = "#63859a",
     dark_yellow = "#f37513",
     yellow = "#fc8e05",
-    dark_blue = "#47687c",
+    dark_blue = "#55778b",
     blue = "#55778b",
-    dark_magenta = "#47687c",
+    dark_magenta = "#63859a",
     magenta = "#63859a",
-    dark_cyan = "#47687c",
+    dark_cyan = "#7295aa",
     cyan = "#7295aa",
-    light_gray = "#47687c",
+    light_gray = "#9fc4da",
     white = "#9fc4da",
 }
 
 ---@type BlackAtom.Theme.UI
 M.ui = {
     bg = {
-        default = "#13242e",
-        panel = "#1f303b",
-        float = "#1f303b",
+        default = "#1f303b",
+        panel = "#13242e",
+        float = "#13242e",
         active = "#2b3d48",
         disabled = "#384b56",
         hover = "#2b3d48",
@@ -71,7 +71,7 @@ M.ui = {
     },
     fg = {
         default = "#afd4ea",
-        subtle = "#7295aa",
+        subtle = "#63859a",
         accent = "#fc8e05",
         disabled = "#55778b",
         contrast = "#1f303b",

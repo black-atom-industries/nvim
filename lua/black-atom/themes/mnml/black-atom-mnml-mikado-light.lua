@@ -32,29 +32,29 @@ M.primaries = {
 M.palette = {
     black = "#4c5d67",
     gray = "#4c5d67",
-    dark_red = "#4c5d67",
+    dark_red = "#7b919d",
     red = "#7b919d",
-    dark_green = "#4c5d67",
+    dark_green = "#617683",
     green = "#617683",
-    dark_yellow = "#4c5d67",
+    dark_yellow = "#617683",
     yellow = "#617683",
     dark_blue = "#cc8f00",
     blue = "#cc8f00",
-    dark_magenta = "#4c5d67",
+    dark_magenta = "#617683",
     magenta = "#617683",
-    dark_cyan = "#4c5d67",
+    dark_cyan = "#7b919d",
     cyan = "#7b919d",
-    light_gray = "#4c5d67",
+    light_gray = "#b4c3c9",
     white = "#b4c3c9",
 }
 
 ---@type BlackAtom.Theme.UI
 M.ui = {
     bg = {
-        default = "#d2dbdf",
-        panel = "#c3cfd4",
-        float = "#c3cfd4",
-        active = "#b4c3c9",
+        default = "#c3cfd4",
+        panel = "#b4c3c9",
+        float = "#b4c3c9",
+        active = "#a8b9c0",
         disabled = "#a8b9c0",
         hover = "#b4c3c9",
         selection = "#a8b9c0",
@@ -133,9 +133,9 @@ M.syntax = {
         default = "#cc8f00",
     },
     keyword = {
-        default = "#0f212d",
-        import = "#1c2b34",
-        export = "#1c2b34",
+        default = "#457ea1",
+        import = "#457ea1",
+        export = "#457ea1",
     },
     operator = {
         default = "#0f212d",
@@ -177,7 +177,7 @@ M.syntax = {
         },
         code = {
             fg = "#2d404b",
-            bg = "#c3cfd4",
+            bg = "#b4c3c9",
         },
     },
     tag = {

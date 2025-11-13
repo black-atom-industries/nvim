@@ -22,7 +22,7 @@ return {
             -- Floating Windows
             NormalFloat = { fg = ui.fg.default, bg = ui.bg.float },
             FloatBorder = { fg = ui.fg.subtle, bg = ui.bg.float },
-            FloatTitle = { fg = ui.fg.accent, bg = ui.bg.float },
+            FloatTitle = { fg = ui.fg.accent, bg = ui.bg.float, bold = true },
 
             -- Cursor & Matching
             Cursor = { fg = ui.fg.contrast, bg = ui.fg.accent },
@@ -94,7 +94,7 @@ return {
             WinBarFileName = { fg = ui.fg.accent },
             WinBarSymbol = { fg = ui.fg.info },
             WinBarSeparator = { link = "WinBar" },
-            WinSeparator = { fg = ui.bg.active, bg = bg.default(config, colors) },
+            WinSeparator = { fg = ui.fg.subtle, bg = bg.default(config, colors) },
 
             -- Folds & Columns
             Folded = { fg = ui.fg.subtle, bg = ui.bg.panel },
