@@ -51,8 +51,8 @@
         "mnml": {
             "template": "lua/black-atom/themes/mnml/collection.template.lua",
             "themes": [
-                "black-atom-mnml-mono-dark",
-                "black-atom-mnml-mono-light",
+                "black-atom-mnml-clay-dark",
+                "black-atom-mnml-clay-light",
                 "black-atom-mnml-orange-dark",
                 "black-atom-mnml-orange-light",
                 "black-atom-mnml-mikado-dark",

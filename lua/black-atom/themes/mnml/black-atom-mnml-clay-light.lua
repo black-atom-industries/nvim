@@ -2,8 +2,8 @@ local M = {}
 
 ---@type BlackAtom.Theme.Meta
 M.meta = {
-    key = "black-atom-mnml-mono-light",
-    label = "Black Atom — MNM ∷ Mono Light",
+    key = "black-atom-mnml-clay-light",
+    label = "Black Atom — MNM ∷ Clay Light",
     appearance = "light",
     status = "development",
     collection = {
