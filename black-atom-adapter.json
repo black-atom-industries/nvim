@@ -58,7 +58,9 @@
                 "black-atom-mnml-mikado-dark",
                 "black-atom-mnml-mikado-light",
                 "black-atom-mnml-47-light",
-                "black-atom-mnml-47-dark"
+                "black-atom-mnml-47-dark",
+                "black-atom-mnml-eink-light",
+                "black-atom-mnml-eink-dark"
             ]
         }
     }

@@ -44,7 +44,7 @@ M.palette = {
     magenta = "#617683",
     dark_cyan = "#7b919d",
     cyan = "#7b919d",
-    light_gray = "#b4c3c9",
+    light_gray = "#a8b9c0",
     white = "#b4c3c9",
 }
 

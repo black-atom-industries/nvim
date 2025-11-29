@@ -44,7 +44,7 @@ M.palette = {
     magenta = "#6c93bc",
     dark_cyan = "#8ab2dc",
     cyan = "#8ab2dc",
-    light_gray = "#d2dae3",
+    light_gray = "#c2cad3",
     white = "#d2dae3",
 }
 
@@ -177,7 +177,7 @@ M.syntax = {
         },
         code = {
             fg = "#c2cad3",
-            bg = "#1d364f",
+            bg = "#162f48",
         },
     },
     tag = {
