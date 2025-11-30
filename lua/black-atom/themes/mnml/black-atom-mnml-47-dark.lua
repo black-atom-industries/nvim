@@ -45,7 +45,7 @@ M.palette = {
     dark_cyan = "#98a485",
     cyan = "#98a485",
     light_gray = "#e5cdad",
-    white = "#f2daba",
+    white = "#e5cdad",
 }
 
 ---@type BlackAtom.Theme.UI
