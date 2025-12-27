@@ -13,12 +13,6 @@
 ---| "black-atom-mnml-clay-light"
 ---| "black-atom-mnml-orange-dark"
 ---| "black-atom-mnml-orange-light"
----| "black-atom-nord-dark-night"
----| "black-atom-nord-day"
----| "black-atom-nord-night"
----| "black-atom-north-dark-night"
----| "black-atom-north-day"
----| "black-atom-north-night"
 ---| "black-atom-stations-engineering"
 ---| "black-atom-stations-medical"
 ---| "black-atom-stations-operations"
@@ -35,8 +29,6 @@
 ---@alias BlackAtom.Theme.Collection.Key
 ---| "jpn"
 ---| "mnml"
----| "nord"
----| "north"
 ---| "stations"
 ---| "terra"
 

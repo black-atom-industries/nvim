@@ -95,7 +95,7 @@ M.syntax = {
         parameter = "#e76b3e",
     },
     property = {
-        default = "#7b7250",
+        default = "#5d553f",
     },
     string = {
         default = "#6b634d",

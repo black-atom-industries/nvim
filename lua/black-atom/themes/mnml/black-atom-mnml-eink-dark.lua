@@ -62,12 +62,12 @@ M.ui = {
         contrast = "#c4c4c4",
         negative = "#3d3030",
         warn = "#3b3730",
-        info = "#303836",
+        info = "#30373a",
         hint = "#3b3730",
         positive = "#363830",
         add = "#363830",
         delete = "#3d3030",
-        modify = "#303836",
+        modify = "#30373a",
     },
     fg = {
         default = "#dedede",
@@ -77,12 +77,12 @@ M.ui = {
         contrast = "#2e2e2e",
         negative = "#dd7577",
         warn = "#d6b174",
-        info = "#78baac",
+        info = "#79b5cc",
         hint = "#d6b174",
         positive = "#a9ba78",
         add = "#a9ba78",
         delete = "#dd7577",
-        modify = "#78baac",
+        modify = "#79b5cc",
     },
 }
 
@@ -91,11 +91,11 @@ M.syntax = {
     variable = {
         default = "#d1d1d1",
         builtin = "#c4c4c4",
-        member = "#958d8f",
-        parameter = "#958d8f",
+        member = "#9a8a8f",
+        parameter = "#9a8a8f",
     },
     property = {
-        default = "#958d8f",
+        default = "#9a8a8f",
     },
     string = {
         default = "#d1d1d1",
@@ -121,13 +121,13 @@ M.syntax = {
         builtin = "#ebebeb",
     },
     attribute = {
-        default = "#958d8f",
-        builtin = "#958d8f",
+        default = "#9a8a8f",
+        builtin = "#9a8a8f",
     },
     func = {
         default = "#bdacb0",
-        builtin = "#958d8f",
-        method = "#958d8f",
+        builtin = "#9a8a8f",
+        method = "#9a8a8f",
     },
     constructor = {
         default = "#bdacb0",
@@ -152,8 +152,8 @@ M.syntax = {
         todo = "#a9ba78",
         error = "#dd7577",
         warn = "#d6b174",
-        info = "#78baac",
-        hint = "#78baac",
+        info = "#79b5cc",
+        hint = "#79b5cc",
     },
     markup = {
         heading = {
@@ -169,7 +169,7 @@ M.syntax = {
         strikethrough = "#bdacb0",
         quote = "#7a7a7a",
         math = "#7a7a7a",
-        link = "#958d8f",
+        link = "#9a8a8f",
         list = {
             default = "#a4a4a4",
             checked = "#a9ba78",
@@ -182,7 +182,7 @@ M.syntax = {
     },
     tag = {
         default = "#bdacb0",
-        builtin = "#958d8f",
+        builtin = "#9a8a8f",
         attribute = "#8c8c8c",
         delimiter = "#c4c4c4",
     },

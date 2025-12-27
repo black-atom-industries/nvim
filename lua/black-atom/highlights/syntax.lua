@@ -16,7 +16,7 @@ return {
             StorageClass = { link = "Identifier" },
             ["@variable"] = { link = "Identifier" },
             ["@variable.builtin"] = { fg = syntax.variable.builtin },
-            ["@variable.parameter"] = { fg = syntax.variable.parameter, italic = true, bold = true },
+            ["@variable.parameter"] = ext_hl({ fg = syntax.variable.parameter }, config.styles.syntax.variables),
             ["@variable.member"] = { fg = syntax.variable.member },
 
             String = ext_hl({ fg = syntax.string.default }, config.styles.syntax.strings),
@@ -113,7 +113,7 @@ return {
             ["@markup.heading.4"] = { fg = syntax.markup.heading.h4, bold = true },
             ["@markup.heading.5"] = { fg = syntax.markup.heading.h5, bold = true },
             ["@markup.heading.6"] = { fg = syntax.markup.heading.h6, bold = true },
-            ["@markup.quote"] = { fg = syntax.markup.quote, italic = true },
+            ["@markup.quote"] = { fg = syntax.markup.quote },
             ["@markup.link"] = { fg = syntax.markup.link, underline = true },
             ["@markup.strikethrough"] = { fg = syntax.comment.error, strikethrough = true },
 
