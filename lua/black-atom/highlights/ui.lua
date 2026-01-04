@@ -25,7 +25,7 @@ return {
             FloatTitle = { fg = ui.fg.accent, bg = ui.bg.float, bold = true },
 
             -- Cursor & Matching
-            Cursor = { fg = ui.fg.contrast, bg = ui.fg.accent },
+            Cursor = { reverse = true },
             CursorIM = { link = "Cursor" },
             lCursor = { link = "Cursor" },
             TermCursor = { link = "Cursor" },
