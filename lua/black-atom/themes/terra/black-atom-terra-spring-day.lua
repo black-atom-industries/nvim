@@ -30,8 +30,8 @@ M.primaries = {
 
 ---@type BlackAtom.Theme.Palette
 M.palette = {
-    black = "#416353",
-    gray = "#62937a",
+    black = "#517b67",
+    gray = "#55816a",
     dark_red = "#ca6d4c",
     red = "#dd7e5d",
     dark_green = "#0e9b55",
@@ -141,13 +141,13 @@ M.syntax = {
         default = "#385547",
     },
     punctuation = {
-        default = "#62937a",
+        default = "#55816a",
         delimiter = "#8bb19e",
-        bracket = "#62937a",
-        special = "#62937a",
+        bracket = "#55816a",
+        special = "#55816a",
     },
     comment = {
-        default = "#62937a",
+        default = "#55816a",
         doc = "#0e9b55",
         todo = "#11b066",
         error = "#dd7e5d",
@@ -160,9 +160,9 @@ M.syntax = {
             h1 = "#e49f1a",
             h2 = "#e49f1a",
             h3 = "#e49f1a",
-            h4 = "#62937a",
-            h5 = "#62937a",
-            h6 = "#62937a",
+            h4 = "#55816a",
+            h5 = "#55816a",
+            h6 = "#55816a",
         },
         strong = "#e49f1a",
         italic = "#e49f1a",
@@ -171,9 +171,9 @@ M.syntax = {
         math = "#0e9b55",
         link = "#11b066",
         list = {
-            default = "#62937a",
+            default = "#55816a",
             checked = "#11b066",
-            unchecked = "#62937a",
+            unchecked = "#55816a",
         },
         code = {
             fg = "#55816a",

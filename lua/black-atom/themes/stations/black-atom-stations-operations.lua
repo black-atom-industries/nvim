@@ -30,8 +30,8 @@ M.primaries = {
 
 ---@type BlackAtom.Theme.Palette
 M.palette = {
-    black = "#293c36",
-    gray = "#5b8972",
+    black = "#354e46",
+    gray = "#51796d",
     dark_red = "#eb7aa8",
     red = "#f08cb4",
     dark_green = "#5dba5d",
@@ -44,7 +44,7 @@ M.palette = {
     magenta = "#b6bee0",
     dark_cyan = "#59bf84",
     cyan = "#75d69e",
-    light_gray = "#91bcad",
+    light_gray = "#9bdebe",
     white = "#c1efd5",
 }
 
@@ -141,13 +141,13 @@ M.syntax = {
         default = "#b6bee0",
     },
     punctuation = {
-        default = "#91bcad",
+        default = "#9bdebe",
         delimiter = "#91bcad",
-        bracket = "#91bcad",
-        special = "#91bcad",
+        bracket = "#9bdebe",
+        special = "#9bdebe",
     },
     comment = {
-        default = "#5b8972",
+        default = "#51796d",
         doc = "#5dba5d",
         todo = "#80c980",
         error = "#f08cb4",
@@ -160,9 +160,9 @@ M.syntax = {
             h1 = "#b7db6e",
             h2 = "#b7db6e",
             h3 = "#b7db6e",
-            h4 = "#91bcad",
-            h5 = "#91bcad",
-            h6 = "#91bcad",
+            h4 = "#9bdebe",
+            h5 = "#9bdebe",
+            h6 = "#9bdebe",
         },
         strong = "#b7db6e",
         italic = "#b7db6e",
@@ -171,13 +171,13 @@ M.syntax = {
         math = "#5dba5d",
         link = "#80c980",
         list = {
-            default = "#91bcad",
+            default = "#9bdebe",
             checked = "#80c980",
-            unchecked = "#91bcad",
+            unchecked = "#9bdebe",
         },
         code = {
-            fg = "#5b8972",
-            bg = "#293c36",
+            fg = "#51796d",
+            bg = "#354e46",
         },
     },
     tag = {
