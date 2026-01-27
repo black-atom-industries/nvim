@@ -14,16 +14,15 @@ This modular approach ensures consistent colors and styling across all supported
 
 ## Available Themes
 
-Black Atom includes multiple theme collections, each with its own distinct style:
+Black Atom includes multiple theme collections, each with dark and light variants:
 
-| Collection   | Themes                                                     | Description                   |
-| ------------ | ---------------------------------------------------------- | ----------------------------- |
-| **Stations** | engineering, operations, medical, research                 | Space station-inspired themes |
-| **JPN**      | koyo-hiru, koyo-yoru, tsuki-yoru                           | Japanese-inspired themes      |
-| **Terra**    | seasons (spring, summer, fall, winter) × time (day, night) | Earth season-inspired themes  |
-| **CRBN**     | null, supr                                                 | Minimalist carbon themes      |
-
-All themes are available in both dark and light variants.
+| Collection    | Description                   |
+| ------------- | ----------------------------- |
+| **Default**   | Core Black Atom themes        |
+| **JPN**       | Japanese-inspired themes      |
+| **MNML**      | Minimalist accent themes      |
+| **Stations**  | Space station-inspired themes |
+| **Terra**     | Earth season-inspired themes  |
 
 ## Installation
 
@@ -148,15 +147,31 @@ cd nvim
 sh check.sh
 ```
 
+### Installing Black Atom Core CLI
+
+To generate themes, you need the Black Atom Core CLI installed:
+
+```bash
+# Clone and enter the core repository
+git clone https://github.com/black-atom-industries/core.git
+cd core
+
+# Compile and install the CLI
+deno task cli:compile
+deno task cli:install
+```
+
+This installs the `black-atom-core` binary to `/usr/local/bin`.
+
 ### Working with Templates
 
-The theme files are adapted from templates using the Black Atom Core CLI. To modify themes:
+The theme files are generated from templates using the Black Atom Core CLI. To modify themes:
 
 1. Edit the template files in `lua/black-atom/themes/{collection}/`
-2. Run the Core CLI to adapt the theme files:
+2. Run the Core CLI to generate the theme files:
     ```bash
-    cd /path/to/black-atom-core
-    black-atom-core adapt
+    cd /path/to/nvim
+    black-atom-core generate
     ```
 
 ## License
