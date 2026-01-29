@@ -2,7 +2,7 @@ local M = {}
 
 ---@type BlackAtom.Config
 local default_config = {
-    debug = true,
+    debug = false,
     theme = "black-atom-engineering",
     collection = "default",
     term_colors = true,

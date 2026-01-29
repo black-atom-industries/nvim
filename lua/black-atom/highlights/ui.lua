@@ -50,10 +50,10 @@ return {
             VisualNOS = { link = "Visual" },
 
             -- Diff
-            DiffAdd = { fg = ui.fg.add },
-            DiffChange = { fg = ui.fg.modify },
-            DiffDelete = { fg = ui.fg.delete },
-            DiffText = { fg = ui.fg.info },
+            DiffAdd = { fg = ui.fg.add, bg = ui.bg.add },
+            DiffChange = { fg = ui.fg.modify, bg = ui.bg.modify },
+            DiffDelete = { fg = ui.fg.delete, bg = ui.bg.delete },
+            DiffText = { fg = ui.fg.info, bg = ui.bg.info },
 
             -- Spell Checking
             SpellBad = { fg = ui.fg.negative, undercurl = true },
