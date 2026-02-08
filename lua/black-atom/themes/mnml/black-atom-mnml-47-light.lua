@@ -38,14 +38,14 @@ M.palette = {
     green = "#00936b",
     dark_yellow = "#ec5a00",
     yellow = "#ec5a00",
-    dark_blue = "#6b765a",
-    blue = "#6b765a",
+    dark_blue = "#98a485",
+    blue = "#98a485",
     dark_magenta = "#7a8568",
     magenta = "#7a8568",
     dark_cyan = "#98a485",
     cyan = "#98a485",
-    light_gray = "#e6dcd0",
-    white = "#f3eadd",
+    light_gray = "#98a485",
+    white = "#98a485",
 }
 
 ---@type BlackAtom.Theme.UI
