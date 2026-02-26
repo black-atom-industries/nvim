@@ -8,7 +8,7 @@ M.meta = {
     status = "release",
     collection = {
         key = "jpn",
-        label = "Japan",
+        label = "JPN",
     },
 }
 
@@ -44,8 +44,8 @@ M.palette = {
     magenta = "#ec6eaa",
     dark_cyan = "#70a9a8",
     cyan = "#8fbcbb",
-    light_gray = "#c9b1cb",
-    white = "#d4bfd6",
+    light_gray = "#946996",
+    white = "#b796b8",
 }
 
 ---@type BlackAtom.Theme.UI
@@ -141,10 +141,10 @@ M.syntax = {
         default = "#38a6cd",
     },
     punctuation = {
-        default = "#c9b1cb",
+        default = "#946996",
         delimiter = "#38a6cd",
-        bracket = "#c9b1cb",
-        special = "#c9b1cb",
+        bracket = "#946996",
+        special = "#946996",
     },
     comment = {
         default = "#6d4769",
@@ -160,9 +160,9 @@ M.syntax = {
             h1 = "#e6a318",
             h2 = "#e6a318",
             h3 = "#e6a318",
-            h4 = "#c9b1cb",
-            h5 = "#c9b1cb",
-            h6 = "#c9b1cb",
+            h4 = "#946996",
+            h5 = "#946996",
+            h6 = "#946996",
         },
         strong = "#e6a318",
         italic = "#e6a318",
@@ -171,12 +171,12 @@ M.syntax = {
         math = "#4cb58a",
         link = "#6dc29f",
         list = {
-            default = "#c9b1cb",
+            default = "#946996",
             checked = "#6dc29f",
-            unchecked = "#c9b1cb",
+            unchecked = "#946996",
         },
         code = {
-            fg = "#c9b1cb",
+            fg = "#946996",
             bg = "#20141f",
         },
     },

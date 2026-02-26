@@ -44,8 +44,8 @@ M.palette = {
     magenta = "#eda77d",
     dark_cyan = "#719b8f",
     cyan = "#7ea99c",
-    light_gray = "#ecbd96",
-    white = "#fbcaa4",
+    light_gray = "#9c98b3",
+    white = "#dcaf87",
 }
 
 ---@type BlackAtom.Theme.UI
@@ -141,10 +141,10 @@ M.syntax = {
         default = "#958aab",
     },
     punctuation = {
-        default = "#ecbd96",
+        default = "#9c98b3",
         delimiter = "#958aab",
-        bracket = "#ecbd96",
-        special = "#ecbd96",
+        bracket = "#9c98b3",
+        special = "#9c98b3",
     },
     comment = {
         default = "#605872",
@@ -160,9 +160,9 @@ M.syntax = {
             h1 = "#edaa4b",
             h2 = "#edaa4b",
             h3 = "#edaa4b",
-            h4 = "#ecbd96",
-            h5 = "#ecbd96",
-            h6 = "#ecbd96",
+            h4 = "#9c98b3",
+            h5 = "#9c98b3",
+            h6 = "#9c98b3",
         },
         strong = "#edaa4b",
         italic = "#edaa4b",
@@ -171,12 +171,12 @@ M.syntax = {
         math = "#4fa480",
         link = "#5db28d",
         list = {
-            default = "#ecbd96",
+            default = "#9c98b3",
             checked = "#5db28d",
-            unchecked = "#ecbd96",
+            unchecked = "#9c98b3",
         },
         code = {
-            fg = "#ecbd96",
+            fg = "#9c98b3",
             bg = "#291d2e",
         },
     },

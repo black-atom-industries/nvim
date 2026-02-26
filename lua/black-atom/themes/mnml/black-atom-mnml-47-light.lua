@@ -3,12 +3,12 @@ local M = {}
 ---@type BlackAtom.Theme.Meta
 M.meta = {
     key = "black-atom-mnml-47-light",
-    label = "Black Atom — MNM ∷ 47 Light",
+    label = "Black Atom — MNML ∷ 47 Light",
     appearance = "light",
     status = "development",
     collection = {
         key = "mnml",
-        label = "MNM",
+        label = "MNML",
     },
 }
 

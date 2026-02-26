@@ -3,7 +3,7 @@ local M = {}
 ---@type BlackAtom.Theme.Meta
 M.meta = {
     key = "black-atom-stations-medical",
-    label = "Black Atom — STA ∷ Medical",
+    label = "Black Atom — Stations ∷ Medical",
     appearance = "light",
     status = "release",
     collection = {

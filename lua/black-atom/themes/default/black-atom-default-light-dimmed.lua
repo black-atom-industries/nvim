@@ -30,12 +30,12 @@ M.primaries = {
 
 ---@type BlackAtom.Theme.Palette
 M.palette = {
-    black = "#4c4d4e",
+    black = "#313334",
     gray = "#5c6b76",
-    dark_red = "#9dadb9",
-    red = "#9dadb9",
-    dark_green = "#8595a0",
-    green = "#8595a0",
+    dark_red = "#6d7d88",
+    red = "#6d7d88",
+    dark_green = "#9dadb9",
+    green = "#9dadb9",
     dark_yellow = "#8595a0",
     yellow = "#8595a0",
     dark_blue = "#6d7d88",
@@ -44,8 +44,8 @@ M.palette = {
     magenta = "#2f8728",
     dark_cyan = "#50a648",
     cyan = "#50a648",
-    light_gray = "#e4e6e8",
-    white = "#eef0f2",
+    light_gray = "#9dadb9",
+    white = "#dcdee0",
 }
 
 ---@type BlackAtom.Theme.UI

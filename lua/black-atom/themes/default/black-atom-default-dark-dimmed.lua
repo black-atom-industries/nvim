@@ -2,8 +2,8 @@ local M = {}
 
 ---@type BlackAtom.Theme.Meta
 M.meta = {
-    key = "black-atom-default-dark-dimmed",
-    label = "Black Atom — Dark Dimmed",
+    key = "black-atom-default-dark",
+    label = "Black Atom — Dark",
     appearance = "dark",
     status = "release",
     collection = {
@@ -31,11 +31,11 @@ M.primaries = {
 ---@type BlackAtom.Theme.Palette
 M.palette = {
     black = "#323a39",
-    gray = "#495762",
+    gray = "#5c6b76",
     dark_red = "#91a1ad",
     red = "#91a1ad",
-    dark_green = "#73838e",
-    green = "#73838e",
+    dark_green = "#91a1ad",
+    green = "#91a1ad",
     dark_yellow = "#73838e",
     yellow = "#73838e",
     dark_blue = "#5c6b76",
