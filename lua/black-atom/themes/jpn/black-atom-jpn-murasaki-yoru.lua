@@ -31,7 +31,7 @@ M.primaries = {
 ---@type BlackAtom.Theme.Palette
 M.palette = {
     black = "#573954",
-    gray = "#6d4769",
+    gray = "#7d5178",
     dark_red = "#ec362d",
     red = "#f0635c",
     dark_green = "#4cb58a",
@@ -147,7 +147,7 @@ M.syntax = {
         special = "#946996",
     },
     comment = {
-        default = "#6d4769",
+        default = "#7d5178",
         doc = "#4cb58a",
         todo = "#6dc29f",
         error = "#f0635c",

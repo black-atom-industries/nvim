@@ -2,8 +2,8 @@ local M = {}
 
 ---@type BlackAtom.Theme.Meta
 M.meta = {
-    key = "black-atom-default-dark",
-    label = "Black Atom — Dark",
+    key = "black-atom-default-dark-dimmed",
+    label = "Black Atom — Dark Dimmed",
     appearance = "dark",
     status = "release",
     collection = {
