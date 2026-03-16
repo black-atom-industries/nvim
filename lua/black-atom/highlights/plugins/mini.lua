@@ -51,8 +51,8 @@ return {
             MiniDiffOverContext = { bg = ui.bg.active },
 
             -- MiniFiles
-            MiniFilesBorder = { fg = ui.fg.accent, bg = ui.bg.float },
-            MiniFilesBorderModified = { fg = ui.fg.warn, bg = ui.bg.float },
+            MiniFilesBorder = { fg = ui.fg.default, bg = ui.bg.float },
+            MiniFilesBorderModified = { fg = ui.fg.negative, bg = ui.bg.float },
             MiniFilesCursorLine = { bg = ui.bg.active },
             MiniFilesDirectory = { fg = ui.fg.accent, bold = true },
             MiniFilesFile = { fg = ui.fg.default },
