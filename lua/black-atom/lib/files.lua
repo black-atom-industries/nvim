@@ -3,23 +3,10 @@ local M = {}
 ---Get the install path of the plugin
 ---@return string
 function M.get_plugin_path()
-    local constants = require("black-atom.constants")
-    local runtimepaths = vim.api.nvim_list_runtime_paths()
-
-    local plugin_path = ""
-
-    for _, path in ipairs(runtimepaths) do
-        if path:find(constants.plugin_name) then
-            plugin_path = path
-            break
-        end
-    end
-
-    if plugin_path == "" then
-        error("Could not find the plugin path")
-    end
-
-    return plugin_path
+    -- Derive plugin root from this file's location:
+    -- This file is at <plugin_root>/lua/black-atom/lib/files.lua
+    local source = debug.getinfo(1, "S").source:sub(2)
+    return vim.fn.fnamemodify(source, ":h:h:h:h")
 end
 
 function M.build_path(base_path, ...)
