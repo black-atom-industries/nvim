@@ -133,7 +133,7 @@ M.syntax = {
         default = "#afdca9",
     },
     keyword = {
-        default = "#ccc5ff",
+        default = "#826cd9",
         import = "#ada5e1",
         export = "#ada5e1",
     },
