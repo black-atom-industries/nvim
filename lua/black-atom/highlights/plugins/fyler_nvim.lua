@@ -6,7 +6,6 @@ return {
         local fg = colors.ui.fg
         local bg = require("black-atom.lib").bg
         local bg_panel = bg.panel(config, colors)
-        local bg_default = bg.default(config, colors)
         local palette = colors.palette
 
         ---@type BlackAtom.Highlights
