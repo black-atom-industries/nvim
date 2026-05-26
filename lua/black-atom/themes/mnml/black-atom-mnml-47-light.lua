@@ -89,10 +89,10 @@ M.ui = {
 ---@type BlackAtom.Theme.Syntax
 M.syntax = {
     variable = {
-        default = "#434b36",
+        default = "#373d2f",
         builtin = "#434b36",
-        member = "#5d684c",
-        parameter = "#00936b",
+        member = "#ec5a00",
+        parameter = "#ec5a00",
     },
     property = {
         default = "#5d684c",
