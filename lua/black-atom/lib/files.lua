@@ -73,7 +73,20 @@ function M.convert_filepath_to_modulepath(filepath, path_to_remove)
     return module_path
 end
 
+---Check if a highlight file has enabled = false without fully requiring it
+---Reads the first 200 bytes to find the enabled flag before the map function.
+---@param filepath string
+---@return boolean
+local function is_highlight_disabled(filepath)
+    local fd = vim.uv.fs_open(filepath, "r", 438)
+    if not fd then return false end
+    local data = vim.uv.fs_read(fd, 200, 0)
+    vim.uv.fs_close(fd)
+    return data ~= nil and data:find("enabled%s*=%s*false") ~= nil
+end
+
 ---Get the paths of all the modules in a subdirectory of the highlights folder
+---Skips files with `enabled = false` to avoid the require() overhead.
 ---@param highlight_maps_path string
 ---@param ignore_pattern string
 ---@return string[]
@@ -82,10 +95,14 @@ function M.get_highlight_modules(highlight_maps_path, ignore_pattern)
 
     local highlight_files = M.scan_path_for_files(M.build_path(plugin_path, highlight_maps_path), ignore_pattern)
 
-    local module_pathes = vim.tbl_map(function(file_path)
-        local path_to_remove = M.build_path(plugin_path, "lua")
-        return M.convert_filepath_to_modulepath(file_path, path_to_remove)
-    end, highlight_files)
+    local module_pathes = {}
+    local path_to_remove = M.build_path(plugin_path, "lua")
+
+    for _, file_path in ipairs(highlight_files) do
+        if not is_highlight_disabled(file_path) then
+            table.insert(module_pathes, M.convert_filepath_to_modulepath(file_path, path_to_remove))
+        end
+    end
 
     return module_pathes
 end

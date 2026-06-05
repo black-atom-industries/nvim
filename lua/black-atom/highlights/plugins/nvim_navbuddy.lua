@@ -1,7 +1,7 @@
 ---@doc https://github.com/SmiteshP/nvim-navbuddy
 ---@type BlackAtom.HighlightsSpec
 return {
-    enabled = true,
+    enabled = false,
     map = function(colors)
         local ui = colors.ui
         local syntax = colors.syntax

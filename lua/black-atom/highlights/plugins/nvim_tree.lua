@@ -2,7 +2,7 @@
 ---Tip: Use `:NvimTreeHiTest`to debug highlight groups
 ---@type BlackAtom.HighlightsSpec
 return {
-    enabled = true,
+    enabled = false,
     map = function(colors, config)
         local fg = colors.ui.fg
         local bg = require("black-atom.lib").bg

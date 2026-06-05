@@ -1,7 +1,7 @@
 ---@doc https://github.com/hrsh7th/nvim-cmp
 ---@type BlackAtom.HighlightsSpec
 return {
-    enabled = true,
+    enabled = false,
     map = function(colors, config)
         local ui = colors.ui
         local s = colors.syntax

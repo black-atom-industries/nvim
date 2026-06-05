@@ -1,7 +1,7 @@
 ---@doc https://github.com/MeanderingProgrammer/render-markdown.nvim
 ---@type BlackAtom.HighlightsSpec
 return {
-    enabled = true,
+    enabled = false,
     map = function(colors, config)
         local bg_dark = require("black-atom.lib.bg").panel(config, colors)
         local ui = colors.ui

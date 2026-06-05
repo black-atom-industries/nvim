@@ -1,7 +1,7 @@
 ---@doc https://github.com/nvim-telescope/telescope.nvim
 ---@type BlackAtom.HighlightsSpec
 return {
-    enabled = true,
+    enabled = false,
     map = function(colors, config)
         local bg = require("black-atom.lib").bg
         local bg_panel = bg.panel(config, colors)

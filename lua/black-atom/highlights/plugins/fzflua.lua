@@ -1,7 +1,7 @@
 ---@doc https://github.com/ibhagwan/fzf-lua
 ---@type BlackAtom.HighlightsSpec
 return {
-    enabled = true,
+    enabled = false,
     map = function(colors, config)
         local lib = require("black-atom.lib")
         local fg = colors.ui.fg

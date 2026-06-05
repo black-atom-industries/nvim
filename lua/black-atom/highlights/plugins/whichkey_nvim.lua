@@ -1,7 +1,7 @@
 ---@doc https://github.com/folke/which-key.nvim
 ---@type BlackAtom.HighlightsSpec
 return {
-    enabled = true,
+    enabled = false,
     map = function(colors)
         local ui = colors.ui
 

@@ -1,7 +1,7 @@
 ---@doc https://github.com/lewis6991/gitsigns.nvim
 ---@type BlackAtom.HighlightsSpec
 return {
-    enabled = true,
+    enabled = false,
     map = function(colors)
         local ui = colors.ui
 

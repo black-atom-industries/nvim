@@ -1,7 +1,7 @@
 ---@doc https://github.com/folke/edgy.nvim
 ---@type BlackAtom.HighlightsSpec
 return {
-    enabled = true,
+    enabled = false,
     map = function(colors, config)
         local bg_panel = require("black-atom.lib").bg.panel(config, colors)
         local fg = colors.ui.fg

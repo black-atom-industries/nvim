@@ -1,7 +1,7 @@
 ---@doc https://github.com/nvim-neo-tree/neo-tree.nvim
 ---@type BlackAtom.HighlightsSpec
 return {
-    enabled = true,
+    enabled = false,
     map = function(colors, config)
         local fg = colors.ui.fg
         local bg = require("black-atom.lib").bg

@@ -1,7 +1,7 @@
 ---@doc https://github.com/obsidian-nvim/obsidian.nvim
 ---@type BlackAtom.HighlightsSpec
 return {
-    enabled = true,
+    enabled = false,
     map = function(colors)
         local palette = colors.palette
         local ui = colors.ui

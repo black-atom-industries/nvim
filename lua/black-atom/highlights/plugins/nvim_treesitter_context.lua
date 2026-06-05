@@ -1,7 +1,7 @@
 ---@doc https://github.com/nvim-treesitter/nvim-treesitter-context
 ---@type BlackAtom.HighlightsSpec
 return {
-    enabled = true,
+    enabled = false,
     map = function(colors, config)
         local fg = colors.ui.fg
         local bg_panel = require("black-atom.lib").bg.panel(config, colors)
