@@ -77,6 +77,16 @@ return {
             MiniIconsRed = { fg = palette.red },
             MiniIconsYellow = { fg = palette.yellow },
 
+            -- MiniInput
+            MiniInputAdded = { fg = ui.fg.add },
+            MiniInputBorder = { fg = ui.fg.accent, bg = ui.bg.float },
+            MiniInputCaret = { fg = ui.fg.accent },
+            MiniInputHide = { fg = ui.fg.subtle },
+            MiniInputHint = { fg = ui.fg.hint },
+            MiniInputNormal = { fg = ui.fg.default, bg = ui.bg.float },
+            MiniInputPrompt = { fg = ui.fg.accent, bg = ui.bg.float },
+            MiniInputSpecial = { fg = palette.magenta },
+
             -- MiniIndentscope
             MiniIndentscopeSymbol = { fg = ui.fg.accent },
             MiniIndentscopeSymbolOff = { fg = ui.fg.subtle },
