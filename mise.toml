@@ -1,0 +1,34 @@
+[tools]
+lua = "5.1"
+lua-language-server = "3.18.2"
+stylua = "2.4.1"
+
+# luacheck ships no prebuilt binary — it's a Lua/luarocks package, so mise can't
+# manage it as a [tools] entry. The `lua` tool above provides luarocks and exposes
+# its bin/ on PATH, so after `mise install` run `mise run setup` once to install
+# luacheck. `mise run check` will then find all three tools.
+[tasks.setup]
+description = "Install luacheck (luarocks package; not available via mise backends)"
+run = "luarocks install luacheck"
+
+[tasks.lint]
+description = "Lint Lua with luacheck"
+run = "luacheck ."
+
+# Templates contain Eta syntax (<%= ... %>) that breaks type-checking, so they are
+# excluded here (luacheck and stylua handle them fine). Mirrors the old check.sh.
+[tasks.typecheck]
+description = "Type-check with lua-language-server (excludes .template.lua)"
+run = "lua-language-server --loglevel=warn --logpath=. --check $(find . -name '*.lua' -not -name '*.template.lua')"
+
+[tasks.fmt]
+description = "Format Lua files in place with stylua"
+run = "stylua ."
+
+[tasks.fmt-check]
+description = "Check Lua formatting with stylua"
+run = "stylua --check ."
+
+[tasks.check]
+description = "Run all checks: lint, typecheck, format check"
+depends = ["lint", "typecheck", "fmt-check"]

@@ -205,11 +205,33 @@ git clone https://github.com/black-atom-industries/nvim.git
 cd nvim
 ```
 
-### Building and Testing
+### Tooling
+
+Dev tooling is managed with [mise](https://mise.jdx.dev):
 
 ```bash
-sh check.sh
+mise install      # lua, lua-language-server, stylua
+mise run setup    # luacheck (via luarocks)
 ```
+
+`luacheck` has no prebuilt binary, so it can't be a mise `[tools]` entry. Installing
+`lua` through mise also provides `luarocks` (added to `PATH`), and the `setup` task
+runs `luarocks install luacheck` into that Lua install. Note this lives under the
+shared `lua@5.1` install rather than the repo — re-run `mise run setup` if you bump
+the pinned Lua version. Building `luacheck`'s dependencies needs a C compiler
+(Xcode Command Line Tools on macOS).
+
+### Building and Testing
+
+Run all checks (luacheck, lua-language-server, stylua):
+
+```bash
+mise run check
+```
+
+Individual tasks are also available: `mise run lint`, `mise run typecheck`,
+`mise run fmt-check`, and `mise run fmt` (formats in place). CI runs the same
+`mise run check`, so a green local run matches CI.
 
 ### Working with Templates
 

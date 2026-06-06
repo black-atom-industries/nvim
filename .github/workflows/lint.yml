@@ -8,29 +8,19 @@ on:
             - edited
 
 jobs:
-    luacheck:
-        name: Luacheck
+    check:
+        name: Check (luacheck, lua-language-server, stylua)
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
 
-            - name: Prepare
-              run: |
-                  sudo apt-get update
-                  sudo apt-get install luarocks -y
-                  sudo luarocks install luacheck
+            - name: Set up mise
+              uses: jdx/mise-action@v2
 
-            - name: Run Luacheck
-              run: luacheck .
+            # luacheck is a luarocks package (no mise binary backend), so it must be
+            # installed separately before the check task runs.
+            - name: Install luacheck
+              run: mise run setup
 
-    stylua:
-        name: StyLua
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-            - name: Lint with stylua
-              uses: JohnnyMorganz/stylua-action@v3
-              with:
-                  token: ${{ secrets.GITHUB_TOKEN }}
-                  version: latest
-                  args: --check .
+            - name: Run checks
+              run: mise run check

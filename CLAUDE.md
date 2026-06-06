@@ -61,7 +61,7 @@ Each template includes:
 
 ```bash
 # Run checks
-sh ./scripts/check.sh
+mise run check
 ```
 
 ## Commiting your work
@@ -70,7 +70,7 @@ Before commiting changes, please run the checks.
 
 ```bash
 # Run checks
-sh ./scripts/check.sh
+mise run check
 ```
 
 ## Creating New Templates
