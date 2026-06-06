@@ -13,17 +13,31 @@ function M.reset()
 end
 
 ---Applies the highlights for the theme based on the current configuration.
+---Uses a file-based compiled cache: on hit, dofile() is ~instant;
+---on miss, highlights are built normally and the cache is written.
 ---@param colors BlackAtom.Theme.Colors
 ---@param config BlackAtom.Config
 ---@return nil
 function M.apply(colors, config)
-    local highlights = require("black-atom.lib.highlights")
+    local highlights_lib = require("black-atom.lib.highlights")
 
+    -- Terminal colors are vim.g variables, not nvim_set_hl — always set them
     if config.term_colors then
-        highlights.set_term(colors)
+        highlights_lib.set_term(colors)
     end
 
-    highlights.set(highlights.build_highlights_map(colors, config))
+    local cache = require("black-atom.lib.cache")
+    local cache_path = cache.path_for(config.theme, config)
+
+    if vim.uv.fs_stat(cache_path) then
+        dofile(cache_path)
+        return
+    end
+
+    -- Cold path: build highlights, write cache
+    local highlights_map = highlights_lib.build_highlights_map(colors, config)
+    highlights_lib.set(highlights_map)
+    cache.write(cache_path, highlights_map)
 end
 
 return M

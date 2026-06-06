@@ -79,7 +79,9 @@ end
 ---@return boolean
 local function is_highlight_disabled(filepath)
     local fd = vim.uv.fs_open(filepath, "r", 438)
-    if not fd then return false end
+    if not fd then
+        return false
+    end
     local data = vim.uv.fs_read(fd, 200, 0)
     vim.uv.fs_close(fd)
     return data ~= nil and data:find("enabled%s*=%s*false") ~= nil

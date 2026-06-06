@@ -13,6 +13,7 @@ setmetatable(M, {
             themes = "black-atom.lib.themes",
             validate = "black-atom.lib.validate",
             windows = "black-atom.lib.windows",
+            cache = "black-atom.lib.cache",
         }
 
         if modules[k] then
