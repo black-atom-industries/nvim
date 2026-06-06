@@ -22,6 +22,14 @@ return {
             MiniClueDescGroup = { fg = ui.fg.subtle, italic = true },
             MiniClueDescSingle = { fg = ui.fg.default },
 
+            -- MiniCmdline
+            MiniCmdlinePeekBorder = { fg = ui.fg.accent, bg = ui.bg.float },
+            MiniCmdlinePeekLineNr = { fg = ui.fg.subtle },
+            MiniCmdlinePeekNormal = { fg = ui.fg.default, bg = ui.bg.float },
+            MiniCmdlinePeekSep = { fg = ui.fg.subtle },
+            MiniCmdlinePeekSign = { fg = ui.fg.accent },
+            MiniCmdlinePeekTitle = { fg = ui.fg.accent, bg = ui.bg.float, bold = true },
+
             -- MiniCompletion
             MiniCompletionActiveParameter = { underline = true },
 
