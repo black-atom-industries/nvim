@@ -247,9 +247,12 @@ Individual tasks are also available: `mise run lint`, `mise run typecheck`,
 ### Bypassing the highlight cache
 
 The plugin caches compiled highlights to disk so theme switches are near-instant.
-The cache auto-invalidates when any highlight source file changes (mtime is
-hashed), so it's invisible during normal editing. To force a cold rebuild
-without clearing the cache, set the `BLACK_ATOM_NO_CACHE` env var:
+The cache auto-invalidates when any source file that affects highlights changes
+(highlight modules under `lua/black-atom/highlights/` and theme definitions
+under `lua/black-atom/themes/`, both hashed by mtime), so regeneration via the
+core CLI's `deno task dev` is picked up automatically on the next colorscheme
+switch. To force a cold rebuild without clearing the cache, set the
+`BLACK_ATOM_NO_CACHE` env var:
 
 ```bash
 BLACK_ATOM_NO_CACHE=1 nvim

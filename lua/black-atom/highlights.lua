@@ -39,6 +39,7 @@ function M.apply(colors, config)
     highlights_lib.set(highlights_map)
 
     if not cache.is_disabled() then
+        cache.prune_for_theme(config.theme, cache_path)
         cache.write(cache_path, highlights_map)
     end
 end
