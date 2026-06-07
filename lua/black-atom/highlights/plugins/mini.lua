@@ -32,6 +32,8 @@ return {
 
             -- MiniCompletion
             MiniCompletionActiveParameter = { underline = true },
+            MiniCompletionDeprecated = { fg = ui.fg.disabled, strikethrough = true },
+            MiniCompletionInfoBorderOutdated = { fg = ui.fg.warn, bg = ui.bg.float },
 
             -- MiniCursorword
             MiniCursorword = { bg = ui.bg.selection },

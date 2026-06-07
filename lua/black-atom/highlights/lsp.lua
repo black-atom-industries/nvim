@@ -2,8 +2,10 @@
 return {
     map = function(colors, config)
         local cond_hl = require("black-atom.lib.highlights").cond_hl
+        local lsp_kinds = require("black-atom.lib.lsp_kinds")
         local styles = config.styles or {}
         local ui = colors.ui
+        local syntax = colors.syntax
 
         ---@type BlackAtom.Highlights
         local highlights_map = {
@@ -89,6 +91,14 @@ return {
             LspDiagnosticsVirtualTextInformation = { link = "DiagnosticVirtualTextInfo" },
             LspDiagnosticsVirtualTextHint = { link = "DiagnosticVirtualTextHint" },
         }
+
+        -- LSP Completion Item Kinds
+        -- Native Neovim highlight groups; consumable by mini.completion (via
+        -- custom process_items), blink.cmp, nvim-cmp, and built-in LSP pum.
+        -- See vim.lsp.protocol.CompletionItemKind for the full enum.
+        for kind, color in pairs(lsp_kinds.colors(syntax, ui)) do
+            highlights_map["LspKind" .. kind] = { fg = color }
+        end
 
         return highlights_map
     end,

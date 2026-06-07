@@ -82,6 +82,17 @@ require('black-atom').setup({
 })
 ```
 
+## LSP completion
+
+Black Atom defines the native `LspKind{Function, Class, Variable, ...}` highlight
+groups (one per LSP `CompletionItemKind`) in `lsp.lua`.
+
+- **`blink.cmp` / `nvim-cmp`** consume the shared kind-color mapping directly —
+  no wiring required.
+- **`mini.completion`** needs a small `process_items` callback to route the
+  theme's `LspKind*` groups to the popup. See the recipe:
+  [docs/recipes.md#color-minicompletion-kind-labels](docs/recipes.md#color-minicompletion-kind-labels).
+
 ## Supported Plugins
 
 <details>
@@ -91,10 +102,10 @@ This theme supports the following plugins:
 
 - [arrow.nvim](https://github.com/otavioschwanck/arrow.nvim)
   - 4 Highlight(s)
-  - Last updated: 2025-02-16
-  - Last commit: refactor(themes): rename feedback color tokens for better semantics
+  - Last updated: 2026-06-05
+  - Last commit: style(terra/mnml): refine summer and orange-light palette colors
 - [blink.cmp](https://github.com/saghen/blink.cmp)
-  - 7 Highlight(s)
+  - 8 Highlight(s)
   - Last updated: 2025-02-16
   - Last commit: revert: rename `syn` variables to `syntax`
 - [codediff.nvim](https://github.com/esmuellert/codediff.nvim)
@@ -103,88 +114,88 @@ This theme supports the following plugins:
   - Last commit: feat(highlights/plugins): add codediff.nvim support
 - [diffview.nvim](https://github.com/sindrets/diffview.nvim)
   - 24 Highlight(s)
-  - Last updated: 2025-02-16
-  - Last commit: refactor(themes): rename feedback color tokens for better semantics
+  - Last updated: 2026-06-05
+  - Last commit: style(terra/mnml): refine summer and orange-light palette colors
 - [edgy.nvim](https://github.com/folke/edgy.nvim)
   - 5 Highlight(s)
-  - Last updated: 2025-02-16
-  - Last commit: feat(ui): migrate to new semantic color tokens
+  - Last updated: 2026-06-05
+  - Last commit: style(terra/mnml): refine summer and orange-light palette colors
 - [flash.nvim](https://github.com/folke/flash.nvim)
   - 6 Highlight(s)
   - Last updated: 2025-02-16
   - Last commit: revert(themes): restore full parameter names
 - [flux.nvim](https://github.com/nikbrunner/flux.nvim)
   - 13 Highlight(s)
-  - Last updated: 
-  - Last commit: 
+  - Last updated: 2026-06-05
+  - Last commit: style(terra/mnml): refine summer and orange-light palette colors
 - [fyler.nvim](https://github.com/A7Lavinraj/fyler.nvim)
   - 30 Highlight(s)
-  - Last updated: 2026-03-31
-  - Last commit: fix(highlights/plugins/fyler): remove unused bg_default variable
+  - Last updated: 2026-06-05
+  - Last commit: style(terra/mnml): refine summer and orange-light palette colors
 - [fzf-lua](https://github.com/ibhagwan/fzf-lua)
   - 7 Highlight(s)
-  - Last updated: 2025-08-11
-  - Last commit: fix(highlight): update fzf-lua preview highlight styles
+  - Last updated: 2026-06-05
+  - Last commit: style(terra/mnml): refine summer and orange-light palette colors
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
   - 9 Highlight(s)
-  - Last updated: 2025-02-16
-  - Last commit: feat(ui): migrate to new semantic color tokens
+  - Last updated: 2026-06-05
+  - Last commit: style(terra/mnml): refine summer and orange-light palette colors
 - [glance.nvim](https://github.com/DNLHC/glance.nvim)
   - 28 Highlight(s)
-  - Last updated: 2025-02-16
-  - Last commit: feat(ui): migrate to new semantic color tokens
+  - Last updated: 2026-06-05
+  - Last commit: style(terra/mnml): refine summer and orange-light palette colors
 - [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
   - 2 Highlight(s)
-  - Last updated: 2025-02-16
-  - Last commit: feat(ui): migrate to new semantic color tokens
+  - Last updated: 2026-06-05
+  - Last commit: style(terra/mnml): refine summer and orange-light palette colors
 - [mini.nvim](https://github.com/echasnovski/mini.nvim)
-  - 158 Highlight(s)
-  - Last updated: 2026-03-16
-  - Last commit: fix(highlights/plugins/mini): update MiniFiles border colors
+  - 178 Highlight(s)
+  - Last updated: 2026-06-06
+  - Last commit: feat(highlights/plugins): add MiniCmdline highlight groups
 - [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
   - 13 Highlight(s)
-  - Last updated: 2025-02-16
-  - Last commit: feat(ui): migrate to new semantic color tokens
+  - Last updated: 2026-06-05
+  - Last commit: style(terra/mnml): refine summer and orange-light palette colors
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-  - 11 Highlight(s)
-  - Last updated: 2025-02-16
-  - Last commit: feat(ui): migrate to new semantic color tokens
+  - 12 Highlight(s)
+  - Last updated: 2026-06-05
+  - Last commit: style(terra/mnml): refine summer and orange-light palette colors
 - [nvim-navbuddy](https://github.com/SmiteshP/nvim-navbuddy)
   - 8 Highlight(s)
-  - Last updated: 2025-02-16
-  - Last commit: revert: rename `syn` variables to `syntax`
+  - Last updated: 2026-06-05
+  - Last commit: style(terra/mnml): refine summer and orange-light palette colors
 - [nvim-tree.lua](https://github.com/nvim-tree/nvim-tree.lua)
   - 4 Highlight(s)
-  - Last updated: 2025-02-16
-  - Last commit: style: run stylua
+  - Last updated: 2026-06-05
+  - Last commit: style(terra/mnml): refine summer and orange-light palette colors
 - [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)
   - 2 Highlight(s)
-  - Last updated: 2025-02-16
-  - Last commit: feat(ui): migrate to new semantic color tokens
+  - Last updated: 2026-06-05
+  - Last commit: style(terra/mnml): refine summer and orange-light palette colors
 - [obsidian.nvim](https://github.com/obsidian-nvim/obsidian.nvim)
   - 11 Highlight(s)
-  - Last updated: 2026-01-04
-  - Last commit: feat(plugins): add obsidian.nvim highlight support
+  - Last updated: 2026-06-05
+  - Last commit: style(terra/mnml): refine summer and orange-light palette colors
 - [render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim)
   - 69 Highlight(s)
-  - Last updated: 2026-05-07
-  - Last commit: feat(highlights/plugins): add render-markdown.nvim support
+  - Last updated: 2026-06-05
+  - Last commit: style(terra/mnml): refine summer and orange-light palette colors
 - [plugin-name](https://github.com/username/plugin-name)
   - 27 Highlight(s)
   - Last updated: 2026-05-18
   - Last commit: fix(highlights/plugins): override snack picker git status colors
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
   - 6 Highlight(s)
-  - Last updated: 2025-02-16
-  - Last commit: feat(ui): migrate to new semantic color tokens
+  - Last updated: 2026-06-05
+  - Last commit: style(terra/mnml): refine summer and orange-light palette colors
 - [which-key.nvim](https://github.com/folke/which-key.nvim)
   - 5 Highlight(s)
-  - Last updated: 2025-02-16
-  - Last commit: refactor: clean up plugin highlight files
+  - Last updated: 2026-06-05
+  - Last commit: style(terra/mnml): refine summer and orange-light palette colors
 - [yazi.nvim](https://github.com/mikavilpas/yazi.nvim)
   - 1 Highlight(s)
-  - Last updated: 2025-02-16
-  - Last commit: feat(ui): migrate to new semantic color tokens
+  - Last updated: 2026-06-05
+  - Last commit: style(terra/mnml): refine summer and orange-light palette colors
 </details>
 
 ## Development

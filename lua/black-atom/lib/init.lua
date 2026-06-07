@@ -14,6 +14,7 @@ setmetatable(M, {
             validate = "black-atom.lib.validate",
             windows = "black-atom.lib.windows",
             cache = "black-atom.lib.cache",
+            lsp_kinds = "black-atom.lib.lsp_kinds",
         }
 
         if modules[k] then
