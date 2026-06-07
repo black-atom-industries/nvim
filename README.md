@@ -244,6 +244,20 @@ Individual tasks are also available: `mise run lint`, `mise run typecheck`,
 `mise run fmt-check`, and `mise run fmt` (formats in place). CI runs the same
 `mise run check`, so a green local run matches CI.
 
+### Bypassing the highlight cache
+
+The plugin caches compiled highlights to disk so theme switches are near-instant.
+The cache auto-invalidates when any highlight source file changes (mtime is
+hashed), so it's invisible during normal editing. To force a cold rebuild
+without clearing the cache, set the `BLACK_ATOM_NO_CACHE` env var:
+
+```bash
+BLACK_ATOM_NO_CACHE=1 nvim
+```
+
+Any non-empty value disables the cache read and write, except the literal
+strings `0` and `false` (case-insensitive).
+
 ### Working with Templates
 
 Theme files are generated from templates using [Black Atom Core](https://jsr.io/@black-atom/core). You need [Deno](https://deno.land/) installed.

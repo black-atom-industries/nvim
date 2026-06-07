@@ -103,6 +103,19 @@ function M.write(path, highlights_map)
     vim.uv.fs_close(fd)
 end
 
+---Whether the highlight cache is disabled via the `BLACK_ATOM_NO_CACHE` env var.
+---Any non-empty value disables the cache, except the literal strings "0" and
+---"false" (case-insensitive) which are treated as enabled. Lets users bypass
+---the cache during development without editing config: `BLACK_ATOM_NO_CACHE=1 nvim`.
+---@return boolean
+function M.is_disabled()
+    local v = vim.env.BLACK_ATOM_NO_CACHE
+    if not v or v == "" then
+        return false
+    end
+    return v ~= "0" and v:lower() ~= "false"
+end
+
 ---Delete all cache files in the cache directory.
 function M.invalidate_all()
     local dir = M.cache_dir()

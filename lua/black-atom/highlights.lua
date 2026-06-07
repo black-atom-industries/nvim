@@ -29,15 +29,18 @@ function M.apply(colors, config)
     local cache = require("black-atom.lib.cache")
     local cache_path = cache.path_for(config.theme, config)
 
-    if vim.uv.fs_stat(cache_path) then
+    if not cache.is_disabled() and vim.uv.fs_stat(cache_path) then
         dofile(cache_path)
         return
     end
 
-    -- Cold path: build highlights, write cache
+    -- Cold path: build highlights
     local highlights_map = highlights_lib.build_highlights_map(colors, config)
     highlights_lib.set(highlights_map)
-    cache.write(cache_path, highlights_map)
+
+    if not cache.is_disabled() then
+        cache.write(cache_path, highlights_map)
+    end
 end
 
 return M
