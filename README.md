@@ -244,22 +244,15 @@ Individual tasks are also available: `mise run lint`, `mise run typecheck`,
 `mise run fmt-check`, and `mise run fmt` (formats in place). CI runs the same
 `mise run check`, so a green local run matches CI.
 
-### Bypassing the highlight cache
+### Highlight caching
 
-The plugin caches compiled highlights to disk so theme switches are near-instant.
-The cache auto-invalidates when any source file that affects highlights changes
+Compiled highlights are cached to disk so theme switches are near-instant. The
+cache auto-invalidates when any source file that affects highlights changes
 (highlight modules under `lua/black-atom/highlights/` and theme definitions
 under `lua/black-atom/themes/`, both hashed by mtime), so regeneration via the
 core CLI's `deno task dev` is picked up automatically on the next colorscheme
-switch. To force a cold rebuild without clearing the cache, set the
-`BLACK_ATOM_NO_CACHE` env var:
-
-```bash
-BLACK_ATOM_NO_CACHE=1 nvim
-```
-
-Any non-empty value disables the cache read and write, except the literal
-strings `0` and `false` (case-insensitive).
+switch. To force a full rebuild, run `:BlackAtomClearCache` (or delete the
+cache directory at `stdpath('data')/black-atom/cache/`).
 
 ### Working with Templates
 
