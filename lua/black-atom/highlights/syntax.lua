@@ -117,7 +117,7 @@ return {
             ["@markup.link"] = { fg = syntax.markup.link, underline = true },
             ["@markup.strikethrough"] = { fg = syntax.comment.error, strikethrough = true },
 
-            ["@markup.raw"] = { fg = syntax.markup.code.fg, bg = syntax.markup.code.bg },
+            ["@markup.raw"] = { fg = syntax.markup.code.fg },
 
             ["@markup.list"] = { fg = syntax.markup.list.default },
             ["@markup.list.checked"] = { fg = syntax.markup.list.checked },
