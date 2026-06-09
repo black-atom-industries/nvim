@@ -130,7 +130,7 @@ return {
             ["@tag.attribute"] = { fg = syntax.tag.attribute },
             ["@tag.delimiter"] = { fg = syntax.tag.delimiter },
 
-            -- Diff
+            -- -- Diff
             ["@diff.delta"] = { link = "DiffChange" },
             ["@diff.plus"] = { link = "DiffAdd" },
             ["@diff.minus"] = { link = "DiffDelete" },
