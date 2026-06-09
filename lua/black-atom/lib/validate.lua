@@ -52,39 +52,25 @@ end
 -- Validates the main config structure
 ---@param options BlackAtom.Config
 function M.config(options)
-    vim.validate({
-        debug = { options.debug, "boolean", true },
-        theme = { options.theme, validate_theme, "Invalid theme specified" },
-        term_colors = { options.term_colors, "boolean", true },
-        styles = { options.styles, "table", true },
-    })
+    vim.validate("debug", options.debug, "boolean", true)
+    vim.validate("theme", options.theme, validate_theme, "Invalid theme specified")
+    vim.validate("term_colors", options.term_colors, "boolean", true)
+    vim.validate("styles", options.styles, "table", true)
 
     -- Further nested validations...
     if options.styles then
-        vim.validate({
-            cmp_kind_color_mode = {
-                options.styles.cmp_kind_color_mode,
-                function(value)
-                    return in_list(value, { "fg", "bg" })
-                end,
-                "cmp_kind_color_mode must be 'fg' or 'bg'",
-            },
-            dark_sidebars = { options.styles.dark_sidebars, "boolean", true },
-            transparency = {
-                options.styles.transparency,
-                function(value)
-                    return in_list(value, { "full", "partial", "none" })
-                end,
-                "transparency must be 'full', 'partial', or 'none'",
-            },
-            ending_tildes = { options.styles.ending_tildes, "boolean", true },
-        })
+        vim.validate("cmp_kind_color_mode", options.styles.cmp_kind_color_mode, function(value)
+            return in_list(value, { "fg", "bg" })
+        end, "cmp_kind_color_mode must be 'fg' or 'bg'")
+        vim.validate("dark_sidebars", options.styles.dark_sidebars, "boolean", true)
+        vim.validate("transparency", options.styles.transparency, function(value)
+            return in_list(value, { "full", "partial", "none" })
+        end, "transparency must be 'full', 'partial', or 'none'")
+        vim.validate("ending_tildes", options.styles.ending_tildes, "boolean", true)
 
         if options.styles.diagnostics then
-            vim.validate({
-                undercurl = { options.styles.diagnostics.undercurl, "boolean", true },
-                background = { options.styles.diagnostics.background, "boolean", true },
-            })
+            vim.validate("undercurl", options.styles.diagnostics.undercurl, "boolean", true)
+            vim.validate("background", options.styles.diagnostics.background, "boolean", true)
         end
 
         if options.styles.syntax then
