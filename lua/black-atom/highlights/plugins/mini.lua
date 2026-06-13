@@ -64,11 +64,11 @@ return {
             MiniFilesBorder = { fg = ui.fg.default, bg = ui.bg.float },
             MiniFilesBorderModified = { fg = ui.fg.negative, bg = ui.bg.float },
             MiniFilesCursorLine = { bg = ui.bg.active },
-            MiniFilesDirectory = { fg = ui.fg.accent, bold = true },
-            MiniFilesFile = { fg = ui.fg.default },
             MiniFilesNormal = { fg = ui.fg.default, bg = ui.bg.float },
-            MiniFilesTitle = { fg = ui.fg.accent, bg = ui.bg.float, bold = true },
-            MiniFilesTitleFocused = { fg = ui.fg.accent, bg = ui.bg.float, bold = true },
+            MiniFilesTitle = { fg = ui.fg.subtle, bg = ui.bg.float, bold = true },
+            MiniFilesTitleFocused = { fg = ui.fg.default, bg = ui.bg.float, bold = true },
+            MiniFilesDirectory = { fg = ui.fg.accent },
+            MiniFilesFile = { fg = ui.fg.default },
 
             -- MiniHipatterns
             MiniHipatternsFixme = { fg = ui.bg.default, bg = ui.fg.negative, bold = true },
