@@ -65,9 +65,9 @@ return {
             MiniFilesBorderModified = { fg = ui.fg.negative, bg = ui.bg.float },
             MiniFilesCursorLine = { bg = ui.bg.active },
             MiniFilesNormal = { fg = ui.fg.default, bg = ui.bg.float },
-            MiniFilesTitle = { fg = ui.fg.subtle, bg = ui.bg.float, bold = true },
-            MiniFilesTitleFocused = { fg = ui.fg.default, bg = ui.bg.float, bold = true },
-            MiniFilesDirectory = { fg = ui.fg.accent },
+            MiniFilesTitle = { link = "Title" },
+            MiniFilesTitleFocused = { fg = ui.fg.accent, bold = true },
+            MiniFilesDirectory = { link = "Directory" },
             MiniFilesFile = { fg = ui.fg.default },
 
             -- MiniHipatterns

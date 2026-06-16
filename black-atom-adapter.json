@@ -1,64 +1,65 @@
 {
-    "$schema": "https://raw.githubusercontent.com/black-atom-industries/core/refs/heads/main/adapter.schema.json",
-    "collections": {
-        "default": {
-            "template": "lua/black-atom/themes/default/collection.template.lua",
-            "themes": [
-                "black-atom-default-dark",
-                "black-atom-default-dark-dimmed",
-                "black-atom-default-light",
-                "black-atom-default-light-dimmed"
-            ]
-        },
-        "jpn": {
-            "template": "lua/black-atom/themes/jpn/collection.template.lua",
-            "themes": [
-                "black-atom-jpn-koyo-yoru",
-                "black-atom-jpn-koyo-hiru",
-                "black-atom-jpn-tsuki-yoru",
-                "black-atom-jpn-murasaki-yoru"
-            ]
-        },
-        "stations": {
-            "template": "lua/black-atom/themes/stations/collection.template.lua",
-            "themes": [
-                "black-atom-stations-engineering",
-                "black-atom-stations-operations",
-                "black-atom-stations-medical",
-                "black-atom-stations-research"
-            ]
-        },
-        "terra": {
-            "template": "lua/black-atom/themes/terra/collection.template.lua",
-            "themes": [
-                "black-atom-terra-spring-day",
-                "black-atom-terra-spring-night",
-                "black-atom-terra-fall-day",
-                "black-atom-terra-fall-night",
-                "black-atom-terra-summer-day",
-                "black-atom-terra-summer-night",
-                "black-atom-terra-winter-day",
-                "black-atom-terra-winter-night"
-            ]
-        },
-        "mnml": {
-            "template": "lua/black-atom/themes/mnml/collection.template.lua",
-            "themes": [
-                "black-atom-mnml-clay-dark",
-                "black-atom-mnml-clay-light",
-                "black-atom-mnml-orange-dark",
-                "black-atom-mnml-orange-light",
-                "black-atom-mnml-osman-light",
-                "black-atom-mnml-mikado-dark",
-                "black-atom-mnml-mikado-light",
-                "black-atom-mnml-47-light",
-                "black-atom-mnml-47-dark",
-                "black-atom-mnml-eink-light",
-                "black-atom-mnml-eink-dark",
-                "black-atom-mnml-mono-dark",
-                "black-atom-mnml-mono-light",
-                "black-atom-mnml-ita-light"
-            ]
-        }
+  "$schema": "https://raw.githubusercontent.com/black-atom-industries/core/refs/heads/main/adapter.schema.json",
+  "collections": {
+    "default": {
+      "template": "lua/black-atom/themes/default/collection.template.lua",
+      "themes": [
+        "black-atom-default-dark",
+        "black-atom-default-dark-dimmed",
+        "black-atom-default-light",
+        "black-atom-default-light-dimmed"
+      ]
+    },
+    "jpn": {
+      "template": "lua/black-atom/themes/jpn/collection.template.lua",
+      "themes": [
+        "black-atom-jpn-koyo-yoru",
+        "black-atom-jpn-koyo-hiru",
+        "black-atom-jpn-tsuki-yoru",
+        "black-atom-jpn-murasaki-yoru"
+      ]
+    },
+    "stations": {
+      "template": "lua/black-atom/themes/stations/collection.template.lua",
+      "themes": [
+        "black-atom-stations-engineering",
+        "black-atom-stations-operations",
+        "black-atom-stations-medical",
+        "black-atom-stations-research"
+      ]
+    },
+    "terra": {
+      "template": "lua/black-atom/themes/terra/collection.template.lua",
+      "themes": [
+        "black-atom-terra-spring-day",
+        "black-atom-terra-spring-night",
+        "black-atom-terra-fall-day",
+        "black-atom-terra-fall-night",
+        "black-atom-terra-summer-day",
+        "black-atom-terra-summer-night",
+        "black-atom-terra-winter-day",
+        "black-atom-terra-winter-night"
+      ]
+    },
+    "mnml": {
+      "template": "lua/black-atom/themes/mnml/collection.template.lua",
+      "themes": [
+        "black-atom-mnml-clay-dark",
+        "black-atom-mnml-clay-light",
+        "black-atom-mnml-orange-dark",
+        "black-atom-mnml-orange-light",
+        "black-atom-mnml-osman-light",
+        "black-atom-mnml-mikado-dark",
+        "black-atom-mnml-mikado-light",
+        "black-atom-mnml-47-light",
+        "black-atom-mnml-47-dark",
+        "black-atom-mnml-eink-light",
+        "black-atom-mnml-eink-dark",
+        "black-atom-mnml-mono-dark",
+        "black-atom-mnml-mono-light",
+        "black-atom-mnml-ita-light",
+        "black-atom-mnml-plastik-light"
+      ]
     }
+  }
 }

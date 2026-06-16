@@ -12,6 +12,7 @@ return {
             Normal = { fg = ui.fg.default, bg = bg.default(config, colors) },
             NormalNC = { fg = ui.fg.default, bg = bg.default(config, colors) },
             NormalPanel = { fg = ui.fg.default, bg = bg.panel(config, colors) },
+
             EndOfBuffer = ext_hl({ fg = ui.bg.default }, { [config.styles.ending_tildes] = ui.fg.subtle }),
             NonText = { fg = ui.fg.subtle },
             Whitespace = { link = "NonText" },
