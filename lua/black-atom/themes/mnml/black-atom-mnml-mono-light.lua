@@ -91,7 +91,7 @@ M.syntax = {
     variable = {
         default = "#2b2826",
         builtin = "#3f3d3a",
-        member = "#8e8c89",
+        member = "#4d4d4d",
         parameter = "#4d4d4d",
     },
     property = {
@@ -181,8 +181,8 @@ M.syntax = {
         },
     },
     tag = {
-        default = "#2e2e2e",
-        builtin = "#4d4d4d",
+        default = "#4d4d4d",
+        builtin = "#2e2e2e",
         attribute = "#8e8c89",
         delimiter = "#b3b0ae",
     },
